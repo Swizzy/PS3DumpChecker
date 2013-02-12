@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.partslist = new System.Windows.Forms.ListBox();
+            this.partslist = new PS3DumpChecker.CustomListBox();
             this.checkbtn = new System.Windows.Forms.Button();
             this.advbox = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -58,11 +58,12 @@
             // 
             this.partslist.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.partslist.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.partslist.FormattingEnabled = true;
             this.partslist.Location = new System.Drawing.Point(12, 33);
             this.partslist.Name = "partslist";
             this.partslist.ScrollAlwaysVisible = true;
-            this.partslist.Size = new System.Drawing.Size(280, 446);
+            this.partslist.Size = new System.Drawing.Size(280, 433);
             this.partslist.Sorted = true;
             this.partslist.TabIndex = 0;
             this.partslist.SelectedIndexChanged += new System.EventHandler(this.PartslistSelectedIndexChanged);
@@ -296,7 +297,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox partslist;
+        private CustomListBox partslist;
         private System.Windows.Forms.Button checkbtn;
         private System.Windows.Forms.GroupBox advbox;
         private System.Windows.Forms.GroupBox imginfo;

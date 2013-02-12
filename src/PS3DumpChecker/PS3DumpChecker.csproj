@@ -46,6 +46,9 @@
   <ItemGroup>
     <Compile Include="Checks.cs" />
     <Compile Include="Common.cs" />
+    <Compile Include="CustomListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="InputBox.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Main.cs">
@@ -91,7 +94,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_UpdateFileVersion="True" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_BuildVersioningStyle="None.None.Increment.None" />
+      <UserProperties BuildVersion_BuildVersioningStyle="None.None.Increment.None" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UpdateFileVersion="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -37,11 +37,11 @@ namespace PS3DumpChecker
             partslist.Items.Clear();
             if (Common.PartList.Keys.Count <= 0)
                 return;
-            var keys = new string[Common.PartList.Keys.Count + 1];
+            var keys = new int[Common.PartList.Keys.Count + 1];
             Common.PartList.Keys.CopyTo(keys, 0);
-            foreach (var key in keys)
-                if (key != null)
-                    partslist.Items.Add(key);
+            foreach (var key in keys) {
+                partslist.Items.Add(new ListBoxItem(key, Common.PartList[key].Name));
+            }
         }
 
         private void StatusUpdate(object sender, StatusEventArgs e)
@@ -136,13 +136,17 @@ namespace PS3DumpChecker
         {
             if (partslist.SelectedItems.Count == 0)
                 return;
-            var tmp = partslist.SelectedItems[0].ToString();
-            if (!Common.PartList.ContainsKey(tmp))
-                return;
-            var obj = Common.PartList[tmp];
-            expdatabox.Text = string.Format("Result of the check: {1}{0}{0}", Environment.NewLine, obj.Result);
-            expdatabox.Text += obj.ExpectedString;
-            actdatabox.Text = obj.ActualString;
+            if (partslist.SelectedItems[0] is ListBoxItem) {
+                var tmp = partslist.SelectedItems[0] as ListBoxItem;
+                if (!Common.PartList.ContainsKey(tmp.Value))
+                    return;
+                var obj = Common.PartList[tmp.Value];
+                expdatabox.Text = string.Format("Result of the check: {1}{0}{0}",
+                                                Environment.NewLine,
+                                                obj.Result);
+                expdatabox.Text += obj.ExpectedString;
+                actdatabox.Text = obj.ActualString;
+            }
         }
 
         private void LoadConfigurationToolStripMenuItemClick(object sender, EventArgs e)
@@ -165,6 +169,8 @@ namespace PS3DumpChecker
             Common.Types.Clear();
             using (var xml = XmlReader.Create(file))
             {
+                var dataCheckKey = 0;
+                var dataCheckOk = false;
                 var skUkey = 0;
                 long size = 0;
                 var skuWarn = false;
@@ -193,7 +199,7 @@ namespace PS3DumpChecker
                         case "statspart":
                             if (!Common.Types.ContainsKey(size))
                                 break;
-                            var key = xml["name"];
+                            var key = xml["key"];
                             if (key == null)
                                 break;
                             if (string.IsNullOrEmpty(key))
@@ -229,43 +235,121 @@ namespace PS3DumpChecker
                             #endregion Statistics part
                         #region Binary Check Entry
                         case "binentry":
-                            if (Common.Types.ContainsKey(size))
-                            {
-                                key = xml["name"];
-                                if (String.IsNullOrEmpty(key))
-                                    break;
-                                if (!Common.Types[size].Bincheck.Value.ContainsKey(key))
-                                    if (xml["ismulti"] != null && xml["ismulti"].Equals("true", StringComparison.CurrentCultureIgnoreCase))
-                                    {
-                                        Common.Types[size].Bincheck.Value.Add(key,
-                                                                              new Holder<Common.BinCheck>(
-                                                                                  new Common.BinCheck(
-                                                                                      new List<Common.MultiBin>(),
-                                                                                      true,
-                                                                                      xml["offset"],
-                                                                                      xml["description"],
-                                                                                      xml["ascii"])));
-                                        var id = xml["id"];
-                                        xml.Read();
-                                        Common.Types[size].Bincheck.Value[key].Value.ExpectedList.Value.Add(new Common.MultiBin(Regex.Replace(xml.Value, @"\s+", ""), id));
-                                    }
-                                    else
-                                    {
-                                        var offset = xml["offset"];
-                                        var description = xml["description"];
-                                        var ascii = xml["ascii"];
-                                        xml.Read();
-                                        Common.Types[size].Bincheck.Value.Add(key, new Holder<Common.BinCheck>(new Common.BinCheck(null, false, offset, description, ascii, xml.Value)));
-                                    }
-                                if (xml["ismulti"] != null && xml["ismulti"].Equals("true", StringComparison.CurrentCultureIgnoreCase))
-                                {
+                            if (!Common.Types.ContainsKey(size)) 
+                                break;
+                            key = xml["name"];
+                            if (String.IsNullOrEmpty(key)) 
+                                break;
+                            if (!Common.Types[size].Bincheck.Value.ContainsKey(key)) {
+                                if (xml["ismulti"] != null &&
+                                    xml["ismulti"].Equals("true",
+                                                          StringComparison.
+                                                              CurrentCultureIgnoreCase)) {
+                                    Common.Types[size].Bincheck.Value.Add(key,
+                                                                          new Holder
+                                                                              <Common.BinCheck>(
+                                                                              new Common.
+                                                                                  BinCheck(
+                                                                                  new List
+                                                                                      <
+                                                                                      Common.
+                                                                                      MultiBin>(),
+                                                                                  true,
+                                                                                  xml["offset"],
+                                                                                  xml[
+                                                                                      "description"
+                                                                                      ],
+                                                                                  xml["ascii"])));
                                     var id = xml["id"];
                                     xml.Read();
-                                    Common.Types[size].Bincheck.Value[key].Value.ExpectedList.Value.Add(new Common.MultiBin(Regex.Replace(xml.Value, @"\s+", ""), id));
+                                    Common.Types[size].Bincheck.Value[key].Value.ExpectedList.
+                                        Value.Add(
+                                            new Common.MultiBin(
+                                                Regex.Replace(xml.Value, @"\s+", ""), id));
                                 }
+                                else {
+                                    var offset = xml["offset"];
+                                    var description = xml["description"];
+                                    var ascii = xml["ascii"];
+                                    xml.Read();
+                                    Common.Types[size].Bincheck.Value.Add(key,
+                                                                          new Holder
+                                                                              <Common.BinCheck>(
+                                                                              new Common.
+                                                                                  BinCheck(
+                                                                                  null,
+                                                                                  false,
+                                                                                  offset,
+                                                                                  description,
+                                                                                  ascii,
+                                                                                  xml.Value)));
+                                }
+                            }
+                            if (xml["ismulti"] != null &&
+                                xml["ismulti"].Equals("true",
+                                                      StringComparison.CurrentCultureIgnoreCase)) {
+                                var id = xml["id"];
+                                xml.Read();
+                                Common.Types[size].Bincheck.Value[key].Value.ExpectedList.Value.
+                                    Add(new Common.MultiBin(
+                                            Regex.Replace(xml.Value, @"\s+", ""), id));
                             }
                             break;
                             #endregion Binary Check Entry
+                        #region Data Check list
+                        case "datalist":
+                            if (!Common.Types.ContainsKey(size))
+                                break;
+                            var dataCheckList = new Common.DataCheck {
+                                                                         Name = xml["name"],
+                                                                         ThresholdList = new Dictionary<string, double>()
+                                                                     };
+                            if (long.TryParse(xml["offset"], NumberStyles.HexNumber, CultureInfo.CurrentCulture, out dataCheckList.Offset)) {
+                                dataCheckOk = long.TryParse(xml["size"], NumberStyles.HexNumber, CultureInfo.CurrentCulture, out dataCheckList.Size);
+                                if (!dataCheckOk)
+                                    dataCheckOk = long.TryParse(xml["ldrsize"], NumberStyles.HexNumber, CultureInfo.CurrentCulture, out dataCheckList.LdrSize);
+                                if (dataCheckOk) 
+                                {
+                                    dataCheckKey++;
+                                    dataCheckList.DataKey = dataCheckKey;
+                                    Common.Types[size].DataCheckList.Value.Add(dataCheckList);
+                                }
+                            }
+                            break;
+                        #region Data treshold
+                        case "datatreshold":
+                            if (!Common.Types.ContainsKey(size))
+                                break;
+                            if (!dataCheckOk)
+                                break;
+                            foreach (var entry in Common.Types[size].DataCheckList.Value) 
+                            {
+                                if (entry.DataKey != dataCheckKey)
+                                    continue;
+                                var dkey = xml["key"];
+                                if (dkey == null)
+                                    break;
+                                if (string.IsNullOrEmpty(dkey))
+                                    dkey = "*";
+                                dkey = dkey.ToUpper();
+                                xml.Read();
+                                var tmptxt = xml.Value;
+                                if (tmptxt != null)
+                                {
+                                    tmptxt = Regex.Replace(tmptxt, @"\s+", "");
+                                    tmptxt = tmptxt.Replace('.', ',');
+                                }
+                                double tmpval;
+                                if (!double.TryParse(tmptxt, NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands, CultureInfo.CurrentCulture, out tmpval))
+                                    tmpval = 49;
+                                else if (tmpval < 0 || tmpval > 100)
+                                    tmpval = 49;
+                                entry.ThresholdList.Add(dkey, tmpval);
+                                break;
+                            }
+                            break;
+                        #endregion Data treshold
+                        #endregion Data Check List
                         #region SKU Data List
                         case "skudataentry":
                             if (!Common.Types.ContainsKey(size)) 
@@ -326,9 +410,9 @@ namespace PS3DumpChecker
 
         private void MainLoad(object sender, EventArgs e)
         {
-            var dir = Path.GetDirectoryName(Application.ExecutablePath);
-            if (File.Exists(dir + "\\default.cfg"))
-                ParseConfig(dir + "\\default.cfg");
+            var dir = Path.GetDirectoryName(Application.ExecutablePath) + "\\default.cfg";
+            if (File.Exists(dir))
+                ParseConfig(dir);
         }
 
         private void MainDragEnter(object sender, DragEventArgs e) { e.Effect = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.Copy : DragDropEffects.None; }
@@ -342,7 +426,7 @@ namespace PS3DumpChecker
             {
                 if (s.EndsWith(".cfg", StringComparison.CurrentCultureIgnoreCase))
                     ParseConfig(s);
-                else if (s.EndsWith(".bin", StringComparison.CurrentCultureIgnoreCase))
+                else
                 {
                     if (worker.IsBusy)
                         return;

@@ -27,10 +27,11 @@ namespace PS3DumpChecker
             return ret;
         }
 
-        public static readonly Dictionary<string, PartsObject> PartList =
-            new Dictionary<string, PartsObject>();
+        public static readonly Dictionary<int, PartsObject> PartList =
+            new Dictionary<int, PartsObject>();
 
         public struct PartsObject {
+            public string Name;
             public string ExpectedString;
             public string ActualString;
             public bool Result;
@@ -62,7 +63,7 @@ namespace PS3DumpChecker
             public string SKUModel;
         }
 
-        public static void AddItem(string key, PartsObject data)
+        public static void AddItem(int key, PartsObject data)
         {
             PartList.Add(key, data);
             ListUpdate(String.Empty, new EventArgs());
@@ -113,12 +114,14 @@ namespace PS3DumpChecker
             public readonly Holder<Dictionary<string, Holder<BinCheck>>> Bincheck;
             public readonly Holder<List<SKUEntry>> SKUList;
             public readonly Holder<List<SKUDataEntry>> SKUDataList;
+            public readonly Holder<List<DataCheck>> DataCheckList;
             public TypeData(bool isnew = true)
             {
                 SKUList = new Holder<List<SKUEntry>>(new List<SKUEntry>());
                 SKUDataList = new Holder<List<SKUDataEntry>>(new List<SKUDataEntry>());
                 Statlist = new Holder<Dictionary<string, Holder<StatCheck>>>(new Dictionary<string, Holder<StatCheck>>());
                 Bincheck = new Holder<Dictionary<string, Holder<BinCheck>>>(new Dictionary<string, Holder<BinCheck>>());
+                DataCheckList = new Holder<List<DataCheck>>(new List<DataCheck>());
                 Name = new Holder<string>("");
                 StatDescription = new Holder<string>("");
                 if (isnew)
@@ -136,6 +139,15 @@ namespace PS3DumpChecker
                 Expected = expected;
                 Id = id;
             }
+        }
+
+        public struct DataCheck {
+            public int DataKey;
+            public long Offset;
+            public long Size;
+            public long LdrSize;
+            public string Name;
+            public Dictionary<string, double> ThresholdList;
         }
 
         public static bool SwapBytes(ref byte[] data)
@@ -180,9 +192,9 @@ namespace PS3DumpChecker
                 if (c.ToString(CultureInfo.InvariantCulture) == " ")
                     continue;
                 if ((count % 0x2) != 0)
-                    ret += string.Format("{0} ", c);
+                    ret += String.Format("{0} ", c);
                 else
-                    ret += string.Format("{0}", c);
+                    ret += String.Format("{0}", c);
                 if ((count % 0x20) == 0 && count > 0x20)
                     ret += Environment.NewLine;
                 count++;
@@ -196,6 +208,14 @@ namespace PS3DumpChecker
             foreach (var b in data)
                 ret += String.Format("{0:X2}", b);
             return ret;
+        }
+
+        public static uint GetLdrSize(ref byte[] data)
+        {
+            SwapBytes(ref data);
+            var tmpval = BitConverter.ToUInt16(data, 0);
+            var ret = (uint)tmpval * 0x10;
+            return ret + 0x40;
         }
     }
 
