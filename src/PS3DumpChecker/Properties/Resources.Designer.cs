@@ -61,7 +61,7 @@ namespace PS3DumpChecker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ERROR: File size don&apos;t match expected size for NAND or NOR! Please doublecheck your image....
+        ///   Looks up a localized string similar to ERROR: Filesize don&apos;t match expected size from the configuration! Please doublecheck your image and configuration!.
         /// </summary>
         internal static string badsize {
             get {
@@ -111,24 +111,6 @@ namespace PS3DumpChecker.Properties {
         internal static string error_noconfig_title {
             get {
                 return ResourceManager.GetString("error_noconfig_title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Cancel.
-        /// </summary>
-        internal static string Inputbox_InputBox_Cancel {
-            get {
-                return ResourceManager.GetString("Inputbox_InputBox_Cancel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to OK.
-        /// </summary>
-        internal static string Inputbox_InputBox_OK {
-            get {
-                return ResourceManager.GetString("Inputbox_InputBox_OK", resourceCulture);
             }
         }
         

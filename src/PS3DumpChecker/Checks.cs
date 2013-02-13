@@ -131,6 +131,7 @@ namespace PS3DumpChecker
                 if (skuEntryList.Count == skuCheckDataList.Count) 
                 {
                     ret.SKUModel = skuEntryList[0].Name;
+                    ret.MinVer = skuEntryList[0].MinVer;
                     Logger.WriteLine(string.Format("SKU Model: {0}", ret.SKUModel));
                     var msg = "";
                     if (skuEntryList[0].Warn) 
@@ -148,7 +149,9 @@ namespace PS3DumpChecker
                 }
                 else 
                 {
+                    Common.AddBad(ref ret);
                     ret.SKUModel = null;
+                    ret.MinVer = null;
                     Logger.WriteLine("No matching SKU model found!");
                     foreach (var entry in skuCheckDataList)
                         Logger.WriteLine(entry.Type.Equals("bootldrsize", StringComparison.CurrentCultureIgnoreCase) ? string.Format("{0} = {1:X4}", entry.Type, entry.Size) : string.Format("{0} = {1}", entry.Type, entry.Data));

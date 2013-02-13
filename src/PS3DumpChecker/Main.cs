@@ -12,9 +12,12 @@ using PS3DumpChecker.Properties;
 
 namespace PS3DumpChecker
 {
+    using System.Drawing;
+
     public sealed partial class Main : Form
     {
-        readonly string _version = "";
+        private static string _version;
+
         public Main()
         {
             InitializeComponent();
@@ -37,7 +40,7 @@ namespace PS3DumpChecker
             partslist.Items.Clear();
             if (Common.PartList.Keys.Count <= 0)
                 return;
-            var keys = new int[Common.PartList.Keys.Count + 1];
+            var keys = new int[Common.PartList.Keys.Count];
             Common.PartList.Keys.CopyTo(keys, 0);
             foreach (var key in keys) {
                 partslist.Items.Add(new ListBoxItem(key, Common.PartList[key].Name));
@@ -54,6 +57,14 @@ namespace PS3DumpChecker
             status.Text = e.Status;
         }
 
+        private void SetTitle(string title) {
+            if (InvokeRequired) {
+                Invoke(new Action<string>(SetTitle), new object[] {title});
+                return;
+            }
+            Text = title;
+        }
+
         private void DoWork(object sender, DoWorkEventArgs e)
         {
             var file = e.Argument.ToString();
@@ -63,6 +74,7 @@ namespace PS3DumpChecker
             var fi = new FileInfo(file);
             if (Common.Types.ContainsKey(fi.Length))
             {
+                SetTitle(string.Format("{0} Type: {2} File: {1}", _version, Path.GetFileName(file), Common.Types[fi.Length].Name.Value));
                 Common.SendStatus("Reading image into memory and checking statistics...");
                 Logger.LogPath = Path.GetDirectoryName(file) + "\\" + Path.GetFileNameWithoutExtension(file) + "_PS3Check.log";
                 Logger.WriteLine2("********************************************");
@@ -100,6 +112,7 @@ namespace PS3DumpChecker
             imgstatus.Text = Resources.N_A;
             reversed.Text = Resources.N_A;
             idmatchbox.Text = Resources.N_A;
+            statuslabel.Visible = false;
             actdatabox.Text = "";
             expdatabox.Text = "";
             checkbtn.Enabled = false;
@@ -122,8 +135,12 @@ namespace PS3DumpChecker
                     {
                         var res = (Common.ImgInfo)e.Result;
                         imgstatus.Text = res.Status;
-                        reversed.Text = res.Reversed.ToString();
+                        reversed.Text = res.Reversed ? "Yes" : "No";
                         idmatchbox.Text = res.SKUModel ?? "No matching SKU model found!";
+                        minverbox.Text = res.MinVer ?? "N/A";
+                        statuslabel.Text = res.IsOk ? "OK" : "BAD";
+                        statuslabel.ForeColor = res.IsOk ? Color.Green : Color.Red;
+                        statuslabel.Visible = true;
                     }
                 }
                 catch { }
@@ -176,6 +193,7 @@ namespace PS3DumpChecker
                 var skuWarn = false;
                 var skuName = "";
                 var skuWarnMsg = "";
+                var skuMinVer = "";
                 while (xml.Read())
                 {
                     if (!xml.IsStartElement())
@@ -376,6 +394,7 @@ namespace PS3DumpChecker
                             skuWarn = (xml["warn"].Equals("true", StringComparison.CurrentCultureIgnoreCase));
                             skuName = xml["name"];
                             skuWarnMsg = xml["warnmsg"];
+                            skuMinVer = xml["minver"];
                             break;
                         case "skuentry":
                             if (!Common.Types.ContainsKey(size))
@@ -396,6 +415,7 @@ namespace PS3DumpChecker
                             skuEntry.SKUKey = skUkey;
                             skuEntry.Name = skuName;
                             skuEntry.Type = xml["type"];
+                            skuEntry.MinVer = skuMinVer;
                             xml.Read();
                             skuEntry.Data = Regex.Replace(xml.Value, @"\s+", "");
                             Common.Types[size].SKUList.Value.Add(skuEntry);
@@ -411,8 +431,15 @@ namespace PS3DumpChecker
         private void MainLoad(object sender, EventArgs e)
         {
             var dir = Path.GetDirectoryName(Application.ExecutablePath) + "\\default.cfg";
-            if (File.Exists(dir))
+            var fi = new FileInfo(dir);
+            if (fi.Exists && fi.Length > 0)
                 ParseConfig(dir);
+            else {
+                ExtractResource(fi, "PS3DumpChecker.default.cfg");
+                fi = new FileInfo(dir);
+                if (fi.Exists && fi.Length > 0)
+                    ParseConfig(dir);
+            }
         }
 
         private void MainDragEnter(object sender, DragEventArgs e) { e.Effect = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.Copy : DragDropEffects.None; }
@@ -434,6 +461,19 @@ namespace PS3DumpChecker
                 }
 
             }
+        }
+
+        private static void ExtractResource(FileInfo fi, string resource) {
+            var toexe = fi.OpenWrite();
+            var fromexe = Assembly.GetExecutingAssembly().GetManifestResourceStream(resource);
+            const int size = 4096;
+            var bytes = new byte[size];
+            int numBytes;
+            while (fromexe != null && (numBytes = fromexe.Read(bytes, 0, size)) > 0)
+                toexe.Write(bytes, 0, numBytes);
+            toexe.Close();
+            if (fromexe != null)
+                fromexe.Close();
         }
     }
 }

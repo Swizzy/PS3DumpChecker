@@ -45,6 +45,7 @@ namespace PS3DumpChecker
             public string Type;
             public bool Warn;
             public string WarnMsg;
+            public string MinVer;
         }
 
         public struct SKUDataEntry
@@ -61,6 +62,7 @@ namespace PS3DumpChecker
             public bool Reversed;
             public string Status;
             public string SKUModel;
+            public string MinVer;
         }
 
         public static void AddItem(int key, PartsObject data)

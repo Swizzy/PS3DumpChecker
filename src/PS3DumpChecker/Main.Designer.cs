@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.partslist = new PS3DumpChecker.CustomListBox();
             this.checkbtn = new System.Windows.Forms.Button();
             this.advbox = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -48,32 +47,22 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.loadConfigurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logstate = new System.Windows.Forms.CheckBox();
+            this.statuslabel = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.minverbox = new System.Windows.Forms.RichTextBox();
+            this.partslist = new PS3DumpChecker.CustomListBox();
             this.advbox.SuspendLayout();
             this.imginfo.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // partslist
-            // 
-            this.partslist.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.partslist.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.partslist.FormattingEnabled = true;
-            this.partslist.Location = new System.Drawing.Point(12, 33);
-            this.partslist.Name = "partslist";
-            this.partslist.ScrollAlwaysVisible = true;
-            this.partslist.Size = new System.Drawing.Size(280, 433);
-            this.partslist.Sorted = true;
-            this.partslist.TabIndex = 0;
-            this.partslist.SelectedIndexChanged += new System.EventHandler(this.PartslistSelectedIndexChanged);
-            // 
             // checkbtn
             // 
             this.checkbtn.Enabled = false;
             this.checkbtn.Location = new System.Drawing.Point(298, 33);
             this.checkbtn.Name = "checkbtn";
-            this.checkbtn.Size = new System.Drawing.Size(352, 34);
+            this.checkbtn.Size = new System.Drawing.Size(450, 25);
             this.checkbtn.TabIndex = 1;
             this.checkbtn.Text = "Check Image";
             this.checkbtn.UseVisualStyleBackColor = true;
@@ -85,9 +74,9 @@
             this.advbox.Controls.Add(this.label3);
             this.advbox.Controls.Add(this.expdatabox);
             this.advbox.Controls.Add(this.actdatabox);
-            this.advbox.Location = new System.Drawing.Point(298, 150);
+            this.advbox.Location = new System.Drawing.Point(298, 167);
             this.advbox.Name = "advbox";
-            this.advbox.Size = new System.Drawing.Size(352, 329);
+            this.advbox.Size = new System.Drawing.Size(450, 329);
             this.advbox.TabIndex = 2;
             this.advbox.TabStop = false;
             this.advbox.Text = "Advanced View";
@@ -120,7 +109,7 @@
             this.expdatabox.Name = "expdatabox";
             this.expdatabox.ReadOnly = true;
             this.expdatabox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.expdatabox.Size = new System.Drawing.Size(337, 160);
+            this.expdatabox.Size = new System.Drawing.Size(435, 160);
             this.expdatabox.TabIndex = 2;
             // 
             // actdatabox
@@ -131,20 +120,22 @@
             this.actdatabox.Name = "actdatabox";
             this.actdatabox.ReadOnly = true;
             this.actdatabox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.actdatabox.Size = new System.Drawing.Size(340, 112);
+            this.actdatabox.Size = new System.Drawing.Size(438, 112);
             this.actdatabox.TabIndex = 2;
             // 
             // imginfo
             // 
+            this.imginfo.Controls.Add(this.label6);
+            this.imginfo.Controls.Add(this.minverbox);
             this.imginfo.Controls.Add(this.reversed);
             this.imginfo.Controls.Add(this.label2);
             this.imginfo.Controls.Add(this.idmatchbox);
             this.imginfo.Controls.Add(this.imgstatus);
             this.imginfo.Controls.Add(this.label5);
             this.imginfo.Controls.Add(this.label1);
-            this.imginfo.Location = new System.Drawing.Point(298, 73);
+            this.imginfo.Location = new System.Drawing.Point(298, 64);
             this.imginfo.Name = "imginfo";
-            this.imginfo.Size = new System.Drawing.Size(352, 71);
+            this.imginfo.Size = new System.Drawing.Size(450, 97);
             this.imginfo.TabIndex = 0;
             this.imginfo.TabStop = false;
             this.imginfo.Text = "Image Information";
@@ -152,49 +143,49 @@
             // reversed
             // 
             this.reversed.ForeColor = System.Drawing.Color.Black;
-            this.reversed.Location = new System.Drawing.Point(291, 19);
+            this.reversed.Location = new System.Drawing.Point(122, 45);
             this.reversed.Multiline = false;
             this.reversed.Name = "reversed";
             this.reversed.ReadOnly = true;
-            this.reversed.Size = new System.Drawing.Size(55, 20);
+            this.reversed.Size = new System.Drawing.Size(50, 20);
             this.reversed.TabIndex = 1;
             this.reversed.Text = "N/A";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(229, 22);
+            this.label2.Location = new System.Drawing.Point(6, 48);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
+            this.label2.Size = new System.Drawing.Size(110, 13);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Reversed:";
+            this.label2.Text = "Raw (PS3 Readable):";
             // 
             // idmatchbox
             // 
             this.idmatchbox.ForeColor = System.Drawing.Color.Black;
-            this.idmatchbox.Location = new System.Drawing.Point(91, 45);
+            this.idmatchbox.Location = new System.Drawing.Point(122, 71);
             this.idmatchbox.Multiline = false;
             this.idmatchbox.Name = "idmatchbox";
             this.idmatchbox.ReadOnly = true;
-            this.idmatchbox.Size = new System.Drawing.Size(255, 20);
+            this.idmatchbox.Size = new System.Drawing.Size(322, 20);
             this.idmatchbox.TabIndex = 1;
             this.idmatchbox.Text = "N/A";
             // 
             // imgstatus
             // 
             this.imgstatus.ForeColor = System.Drawing.Color.Black;
-            this.imgstatus.Location = new System.Drawing.Point(91, 19);
+            this.imgstatus.Location = new System.Drawing.Point(122, 19);
             this.imgstatus.Multiline = false;
             this.imgstatus.Name = "imgstatus";
             this.imgstatus.ReadOnly = true;
-            this.imgstatus.Size = new System.Drawing.Size(132, 20);
+            this.imgstatus.Size = new System.Drawing.Size(322, 20);
             this.imgstatus.TabIndex = 1;
             this.imgstatus.Text = "N/A";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 48);
+            this.label5.Location = new System.Drawing.Point(37, 74);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(79, 13);
             this.label5.TabIndex = 0;
@@ -203,7 +194,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 22);
+            this.label1.Location = new System.Drawing.Point(44, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 13);
             this.label1.TabIndex = 0;
@@ -214,9 +205,9 @@
             this.statusStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.status});
-            this.statusStrip.Location = new System.Drawing.Point(0, 482);
+            this.statusStrip.Location = new System.Drawing.Point(0, 606);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(662, 22);
+            this.statusStrip.Size = new System.Drawing.Size(760, 22);
             this.statusStrip.SizingGrip = false;
             this.statusStrip.TabIndex = 3;
             this.statusStrip.Text = "statusStrip";
@@ -239,7 +230,7 @@
             this.loadConfigurationToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(662, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(760, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -255,12 +246,58 @@
             this.logstate.AutoSize = true;
             this.logstate.Checked = true;
             this.logstate.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.logstate.Location = new System.Drawing.Point(550, 10);
+            this.logstate.Location = new System.Drawing.Point(648, 10);
             this.logstate.Name = "logstate";
             this.logstate.Size = new System.Drawing.Size(100, 17);
             this.logstate.TabIndex = 5;
             this.logstate.Text = "Enable Logging";
             this.logstate.UseVisualStyleBackColor = true;
+            // 
+            // statuslabel
+            // 
+            this.statuslabel.AutoSize = true;
+            this.statuslabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statuslabel.ForeColor = System.Drawing.Color.Black;
+            this.statuslabel.Location = new System.Drawing.Point(298, 499);
+            this.statuslabel.Name = "statuslabel";
+            this.statuslabel.Size = new System.Drawing.Size(354, 91);
+            this.statuslabel.TabIndex = 6;
+            this.statuslabel.Text = "STATUS";
+            this.statuslabel.Visible = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(178, 48);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(132, 13);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Lowest downgradeable to:";
+            // 
+            // minverbox
+            // 
+            this.minverbox.ForeColor = System.Drawing.Color.Black;
+            this.minverbox.Location = new System.Drawing.Point(316, 45);
+            this.minverbox.Multiline = false;
+            this.minverbox.Name = "minverbox";
+            this.minverbox.ReadOnly = true;
+            this.minverbox.Size = new System.Drawing.Size(128, 20);
+            this.minverbox.TabIndex = 1;
+            this.minverbox.Text = "N/A";
+            // 
+            // partslist
+            // 
+            this.partslist.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.partslist.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.partslist.FormattingEnabled = true;
+            this.partslist.Location = new System.Drawing.Point(12, 33);
+            this.partslist.Name = "partslist";
+            this.partslist.ScrollAlwaysVisible = true;
+            this.partslist.Size = new System.Drawing.Size(280, 557);
+            this.partslist.Sorted = true;
+            this.partslist.TabIndex = 0;
+            this.partslist.SelectedIndexChanged += new System.EventHandler(this.PartslistSelectedIndexChanged);
             // 
             // Main
             // 
@@ -268,7 +305,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
-            this.ClientSize = new System.Drawing.Size(662, 504);
+            this.ClientSize = new System.Drawing.Size(760, 628);
+            this.Controls.Add(this.statuslabel);
             this.Controls.Add(this.logstate);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip1);
@@ -276,6 +314,7 @@
             this.Controls.Add(this.advbox);
             this.Controls.Add(this.checkbtn);
             this.Controls.Add(this.partslist);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main";
             this.Text = "PS3 Dump Checker v";
@@ -317,6 +356,9 @@
         private System.Windows.Forms.CheckBox logstate;
         private System.Windows.Forms.RichTextBox idmatchbox;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label statuslabel;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.RichTextBox minverbox;
     }
 }
 

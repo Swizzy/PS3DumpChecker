@@ -124,7 +124,7 @@
     <value>Binary Files|*.bin|All Files|*.*</value>
   </data>
   <data name="badsize" xml:space="preserve">
-    <value>ERROR: File size don't match expected size for NAND or NOR! Please doublecheck your image...</value>
+    <value>ERROR: Filesize don't match expected size from the configuration! Please doublecheck your image and configuration!</value>
   </data>
   <data name="error_bad_size" xml:space="preserve">
     <value>ERROR - Bad Size</value>
@@ -148,16 +148,10 @@
   <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ps3 nand.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Checks_StartCheck_ERROR___Bad_dump">
-    <value xml:space="preserve">ERROR - Bad dump</value>
+  <data name="Checks_StartCheck_ERROR___Bad_dump" xml:space="preserve">
+    <value>ERROR - Bad dump</value>
   </data>
-  <data name="Inputbox_InputBox_Cancel">
-    <value xml:space="preserve">Cancel</value>
-  </data>
-  <data name="Inputbox_InputBox_OK">
-    <value xml:space="preserve">OK</value>
-  </data>
-  <data name="WARNING">
-    <value xml:space="preserve">WARNING!</value>
+  <data name="WARNING" xml:space="preserve">
+    <value>WARNING!</value>
   </data>
 </root>
