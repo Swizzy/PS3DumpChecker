@@ -3,12 +3,13 @@ PS3DumpChecker
 
 A PS3 NOR/NAND Dump Checker/Verifier
 
+NOTE: Nobody takes ANY responsibility for any false negative/false positive given by this app, the responsibilty that your dump is valid is YOURS and yours alone...
+this tool should be treated as an easy way to make a quick check to see if it's at all worth looking closer at, to really verify your dump read the latest information here:
 
-NOTE: This repo isn't for public release of the final version, this is still under development... please don't news this untill it's done...
+http://ps3devwiki.com/wiki/Validating_flash_dumps
 
-If you want to, you may test it out and see if it's good or not, if you find any errors please report them to me by e-mail:
+You may use this tool any way you like, you may also use the code on this repo any way you like
+If you find any bugs let me know so i can fix them! if i don't hear about bugs i can't fix them ;)
 
-admin[at]swizzy.se or on irc... Swizzy is the name (i'm on efnet)
-
-You may use the source code found here any way you like, altought it's pretty generic, the main thing that makes this PS3 related
-is the cfg... ;)
+admin[at]swizzy.se is my e-mail if you have any bug reports to give or just wanna talk...
+I'm also available on the irc network Efnet if you wanna contact me in person, i ussually go by the name "Swizzy" or "_Swizzy"
