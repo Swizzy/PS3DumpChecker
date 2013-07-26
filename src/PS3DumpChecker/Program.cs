@@ -1,19 +1,15 @@
-﻿using System;
-using System.Windows.Forms;
+﻿namespace PS3DumpChecker {
+    using System;
+    using System.Windows.Forms;
 
-namespace PS3DumpChecker
-{
-    static class Program
-    {
+    internal static class Program {
         /// <summary>
-        /// The main entry point for the application.
+        ///   The main entry point for the application.
         /// </summary>
-        [STAThread]
-        static void Main()
-        {
+        [STAThread] private static void Main(string[] args) {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main());
+            Application.Run(new Main(args));
         }
     }
 }

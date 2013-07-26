@@ -154,4 +154,10 @@
   <data name="WARNING" xml:space="preserve">
     <value>WARNING!</value>
   </data>
+  <data name="autopatchmsg">
+    <value xml:space="preserve">Do you want to patch this image?</value>
+  </data>
+  <data name="autopatch">
+    <value xml:space="preserve">Patch Image?</value>
+  </data>
 </root>

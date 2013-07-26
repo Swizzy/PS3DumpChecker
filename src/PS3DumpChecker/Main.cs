@@ -1,79 +1,109 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Globalization;
-using System.IO;
-using System.Reflection;
-using System.Text.RegularExpressions;
-using System.Windows.Forms;
-using System.Xml;
-using PS3DumpChecker.Properties;
-
-namespace PS3DumpChecker
-{
+﻿namespace PS3DumpChecker {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Diagnostics;
     using System.Drawing;
+    using System.Globalization;
+    using System.IO;
+    using System.Reflection;
+    using System.Text.RegularExpressions;
+    using System.Windows.Forms;
+    using System.Xml;
+    using Microsoft.Win32;
+    using PS3DumpChecker.Properties;
 
-    public sealed partial class Main : Form
-    {
+    internal sealed partial class Main : Form {
         private static string _version;
+        private readonly string _wrkdir = Path.GetDirectoryName(Application.ExecutablePath);
 
-        public Main()
-        {
+        public Main(ICollection<string> args) {
             InitializeComponent();
             Common.StatusUpdate += StatusUpdate;
             Common.ListUpdate += CommonOnListUpdate;
             var app = Assembly.GetExecutingAssembly();
-            _version = string.Format("PS3 Dump Checker v{0}.{1} (Build: {2})", app.GetName().Version.Major, app.GetName().Version.Minor,
-                                    app.GetName().Version.Build);
+            _version = string.Format("PS3 Dump Checker v{0}.{1} (Build: {2})", app.GetName().Version.Major, app.GetName().Version.Minor, app.GetName().Version.Build);
             Text = _version;
             Icon = Resources.logo;
+            if(_wrkdir != null)
+                Directory.SetCurrentDirectory(_wrkdir);
+            var dir = Path.GetDirectoryName(Application.ExecutablePath) + "\\default.cfg";
+            var fi = new FileInfo(dir);
+            if(fi.Exists && fi.Length > 0)
+                ParseConfig(dir);
+            else {
+                ExtractResource(fi, "PS3DumpChecker.default.cfg");
+                fi = new FileInfo(dir);
+                if(fi.Exists && fi.Length > 0)
+                    ParseConfig(dir);
+            }
+            if(args.Count < 1)
+                return;
+            foreach(var s in args) {
+                if(!File.Exists(s))
+                    continue;
+                if(worker.IsBusy)
+                    return;
+                StartCheck(s);
+            }
         }
 
-        private void CommonOnListUpdate(object sender, EventArgs eventArgs)
-        {
-            if (InvokeRequired)
-            {
-                BeginInvoke(new EventHandler<EventArgs>(CommonOnListUpdate), new[] {sender, eventArgs});
+        private static bool GetRegSetting(string setting, bool value = false) {
+            var key = Registry.CurrentUser.CreateSubKey("Software");
+            if(key == null)
+                return value;
+            key = key.CreateSubKey("Swizzy");
+            if(key == null)
+                return value;
+            key = key.CreateSubKey("PS3 Dump Checker");
+            if(key == null)
+                return value;
+            return key.GetValue(setting, -1) is int ? (int) key.GetValue(setting, value ? 1 : 0) > 0 : value;
+        }
+
+        private void CommonOnListUpdate(object sender, EventArgs eventArgs) {
+            if(InvokeRequired) {
+                BeginInvoke(new EventHandler<EventArgs>(CommonOnListUpdate), new[] {
+                                                                                   sender, eventArgs
+                                                                                   });
                 return;
             }
             partslist.Items.Clear();
-            if (Common.PartList.Keys.Count <= 0)
+            if(Common.PartList.Keys.Count <= 0)
                 return;
             var keys = new int[Common.PartList.Keys.Count];
             Common.PartList.Keys.CopyTo(keys, 0);
-            foreach (var key in keys) {
+            foreach(var key in keys)
                 partslist.Items.Add(new ListBoxItem(key, Common.PartList[key].Name));
-            }
         }
 
-        private void StatusUpdate(object sender, StatusEventArgs e)
-        {
-            if (InvokeRequired)
-            {
-                BeginInvoke(new EventHandler<StatusEventArgs>(StatusUpdate), new[] {sender, e});
+        private void StatusUpdate(object sender, StatusEventArgs e) {
+            if(InvokeRequired) {
+                BeginInvoke(new EventHandler<StatusEventArgs>(StatusUpdate), new[] {
+                                                                                   sender, e
+                                                                                   });
                 return;
             }
             status.Text = e.Status;
         }
 
         private void SetTitle(string title) {
-            if (InvokeRequired) {
-                Invoke(new Action<string>(SetTitle), new object[] {title});
+            if(InvokeRequired) {
+                Invoke(new Action<string>(SetTitle), new object[] {
+                                                                  title
+                                                                  });
                 return;
             }
             Text = title;
         }
 
-        private void DoWork(object sender, DoWorkEventArgs e)
-        {
+        private void DoWork(object sender, DoWorkEventArgs e) {
             var file = e.Argument.ToString();
-            if (string.IsNullOrEmpty(file))
+            if(string.IsNullOrEmpty(file))
                 return;
             var sw = new Stopwatch();
             var fi = new FileInfo(file);
-            if (Common.Types.ContainsKey(fi.Length))
-            {
+            if(Common.Types.ContainsKey(fi.Length)) {
                 SetTitle(string.Format("{0} Type: {2} File: {1}", _version, Path.GetFileName(file), Common.Types[fi.Length].Name.Value));
                 Common.SendStatus("Reading image into memory and checking statistics...");
                 Logger.LogPath = Path.GetDirectoryName(file) + "\\" + Path.GetFileNameWithoutExtension(file) + "_PS3Check.log";
@@ -89,24 +119,16 @@ namespace PS3DumpChecker
                 Common.SendStatus("ERROR: Bad file size! Check aborted...");
         }
 
-        private void CheckbtnClick(object sender, EventArgs e)
-        {
-            var ofd = new OpenFileDialog
-                          {
-                              Title = Resources.seldump,
-                              FileName = "dump.bin",
-                              Filter = Resources.ofdfilter,
-                              DefaultExt = "bin",
-                              AutoUpgradeEnabled = true,
-                              AddExtension = true
-                          };
-            if (ofd.ShowDialog() != DialogResult.OK)
+        private void CheckbtnClick(object sender, EventArgs e) {
+            var ofd = new OpenFileDialog {
+                                         Title = Resources.seldump, FileName = "dump.bin", Filter = Resources.ofdfilter, DefaultExt = "bin", AutoUpgradeEnabled = true, AddExtension = true
+                                         };
+            if(ofd.ShowDialog() != DialogResult.OK)
                 return;
             StartCheck(ofd.FileName);
         }
 
-        private void StartCheck(string file)
-        {
+        private void StartCheck(string file) {
             Common.PartList.Clear();
             partslist.Items.Clear();
             imgstatus.Text = Resources.N_A;
@@ -120,20 +142,15 @@ namespace PS3DumpChecker
             worker.RunWorkerAsync(file);
         }
 
-        private void WorkerRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-
-            if (e.Result == null && Common.Types.Count > 0)
+        private void WorkerRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e) {
+            if(e.Result == null && Common.Types.Count > 0)
                 MessageBox.Show(Resources.badsize, Resources.error_bad_size, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            else if (Common.Types.Count <= 0)
+            else if(Common.Types.Count <= 0)
                 MessageBox.Show(Resources.error_noconfig, Resources.error_noconfig_title, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            else
-            {
-                try 
-                {
-                    if (e.Result != null)
-                    {
-                        var res = (Common.ImgInfo)e.Result;
+            else {
+                try {
+                    if(e.Result != null) {
+                        var res = (Common.ImgInfo) e.Result;
                         imgstatus.Text = res.Status;
                         reversed.Text = res.Reversed ? "Yes" : "No";
                         idmatchbox.Text = res.SKUModel ?? "No matching SKU model found!";
@@ -141,51 +158,51 @@ namespace PS3DumpChecker
                         statuslabel.Text = res.IsOk ? "OK" : "BAD";
                         statuslabel.ForeColor = res.IsOk ? Color.Green : Color.Red;
                         statuslabel.Visible = true;
+                        if(res.IsOk && File.Exists("patcher.exe") && (GetRegSetting("autopatch") || MessageBox.Show(Resources.autopatchmsg, Resources.autopatch, MessageBoxButtons.YesNoCancel) == DialogResult.Yes)) {
+                            var proc = new Process {
+                                                   StartInfo = {
+                                                               Arguments = string.Format("\"{0}\"", res.FileName), FileName = "patcher.exe", WorkingDirectory = _wrkdir
+                                                               }
+                                                   };
+                            proc.Start();
+                            if(GetRegSetting("autoexit"))
+                                Close();
+                        }
                     }
                 }
-                catch { }
+                catch {
+                }
             }
-            if (Common.Types.Count > 0)
+            if(Common.Types.Count > 0)
                 checkbtn.Enabled = true;
         }
 
-        private void PartslistSelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (partslist.SelectedItems.Count == 0)
+        private void PartslistSelectedIndexChanged(object sender, EventArgs e) {
+            if(partslist.SelectedItems.Count == 0)
                 return;
-            if (partslist.SelectedItems[0] is ListBoxItem) {
-                var tmp = partslist.SelectedItems[0] as ListBoxItem;
-                if (!Common.PartList.ContainsKey(tmp.Value))
-                    return;
-                var obj = Common.PartList[tmp.Value];
-                expdatabox.Text = string.Format("Result of the check: {1}{0}{0}",
-                                                Environment.NewLine,
-                                                obj.Result);
-                expdatabox.Text += obj.ExpectedString;
-                actdatabox.Text = obj.ActualString;
-            }
+            if(!(partslist.SelectedItems[0] is ListBoxItem))
+                return;
+            var tmp = partslist.SelectedItems[0] as ListBoxItem;
+            if(!Common.PartList.ContainsKey(tmp.Value))
+                return;
+            var obj = Common.PartList[tmp.Value];
+            expdatabox.Text = string.Format("Result of the check: {1}{0}{0}", Environment.NewLine, obj.Result);
+            expdatabox.Text += obj.ExpectedString;
+            actdatabox.Text = obj.ActualString;
         }
 
-        private void LoadConfigurationToolStripMenuItemClick(object sender, EventArgs e)
-        {
-            var ofd = new OpenFileDialog
-                          {
-                              Title = Resources.select_conf,
-                              FileName = "Default.cfg",
-                              DefaultExt = "cfg",
-                              Filter = Resources.conf_filter,
-                              AutoUpgradeEnabled = true
-                          };
-            if (ofd.ShowDialog() == DialogResult.OK)
+        private void LoadConfigurationToolStripMenuItemClick(object sender, EventArgs e) {
+            var ofd = new OpenFileDialog {
+                                         Title = Resources.select_conf, FileName = "Default.cfg", DefaultExt = "cfg", Filter = Resources.conf_filter, AutoUpgradeEnabled = true
+                                         };
+            if(ofd.ShowDialog() == DialogResult.OK)
                 ParseConfig(ofd.FileName);
         }
 
-        private void ParseConfig(string file)
-        {
+        private void ParseConfig(string file) {
             Common.SendStatus(string.Format("Parsing {0}", file));
             Common.Types.Clear();
-            using (var xml = XmlReader.Create(file))
-            {
+            using(var xml = XmlReader.Create(file)) {
                 var dataCheckKey = 0;
                 var dataCheckOk = false;
                 var skUkey = 0;
@@ -194,201 +211,173 @@ namespace PS3DumpChecker
                 var skuName = "";
                 var skuWarnMsg = "";
                 var skuMinVer = "";
-                while (xml.Read())
-                {
-                    if (!xml.IsStartElement())
+                while(xml.Read()) {
+                    if(!xml.IsStartElement())
                         continue;
-                    switch (xml.Name.ToLower())
-                    {
+                    switch(xml.Name.ToLower()) {
                         case "type":
-                            if (long.TryParse(xml["size"], out size))
-                            {
-                                if (!Common.Types.ContainsKey(size))
+                            if(long.TryParse(xml["size"], out size)) {
+                                if(!Common.Types.ContainsKey(size))
                                     Common.Types.Add(size, new Common.TypeData(true));
                                 Common.Types[size].Name.Value = xml["name"];
                             }
                             break;
-                        #region Statistics part
+
+                            #region Statistics part
+
                         case "stats":
-                            if (Common.Types.ContainsKey(size))
+                            if(Common.Types.ContainsKey(size))
                                 xml.Read();
-                                Common.Types[size].StatDescription.Value = xml.Value;
+                            Common.Types[size].StatDescription.Value = xml.Value;
                             break;
                         case "statspart":
-                            if (!Common.Types.ContainsKey(size))
+                            if(!Common.Types.ContainsKey(size))
                                 break;
                             var key = xml["key"];
-                            if (key == null)
+                            if(key == null)
                                 break;
-                            if (string.IsNullOrEmpty(key))
+                            if(string.IsNullOrEmpty(key))
                                 key = "*";
                             key = key.ToUpper();
-                            if (!Common.Types[size].Statlist.Value.ContainsKey(key))
-                            {
+                            if(!Common.Types[size].Statlist.Value.ContainsKey(key)) {
                                 double low;
                                 double high;
                                 var lowtxt = xml["low"];
-                                if (lowtxt != null)
-                                {
+                                if(lowtxt != null) {
                                     lowtxt = Regex.Replace(lowtxt, @"\s+", "");
                                     lowtxt = lowtxt.Replace('.', ',');
                                 }
                                 var hightxt = xml["high"];
-                                if (hightxt != null)
-                                {
+                                if(hightxt != null) {
                                     hightxt = Regex.Replace(hightxt, @"\s+", "");
                                     hightxt = hightxt.Replace('.', ',');
                                 }
-                                if (!double.TryParse(lowtxt, NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands, CultureInfo.CurrentCulture, out low))
+                                if(!double.TryParse(lowtxt, NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands, CultureInfo.CurrentCulture, out low))
                                     low = 0;
-                                else if (low < 0 || low > 100)
+                                else if(low < 0 || low > 100)
                                     low = 0;
-                                if (!double.TryParse(hightxt, NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands, CultureInfo.CurrentCulture, out high))
+                                if(!double.TryParse(hightxt, NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands, CultureInfo.CurrentCulture, out high))
                                     high = 100;
-                                else if (high > 100 || low > high || high < 0)
+                                else if(high > 100 || low > high || high < 0)
                                     high = 100;
                                 Common.Types[size].Statlist.Value.Add(key, new Holder<Common.StatCheck>(new Common.StatCheck(low, high)));
                             }
                             break;
+
                             #endregion Statistics part
-                        #region Binary Check Entry
+
+                            #region Binary Check Entry
+
                         case "binentry":
-                            if (!Common.Types.ContainsKey(size)) 
+                            if(!Common.Types.ContainsKey(size))
                                 break;
                             key = xml["name"];
-                            if (String.IsNullOrEmpty(key)) 
+                            if(String.IsNullOrEmpty(key))
                                 break;
-                            if (!Common.Types[size].Bincheck.Value.ContainsKey(key)) {
-                                if (xml["ismulti"] != null &&
-                                    xml["ismulti"].Equals("true",
-                                                          StringComparison.
-                                                              CurrentCultureIgnoreCase)) {
-                                    Common.Types[size].Bincheck.Value.Add(key,
-                                                                          new Holder
-                                                                              <Common.BinCheck>(
-                                                                              new Common.
-                                                                                  BinCheck(
-                                                                                  new List
-                                                                                      <
-                                                                                      Common.
-                                                                                      MultiBin>(),
-                                                                                  true,
-                                                                                  xml["offset"],
-                                                                                  xml[
-                                                                                      "description"
-                                                                                      ],
-                                                                                  xml["ascii"])));
+                            if(!Common.Types[size].Bincheck.Value.ContainsKey(key)) {
+                                if(xml["ismulti"] != null && xml["ismulti"].Equals("true", StringComparison.CurrentCultureIgnoreCase)) {
+                                    Common.Types[size].Bincheck.Value.Add(key, new Holder<Common.BinCheck>(new Common.BinCheck(new List<Common.MultiBin>(), true, xml["offset"], xml["description"], xml["ascii"])));
                                     var id = xml["id"];
                                     xml.Read();
-                                    Common.Types[size].Bincheck.Value[key].Value.ExpectedList.
-                                        Value.Add(
-                                            new Common.MultiBin(
-                                                Regex.Replace(xml.Value, @"\s+", ""), id));
+                                    Common.Types[size].Bincheck.Value[key].Value.ExpectedList.Value.Add(new Common.MultiBin(Regex.Replace(xml.Value, @"\s+", ""), id));
                                 }
                                 else {
                                     var offset = xml["offset"];
                                     var description = xml["description"];
                                     var ascii = xml["ascii"];
                                     xml.Read();
-                                    Common.Types[size].Bincheck.Value.Add(key,
-                                                                          new Holder
-                                                                              <Common.BinCheck>(
-                                                                              new Common.
-                                                                                  BinCheck(
-                                                                                  null,
-                                                                                  false,
-                                                                                  offset,
-                                                                                  description,
-                                                                                  ascii,
-                                                                                  xml.Value)));
+                                    Common.Types[size].Bincheck.Value.Add(key, new Holder<Common.BinCheck>(new Common.BinCheck(null, false, offset, description, ascii, xml.Value)));
                                 }
                             }
-                            if (xml["ismulti"] != null &&
-                                xml["ismulti"].Equals("true",
-                                                      StringComparison.CurrentCultureIgnoreCase)) {
+                            if(xml["ismulti"] != null && xml["ismulti"].Equals("true", StringComparison.CurrentCultureIgnoreCase)) {
                                 var id = xml["id"];
                                 xml.Read();
-                                Common.Types[size].Bincheck.Value[key].Value.ExpectedList.Value.
-                                    Add(new Common.MultiBin(
-                                            Regex.Replace(xml.Value, @"\s+", ""), id));
+                                Common.Types[size].Bincheck.Value[key].Value.ExpectedList.Value.Add(new Common.MultiBin(Regex.Replace(xml.Value, @"\s+", ""), id));
                             }
                             break;
+
                             #endregion Binary Check Entry
-                        #region Data Check list
+
+                            #region Data Check list
+
                         case "datalist":
-                            if (!Common.Types.ContainsKey(size))
+                            if(!Common.Types.ContainsKey(size))
                                 break;
                             var dataCheckList = new Common.DataCheck {
-                                                                         Name = xml["name"],
-                                                                         ThresholdList = new Dictionary<string, double>()
+                                                                     Name = xml["name"], ThresholdList = new Dictionary<string, double>()
                                                                      };
-                            if (long.TryParse(xml["offset"], NumberStyles.HexNumber, CultureInfo.CurrentCulture, out dataCheckList.Offset)) {
+                            if(long.TryParse(xml["offset"], NumberStyles.HexNumber, CultureInfo.CurrentCulture, out dataCheckList.Offset)) {
                                 dataCheckOk = long.TryParse(xml["size"], NumberStyles.HexNumber, CultureInfo.CurrentCulture, out dataCheckList.Size);
-                                if (!dataCheckOk)
+                                if(!dataCheckOk)
                                     dataCheckOk = long.TryParse(xml["ldrsize"], NumberStyles.HexNumber, CultureInfo.CurrentCulture, out dataCheckList.LdrSize);
-                                if (dataCheckOk) 
-                                {
+                                if(dataCheckOk) {
                                     dataCheckKey++;
                                     dataCheckList.DataKey = dataCheckKey;
                                     Common.Types[size].DataCheckList.Value.Add(dataCheckList);
                                 }
                             }
                             break;
-                        #region Data treshold
+
+                            #region Data treshold
+
                         case "datatreshold":
-                            if (!Common.Types.ContainsKey(size))
+                            if(!Common.Types.ContainsKey(size))
                                 break;
-                            if (!dataCheckOk)
+                            if(!dataCheckOk)
                                 break;
-                            foreach (var entry in Common.Types[size].DataCheckList.Value) 
-                            {
-                                if (entry.DataKey != dataCheckKey)
+                            foreach(var entry in Common.Types[size].DataCheckList.Value) {
+                                if(entry.DataKey != dataCheckKey)
                                     continue;
                                 var dkey = xml["key"];
-                                if (dkey == null)
+                                if(dkey == null)
                                     break;
-                                if (string.IsNullOrEmpty(dkey))
+                                if(string.IsNullOrEmpty(dkey))
                                     dkey = "*";
                                 dkey = dkey.ToUpper();
                                 xml.Read();
                                 var tmptxt = xml.Value;
-                                if (tmptxt != null)
-                                {
+                                if(tmptxt != null) {
                                     tmptxt = Regex.Replace(tmptxt, @"\s+", "");
                                     tmptxt = tmptxt.Replace('.', ',');
                                 }
                                 double tmpval;
-                                if (!double.TryParse(tmptxt, NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands, CultureInfo.CurrentCulture, out tmpval))
+                                if(!double.TryParse(tmptxt, NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands, CultureInfo.CurrentCulture, out tmpval))
                                     tmpval = 49;
-                                else if (tmpval < 0 || tmpval > 100)
+                                else if(tmpval < 0 || tmpval > 100)
                                     tmpval = 49;
                                 entry.ThresholdList.Add(dkey, tmpval);
                                 break;
                             }
                             break;
-                        #endregion Data treshold
-                        #endregion Data Check List
-                        #region SKU Data List
+
+                            #endregion Data treshold
+
+                            #endregion Data Check List
+
+                            #region SKU Data List
+
                         case "skudataentry":
-                            if (!Common.Types.ContainsKey(size)) 
+                            if(!Common.Types.ContainsKey(size))
                                 break;
                             var skuDataEntry = new Common.SKUDataEntry();
                             var skuoffset = xml["offset"];
                             var isok = (uint.TryParse(skuoffset, NumberStyles.HexNumber, CultureInfo.CurrentCulture, out skuDataEntry.Offset));
-                            if (isok) 
-                            {
+                            if(isok) {
                                 var skusize = xml["size"];
                                 isok = (uint.TryParse(skusize, NumberStyles.HexNumber, CultureInfo.CurrentCulture, out skuDataEntry.Size));
                             }
                             xml.Read();
                             skuDataEntry.Type = xml.Value;
-                            if (isok)
+                            if(isok)
                                 Common.Types[size].SKUDataList.Value.Add(skuDataEntry);
                             break;
-                        #endregion SKU Data List
-                        #region SKU List
+
+                            #endregion SKU Data List
+
+                            #region SKU List
+
                         case "skulist":
-                            if (!Common.Types.ContainsKey(size))
+                            if(!Common.Types.ContainsKey(size))
                                 break;
                             skUkey++;
                             skuWarn = (xml["warn"].Equals("true", StringComparison.CurrentCultureIgnoreCase));
@@ -397,18 +386,17 @@ namespace PS3DumpChecker
                             skuMinVer = xml["minver"];
                             break;
                         case "skuentry":
-                            if (!Common.Types.ContainsKey(size))
+                            if(!Common.Types.ContainsKey(size))
                                 break;
                             var exists = false;
-                            foreach (var entry in Common.Types[size].SKUList.Value)
-                            {
-                                if (entry.SKUKey != skUkey)
+                            foreach(var entry in Common.Types[size].SKUList.Value) {
+                                if(entry.SKUKey != skUkey)
                                     continue;
                                 exists = true;
                                 break;
                             }
                             var skuEntry = new Common.SKUEntry();
-                            if (!exists) {
+                            if(!exists) {
                                 skuEntry.Warn = skuWarn;
                                 skuEntry.WarnMsg = skuWarnMsg;
                             }
@@ -420,7 +408,8 @@ namespace PS3DumpChecker
                             skuEntry.Data = Regex.Replace(xml.Value, @"\s+", "");
                             Common.Types[size].SKUList.Value.Add(skuEntry);
                             break;
-                        #endregion SKU List
+
+                            #endregion SKU List
                     }
                 }
             }
@@ -428,38 +417,22 @@ namespace PS3DumpChecker
             checkbtn.Enabled = true;
         }
 
-        private void MainLoad(object sender, EventArgs e)
-        {
-            var dir = Path.GetDirectoryName(Application.ExecutablePath) + "\\default.cfg";
-            var fi = new FileInfo(dir);
-            if (fi.Exists && fi.Length > 0)
-                ParseConfig(dir);
-            else {
-                ExtractResource(fi, "PS3DumpChecker.default.cfg");
-                fi = new FileInfo(dir);
-                if (fi.Exists && fi.Length > 0)
-                    ParseConfig(dir);
-            }
+        private void MainDragEnter(object sender, DragEventArgs e) {
+            e.Effect = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.Copy : DragDropEffects.None;
         }
 
-        private void MainDragEnter(object sender, DragEventArgs e) { e.Effect = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.Copy : DragDropEffects.None; }
-
-        private void MainDragDrop(object sender, DragEventArgs e)
-        {
-            if (worker.IsBusy)
+        private void MainDragDrop(object sender, DragEventArgs e) {
+            if(worker.IsBusy)
                 return;
-            var fileList = (string[])e.Data.GetData(DataFormats.FileDrop, false);
-            foreach (var s in fileList)
-            {
-                if (s.EndsWith(".cfg", StringComparison.CurrentCultureIgnoreCase))
+            var fileList = (string[]) e.Data.GetData(DataFormats.FileDrop, false);
+            foreach(var s in fileList) {
+                if(s.EndsWith(".cfg", StringComparison.CurrentCultureIgnoreCase))
                     ParseConfig(s);
-                else
-                {
-                    if (worker.IsBusy)
+                else {
+                    if(worker.IsBusy)
                         return;
                     StartCheck(s);
                 }
-
             }
         }
 
@@ -469,12 +442,11 @@ namespace PS3DumpChecker
             const int size = 4096;
             var bytes = new byte[size];
             int numBytes;
-            while (fromexe != null && (numBytes = fromexe.Read(bytes, 0, size)) > 0)
+            while(fromexe != null && (numBytes = fromexe.Read(bytes, 0, size)) > 0)
                 toexe.Write(bytes, 0, numBytes);
             toexe.Close();
-            if (fromexe != null)
+            if(fromexe != null)
                 fromexe.Close();
         }
     }
 }
-

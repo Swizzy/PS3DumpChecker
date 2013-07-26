@@ -1,6 +1,6 @@
 ﻿namespace PS3DumpChecker
 {
-    sealed partial class Main
+    internal sealed partial class Main
     {
         /// <summary>
         /// Required designer variable.
@@ -50,7 +50,7 @@
             this.statuslabel = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.minverbox = new System.Windows.Forms.RichTextBox();
-            this.partslist = new PS3DumpChecker.CustomListBox();
+            this.partslist = new PS3DumpChecker.Controls.CustomListBox();
             this.advbox.SuspendLayout();
             this.imginfo.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -318,7 +318,6 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main";
             this.Text = "PS3 Dump Checker v";
-            this.Load += new System.EventHandler(this.MainLoad);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainDragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.MainDragEnter);
             this.advbox.ResumeLayout(false);
@@ -336,7 +335,7 @@
 
         #endregion
 
-        private CustomListBox partslist;
+        private PS3DumpChecker.Controls.CustomListBox partslist;
         private System.Windows.Forms.Button checkbtn;
         private System.Windows.Forms.GroupBox advbox;
         private System.Windows.Forms.GroupBox imginfo;
