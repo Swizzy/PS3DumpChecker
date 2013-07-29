@@ -1,10 +1,13 @@
-namespace PS3DumpChecker {
-    using System;
+using System;
 
-    internal sealed class StatusEventArgs : EventArgs {
+namespace PS3DumpChecker
+{
+    internal sealed class StatusEventArgs : EventArgs
+    {
         internal readonly string Status;
 
-        internal StatusEventArgs(string msg) {
+        internal StatusEventArgs(string msg)
+        {
             Status = msg;
         }
     }
