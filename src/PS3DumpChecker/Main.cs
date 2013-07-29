@@ -78,11 +78,17 @@ namespace PS3DumpChecker
                                                                                  });
                 return;
             }
-            partslist.Items.Clear();
-            if (Common.PartList.Keys.Count <= 0)
-                return;
-            foreach (var key in Common.PartList.Keys)
-                partslist.Items.Add(new ListBoxItem(key, Common.PartList[key].Name));
+            try
+            {
+                partslist.Items.Clear();
+                if (Common.PartList.Keys.Count <= 0)
+                    return;
+                foreach (int key in Common.PartList.Keys)
+                    partslist.Items.Add(new ListBoxItem(key, Common.PartList[key].Name));
+            }
+            catch (Exception)
+            {
+            }
         }
 
         private void StatusUpdate(object sender, StatusEventArgs e)
@@ -209,7 +215,9 @@ namespace PS3DumpChecker
                         }
                     }
                 }
-                catch (Exception) { }
+                catch (Exception)
+                {
+                }
             }
             if (Common.Types.Count > 0)
                 checkbtn.Enabled = true;
