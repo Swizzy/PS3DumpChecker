@@ -1,54 +1,47 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Text.RegularExpressions;
+﻿namespace PS3DumpChecker {
+    using System;
+    using System.Collections.Generic;
+    using System.Globalization;
+    using System.Text.RegularExpressions;
 
-namespace PS3DumpChecker
-{
-    internal class Common
-    {
+    internal static class Common {
         internal static readonly Dictionary<long, TypeData> Types = new Dictionary<long, TypeData>();
+        internal static HashCheck Hashes;
         internal static readonly Dictionary<int, PartsObject> PartList = new Dictionary<int, PartsObject>();
 
         public static event EventHandler<StatusEventArgs> StatusUpdate;
 
         public static event EventHandler ListUpdate;
 
-        internal static void SendStatus(string msg)
-        {
-            if (StatusUpdate != null)
+        internal static void SendStatus(string msg) {
+            if(StatusUpdate != null)
                 StatusUpdate(null, new StatusEventArgs(msg));
         }
 
-        internal static byte[] HexToArray(string input)
-        {
-            if (String.IsNullOrEmpty(input))
+        internal static byte[] HexToArray(string input) {
+            if(String.IsNullOrEmpty(input))
                 return null;
-            var ret = new byte[input.Length/2];
-            for (int i = 0; i < input.Length; i += 2)
-                ret[i/2] = Byte.Parse(input.Substring(i, 2), NumberStyles.HexNumber);
+            var ret = new byte[input.Length / 2];
+            for(var i = 0; i < input.Length; i += 2)
+                ret[i / 2] = Byte.Parse(input.Substring(i, 2), NumberStyles.HexNumber);
             return ret;
         }
 
-        internal static void AddItem(int key, PartsObject data)
-        {
+        internal static void AddItem(int key, PartsObject data) {
             PartList.Add(key, data);
             ListUpdate(String.Empty, new EventArgs());
         }
 
-        internal static void AddBad(ref ImgInfo ret)
-        {
+        internal static void AddBad(ref ImgInfo ret) {
             ret.IsOk = false;
             ret.BadCount++;
         }
 
-        public static bool SwapBytes(ref byte[] data)
-        {
-            if ((data.Length%2) != 0)
+        public static bool SwapBytes(ref byte[] data) {
+            if((data.Length % 2) != 0)
                 return false;
-            for (int i = 0; i < data.Length; i += 2)
-            {
-                byte b = data[i];
+            for(var i = 0; i < data.Length; i += 2) {
+                var b = data[i];
                 data[i] = data[i + 1];
                 data[i + 1] = b;
             }
@@ -56,64 +49,56 @@ namespace PS3DumpChecker
             return true;
         }
 
-        public static string GetDataReadable(IEnumerable<byte> data)
-        {
-            string ret = "";
-            int count = 0;
-            foreach (byte b in data)
-            {
+        public static string GetDataReadable(IEnumerable<byte> data) {
+            var ret = "";
+            var count = 0;
+            foreach(var b in data) {
                 ret += String.Format("{0:X2} ", b);
-                if ((count%0x10) == 0 && count > 0x10)
+                if((count % 0x10) == 0 && count > 0x10)
                     ret += Environment.NewLine;
                 count++;
             }
             return ret;
         }
 
-        public static string GetDataReadable(string input)
-        {
-            int count = 0;
+        public static string GetDataReadable(string input) {
+            var count = 0;
             return GetDataReadable(input, ref count);
         }
 
-        public static string GetDataReadable(string input, ref int count)
-        {
-            string ret = "";
-            foreach (char c in input)
-            {
-                if (c.ToString(CultureInfo.InvariantCulture) == " ")
+        public static string GetDataReadable(string input, ref int count) {
+            var ret = "";
+            foreach(var c in input) {
+                if(c.ToString(CultureInfo.InvariantCulture) == " ")
                     continue;
-                if ((count%0x2) != 0)
+                if((count % 0x2) != 0)
                     ret += String.Format("{0} ", c);
                 else
                     ret += String.Format("{0}", c);
-                if ((count%0x20) == 0 && count > 0x20)
+                if((count % 0x20) == 0 && count > 0x20)
                     ret += Environment.NewLine;
                 count++;
             }
             return ret;
         }
 
-        public static string GetDataForTest(IEnumerable<byte> data)
-        {
-            string ret = "";
-            foreach (byte b in data)
+        public static string GetDataForTest(IEnumerable<byte> data) {
+            var ret = "";
+            foreach(var b in data)
                 ret += String.Format("{0:X2}", b);
             return ret;
         }
 
-        public static uint GetLdrSize(ref byte[] data)
-        {
+        public static uint GetLdrSize(ref byte[] data) {
             SwapBytes(ref data);
-            ushort tmpval = BitConverter.ToUInt16(data, 0);
-            uint ret = (uint) tmpval*0x10;
+            var tmpval = BitConverter.ToUInt16(data, 0);
+            var ret = (uint) tmpval * 0x10;
             return ret + 0x40;
         }
 
         #region Nested type: BinCheck
 
-        public struct BinCheck
-        {
+        public struct BinCheck {
             internal readonly bool Asciiout;
             internal readonly string Description;
             internal readonly string Expected;
@@ -121,11 +106,9 @@ namespace PS3DumpChecker
             internal readonly bool IsMulti;
             internal readonly long Offset;
 
-            internal BinCheck(List<MultiBin> expectedList, bool isMulti, string offset, string description,
-                              string asciiout, string expected = "")
-            {
+            internal BinCheck(List<MultiBin> expectedList, bool isMulti, string offset, string description, string asciiout, string expected = "") {
                 IsMulti = isMulti;
-                if (!Int64.TryParse(offset, NumberStyles.HexNumber, CultureInfo.InvariantCulture, out Offset))
+                if(!Int64.TryParse(offset, NumberStyles.HexNumber, CultureInfo.InvariantCulture, out Offset))
                     Offset = 0;
                 ExpectedList = expectedList != null ? new Holder<List<MultiBin>>(expectedList) : null;
                 Expected = Regex.Replace(expected, @"\s+", "");
@@ -138,8 +121,7 @@ namespace PS3DumpChecker
 
         #region Nested type: DataCheck
 
-        public struct DataCheck
-        {
+        public struct DataCheck {
             public int DataKey;
             public long LdrSize;
             public string Name;
@@ -152,8 +134,7 @@ namespace PS3DumpChecker
 
         #region Nested type: ImgInfo
 
-        public struct ImgInfo
-        {
+        public struct ImgInfo {
             internal int BadCount;
             internal string FileName;
             internal bool IsOk;
@@ -167,13 +148,11 @@ namespace PS3DumpChecker
 
         #region Nested type: MultiBin
 
-        public struct MultiBin
-        {
+        public struct MultiBin {
             internal readonly string Expected;
             internal readonly string Id;
 
-            internal MultiBin(string expected, string id)
-            {
+            internal MultiBin(string expected, string id) {
                 Expected = expected;
                 Id = id;
             }
@@ -183,8 +162,7 @@ namespace PS3DumpChecker
 
         #region Nested type: PartsObject
 
-        internal struct PartsObject
-        {
+        internal struct PartsObject {
             internal string ActualString;
             internal string ExpectedString;
             internal string Name;
@@ -195,8 +173,7 @@ namespace PS3DumpChecker
 
         #region Nested type: SKUDataEntry
 
-        internal struct SKUDataEntry
-        {
+        internal struct SKUDataEntry {
             internal uint Offset;
             internal uint Size;
             internal string Type;
@@ -206,8 +183,7 @@ namespace PS3DumpChecker
 
         #region Nested type: SKUEntry
 
-        internal struct SKUEntry
-        {
+        internal struct SKUEntry {
             internal string Data;
             internal string MinVer;
             internal string Name;
@@ -221,13 +197,11 @@ namespace PS3DumpChecker
 
         #region Nested type: StatCheck
 
-        public struct StatCheck
-        {
+        public struct StatCheck {
             internal readonly double High;
             internal readonly double Low;
 
-            internal StatCheck(double low, double high)
-            {
+            internal StatCheck(double low, double high) {
                 Low = low;
                 High = high;
             }
@@ -237,8 +211,7 @@ namespace PS3DumpChecker
 
         #region Nested type: TypeData
 
-        internal struct TypeData
-        {
+        internal struct TypeData {
             internal readonly Holder<Dictionary<string, Holder<BinCheck>>> Bincheck;
             internal readonly Holder<List<DataCheck>> DataCheckList;
             internal readonly Holder<string> Name;
@@ -247,8 +220,7 @@ namespace PS3DumpChecker
             internal readonly Holder<string> StatDescription;
             internal readonly Holder<Dictionary<string, Holder<StatCheck>>> Statlist;
 
-            internal TypeData(bool isnew = true)
-            {
+            internal TypeData(bool isnew = true) {
                 SKUList = new Holder<List<SKUEntry>>(new List<SKUEntry>());
                 SKUDataList = new Holder<List<SKUDataEntry>>(new List<SKUDataEntry>());
                 Statlist = new Holder<Dictionary<string, Holder<StatCheck>>>(new Dictionary<string, Holder<StatCheck>>());
@@ -256,7 +228,7 @@ namespace PS3DumpChecker
                 DataCheckList = new Holder<List<DataCheck>>(new List<DataCheck>());
                 Name = new Holder<string>("");
                 StatDescription = new Holder<string>("");
-                if (isnew)
+                if(isnew)
                     GC.Collect();
             }
         }

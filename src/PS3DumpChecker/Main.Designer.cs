@@ -35,6 +35,8 @@
             this.expdatabox = new System.Windows.Forms.TextBox();
             this.actdatabox = new System.Windows.Forms.TextBox();
             this.imginfo = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.minverbox = new System.Windows.Forms.RichTextBox();
             this.reversed = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.idmatchbox = new System.Windows.Forms.RichTextBox();
@@ -46,10 +48,9 @@
             this.worker = new System.ComponentModel.BackgroundWorker();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.loadConfigurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.update = new System.Windows.Forms.ToolStripMenuItem();
             this.logstate = new System.Windows.Forms.CheckBox();
             this.statuslabel = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.minverbox = new System.Windows.Forms.RichTextBox();
             this.partslist = new PS3DumpChecker.Controls.CustomListBox();
             this.advbox.SuspendLayout();
             this.imginfo.SuspendLayout();
@@ -140,6 +141,26 @@
             this.imginfo.TabStop = false;
             this.imginfo.Text = "Image Information";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(178, 48);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(132, 13);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Lowest downgradeable to:";
+            // 
+            // minverbox
+            // 
+            this.minverbox.ForeColor = System.Drawing.Color.Black;
+            this.minverbox.Location = new System.Drawing.Point(316, 45);
+            this.minverbox.Multiline = false;
+            this.minverbox.Name = "minverbox";
+            this.minverbox.ReadOnly = true;
+            this.minverbox.Size = new System.Drawing.Size(128, 20);
+            this.minverbox.TabIndex = 1;
+            this.minverbox.Text = "N/A";
+            // 
             // reversed
             // 
             this.reversed.ForeColor = System.Drawing.Color.Black;
@@ -227,7 +248,8 @@
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loadConfigurationToolStripMenuItem});
+            this.loadConfigurationToolStripMenuItem,
+            this.update});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(760, 24);
@@ -241,12 +263,22 @@
             this.loadConfigurationToolStripMenuItem.Text = "Load Configuration";
             this.loadConfigurationToolStripMenuItem.Click += new System.EventHandler(this.LoadConfigurationToolStripMenuItemClick);
             // 
+            // update
+            // 
+            this.update.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.update.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.update.Image = global::PS3DumpChecker.Properties.Resources.maj;
+            this.update.Name = "update";
+            this.update.Size = new System.Drawing.Size(28, 20);
+            this.update.Text = "update";
+            this.update.Click += new System.EventHandler(this.UpdateClick);
+            // 
             // logstate
             // 
             this.logstate.AutoSize = true;
             this.logstate.Checked = true;
             this.logstate.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.logstate.Location = new System.Drawing.Point(648, 10);
+            this.logstate.Location = new System.Drawing.Point(626, 7);
             this.logstate.Name = "logstate";
             this.logstate.Size = new System.Drawing.Size(100, 17);
             this.logstate.TabIndex = 5;
@@ -264,26 +296,6 @@
             this.statuslabel.TabIndex = 6;
             this.statuslabel.Text = "STATUS";
             this.statuslabel.Visible = false;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(178, 48);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(132, 13);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Lowest downgradeable to:";
-            // 
-            // minverbox
-            // 
-            this.minverbox.ForeColor = System.Drawing.Color.Black;
-            this.minverbox.Location = new System.Drawing.Point(316, 45);
-            this.minverbox.Multiline = false;
-            this.minverbox.Name = "minverbox";
-            this.minverbox.ReadOnly = true;
-            this.minverbox.Size = new System.Drawing.Size(128, 20);
-            this.minverbox.TabIndex = 1;
-            this.minverbox.Text = "N/A";
             // 
             // partslist
             // 
@@ -358,6 +370,7 @@
         private System.Windows.Forms.Label statuslabel;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.RichTextBox minverbox;
+        private System.Windows.Forms.ToolStripMenuItem update;
     }
 }
 

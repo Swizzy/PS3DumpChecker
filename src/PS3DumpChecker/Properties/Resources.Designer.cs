@@ -79,11 +79,29 @@ namespace PS3DumpChecker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Something went wrong during the download, try again!.
+        /// </summary>
+        internal static string baddwl {
+            get {
+                return ResourceManager.GetString("baddwl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ERROR: Filesize don&apos;t match expected size from the configuration! Please doublecheck your image and configuration!.
         /// </summary>
         internal static string badsize {
             get {
                 return ResourceManager.GetString("badsize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Finished grabbing changelog....
+        /// </summary>
+        internal static string changelogdone {
+            get {
+                return ResourceManager.GetString("changelogdone", resourceCulture);
             }
         }
         
@@ -102,6 +120,42 @@ namespace PS3DumpChecker.Properties {
         internal static string conf_filter {
             get {
                 return ResourceManager.GetString("conf_filter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Downloading latest CFG.
+        /// </summary>
+        internal static string dlinglatestcfg {
+            get {
+                return ResourceManager.GetString("dlinglatestcfg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Downloading changelog....
+        /// </summary>
+        internal static string downloadchangelog {
+            get {
+                return ResourceManager.GetString("downloadchangelog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download completed....
+        /// </summary>
+        internal static string downloadcompleted {
+            get {
+                return ResourceManager.GetString("downloadcompleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ERROR.
+        /// </summary>
+        internal static string error {
+            get {
+                return ResourceManager.GetString("error", resourceCulture);
             }
         }
         
@@ -133,12 +187,12 @@ namespace PS3DumpChecker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Icon logo {
+        internal static System.Drawing.Bitmap maj {
             get {
-                object obj = ResourceManager.GetObject("logo", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
+                object obj = ResourceManager.GetObject("maj", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -148,6 +202,15 @@ namespace PS3DumpChecker.Properties {
         internal static string N_A {
             get {
                 return ResourceManager.GetString("N_A", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No file.
+        /// </summary>
+        internal static string NoFile {
+            get {
+                return ResourceManager.GetString("NoFile", resourceCulture);
             }
         }
         
