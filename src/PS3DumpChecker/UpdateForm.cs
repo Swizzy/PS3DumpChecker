@@ -1,9 +1,12 @@
 ﻿namespace PS3DumpChecker {
     using System;
     using System.ComponentModel;
+    using System.Diagnostics;
     using System.IO;
     using System.Net;
+    using System.Reflection;
     using System.Security.Cryptography;
+    using System.Text;
     using System.Windows.Forms;
     using PS3DumpChecker.Properties;
 
@@ -70,28 +73,13 @@
             SetBtns(true);
         }
 
-        private void CfgDwlCompleted(object sender, RunWorkerCompletedEventArgs e) {
-            if(CheckHash("latest.cfg")) {
-                Program.MainForm.ParseConfig("latest.cfg");
-                MoveFile("latest.cfg", "default.cfg");
-            }
-            else
-                MessageBox.Show(Resources.baddwl);
-            DwlCompleted();
-        }
-
         private void DwlCompleted() {
             statuslbl.Text = Resources.downloadcompleted;
             SetBtns(true);
         }
 
-        private void CfgbtnClick(object sender, EventArgs e) {
-            DownloadFile("latest.cfg");
-        }
-
         private void DownloadFile(string file) {
             SetBtns(false);
-            statuslbl.Text = Resources.dlinglatestcfg;
             dwlbw = new BackgroundWorker();
             switch(file) {
                 case "latest.cfg":
@@ -111,9 +99,18 @@
             dwlbw.RunWorkerAsync(file);
         }
 
+        private void CfgDwlCompleted(object sender, RunWorkerCompletedEventArgs e) {
+            if(CheckHash("latest.cfg")) {
+                Program.MainForm.ParseConfig("latest.cfg");
+                MoveFile("latest.cfg", "default.cfg");
+            }
+            else
+                MessageBox.Show(Resources.baddwl);
+            DwlCompleted();
+        }
+
         private void HashListDwlCompleted(object sender, RunWorkerCompletedEventArgs runWorkerCompletedEventArgs) {
-            if (CheckHash("latest.hashlist"))
-            {
+            if(CheckHash("latest.hashlist")) {
                 Common.Hashes = new HashCheck("latest.hashlist");
                 MoveFile("latest.hashlist", "default.hashlist");
             }
@@ -123,8 +120,27 @@
         }
 
         private void ExeDwlCompleted(object sender, RunWorkerCompletedEventArgs runWorkerCompletedEventArgs) {
+            if (CheckHash("latest.exe")) {
+                var fi = new FileInfo(Path.GetTempPath() + "UpdateHelper.exe");
+                Program.ExtractResource(fi, "PS3DumpChecker.UpdateHelper.exe");
+                var dir = Path.GetDirectoryName(Application.ExecutablePath);
+                if (string.IsNullOrEmpty(dir))
+                    throw new InvalidOperationException();
+                var cproc = Process.GetCurrentProcess();
+                var proc = new Process {
+                                       StartInfo = {
+                                           WorkingDirectory = dir,
+                                           UseShellExecute = false,
+                                           CreateNoWindow = true,
+                                           FileName = fi.FullName,
+                                           Arguments = string.Format("\"{0}\" \"latest.exe\" \"{1}\"", cproc.Id, cproc.MainModule.FileName)
+                                                   }
+                                       };
+                proc.Start();
+                return;
+            }
+            MessageBox.Show(Resources.baddwl);
             DwlCompleted();
-            throw new NotImplementedException();
         }
 
         private static void DwlDoWork(object sender, DoWorkEventArgs e) {
@@ -153,7 +169,7 @@
                 var url = string.Format("{0}/hash.php?file={1}", GetFinalUrl("http://ps3dumpchecker.xeupd.com").TrimEnd(new[] {
                                                                                                                               '/'
                                                                                                                               }), file);
-                var hash = wc.DownloadString(url);
+                var hash = Encoding.UTF8.GetString(wc.DownloadData(url));
                 if(string.IsNullOrEmpty(hash))
                     return false;
                 tmp = new FileStream(file, FileMode.Open);
@@ -172,11 +188,18 @@
             }
         }
 
+        private void CfgbtnClick(object sender, EventArgs e) {
+            statuslbl.Text = Resources.dlinglatestcfg;
+            DownloadFile("latest.cfg");
+        }
+
         private void HashlistbtnClick(object sender, EventArgs e) {
+            statuslbl.Text = Resources.dlinghashlist;
             DownloadFile("latest.hashlist");
         }
 
         private void AppbtnClick(object sender, EventArgs e) {
+            statuslbl.Text = Resources.dlingapp;
             DownloadFile("latest.exe");
         }
     }

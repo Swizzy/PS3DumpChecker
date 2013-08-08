@@ -96,6 +96,7 @@
             this.changelog.Size = new System.Drawing.Size(328, 199);
             this.changelog.TabIndex = 0;
             this.changelog.Text = "";
+            this.changelog.WordWrap = false;
             // 
             // statusstrip
             // 

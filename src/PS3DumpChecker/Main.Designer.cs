@@ -52,6 +52,7 @@
             this.logstate = new System.Windows.Forms.CheckBox();
             this.statuslabel = new System.Windows.Forms.Label();
             this.partslist = new PS3DumpChecker.Controls.CustomListBox();
+            this.loadHashlistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.advbox.SuspendLayout();
             this.imginfo.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -249,7 +250,8 @@
             this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.loadConfigurationToolStripMenuItem,
-            this.update});
+            this.update,
+            this.loadHashlistToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(760, 24);
@@ -311,6 +313,13 @@
             this.partslist.TabIndex = 0;
             this.partslist.SelectedIndexChanged += new System.EventHandler(this.PartslistSelectedIndexChanged);
             // 
+            // loadHashlistToolStripMenuItem
+            // 
+            this.loadHashlistToolStripMenuItem.Name = "loadHashlistToolStripMenuItem";
+            this.loadHashlistToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
+            this.loadHashlistToolStripMenuItem.Text = "Load Hashlist";
+            this.loadHashlistToolStripMenuItem.Click += new System.EventHandler(this.LoadHashlistToolStripMenuItemClick);
+            // 
             // Main
             // 
             this.AllowDrop = true;
@@ -371,6 +380,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.RichTextBox minverbox;
         private System.Windows.Forms.ToolStripMenuItem update;
+        private System.Windows.Forms.ToolStripMenuItem loadHashlistToolStripMenuItem;
     }
 }
 

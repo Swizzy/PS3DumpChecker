@@ -10,12 +10,11 @@
     using System.Text.RegularExpressions;
     using System.Windows.Forms;
     using System.Xml;
-    using Microsoft.Win32;
     using PS3DumpChecker.Properties;
 
     internal sealed partial class Main : Form {
         private static string _version;
-        private readonly string _wrkdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
+        private readonly string _wrkdir = Path.GetDirectoryName(Application.ExecutablePath);
 
         public Main(ICollection<string> args) {
             InitializeComponent();
@@ -32,20 +31,13 @@
             if(fi.Exists && fi.Length > 0)
                 ParseConfig(dir);
             else {
-                ExtractResource(fi, "PS3DumpChecker.config.xml");
+                Program.ExtractResource(fi, "PS3DumpChecker.config.xml");
                 fi = new FileInfo(dir);
                 if(fi.Exists && fi.Length > 0)
                     ParseConfig(dir);
             }
-            dir = "default.hashlist";
-            fi = new FileInfo(dir);
-            if(fi.Exists && fi.Length > 0)
-                Common.Hashes = new HashCheck(dir);
-            else {
-                ExtractResource(fi, "PS3DumpChecker.hashlist.xml");
-                fi = new FileInfo(dir);
-                if(fi.Exists && fi.Length > 0)
-                    Common.Hashes = new HashCheck(dir);
+            if (Program.GetRegSetting("dohashcheck", true)) {
+                DoParseHashList();
             }
             if(args.Count < 1)
                 return;
@@ -58,17 +50,18 @@
             }
         }
 
-        private static bool GetRegSetting(string setting, bool value = false) {
-            var key = Registry.CurrentUser.CreateSubKey("Software");
-            if(key == null)
-                return value;
-            key = key.CreateSubKey("Swizzy");
-            if(key == null)
-                return value;
-            key = key.CreateSubKey("PS3 Dump Checker");
-            if(key == null)
-                return value;
-            return key.GetValue(setting, -1) is int ? (int) key.GetValue(setting, value ? 1 : 0) > 0 : value;
+        public void DoParseHashList() {
+            var dir = "default.hashlist";
+            var fi = new FileInfo(dir);
+            if (fi.Exists && fi.Length > 0)
+                Common.Hashes = new HashCheck(dir);
+            else
+            {
+                Program.ExtractResource(fi, "PS3DumpChecker.hashlist.xml");
+                fi = new FileInfo(dir);
+                if (fi.Exists && fi.Length > 0)
+                    Common.Hashes = new HashCheck(dir);
+            }
         }
 
         private void CommonOnListUpdate(object sender, EventArgs eventArgs) {
@@ -170,14 +163,14 @@
                         statuslabel.Text = res.IsOk ? "OK" : "BAD";
                         statuslabel.ForeColor = res.IsOk ? Color.Green : Color.Red;
                         statuslabel.Visible = true;
-                        if(res.IsOk && File.Exists("patcher.exe") && (GetRegSetting("autopatch") || MessageBox.Show(Resources.autopatchmsg, Resources.autopatch, MessageBoxButtons.YesNoCancel) == DialogResult.Yes)) {
+                        if(res.IsOk && File.Exists("patcher.exe") && (Program.GetRegSetting("autopatch") || MessageBox.Show(Resources.autopatchmsg, Resources.autopatch, MessageBoxButtons.YesNoCancel) == DialogResult.Yes)) {
                             var proc = new Process {
                                                    StartInfo = {
                                                                Arguments = string.Format("\"{0}\"", res.FileName), FileName = "patcher.exe", WorkingDirectory = _wrkdir
                                                                }
                                                    };
                             proc.Start();
-                            if(GetRegSetting("autoexit"))
+                            if (Program.GetRegSetting("autoexit"))
                                 Close();
                         }
                     }
@@ -450,23 +443,36 @@
             }
         }
 
-        private static void ExtractResource(FileInfo fi, string resource) {
-            var toexe = fi.OpenWrite();
-            var fromexe = Assembly.GetExecutingAssembly().GetManifestResourceStream(resource);
-            const int size = 4096;
-            var bytes = new byte[size];
-            int numBytes;
-            while(fromexe != null && (numBytes = fromexe.Read(bytes, 0, size)) > 0)
-                toexe.Write(bytes, 0, numBytes);
-            toexe.Close();
-            if(fromexe != null)
-                fromexe.Close();
-        }
-
         private void UpdateClick(object sender, EventArgs e)
         {
             var tmp = new UpdateForm();
             tmp.ShowDialog();
         }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.F12 | Keys.Control))
+            {
+                var frm = new Settings();
+                frm.ShowDialog();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void LoadHashlistToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            var ofd = new OpenFileDialog
+            {
+                Title = Resources.select_conf,
+                FileName = "Default.hashlist",
+                DefaultExt = "hashlist",
+                Filter = Resources.hashlist_filter,
+                AutoUpgradeEnabled = true
+            };
+            if (ofd.ShowDialog() == DialogResult.OK)
+                Common.Hashes = new HashCheck(ofd.FileName);
+        }
+
     }
 }
