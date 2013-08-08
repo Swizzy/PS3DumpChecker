@@ -147,7 +147,7 @@
 
             #region Hash check
 
-            if(Common.Hashes.Offsets.ContainsKey(data.Length) && Common.Hashes.Offsets[data.Length].Value.Count > 0) {
+            if(Program.GetRegSetting("dohashcheck", true) && Common.Hashes.Offsets.ContainsKey(data.Length) && Common.Hashes.Offsets[data.Length].Value.Count > 0) {
                 Logger.WriteLine("Hash check Started!");
                 foreach(var check in Common.Hashes.Offsets[data.Length].Value) {
                     checkckount++;

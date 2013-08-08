@@ -124,6 +124,24 @@ namespace PS3DumpChecker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Downloading latest PS3 Dump Checker.
+        /// </summary>
+        internal static string dlingapp {
+            get {
+                return ResourceManager.GetString("dlingapp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Downloading latest hashlist....
+        /// </summary>
+        internal static string dlinghashlist {
+            get {
+                return ResourceManager.GetString("dlinghashlist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Downloading latest CFG.
         /// </summary>
         internal static string dlinglatestcfg {
@@ -183,6 +201,15 @@ namespace PS3DumpChecker.Properties {
         internal static string error_noconfig_title {
             get {
                 return ResourceManager.GetString("error_noconfig_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hashlists |*.hashlist|All Files|*.*.
+        /// </summary>
+        internal static string hashlist_filter {
+            get {
+                return ResourceManager.GetString("hashlist_filter", resourceCulture);
             }
         }
         
