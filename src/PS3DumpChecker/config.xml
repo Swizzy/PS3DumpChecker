@@ -416,8 +416,8 @@
     </skulist>
     <skulist name="CECHJxx (DIA-002) datecode: 8B" warn="false" warnmsg="" minver="2.30">
       <skuentry type="idps">07</skuentry>
-      <skuentry type="metldr0">E8 C0</skuentry>
-      <skuentry type="metldr1">0E 88</skuentry>
+      <skuentry type="metldr0">E8 E0</skuentry>
+      <skuentry type="metldr1">0E 8A</skuentry>
       <skuentry type="bootldr0">2E F4</skuentry>
       <skuentry type="bootldr1">2E F4</skuentry>
       <skuentry type="bootldrsize">2EF80</skuentry>
