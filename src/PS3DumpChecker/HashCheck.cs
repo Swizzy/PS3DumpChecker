@@ -59,7 +59,7 @@
                             //fsize = xml["size"];
                             //long.TryParse(fsize, NumberStyles.AllowHexSpecifier, null, out tmp.Size);
                             xml.Read();
-                            Hashlist[type].Value.Add(xml.Value.ToUpper(), tmp);
+                            Hashlist[type].Value.Add(xml.Value.ToUpper().Trim(), tmp);
                             break;
                     }
                 }
@@ -84,16 +84,15 @@
             return Hashlist[type].Value.ContainsKey(hash) ? Hashlist[type].Value[hash].Name : "";
         }
 
-        private static bool SwapBytes(ref byte[] data) {
+        private static void SwapBytes(ref byte[] data) {
             if((data.Length % 2) != 0)
-                return false;
+                return;
             for(var i = 0; i < data.Length; i += 2) {
                 var b = data[i];
                 data[i] = data[i + 1];
                 data[i + 1] = b;
             }
             GC.Collect();
-            return true;
         }
 
         #region Nested type: HashListObject

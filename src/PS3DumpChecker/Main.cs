@@ -36,9 +36,8 @@
                 if(fi.Exists && fi.Length > 0)
                     ParseConfig(dir);
             }
-            if (Program.GetRegSetting("dohashcheck", true)) {
+            if(Program.GetRegSetting("dohashcheck", true))
                 DoParseHashList();
-            }
             if(args.Count < 1)
                 return;
             foreach(var s in args) {
@@ -53,13 +52,12 @@
         public void DoParseHashList() {
             var dir = "default.hashlist";
             var fi = new FileInfo(dir);
-            if (fi.Exists && fi.Length > 0)
+            if(fi.Exists && fi.Length > 0)
                 Common.Hashes = new HashCheck(dir);
-            else
-            {
+            else {
                 Program.ExtractResource(fi, "PS3DumpChecker.hashlist.xml");
                 fi = new FileInfo(dir);
-                if (fi.Exists && fi.Length > 0)
+                if(fi.Exists && fi.Length > 0)
                     Common.Hashes = new HashCheck(dir);
             }
         }
@@ -170,7 +168,7 @@
                                                                }
                                                    };
                             proc.Start();
-                            if (Program.GetRegSetting("autoexit"))
+                            if(Program.GetRegSetting("autoexit"))
                                 Close();
                         }
                     }
@@ -443,36 +441,31 @@
             }
         }
 
-        private void UpdateClick(object sender, EventArgs e)
-        {
+        private void UpdateClick(object sender, EventArgs e) {
             var tmp = new UpdateForm();
             tmp.ShowDialog();
         }
 
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-        {
-            if (keyData == (Keys.F12 | Keys.Control))
-            {
-                var frm = new Settings();
-                frm.ShowDialog();
-                return true;
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData) {
+            switch(keyData) {
+                case (Keys.F12 | Keys.Control):
+                    var frm = new Settings();
+                    frm.ShowDialog();
+                    return true;
+                case (Keys.F1 | Keys.Control):
+                    Program.HasAcceptedTerms(true);
+                    return true;
+                default:
+                    return base.ProcessCmdKey(ref msg, keyData);
             }
-            return base.ProcessCmdKey(ref msg, keyData);
         }
 
-        private void LoadHashlistToolStripMenuItemClick(object sender, EventArgs e)
-        {
-            var ofd = new OpenFileDialog
-            {
-                Title = Resources.select_conf,
-                FileName = "Default.hashlist",
-                DefaultExt = "hashlist",
-                Filter = Resources.hashlist_filter,
-                AutoUpgradeEnabled = true
-            };
-            if (ofd.ShowDialog() == DialogResult.OK)
+        private void LoadHashlistToolStripMenuItemClick(object sender, EventArgs e) {
+            var ofd = new OpenFileDialog {
+                                         Title = Resources.select_conf, FileName = "Default.hashlist", DefaultExt = "hashlist", Filter = Resources.hashlist_filter, AutoUpgradeEnabled = true
+                                         };
+            if(ofd.ShowDialog() == DialogResult.OK)
                 Common.Hashes = new HashCheck(ofd.FileName);
         }
-
     }
 }

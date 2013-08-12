@@ -250,7 +250,10 @@
     <hash name="3.70/3.72/3.73 CEX" size="240">
       3947F77FD2E2F997E1E03823C446FB60
     </hash>
-    <hash name="3.66 CEX/DEX" size="240">
+    <hash name="3.66 CEX" size="240">
+      E056B25601DE15B90EFCF56CF9B3339F
+    </hash>
+    <hash name="3.66 DEX" size="240">
       DE8E6C172782047479638C1EFEAF0F51
     </hash>
     <hash name="3.65 CEX" size="240">

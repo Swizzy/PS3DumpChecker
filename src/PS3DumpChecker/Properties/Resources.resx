@@ -160,34 +160,54 @@
   <data name="maj" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\maj.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="downloadchangelog">
-    <value xml:space="preserve">Downloading changelog...</value>
+  <data name="downloadchangelog" xml:space="preserve">
+    <value>Downloading changelog...</value>
   </data>
-  <data name="changelogdone">
-    <value xml:space="preserve">Finished grabbing changelog...</value>
+  <data name="changelogdone" xml:space="preserve">
+    <value>Finished grabbing changelog...</value>
   </data>
-  <data name="downloadcompleted">
-    <value xml:space="preserve">Download completed...</value>
+  <data name="downloadcompleted" xml:space="preserve">
+    <value>Download completed...</value>
   </data>
-  <data name="error">
-    <value xml:space="preserve">ERROR</value>
+  <data name="error" xml:space="preserve">
+    <value>ERROR</value>
   </data>
-  <data name="baddwl">
-    <value xml:space="preserve">Something went wrong during the download, try again!</value>
+  <data name="baddwl" xml:space="preserve">
+    <value>Something went wrong during the download, try again!</value>
   </data>
-  <data name="dlinglatestcfg">
-    <value xml:space="preserve">Downloading latest CFG</value>
+  <data name="dlinglatestcfg" xml:space="preserve">
+    <value>Downloading latest CFG</value>
   </data>
-  <data name="NoFile">
-    <value xml:space="preserve">No file</value>
+  <data name="NoFile" xml:space="preserve">
+    <value>No file</value>
   </data>
-  <data name="dlinghashlist">
-    <value xml:space="preserve">Downloading latest hashlist...</value>
+  <data name="dlinghashlist" xml:space="preserve">
+    <value>Downloading latest hashlist...</value>
   </data>
-  <data name="dlingapp">
-    <value xml:space="preserve">Downloading latest PS3 Dump Checker</value>
+  <data name="dlingapp" xml:space="preserve">
+    <value>Downloading latest PS3 Dump Checker</value>
   </data>
-  <data name="hashlist_filter">
-    <value xml:space="preserve">Hashlists |*.hashlist|All Files|*.*</value>
+  <data name="hashlist_filter" xml:space="preserve">
+    <value>Hashlists |*.hashlist|All Files|*.*</value>
+  </data>
+  <data name="AcceptTermsMessage" xml:space="preserve">
+    <value>By using this software you understand that the author (Swizzy) is in no way responsible for ANY damage caused to your console...
+
+You also acknowledge that you understand that this tool is not a 100% validation of your dumps, it's only meant to make it easier to check wether or not it's worth looking closer at or not...
+
+Did you read these terms/conditions?</value>
+  </data>
+  <data name="AcceptTermsMessageReversed" xml:space="preserve">
+    <value>By using this software you understand that the author (Swizzy) is in no way responsible for ANY damage caused to your console...
+
+You also acknowledge that you understand that this tool is not a 100% validation of your dumps, it's only meant to make it easier to check wether or not it's worth looking closer at or not...
+
+Did you skip reading these terms/conditions?</value>
+  </data>
+  <data name="AcceptTermsTitle" xml:space="preserve">
+    <value>Can you read?</value>
+  </data>
+  <data name="DisclaimerFailedMessage" xml:space="preserve">
+    <value>Ok... You can't read can you? well then... better luck next time!</value>
   </data>
 </root>
