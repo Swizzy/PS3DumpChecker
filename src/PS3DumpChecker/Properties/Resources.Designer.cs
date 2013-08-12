@@ -61,6 +61,41 @@ namespace PS3DumpChecker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to By using this software you understand that the author (Swizzy) is in no way responsible for ANY damage caused to your console...
+        ///
+        ///You also acknowledge that you understand that this tool is not a 100% validation of your dumps, it&apos;s only meant to make it easier to check wether or not it&apos;s worth looking closer at or not...
+        ///
+        ///Did you read these terms/conditions?.
+        /// </summary>
+        internal static string AcceptTermsMessage {
+            get {
+                return ResourceManager.GetString("AcceptTermsMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to By using this software you understand that the author (Swizzy) is in no way responsible for ANY damage caused to your console...
+        ///
+        ///You also acknowledge that you understand that this tool is not a 100% validation of your dumps, it&apos;s only meant to make it easier to check wether or not it&apos;s worth looking closer at or not...
+        ///
+        ///Did you skip reading these terms/conditions?.
+        /// </summary>
+        internal static string AcceptTermsMessageReversed {
+            get {
+                return ResourceManager.GetString("AcceptTermsMessageReversed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Can you read?.
+        /// </summary>
+        internal static string AcceptTermsTitle {
+            get {
+                return ResourceManager.GetString("AcceptTermsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Patch Image?.
         /// </summary>
         internal static string autopatch {
@@ -120,6 +155,15 @@ namespace PS3DumpChecker.Properties {
         internal static string conf_filter {
             get {
                 return ResourceManager.GetString("conf_filter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ok... You can&apos;t read can you? well then... better luck next time!.
+        /// </summary>
+        internal static string DisclaimerFailedMessage {
+            get {
+                return ResourceManager.GetString("DisclaimerFailedMessage", resourceCulture);
             }
         }
         
