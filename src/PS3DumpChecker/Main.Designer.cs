@@ -13,6 +13,7 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
+            Microsoft.Win32.SystemEvents.DisplaySettingsChanged -= MainLoad;
             if (disposing && (components != null))
             {
                 components.Dispose();
@@ -49,10 +50,10 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.loadConfigurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.update = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadHashlistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logstate = new System.Windows.Forms.CheckBox();
             this.statuslabel = new System.Windows.Forms.Label();
             this.partslist = new PS3DumpChecker.Controls.CustomListBox();
-            this.loadHashlistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.advbox.SuspendLayout();
             this.imginfo.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -78,16 +79,16 @@
             this.advbox.Controls.Add(this.actdatabox);
             this.advbox.Location = new System.Drawing.Point(298, 167);
             this.advbox.Name = "advbox";
-            this.advbox.Size = new System.Drawing.Size(450, 329);
+            this.advbox.Size = new System.Drawing.Size(450, 281);
             this.advbox.TabIndex = 2;
             this.advbox.TabStop = false;
             this.advbox.Text = "Advanced View";
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 195);
+            this.label4.Location = new System.Drawing.Point(6, 147);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 13);
             this.label4.TabIndex = 3;
@@ -95,6 +96,8 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 16);
             this.label3.Name = "label3";
@@ -104,20 +107,21 @@
             // 
             // expdatabox
             // 
-            this.expdatabox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.expdatabox.Location = new System.Drawing.Point(9, 32);
+            this.expdatabox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.expdatabox.Location = new System.Drawing.Point(6, 32);
             this.expdatabox.Multiline = true;
             this.expdatabox.Name = "expdatabox";
             this.expdatabox.ReadOnly = true;
             this.expdatabox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.expdatabox.Size = new System.Drawing.Size(435, 160);
+            this.expdatabox.Size = new System.Drawing.Size(438, 112);
             this.expdatabox.TabIndex = 2;
             // 
             // actdatabox
             // 
-            this.actdatabox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.actdatabox.Location = new System.Drawing.Point(6, 211);
+            this.actdatabox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.actdatabox.Location = new System.Drawing.Point(6, 163);
             this.actdatabox.Multiline = true;
             this.actdatabox.Name = "actdatabox";
             this.actdatabox.ReadOnly = true;
@@ -227,7 +231,7 @@
             this.statusStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.status});
-            this.statusStrip.Location = new System.Drawing.Point(0, 606);
+            this.statusStrip.Location = new System.Drawing.Point(0, 549);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(760, 22);
             this.statusStrip.SizingGrip = false;
@@ -275,6 +279,13 @@
             this.update.Text = "update";
             this.update.Click += new System.EventHandler(this.UpdateClick);
             // 
+            // loadHashlistToolStripMenuItem
+            // 
+            this.loadHashlistToolStripMenuItem.Name = "loadHashlistToolStripMenuItem";
+            this.loadHashlistToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
+            this.loadHashlistToolStripMenuItem.Text = "Load Hashlist";
+            this.loadHashlistToolStripMenuItem.Click += new System.EventHandler(this.LoadHashlistToolStripMenuItemClick);
+            // 
             // logstate
             // 
             this.logstate.AutoSize = true;
@@ -292,12 +303,11 @@
             this.statuslabel.AutoSize = true;
             this.statuslabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statuslabel.ForeColor = System.Drawing.Color.Black;
-            this.statuslabel.Location = new System.Drawing.Point(298, 499);
+            this.statuslabel.Location = new System.Drawing.Point(298, 451);
             this.statuslabel.Name = "statuslabel";
             this.statuslabel.Size = new System.Drawing.Size(354, 91);
             this.statuslabel.TabIndex = 6;
             this.statuslabel.Text = "STATUS";
-            this.statuslabel.Visible = false;
             // 
             // partslist
             // 
@@ -308,17 +318,10 @@
             this.partslist.Location = new System.Drawing.Point(12, 33);
             this.partslist.Name = "partslist";
             this.partslist.ScrollAlwaysVisible = true;
-            this.partslist.Size = new System.Drawing.Size(280, 557);
+            this.partslist.Size = new System.Drawing.Size(280, 500);
             this.partslist.Sorted = true;
             this.partslist.TabIndex = 0;
             this.partslist.SelectedIndexChanged += new System.EventHandler(this.PartslistSelectedIndexChanged);
-            // 
-            // loadHashlistToolStripMenuItem
-            // 
-            this.loadHashlistToolStripMenuItem.Name = "loadHashlistToolStripMenuItem";
-            this.loadHashlistToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
-            this.loadHashlistToolStripMenuItem.Text = "Load Hashlist";
-            this.loadHashlistToolStripMenuItem.Click += new System.EventHandler(this.LoadHashlistToolStripMenuItemClick);
             // 
             // Main
             // 
@@ -326,7 +329,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
-            this.ClientSize = new System.Drawing.Size(760, 628);
+            this.ClientSize = new System.Drawing.Size(760, 571);
             this.Controls.Add(this.statuslabel);
             this.Controls.Add(this.logstate);
             this.Controls.Add(this.statusStrip);
@@ -337,8 +340,10 @@
             this.Controls.Add(this.partslist);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "Main";
             this.Text = "PS3 Dump Checker v";
+            this.Load += new System.EventHandler(this.MainLoad);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainDragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.MainDragEnter);
             this.advbox.ResumeLayout(false);

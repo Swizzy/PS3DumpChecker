@@ -10,7 +10,7 @@
     using System.Text.RegularExpressions;
     using System.Windows.Forms;
     using System.Xml;
-    using PS3DumpChecker.Properties;
+    using Properties;
 
     internal sealed partial class Main : Form {
         private static string _version;
@@ -26,15 +26,14 @@
             Icon = Program.AppIcon;
             if(_wrkdir != null && Directory.Exists(_wrkdir))
                 Directory.SetCurrentDirectory(_wrkdir);
-            var dir = "default.cfg";
-            var fi = new FileInfo(dir);
+            var fi = new FileInfo("default.cfg");
             if(fi.Exists && fi.Length > 0)
-                ParseConfig(dir);
+                ParseConfig("default.cfg");
             else {
                 Program.ExtractResource(fi, "PS3DumpChecker.config.xml");
-                fi = new FileInfo(dir);
+                fi = new FileInfo("default.cfg");
                 if(fi.Exists && fi.Length > 0)
-                    ParseConfig(dir);
+                    ParseConfig("default.cfg");
             }
             if(Program.GetRegSetting("dohashcheck", true))
                 DoParseHashList();
@@ -47,18 +46,18 @@
                     return;
                 StartCheck(s);
             }
+            Microsoft.Win32.SystemEvents.DisplaySettingsChanged += MainLoad;
         }
 
         public void DoParseHashList() {
-            var dir = "default.hashlist";
-            var fi = new FileInfo(dir);
+            var fi = new FileInfo("default.hashlist");
             if(fi.Exists && fi.Length > 0)
-                Common.Hashes = new HashCheck(dir);
+                Common.Hashes = new HashCheck("default.hashlist");
             else {
                 Program.ExtractResource(fi, "PS3DumpChecker.hashlist.xml");
-                fi = new FileInfo(dir);
+                fi = new FileInfo("default.hashlist");
                 if(fi.Exists && fi.Length > 0)
-                    Common.Hashes = new HashCheck(dir);
+                    Common.Hashes = new HashCheck("default.hashlist");
             }
         }
 
@@ -76,7 +75,8 @@
                 foreach(var key in Common.PartList.Keys)
                     partslist.Items.Add(new ListBoxItem(key, Common.PartList[key].Name));
             }
-            catch(Exception) {
+            catch
+            {
             }
         }
 
@@ -173,7 +173,8 @@
                         }
                     }
                 }
-                catch(Exception) {
+                catch
+                {
                 }
             }
             if(Common.Types.Count > 0)
@@ -433,11 +434,8 @@
                     ParseConfig(s);
                 else if(s.EndsWith(".hashlist", StringComparison.CurrentCultureIgnoreCase))
                     Common.Hashes = new HashCheck(s);
-                else {
-                    if(worker.IsBusy)
-                        return;
+                else 
                     StartCheck(s);
-                }
             }
         }
 
@@ -466,6 +464,20 @@
                                          };
             if(ofd.ShowDialog() == DialogResult.OK)
                 Common.Hashes = new HashCheck(ofd.FileName);
+        }
+
+        private void MainLoad(object sender, EventArgs e)
+        {
+            if (Screen.FromControl(this).Bounds.Height >= Height)
+                return;
+            var diff = Height - Screen.FromControl(this).Bounds.Height;
+            Height = Height - diff - 45;
+            expdatabox.Height = expdatabox.Height - diff;
+            actdatabox.Height = actdatabox.Height - diff;
+            actdatabox.Location = new Point(actdatabox.Location.X, actdatabox.Location.Y + diff);
+            statuslabel.Location = new Point(statuslabel.Location.X, statuslabel.Location.Y + diff - 23);
+            statuslabel.Font = new Font(statuslabel.Font.FontFamily, 30, FontStyle.Bold);
+            advbox.Height = advbox.Height - diff - 10;
         }
     }
 }
