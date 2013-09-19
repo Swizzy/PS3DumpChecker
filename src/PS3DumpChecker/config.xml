@@ -189,6 +189,14 @@
       <skuentry type="bootldr1">2A 37</skuentry>
       <skuentry type="bootldrsize">2A3B0</skuentry>
     </skulist>
+    <skulist name="CECHCxx (COK-002)" warn="false" warnmsg="" minver="1.00">
+      <skuentry type="idps">03</skuentry>
+      <skuentry type="metldr0">E7 B0</skuentry>
+      <skuentry type="metldr1">0E 77</skuentry>
+      <skuentry type="bootldr0">2E 8C</skuentry>
+      <skuentry type="bootldr1">2E 8C</skuentry>
+      <skuentry type="bootldrsize">2E900</skuentry>
+    </skulist>
     <skulist name="CECHGxx (SEM-001)" warn="false" warnmsg="" minver="1.90">
       <skuentry type="idps">05</skuentry>
       <skuentry type="metldr0">E7 B0</skuentry>
