@@ -232,7 +232,10 @@
     </hash>
   </type>
   <type name="PKG">
-    <hash name="4.46 CEX (From Image)" size="240">
+    <hash name="4.46 CEX" size="240">
+      76A2B8344262EB0AC708B5DA2434C38F
+    </hash>
+    <hash name="4.46 CEX" size="240">
       1EFAC1E0C28112353D188A00EC92718B
     </hash>
     <hash name="4.46 CEX" size="240">
