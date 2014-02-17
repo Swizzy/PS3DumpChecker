@@ -1,3 +1,5 @@
+Build 322 2014-02-17:
+ - Fixed: The app can now properly download itself from github (my bad!)
 Build 319 2014-02-17:
  - Added: Auto download the latest hashlist/cfg automatically on load
  - Changed: Now using Github as the update server instead... (easier for me to maintain)
