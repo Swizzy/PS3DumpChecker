@@ -61,3 +61,11 @@
 #*.PDF   diff=astextplain
 #*.rtf   diff=astextplain
 #*.RTF   diff=astextplain
+
+##################################################
+# Don't modify our latest compiled files at all! #
+##################################################
+*.exe binary
+*.cfg binary
+*.hashlist binary
+changelog text eol=crlf #make it always be Windows format so it looks ok in the textbox...
