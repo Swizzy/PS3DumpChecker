@@ -10,10 +10,10 @@
   </offsets>
   <type name="ROS">
     <hash name="4.55 CEX" size="6FFFE0">
-      04DA9481A201B88F8ECECDFE685C576B <!-- Bogus MD5 HASH -->
+      04DA9481A201B88F8ECECDFE685C576B
     </hash>
     <hash name="4.53 CEX" size="6FFFE0">
-      F67348B1A1FC69236051584AAFA45DBD <!-- Bogus MD5 HASH -->
+      F67348B1A1FC69236051584AAFA45DBD
     </hash>
     <hash name="4.50 CEX" size="6FFFE0">
       3B84AB0FA2C9AB1C108B508B0F419639

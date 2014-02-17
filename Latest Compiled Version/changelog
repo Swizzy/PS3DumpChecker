@@ -1,3 +1,5 @@
+Build 
+ - Fixed: Hash checking of the app is now done correctly :)
 Build 325 2014-02-17:
  - Fixed: Error beeing shown while checking for app updates then the file beeing downloaded anyways... maybe i need more sleep?
 Build 323 2014-02-17:
