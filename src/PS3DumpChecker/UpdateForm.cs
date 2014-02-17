@@ -153,7 +153,7 @@
                 wc.DownloadFile(url, file);
             }
             catch(WebException ex) {
-                MessageBox.Show(((HttpWebResponse) ex.Response).StatusDescription, Resources.error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(((HttpWebResponse) ex.Response).StatusDescription, Resources.httperror, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -162,11 +162,12 @@
             File.Move(src, target);
         }
 
-        private static bool CheckHash(string file) {
+        private static bool CheckHash(string file, string hfile = null) {
             FileStream tmp = null;
             try {
                 var wc = new WebClient();
-                var hfile = file.Equals("latest.exe", StringComparison.CurrentCultureIgnoreCase) ? "PS3DumpChecker.exe" : string.Format("default{0}", file.Substring(file.LastIndexOf('.')));
+                if(string.IsNullOrEmpty(hfile))
+                    hfile = file.Equals("latest.exe", StringComparison.CurrentCultureIgnoreCase) ? "PS3DumpChecker.exe" : string.Format("default{0}", file.Substring(file.LastIndexOf('.')));
                 var url = GetFinalUrl(string.Format("{0}/{1}.md5", "https://github.com/Swizzy/PS3DumpChecker/raw/master/Latest%20Compiled%20Version", hfile));
                 var hash = wc.DownloadString(url);
                 if(string.IsNullOrEmpty(hash))
@@ -180,7 +181,7 @@
                 return real.Equals(hash, StringComparison.CurrentCultureIgnoreCase);
             }
             catch(WebException ex) {
-                MessageBox.Show(((HttpWebResponse) ex.Response).StatusDescription, Resources.error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(((HttpWebResponse) ex.Response).StatusDescription, Resources.httperror, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             finally {
@@ -205,7 +206,7 @@
 
         private void AppbtnClick(object sender, EventArgs e) {
             try {
-                if(CheckHash(Assembly.GetAssembly(typeof(UpdateForm)).CodeBase))
+                if(CheckHash(Assembly.GetAssembly(typeof(UpdateForm)).CodeBase, "PS3DumpChecker.exe"))
                     return;
             }
             catch(Exception) {

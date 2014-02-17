@@ -1,3 +1,5 @@
+Build 325 2014-02-17:
+ - Fixed: Error beeing shown while checking for app updates then the file beeing downloaded anyways... maybe i need more sleep?
 Build 323 2014-02-17:
  - Fixed: AutoDLHashlist now downloads the hashlist and not the cfg (woops!)
  - Added: Before downloading any file an attempt will be made to check if the current file is the same as the online one, if it is... then it'll be ignored...

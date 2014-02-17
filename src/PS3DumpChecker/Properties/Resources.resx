@@ -210,4 +210,7 @@ Did you skip reading these terms/conditions?</value>
   <data name="DisclaimerFailedMessage" xml:space="preserve">
     <value>Ok... You can't read can you? well then... better luck next time!</value>
   </data>
+  <data name="httperror" xml:space="preserve">
+    <value>HTTP ERROR</value>
+  </data>
 </root>
