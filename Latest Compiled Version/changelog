@@ -1,3 +1,8 @@
+Build 319 2014-02-17:
+ - Added: Auto download the latest hashlist/cfg automatically on load
+ - Changed: Now using Github as the update server instead... (easier for me to maintain)
+ - Updated: The embedded cfg/hashlist are updated as all other builds before (to the latest one today)
+ - Removed: I've removed the TRVK_PRG# and TRVK_PKG# hashes from the list, they're quite useless anyways ;)
 Build 305 2013-08-20:
  - Added: Upon getting a smaller screen height of 600 pixels it'll now resize the window to fit...
 Build 304 2013-08-12:

@@ -32,6 +32,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.autoexit = new System.Windows.Forms.CheckBox();
             this.dohashcheck = new System.Windows.Forms.CheckBox();
+            this.AutoDLcfg = new System.Windows.Forms.CheckBox();
+            this.AutoDLhashlist = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // autopatch
@@ -49,9 +51,9 @@
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button1.Location = new System.Drawing.Point(12, 81);
+            this.button1.Location = new System.Drawing.Point(12, 127);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(139, 23);
+            this.button1.Size = new System.Drawing.Size(175, 23);
             this.button1.TabIndex = 1;
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = true;
@@ -77,13 +79,35 @@
             this.dohashcheck.Text = "Enable Hash Checks";
             this.dohashcheck.UseVisualStyleBackColor = true;
             // 
+            // AutoDLcfg
+            // 
+            this.AutoDLcfg.AutoSize = true;
+            this.AutoDLcfg.Location = new System.Drawing.Point(12, 81);
+            this.AutoDLcfg.Name = "AutoDLcfg";
+            this.AutoDLcfg.Size = new System.Drawing.Size(153, 17);
+            this.AutoDLcfg.TabIndex = 0;
+            this.AutoDLcfg.Text = "Enable Auto cfg Download";
+            this.AutoDLcfg.UseVisualStyleBackColor = true;
+            // 
+            // AutoDLhashlist
+            // 
+            this.AutoDLhashlist.AutoSize = true;
+            this.AutoDLhashlist.Location = new System.Drawing.Point(12, 104);
+            this.AutoDLhashlist.Name = "AutoDLhashlist";
+            this.AutoDLhashlist.Size = new System.Drawing.Size(175, 17);
+            this.AutoDLhashlist.TabIndex = 0;
+            this.AutoDLhashlist.Text = "Enable Auto Hashlist Download";
+            this.AutoDLhashlist.UseVisualStyleBackColor = true;
+            // 
             // Settings
             // 
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(163, 116);
+            this.ClientSize = new System.Drawing.Size(199, 162);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.AutoDLhashlist);
+            this.Controls.Add(this.AutoDLcfg);
             this.Controls.Add(this.dohashcheck);
             this.Controls.Add(this.autoexit);
             this.Controls.Add(this.autopatch);
@@ -102,5 +126,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox autoexit;
         private System.Windows.Forms.CheckBox dohashcheck;
+        private System.Windows.Forms.CheckBox AutoDLcfg;
+        private System.Windows.Forms.CheckBox AutoDLhashlist;
     }
 }

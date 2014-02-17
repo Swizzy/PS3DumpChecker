@@ -4,9 +4,7 @@
     using System.Diagnostics;
     using System.IO;
     using System.Net;
-    using System.Reflection;
     using System.Security.Cryptography;
-    using System.Text;
     using System.Windows.Forms;
     using PS3DumpChecker.Properties;
 
@@ -46,7 +44,7 @@
 
         private void BWDoWork(object sender, DoWorkEventArgs e) {
             try {
-                var url = string.Format("{0}/changelog", GetFinalUrl("http://ps3dumpchecker.xeupd.com"));
+                var url = GetFinalUrl("https://github.com/Swizzy/PS3DumpChecker/raw/master/Latest%20Compiled%20Version/changelog");
                 var wc = new WebClient();
                 e.Result = wc.DownloadString(url);
                 if(string.IsNullOrEmpty(e.Result as string))
@@ -122,7 +120,7 @@
         private void ExeDwlCompleted(object sender, RunWorkerCompletedEventArgs runWorkerCompletedEventArgs) {
             if (CheckHash("latest.exe")) {
                 var fi = new FileInfo(Path.GetTempPath() + "UpdateHelper.exe");
-                Program.ExtractResource(fi, "PS3DumpChecker.UpdateHelper.exe");
+                Program.ExtractResource(fi, "UpdateHelper.exe", false);
                 var dir = Path.GetDirectoryName(Application.ExecutablePath);
                 if (string.IsNullOrEmpty(dir))
                     throw new InvalidOperationException();
@@ -148,7 +146,8 @@
                 var file = e.Argument as string;
                 if(file == null)
                     throw new ArgumentNullException(Resources.NoFile, new Exception(Resources.NoFile));
-                var url = string.Format("{0}/{1}", GetFinalUrl("http://ps3dumpchecker.xeupd.com"), file);
+                var hfile = file.Equals("latest.exe?raw=true", StringComparison.CurrentCultureIgnoreCase) ? "PS3DumpChecker.exe" : string.Format("default{0}", file.Substring(file.LastIndexOf('.')));
+                var url = GetFinalUrl(string.Format("{0}/{1}", "https://github.com/Swizzy/PS3DumpChecker/raw/master/Latest%20Compiled%20Version", hfile));
                 var wc = new WebClient();
                 wc.DownloadFile(url, file);
             }
@@ -166,16 +165,17 @@
             FileStream tmp = null;
             try {
                 var wc = new WebClient();
-                var url = string.Format("{0}/hash.php?file={1}", GetFinalUrl("http://ps3dumpchecker.xeupd.com").TrimEnd(new[] {
-                                                                                                                              '/'
-                                                                                                                              }), file);
-                var hash = Encoding.UTF8.GetString(wc.DownloadData(url));
+                var hfile = file.Equals("latest.exe", StringComparison.CurrentCultureIgnoreCase) ? "PS3DumpChecker.exe" : string.Format("default{0}", file.Substring(file.LastIndexOf('.')));
+                var url = GetFinalUrl(string.Format("{0}/{1}.md5", "https://github.com/Swizzy/PS3DumpChecker/raw/master/Latest%20Compiled%20Version", hfile));
+                var hash = wc.DownloadString(url);
                 if(string.IsNullOrEmpty(hash))
                     return false;
                 tmp = new FileStream(file, FileMode.Open);
                 var real = "";
-                foreach(var b in MD5.Create().ComputeHash(tmp))
+                var thash = MD5.Create().ComputeHash(tmp);
+                foreach(var b in thash)
                     real += b.ToString("X2");
+                tmp.Close();
                 return real.Equals(hash, StringComparison.CurrentCultureIgnoreCase);
             }
             catch(WebException ex) {
@@ -188,12 +188,12 @@
             }
         }
 
-        private void CfgbtnClick(object sender, EventArgs e) {
+        public void CfgbtnClick(object sender, EventArgs e) {
             statuslbl.Text = Resources.dlinglatestcfg;
             DownloadFile("latest.cfg");
         }
 
-        private void HashlistbtnClick(object sender, EventArgs e) {
+        public void HashlistbtnClick(object sender, EventArgs e) {
             statuslbl.Text = Resources.dlinghashlist;
             DownloadFile("latest.hashlist");
         }

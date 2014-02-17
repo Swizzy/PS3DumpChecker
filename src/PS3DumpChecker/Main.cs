@@ -15,6 +15,7 @@
     internal sealed partial class Main : Form {
         private static string _version;
         private readonly string _wrkdir = Path.GetDirectoryName(Application.ExecutablePath);
+        private UpdateForm _updateForm = new UpdateForm();
 
         public Main(ICollection<string> args) {
             InitializeComponent();
@@ -24,19 +25,24 @@
             _version = string.Format("PS3 Dump Checker v{0}.{1} (Build: {2})", app.GetName().Version.Major, app.GetName().Version.Minor, app.GetName().Version.Build);
             Text = _version;
             Icon = Program.AppIcon;
-            if(_wrkdir != null && Directory.Exists(_wrkdir))
+            if (!string.IsNullOrEmpty(_wrkdir) && Directory.Exists(_wrkdir))
                 Directory.SetCurrentDirectory(_wrkdir);
+            if(Program.GetRegSetting("AutoDLcfg"))
+                _updateForm.CfgbtnClick(null, null);
             var fi = new FileInfo("default.cfg");
             if(fi.Exists && fi.Length > 0)
                 ParseConfig("default.cfg");
             else {
-                Program.ExtractResource(fi, "PS3DumpChecker.config.xml");
+                Program.ExtractResource(fi, "config.xml", false);
                 fi = new FileInfo("default.cfg");
                 if(fi.Exists && fi.Length > 0)
                     ParseConfig("default.cfg");
             }
-            if(Program.GetRegSetting("dohashcheck", true))
+            if(Program.GetRegSetting("dohashcheck", true)) {
+                if (Program.GetRegSetting("AutoDLhashlist"))
+                    _updateForm.CfgbtnClick(null, null);
                 DoParseHashList();
+            }
             if(args.Count < 1)
                 return;
             foreach(var s in args) {
@@ -54,7 +60,7 @@
             if(fi.Exists && fi.Length > 0)
                 Common.Hashes = new HashCheck("default.hashlist");
             else {
-                Program.ExtractResource(fi, "PS3DumpChecker.hashlist.xml");
+                Program.ExtractResource(fi, "hashlist.xml", false);
                 fi = new FileInfo("default.hashlist");
                 if(fi.Exists && fi.Length > 0)
                     Common.Hashes = new HashCheck("default.hashlist");
@@ -439,9 +445,10 @@
             }
         }
 
-        private void UpdateClick(object sender, EventArgs e) {
-            var tmp = new UpdateForm();
-            tmp.ShowDialog();
+        private void UpdateClick(object sender, EventArgs e) { 
+            if (_updateForm == null)
+                _updateForm = new UpdateForm();
+            _updateForm.ShowDialog(); 
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData) {

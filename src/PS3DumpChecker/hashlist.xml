@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
 <root>
+  <!-- Bogus MD5 HASH: A51E3A6CD98BA04B3926B65CFA2EC0C7 -->
   <offsets>
     <offset fsize="16777216" type="ROS" name="ROS0 Hash" size="6FFFE0">C0010</offset>
     <offset fsize="16777216" type="ROS" name="ROS1 Hash" size="6FFFE0">7C0010</offset>
@@ -8,6 +9,12 @@
     <offset fsize="268435456" type="ROS" name="ROS1 Hash" size="6FFFE0">7C0020</offset>
   </offsets>
   <type name="ROS">
+    <hash name="4.55 CEX" size="6FFFE0">
+      04DA9481A201B88F8ECECDFE685C576B <!-- Bogus MD5 HASH -->
+    </hash>
+    <hash name="4.53 CEX" size="6FFFE0">
+      F67348B1A1FC69236051584AAFA45DBD <!-- Bogus MD5 HASH -->
+    </hash>
     <hash name="4.50 CEX" size="6FFFE0">
       3B84AB0FA2C9AB1C108B508B0F419639
     </hash>

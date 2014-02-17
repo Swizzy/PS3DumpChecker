@@ -23,7 +23,9 @@
             Application.Run(MainForm);
         }
 
-        internal static void ExtractResource(FileInfo fi, string resource) {
+        internal static void ExtractResource(FileInfo fi, string resource, bool isFullName = true) {
+            if(!isFullName)
+                resource = string.Format("{0}.{1}", typeof(Program).Namespace, resource);
             var toexe = fi.OpenWrite();
             var fromexe = Assembly.GetExecutingAssembly().GetManifestResourceStream(resource);
             const int size = 4096;
