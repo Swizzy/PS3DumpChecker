@@ -40,7 +40,7 @@
             }
             if(Program.GetRegSetting("dohashcheck", true)) {
                 if (Program.GetRegSetting("AutoDLhashlist"))
-                    _updateForm.CfgbtnClick(null, null);
+                    _updateForm.HashlistbtnClick(null, null);
                 DoParseHashList();
             }
             if(args.Count < 1)

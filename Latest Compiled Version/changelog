@@ -1,3 +1,6 @@
+Build 323 2014-02-17:
+ - Fixed: AutoDLHashlist now downloads the hashlist and not the cfg (woops!)
+ - Added: Before downloading any file an attempt will be made to check if the current file is the same as the online one, if it is... then it'll be ignored...
 Build 322 2014-02-17:
  - Fixed: The app can now properly download itself from github (my bad!)
 Build 319 2014-02-17:

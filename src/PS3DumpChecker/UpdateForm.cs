@@ -4,6 +4,7 @@
     using System.Diagnostics;
     using System.IO;
     using System.Net;
+    using System.Reflection;
     using System.Security.Cryptography;
     using System.Windows.Forms;
     using PS3DumpChecker.Properties;
@@ -118,22 +119,22 @@
         }
 
         private void ExeDwlCompleted(object sender, RunWorkerCompletedEventArgs runWorkerCompletedEventArgs) {
-            if (CheckHash("latest.exe")) {
+            if(CheckHash("latest.exe")) {
                 var fi = new FileInfo(Path.GetTempPath() + "UpdateHelper.exe");
                 Program.ExtractResource(fi, "UpdateHelper.exe", false);
                 var dir = Path.GetDirectoryName(Application.ExecutablePath);
-                if (string.IsNullOrEmpty(dir))
+                if(string.IsNullOrEmpty(dir))
                     throw new InvalidOperationException();
                 var cproc = Process.GetCurrentProcess();
                 var proc = new Process {
-                                       StartInfo = {
-                                           WorkingDirectory = dir,
-                                           UseShellExecute = false,
-                                           CreateNoWindow = true,
-                                           FileName = fi.FullName,
-                                           Arguments = string.Format("\"{0}\" \"latest.exe\" \"{1}\"", cproc.Id, cproc.MainModule.FileName)
-                                                   }
-                                       };
+                    StartInfo = {
+                        WorkingDirectory = dir,
+                        UseShellExecute = false,
+                        CreateNoWindow = true,
+                        FileName = fi.FullName,
+                        Arguments = string.Format("\"{0}\" \"latest.exe\" \"{1}\"", cproc.Id, cproc.MainModule.FileName)
+                    }
+                };
                 proc.Start();
                 return;
             }
@@ -189,16 +190,26 @@
         }
 
         public void CfgbtnClick(object sender, EventArgs e) {
+            if(CheckHash("latest.cfg"))
+                return;
             statuslbl.Text = Resources.dlinglatestcfg;
             DownloadFile("latest.cfg");
         }
 
         public void HashlistbtnClick(object sender, EventArgs e) {
+            if(CheckHash("latest.hashlist"))
+                return;
             statuslbl.Text = Resources.dlinghashlist;
             DownloadFile("latest.hashlist");
         }
 
         private void AppbtnClick(object sender, EventArgs e) {
+            try {
+                if(CheckHash(Assembly.GetAssembly(typeof(UpdateForm)).CodeBase))
+                    return;
+            }
+            catch(Exception) {
+            }
             statuslbl.Text = Resources.dlingapp;
             DownloadFile("latest.exe");
         }
