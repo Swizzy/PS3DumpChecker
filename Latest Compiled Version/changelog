@@ -1,0 +1,25 @@
+Build 305 2013-08-20:
+ - Added: Upon getting a smaller screen height of 600 pixels it'll now resize the window to fit...
+Build 304 2013-08-12:
+ - Added disclaimer message everytime you launch it, to disable that hit Ctrl + F1
+ - Fixed an issue with the hashchecks and added a new hash (Thanks to BwE's tool, it was identified as 3.66 so i added it ;)) there'll be many more to add later on...
+ - Fixed a typo in the CFG for identifying CECHJxx (DIA-002) datecode: 8B
+Build 299 2013-08-08:
+ - Added Settings menu (Ctrl + F12)
+ - Added A Way for you to bypass the HashCheck (if you don't want it, just disable it!)
+ - Updates are now completed, the app will now update itself on request...
+Build 282 - 2013-08-07:
+ - Added Hash checks for:
+   - ROS0
+   - ROS1
+   - TRVK_PRG0
+   - TRVK_PRG1
+   - TRVK_PKG0
+   - TRVK_PKG1
+ - Fixed a couple of bugs
+ - Added The inital Internet Updates function (somewhat broken)
+Build 252 - 2013-07-29: 
+ - Fixed a bug caused by computers completing checks faster then it could process the checks list
+Build 250 - 2013-07-26:
+ - Added Auto Launching Rogero's Patcher if present and dump verified...
+ - Removed statistics check from the default cfg (they're rarely ever passing anyways unless 3.55 patched first)
