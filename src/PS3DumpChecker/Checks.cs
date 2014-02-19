@@ -5,6 +5,7 @@
     using System.Globalization;
     using System.IO;
     using System.Text;
+    using System.Text.RegularExpressions;
     using System.Windows.Forms;
     using PS3DumpChecker.Properties;
 
@@ -165,6 +166,18 @@
             Common.SendStatus("Hash check(s) Done!");
 
             #endregion Hash check
+
+            if (Program.GetRegSetting("dorepcheck", true) && checkdata.RepCheck.Value.Count > 0)
+            {
+                Logger.WriteLine("Repetitions check Started!");
+                checkckount++;
+                Common.SendStatus("Parsing Image... Checking Binary for: Repetitions");
+                if (!Repetitions(ret.Reversed, ref data, ref checkdata))
+                    Common.AddBad(ref ret);
+            }
+            else
+                Logger.WriteLine(string.Format("{0,-50} (nothing to check)", "Repetitions check skipped!"));
+            Common.SendStatus("Repetitions check(s) Done!");
 
             #region Final Output
 
@@ -535,6 +548,48 @@
                                            });
             Logger.WriteLine2(isok ? "OK!" : string.Format("FAILED! {0}Actual data: {1}", Environment.NewLine, hash));
             return isok;
+        }
+
+        private static bool Repetitions(bool reversed, ref byte[] data, ref Common.TypeData checkData) {
+            var ret = true;
+            var tmp = reversed ? Encoding.BigEndianUnicode.GetString(data) : Encoding.Unicode.GetString(data);
+            var bigbuilder = new StringBuilder();
+            foreach(var key in checkData.RepCheck.Value.Keys) {
+                var rep = checkData.RepCheck.Value[key].Value;
+                rep.FoundAt.Clear();
+                Logger.Write(string.Format("{0,-50} Result: ", string.Format("Repetitions check for {0} Started...", rep.Name)));
+                foreach (Match match in Regex.Matches(tmp, Regex.Escape(key))) {
+                    if(match.Index * 2 == rep.Offset)
+                        continue;
+                    rep.FoundAt.Add(match.Index * 2);
+                    ret = false;
+                }
+                if(rep.FoundAt.Count <= 0)
+                    continue;
+                Logger.WriteLine2(ret ? "OK!" : string.Format("FAILED! {0}Actual data:", Environment.NewLine));
+                var builder = new StringBuilder();
+                foreach (var offset in rep.FoundAt)
+                    builder.Append(string.Format(" 0x{0:X}", offset));
+                Logger.WriteLine2(string.Format("{0} Found at {1} offset(s):{2}", rep.Name, rep.FoundAt.Count, builder));
+                Logger.WriteLine2(string.Format("{0} Expected at: 0x{1:X}", rep.Name, rep.Offset));
+                bigbuilder.AppendLine(string.Format("{0} Found at {1} offsets:{2}", rep.Name, rep.FoundAt.Count, builder));
+                bigbuilder.AppendLine(string.Format("{0} Expected at: 0x{1:X}", rep.Name, rep.Offset));
+            }
+            //for (int i = 0; i < data.Length; i += 0x10) {
+            //    var tmp = Common.GetDataForTest(ref data, i, 0x10);
+            //    if(!checkData.RepCheck.Value.ContainsKey(tmp))
+            //        continue;
+            //    if(i == checkData.RepCheck.Value[tmp].Value.Offset) // We want to find it here... ;)
+            //        continue;
+            //    ret = false; // Uhoh! we found a repetition!
+            //    if (checkData.RepCheck.Value[tmp].Value.FoundAt == null)
+            //        checkData.RepCheck.Value[tmp].Value.FoundAt = new List<int>();
+            //    checkData.RepCheck.Value[tmp].Value.FoundAt.Add(i);
+            //}
+            if(ret)
+                bigbuilder.AppendLine("No Repetitions found!");
+            AddItem(new Common.PartsObject { Name = "Repetitions Check", ActualString = bigbuilder.ToString(), ExpectedString = "No Repetitions are supposed to be listed!", Result = ret } );
+            return ret;
         }
 
         #region Nested type: SkuCheckData

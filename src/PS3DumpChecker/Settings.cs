@@ -6,28 +6,34 @@
         internal Settings() {
             InitializeComponent();
             Icon = Program.AppIcon;
-            foreach(var ctrl in Controls) {
-                var cbox = ctrl as CheckBox;
-                if(cbox == null)
-                    continue;
-                switch(cbox.Name) {
-                    case "dohashcheck":
-                        dohashcheck.Checked = Program.GetRegSetting("dohashcheck", true); // We want this to be true by default, thus we seperate it from the others
-                        break;
-                    default:
-                        cbox.Checked = Program.GetRegSetting(cbox.Name);
-                        break;
-                }
+            foreach(Control ctrl in Controls) {
+                if(ctrl is GroupBox)
+                    SetCheckBoxes(ctrl);
             }
         }
 
-        private void Button1Click(object sender, EventArgs e) {
-            foreach(var ctrl in Controls) {
-                var cbox = ctrl as CheckBox;
+        private static void SetCheckBoxes(Control ctrl) {
+            foreach(var control in ctrl.Controls) {
+                var cbox = control as CheckBox;
+                if(cbox == null)
+                    continue;
+                cbox.Checked = Program.GetRegSetting(cbox.Name);
+            }
+        }
+
+        private static void GetCheckBoxes(Control ctrl) {
+            foreach(var control in ctrl.Controls) {
+                var cbox = control as CheckBox;
                 if(cbox == null)
                     continue;
                 Program.SetRegSetting(cbox.Name, cbox.Checked);
             }
+        }
+
+        private void Button1Click(object sender, EventArgs e) {
+            foreach(Control ctrl in Controls)
+                if(ctrl is GroupBox)
+                    GetCheckBoxes(ctrl);
             if(dohashcheck.Checked)
                 Program.MainForm.DoParseHashList();
             Close();

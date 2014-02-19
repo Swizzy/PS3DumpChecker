@@ -5,6 +5,7 @@
     using System.Text.RegularExpressions;
 
     internal static class Common {
+        private static readonly char[] HexCharTable = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
         internal static readonly Dictionary<long, TypeData> Types = new Dictionary<long, TypeData>();
         internal static HashCheck Hashes;
         internal static readonly Dictionary<int, PartsObject> PartList = new Dictionary<int, PartsObject>();
@@ -82,11 +83,28 @@
             return ret;
         }
 
-        public static string GetDataForTest(IEnumerable<byte> data) {
-            var ret = "";
-            foreach(var b in data)
-                ret += String.Format("{0:X2}", b);
-            return ret;
+        public static string GetDataForTest(IList<byte> data) {
+            var c = new char[data.Count * 2];
+            int i = 0;
+            for (var p = 0; i < data.Count; )
+            {
+                var d = data[i++];
+                c[p++] = HexCharTable[d / 0x10];
+                c[p++] = HexCharTable[d % 0x10];
+            }
+            return new string(c);
+        }
+
+        public static string GetDataForTest(ref byte[] data, int i, int count)
+        {
+            var c = new char[data.Length * 2];
+            for (var p = 0; i < count; )
+            {
+                var d = data[i++];
+                c[p++] = HexCharTable[d / 0x10];
+                c[p++] = HexCharTable[d % 0x10];
+            }
+            return new string(c);
         }
 
         public static uint GetLdrSize(ref byte[] data) {
@@ -171,6 +189,16 @@
 
         #endregion
 
+        #region Nested type: RepCheckData
+
+        internal class RepCheckData {
+            internal string Name;
+            internal int Offset;
+            internal List<int> FoundAt = new List<int>();
+        }
+
+        #endregion
+
         #region Nested type: SKUDataEntry
 
         internal struct SKUDataEntry {
@@ -215,12 +243,14 @@
             internal readonly Holder<Dictionary<string, Holder<BinCheck>>> Bincheck;
             internal readonly Holder<List<DataCheck>> DataCheckList;
             internal readonly Holder<string> Name;
+            internal readonly Holder<Dictionary<string, Holder<RepCheckData>>> RepCheck;
             internal readonly Holder<List<SKUDataEntry>> SKUDataList;
             internal readonly Holder<List<SKUEntry>> SKUList;
             internal readonly Holder<string> StatDescription;
             internal readonly Holder<Dictionary<string, Holder<StatCheck>>> Statlist;
 
             internal TypeData(bool isnew = true) {
+                RepCheck = new Holder<Dictionary<string, Holder<RepCheckData>>>(new Dictionary<string, Holder<RepCheckData>>());
                 SKUList = new Holder<List<SKUEntry>>(new List<SKUEntry>());
                 SKUDataList = new Holder<List<SKUDataEntry>>(new List<SKUDataEntry>());
                 Statlist = new Holder<Dictionary<string, Holder<StatCheck>>>(new Dictionary<string, Holder<StatCheck>>());

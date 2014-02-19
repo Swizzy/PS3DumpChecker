@@ -117,78 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="error_noconfig" xml:space="preserve">
-    <value>ERROR: No configuration loaded!</value>
-  </data>
-  <data name="Checks_StartCheck_ERROR___Bad_dump" xml:space="preserve">
-    <value>ERROR - Bad dump</value>
-  </data>
-  <data name="badsize" xml:space="preserve">
-    <value>ERROR: Filesize don't match expected size from the configuration! Please doublecheck your image and configuration!</value>
-  </data>
-  <data name="error_noconfig_title" xml:space="preserve">
-    <value>ERROR - No config!</value>
-  </data>
-  <data name="autopatchmsg" xml:space="preserve">
-    <value>Do you want to patch this image?</value>
-  </data>
-  <data name="ofdfilter" xml:space="preserve">
-    <value>Binary Files|*.bin|All Files|*.*</value>
-  </data>
-  <data name="WARNING" xml:space="preserve">
-    <value>WARNING!</value>
-  </data>
-  <data name="select_conf" xml:space="preserve">
-    <value>Select configuration file to load</value>
-  </data>
   <data name="conf_filter" xml:space="preserve">
     <value>Configuration files|*.cfg|All Files|*.*</value>
-  </data>
-  <data name="seldump" xml:space="preserve">
-    <value>Select Dump to check</value>
-  </data>
-  <data name="error_bad_size" xml:space="preserve">
-    <value>ERROR - Bad Size</value>
-  </data>
-  <data name="N_A" xml:space="preserve">
-    <value>N/A</value>
   </data>
   <data name="autopatch" xml:space="preserve">
     <value>Patch Image?</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="maj" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\maj.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="downloadchangelog" xml:space="preserve">
-    <value>Downloading changelog...</value>
-  </data>
-  <data name="changelogdone" xml:space="preserve">
-    <value>Finished grabbing changelog...</value>
-  </data>
-  <data name="downloadcompleted" xml:space="preserve">
-    <value>Download completed...</value>
-  </data>
-  <data name="error" xml:space="preserve">
-    <value>ERROR</value>
-  </data>
-  <data name="baddwl" xml:space="preserve">
-    <value>Something went wrong during the download, try again!</value>
-  </data>
-  <data name="dlinglatestcfg" xml:space="preserve">
-    <value>Downloading latest CFG</value>
-  </data>
-  <data name="NoFile" xml:space="preserve">
-    <value>No file</value>
-  </data>
-  <data name="dlinghashlist" xml:space="preserve">
-    <value>Downloading latest hashlist...</value>
-  </data>
-  <data name="dlingapp" xml:space="preserve">
-    <value>Downloading latest PS3 Dump Checker</value>
-  </data>
-  <data name="hashlist_filter" xml:space="preserve">
-    <value>Hashlists |*.hashlist|All Files|*.*</value>
+  <data name="ofdfilter" xml:space="preserve">
+    <value>Binary Files|*.bin|All Files|*.*</value>
   </data>
   <data name="AcceptTermsMessage" xml:space="preserve">
     <value>By using this software you understand that the author (Swizzy) is in no way responsible for ANY damage caused to your console...
@@ -197,6 +133,54 @@ You also acknowledge that you understand that this tool is not a 100% validation
 
 Did you read these terms/conditions?</value>
   </data>
+  <data name="N_A" xml:space="preserve">
+    <value>N/A</value>
+  </data>
+  <data name="select_conf" xml:space="preserve">
+    <value>Select configuration file to load</value>
+  </data>
+  <data name="dlinglatestcfg" xml:space="preserve">
+    <value>Downloading latest CFG</value>
+  </data>
+  <data name="autopatchmsg" xml:space="preserve">
+    <value>Do you want to patch this image?</value>
+  </data>
+  <data name="dlinghashlist" xml:space="preserve">
+    <value>Downloading latest hashlist...</value>
+  </data>
+  <data name="error" xml:space="preserve">
+    <value>ERROR</value>
+  </data>
+  <data name="downloadcompleted" xml:space="preserve">
+    <value>Download completed...</value>
+  </data>
+  <data name="WARNING" xml:space="preserve">
+    <value>WARNING!</value>
+  </data>
+  <data name="hashlist_filter" xml:space="preserve">
+    <value>Hashlists |*.hashlist|All Files|*.*</value>
+  </data>
+  <data name="error_noconfig" xml:space="preserve">
+    <value>ERROR: No configuration loaded!</value>
+  </data>
+  <data name="badsize" xml:space="preserve">
+    <value>ERROR: Filesize don't match expected size from the configuration! Please doublecheck your image and configuration!</value>
+  </data>
+  <data name="seldump" xml:space="preserve">
+    <value>Select Dump to check</value>
+  </data>
+  <data name="error_bad_size" xml:space="preserve">
+    <value>ERROR - Bad Size</value>
+  </data>
+  <data name="downloadchangelog" xml:space="preserve">
+    <value>Downloading changelog...</value>
+  </data>
+  <data name="error_noconfig_title" xml:space="preserve">
+    <value>ERROR - No config!</value>
+  </data>
+  <data name="baddwl" xml:space="preserve">
+    <value>Something went wrong during the download, try again!</value>
+  </data>
   <data name="AcceptTermsMessageReversed" xml:space="preserve">
     <value>By using this software you understand that the author (Swizzy) is in no way responsible for ANY damage caused to your console...
 
@@ -204,13 +188,33 @@ You also acknowledge that you understand that this tool is not a 100% validation
 
 Did you skip reading these terms/conditions?</value>
   </data>
-  <data name="AcceptTermsTitle" xml:space="preserve">
-    <value>Can you read?</value>
+  <data name="Checks_StartCheck_ERROR___Bad_dump" xml:space="preserve">
+    <value>ERROR - Bad dump</value>
+  </data>
+  <data name="NoFile" xml:space="preserve">
+    <value>No file</value>
+  </data>
+  <data name="changelogdone" xml:space="preserve">
+    <value>Finished grabbing changelog...</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="maj" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\maj.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dlingapp" xml:space="preserve">
+    <value>Downloading latest PS3 Dump Checker</value>
+  </data>
+  <data name="httperror" xml:space="preserve">
+    <value>HTTP ERROR</value>
   </data>
   <data name="DisclaimerFailedMessage" xml:space="preserve">
     <value>Ok... You can't read can you? well then... better luck next time!</value>
   </data>
-  <data name="httperror" xml:space="preserve">
-    <value>HTTP ERROR</value>
+  <data name="AcceptTermsTitle" xml:space="preserve">
+    <value>Can you read?</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\settings.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

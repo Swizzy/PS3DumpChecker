@@ -1,4 +1,6 @@
-Build 
+Build 332 2014-02-20:
+ - Added: Button/Icon for Settings
+ - Added: Repetitions check (look for data that should only exist once...) [ Enabled by default]
  - Fixed: Hash checking of the app is now done correctly :)
 Build 325 2014-02-17:
  - Fixed: Error beeing shown while checking for app updates then the file beeing downloaded anyways... maybe i need more sleep?

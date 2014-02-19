@@ -7,10 +7,12 @@
     using System.Globalization;
     using System.IO;
     using System.Reflection;
+    using System.Text;
     using System.Text.RegularExpressions;
     using System.Windows.Forms;
     using System.Xml;
-    using Properties;
+    using Microsoft.Win32;
+    using PS3DumpChecker.Properties;
 
     internal sealed partial class Main : Form {
         private static string _version;
@@ -25,7 +27,7 @@
             _version = string.Format("PS3 Dump Checker v{0}.{1} (Build: {2})", app.GetName().Version.Major, app.GetName().Version.Minor, app.GetName().Version.Build);
             Text = _version;
             Icon = Program.AppIcon;
-            if (!string.IsNullOrEmpty(_wrkdir) && Directory.Exists(_wrkdir))
+            if(!string.IsNullOrEmpty(_wrkdir) && Directory.Exists(_wrkdir))
                 Directory.SetCurrentDirectory(_wrkdir);
             if(Program.GetRegSetting("AutoDLcfg"))
                 _updateForm.CfgbtnClick(null, null);
@@ -39,7 +41,7 @@
                     ParseConfig("default.cfg");
             }
             if(Program.GetRegSetting("dohashcheck", true)) {
-                if (Program.GetRegSetting("AutoDLhashlist"))
+                if(Program.GetRegSetting("AutoDLhashlist"))
                     _updateForm.HashlistbtnClick(null, null);
                 DoParseHashList();
             }
@@ -52,7 +54,16 @@
                     return;
                 StartCheck(s);
             }
-            Microsoft.Win32.SystemEvents.DisplaySettingsChanged += MainLoad;
+            SystemEvents.DisplaySettingsChanged += MainLoad;
+
+            #region Set Some defaults
+
+            if(Program.GetRegSetting("dohashcheck", true))
+                Program.SetRegSetting("dohashcheck");
+            if(Program.GetRegSetting("dorepcheck", true))
+                Program.SetRegSetting("dorepcheck");
+
+            #endregion
         }
 
         public void DoParseHashList() {
@@ -70,8 +81,9 @@
         private void CommonOnListUpdate(object sender, EventArgs eventArgs) {
             if(InvokeRequired) {
                 BeginInvoke(new EventHandler<EventArgs>(CommonOnListUpdate), new[] {
-                                                                                   sender, eventArgs
-                                                                                   });
+                    sender,
+                    eventArgs
+                });
                 return;
             }
             try {
@@ -81,16 +93,16 @@
                 foreach(var key in Common.PartList.Keys)
                     partslist.Items.Add(new ListBoxItem(key, Common.PartList[key].Name));
             }
-            catch
-            {
+            catch {
             }
         }
 
         private void StatusUpdate(object sender, StatusEventArgs e) {
             if(InvokeRequired) {
                 BeginInvoke(new EventHandler<StatusEventArgs>(StatusUpdate), new[] {
-                                                                                   sender, e
-                                                                                   });
+                    sender,
+                    e
+                });
                 return;
             }
             status.Text = e.Status;
@@ -99,8 +111,8 @@
         private void SetTitle(string title) {
             if(InvokeRequired) {
                 Invoke(new Action<string>(SetTitle), new object[] {
-                                                                  title
-                                                                  });
+                    title
+                });
                 return;
             }
             Text = title;
@@ -130,8 +142,13 @@
 
         private void CheckbtnClick(object sender, EventArgs e) {
             var ofd = new OpenFileDialog {
-                                         Title = Resources.seldump, FileName = "dump.bin", Filter = Resources.ofdfilter, DefaultExt = "bin", AutoUpgradeEnabled = true, AddExtension = true
-                                         };
+                Title = Resources.seldump,
+                FileName = "dump.bin",
+                Filter = Resources.ofdfilter,
+                DefaultExt = "bin",
+                AutoUpgradeEnabled = true,
+                AddExtension = true
+            };
             if(ofd.ShowDialog() != DialogResult.OK)
                 return;
             StartCheck(ofd.FileName);
@@ -169,18 +186,19 @@
                         statuslabel.Visible = true;
                         if(res.IsOk && File.Exists("patcher.exe") && (Program.GetRegSetting("autopatch") || MessageBox.Show(Resources.autopatchmsg, Resources.autopatch, MessageBoxButtons.YesNoCancel) == DialogResult.Yes)) {
                             var proc = new Process {
-                                                   StartInfo = {
-                                                               Arguments = string.Format("\"{0}\"", res.FileName), FileName = "patcher.exe", WorkingDirectory = _wrkdir
-                                                               }
-                                                   };
+                                StartInfo = {
+                                    Arguments = string.Format("\"{0}\"", res.FileName),
+                                    FileName = "patcher.exe",
+                                    WorkingDirectory = _wrkdir
+                                }
+                            };
                             proc.Start();
                             if(Program.GetRegSetting("autoexit"))
                                 Close();
                         }
                     }
                 }
-                catch
-                {
+                catch {
                 }
             }
             if(Common.Types.Count > 0)
@@ -203,8 +221,12 @@
 
         private void LoadConfigurationToolStripMenuItemClick(object sender, EventArgs e) {
             var ofd = new OpenFileDialog {
-                                         Title = Resources.select_conf, FileName = "Default.cfg", DefaultExt = "cfg", Filter = Resources.conf_filter, AutoUpgradeEnabled = true
-                                         };
+                Title = Resources.select_conf,
+                FileName = "Default.cfg",
+                DefaultExt = "cfg",
+                Filter = Resources.conf_filter,
+                AutoUpgradeEnabled = true
+            };
             if(ofd.ShowDialog() == DialogResult.OK)
                 ParseConfig(ofd.FileName);
         }
@@ -314,8 +336,9 @@
                             if(!Common.Types.ContainsKey(size))
                                 break;
                             var dataCheckList = new Common.DataCheck {
-                                                                     Name = xml["name"], ThresholdList = new Dictionary<string, double>()
-                                                                     };
+                                Name = xml["name"],
+                                ThresholdList = new Dictionary<string, double>()
+                            };
                             if(long.TryParse(xml["offset"], NumberStyles.HexNumber, CultureInfo.CurrentCulture, out dataCheckList.Offset)) {
                                 dataCheckOk = long.TryParse(xml["size"], NumberStyles.HexNumber, CultureInfo.CurrentCulture, out dataCheckList.Size);
                                 if(!dataCheckOk)
@@ -420,6 +443,25 @@
                             break;
 
                             #endregion SKU List
+
+                            #region RepCheck Entry
+
+                        case "repcheck":
+                            if(!Common.Types.ContainsKey(size))
+                                break;
+                            var tmp = new Common.RepCheckData {
+                                Name = xml["name"]
+                            };
+                            if(!int.TryParse(xml["offset"], NumberStyles.HexNumber, null, out tmp.Offset))
+                                break; // It's broken!
+                            xml.Read();
+                            if(!string.IsNullOrEmpty(xml.Value)) {
+                                var data = Encoding.Unicode.GetString(Common.HexToArray(Regex.Replace(xml.Value, @"\s+", "").ToUpper()));
+                                Common.Types[size].RepCheck.Value.Add(data, new Holder<Common.RepCheckData>(tmp));
+                            }
+                            break;
+
+                            #endregion
                     }
                 }
             }
@@ -427,9 +469,7 @@
             checkbtn.Enabled = true;
         }
 
-        private void MainDragEnter(object sender, DragEventArgs e) {
-            e.Effect = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.Copy : DragDropEffects.None;
-        }
+        private void MainDragEnter(object sender, DragEventArgs e) { e.Effect = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.Copy : DragDropEffects.None; }
 
         private void MainDragDrop(object sender, DragEventArgs e) {
             if(worker.IsBusy)
@@ -440,22 +480,21 @@
                     ParseConfig(s);
                 else if(s.EndsWith(".hashlist", StringComparison.CurrentCultureIgnoreCase))
                     Common.Hashes = new HashCheck(s);
-                else 
+                else
                     StartCheck(s);
             }
         }
 
-        private void UpdateClick(object sender, EventArgs e) { 
-            if (_updateForm == null)
+        private void UpdateClick(object sender, EventArgs e) {
+            if(_updateForm == null)
                 _updateForm = new UpdateForm();
-            _updateForm.ShowDialog(); 
+            _updateForm.ShowDialog();
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData) {
             switch(keyData) {
                 case (Keys.F12 | Keys.Control):
-                    var frm = new Settings();
-                    frm.ShowDialog();
+                    SettingsClick(null, null);
                     return true;
                 case (Keys.F1 | Keys.Control):
                     Program.HasAcceptedTerms(true);
@@ -467,15 +506,18 @@
 
         private void LoadHashlistToolStripMenuItemClick(object sender, EventArgs e) {
             var ofd = new OpenFileDialog {
-                                         Title = Resources.select_conf, FileName = "Default.hashlist", DefaultExt = "hashlist", Filter = Resources.hashlist_filter, AutoUpgradeEnabled = true
-                                         };
+                Title = Resources.select_conf,
+                FileName = "Default.hashlist",
+                DefaultExt = "hashlist",
+                Filter = Resources.hashlist_filter,
+                AutoUpgradeEnabled = true
+            };
             if(ofd.ShowDialog() == DialogResult.OK)
                 Common.Hashes = new HashCheck(ofd.FileName);
         }
 
-        private void MainLoad(object sender, EventArgs e)
-        {
-            if (Screen.FromControl(this).Bounds.Height >= Height)
+        private void MainLoad(object sender, EventArgs e) {
+            if(Screen.FromControl(this).Bounds.Height >= Height)
                 return;
             var diff = Height - Screen.FromControl(this).Bounds.Height;
             Height = Height - diff - 45;
@@ -485,6 +527,11 @@
             statuslabel.Location = new Point(statuslabel.Location.X, statuslabel.Location.Y + diff - 23);
             statuslabel.Font = new Font(statuslabel.Font.FontFamily, 30, FontStyle.Bold);
             advbox.Height = advbox.Height - diff - 10;
+        }
+
+        private void SettingsClick(object sender, EventArgs e) {
+            using(var set = new Settings())
+                set.ShowDialog();
         }
     }
 }

@@ -116,6 +116,36 @@
       <datatreshold key="*">30</datatreshold>
     </datalist>
 
+    <repchecks>
+      <repcheck name="Header Magic Repetition" offset="40010">
+        000000000FACE0FF00000000DEADBEEF
+      </repcheck>
+      <repcheck name="asecure_loader Repetition" offset="40220">
+        617365637572655F6C6F616465720000
+      </repcheck>
+      <repcheck name="eEID Repetition" offset="40250">
+        65454944000000000000000000000000
+      </repcheck>
+      <repcheck name="cISD Repetition" offset="40280">
+        63495344000000000000000000000000
+      </repcheck>
+      <repcheck name="cCSD Repetition" offset="402B0">
+        63435344000000000000000000000000
+      </repcheck>
+      <repcheck name="trvk_prg Repetition" offset="402E0">
+        7472766B5F7072670000000000000000
+      </repcheck>
+      <repcheck name="trvk_pkg Repetition" offset="40310">
+        7472766B5F706B670000000000000000
+      </repcheck>
+      <repcheck name="ros Repetition" offset="40370">
+        726F7300000000000000000000000000
+      </repcheck>
+      <repcheck name="cvtrm Repetition" offset="403A0">
+        637674726D0000000000000000000000
+      </repcheck>
+    </repchecks>
+
     <skulistdata>
       <skudataentry offset="80877" size="1">idps</skudataentry>
       <skudataentry offset="4081E" size="2">metldr0</skudataentry>
@@ -125,128 +155,128 @@
       <skudataentry offset="2" size="2">bootldrsize</skudataentry>
     </skulistdata>
 
-    <skulist name="CECHAxx (COK-001)" warn="false" warnmsg="" minver="1.00">
-      <skuentry type="idps">01</skuentry>
-      <skuentry type="metldr0">EE10</skuentry>
-      <skuentry type="metldr1">0EDD</skuentry>
-      <skuentry type="bootldr0">2A3F</skuentry>
-      <skuentry type="bootldr1">2A3F</skuentry>
-      <skuentry type="bootldrsize">2A430</skuentry>
-    </skulist>
-
-    <skulist name="CECHExx (COK-002)" warn="false" warnmsg="" minver="2.70">
-      <skuentry type="idps">03</skuentry>
-      <skuentry type="metldr0">EE10</skuentry>
-      <skuentry type="metldr1">0EDD</skuentry>
-      <skuentry type="bootldr0">2A3F</skuentry>
-      <skuentry type="bootldr1">2A3F</skuentry>
-      <skuentry type="bootldrsize">2A430</skuentry>
-    </skulist>
-
-    <skulist name="CECHExx (COK-002)" warn="false" warnmsg="" minver="1.00">
-      <skuentry type="idps">04</skuentry>
-      <skuentry type="metldr0">EE10</skuentry>
-      <skuentry type="metldr1">0EDD</skuentry>
-      <skuentry type="bootldr0">2A3F</skuentry>
-      <skuentry type="bootldr1">2A3F</skuentry>
-      <skuentry type="bootldrsize">2A430</skuentry>
-    </skulist>
-    <skulist name="CECHAxx (COK-001)" warn="false" warnmsg="" minver="1.00">
-      <skuentry type="idps">01</skuentry>
-      <skuentry type="metldr0">EDA0</skuentry>
-      <skuentry type="metldr1">0ED6</skuentry>
-      <skuentry type="bootldr0">2A2A</skuentry>
-      <skuentry type="bootldr1">2A2A</skuentry>
-      <skuentry type="bootldrsize">2A2E0</skuentry>
-    </skulist>
-    <skulist name="CECHBxx (COK-001)" warn="false" warnmsg="" minver="1.00">
-      <skuentry type="idps">02</skuentry>
-      <skuentry type="metldr0">EDA0</skuentry>
-      <skuentry type="metldr1">0ED6</skuentry>
-      <skuentry type="bootldr0">2A2A</skuentry>
-      <skuentry type="bootldr1">2A2A</skuentry>
-      <skuentry type="bootldrsize">2A2E0</skuentry>
-    </skulist>
-    <skulist name="CECHCxx (COK-002)" warn="false" warnmsg="" minver="1.00">
-      <skuentry type="idps">03</skuentry>
-      <skuentry type="metldr0">EDA0</skuentry>
-      <skuentry type="metldr1">0ED6</skuentry>
-      <skuentry type="bootldr0">2A2A</skuentry>
-      <skuentry type="bootldr1">2A2A</skuentry>
-      <skuentry type="bootldrsize">2A2E0</skuentry>
-    </skulist>
-    <skulist name="CECHCxx (COK-002)" warn="false" warnmsg="" minver="1.00">
-      <skuentry type="idps">03</skuentry>
-      <skuentry type="metldr0">EBF0</skuentry>
-      <skuentry type="metldr1">0EBB</skuentry>
-      <skuentry type="bootldr0">3044</skuentry>
-      <skuentry type="bootldr1">3044</skuentry>
-      <skuentry type="bootldrsize">30480</skuentry>
-    </skulist>
-    <skulist name="CECHAxx (COK-001)" warn="false" warnmsg="" minver="1.00">
-      <skuentry type="idps">01</skuentry>
-      <skuentry type="metldr0">EDE0</skuentry>
-      <skuentry type="metldr1">0EDA</skuentry>
-      <skuentry type="bootldr0">2A37</skuentry>
-      <skuentry type="bootldr1">2A37</skuentry>
-      <skuentry type="bootldrsize">2A3B0</skuentry>
-    </skulist>
-    <skulist name="CECHCxx (COK-002)" warn="false" warnmsg="" minver="1.00">
-      <skuentry type="idps">03</skuentry>
-      <skuentry type="metldr0">EDE0</skuentry>
-      <skuentry type="metldr1">0EDA</skuentry>
-      <skuentry type="bootldr0">2A37</skuentry>
-      <skuentry type="bootldr1">2A37</skuentry>
-      <skuentry type="bootldrsize">2A3B0</skuentry>
-    </skulist>
-    <skulist name="CECHCxx (COK-002)" warn="false" warnmsg="" minver="1.00">
-      <skuentry type="idps">03</skuentry>
-      <skuentry type="metldr0">E7B0</skuentry>
-      <skuentry type="metldr1">0E77</skuentry>
-      <skuentry type="bootldr0">2E8C</skuentry>
-      <skuentry type="bootldr1">2E8C</skuentry>
-      <skuentry type="bootldrsize">2E900</skuentry>
-    </skulist>
-    <skulist name="CECHGxx (SEM-001)" warn="false" warnmsg="" minver="1.90">
-      <skuentry type="idps">05</skuentry>
-      <skuentry type="metldr0">E7B0</skuentry>
-      <skuentry type="metldr1">0E77</skuentry>
-      <skuentry type="bootldr0">2E8C</skuentry>
-      <skuentry type="bootldr1">2E8C</skuentry>
-      <skuentry type="bootldrsize">2E900</skuentry>
-    </skulist>
-    <skulist name="CECHGxx (SEM-001)" warn="false" warnmsg="" minver="2.30">
-      <skuentry type="idps">05</skuentry>
-      <skuentry type="metldr0">E7B0</skuentry>
-      <skuentry type="metldr1">0E77</skuentry>
-      <skuentry type="bootldr0">2F1C</skuentry>
-      <skuentry type="bootldr1">2F1C</skuentry>
-      <skuentry type="bootldrsize">2F200</skuentry>
-    </skulist>
-    <skulist name="CECHGxx (SEM-001)" warn="false" warnmsg="" minver="2.30">
-      <skuentry type="idps">05</skuentry>
-      <skuentry type="metldr0">E8C0</skuentry>
-      <skuentry type="metldr1">0E88</skuentry>
-      <skuentry type="bootldr0">2EF4</skuentry>
-      <skuentry type="bootldr1">2EF4</skuentry>
-      <skuentry type="bootldrsize">2EF80</skuentry>
-    </skulist>
-    <skulist name="CECHExx (COK-002)" warn="false" warnmsg="" minver="N/A">
-      <skuentry type="idps">03</skuentry>
-      <skuentry type="metldr0">EA60</skuentry>
-      <skuentry type="metldr1">0EA2</skuentry>
-      <skuentry type="bootldr0">2EE3</skuentry>
-      <skuentry type="bootldr1">2EE3</skuentry>
-      <skuentry type="bootldrsize">2EE70</skuentry>
-    </skulist>
-    <skulist name="CECHExx (COK-002W)" warn="false" warnmsg="" minver="3.40">
-      <skuentry type="idps">03</skuentry>
-      <skuentry type="metldr0">E920</skuentry>
-      <skuentry type="metldr1">0E8E</skuentry>
-      <skuentry type="bootldr0">2F4B</skuentry>
-      <skuentry type="bootldr1">2F4B</skuentry>
-      <skuentry type="bootldrsize">2F4F0</skuentry>
-    </skulist>
+    <skumodels>
+      <skulist name="CECHAxx (COK-001)" warn="false" warnmsg="" minver="1.00">
+        <skuentry type="idps">01</skuentry>
+        <skuentry type="metldr0">EE10</skuentry>
+        <skuentry type="metldr1">0EDD</skuentry>
+        <skuentry type="bootldr0">2A3F</skuentry>
+        <skuentry type="bootldr1">2A3F</skuentry>
+        <skuentry type="bootldrsize">2A430</skuentry>
+      </skulist>
+      <skulist name="CECHExx (COK-002)" warn="false" warnmsg="" minver="2.70">
+        <skuentry type="idps">03</skuentry>
+        <skuentry type="metldr0">EE10</skuentry>
+        <skuentry type="metldr1">0EDD</skuentry>
+        <skuentry type="bootldr0">2A3F</skuentry>
+        <skuentry type="bootldr1">2A3F</skuentry>
+        <skuentry type="bootldrsize">2A430</skuentry>
+      </skulist>
+      <skulist name="CECHExx (COK-002)" warn="false" warnmsg="" minver="1.00">
+        <skuentry type="idps">04</skuentry>
+        <skuentry type="metldr0">EE10</skuentry>
+        <skuentry type="metldr1">0EDD</skuentry>
+        <skuentry type="bootldr0">2A3F</skuentry>
+        <skuentry type="bootldr1">2A3F</skuentry>
+        <skuentry type="bootldrsize">2A430</skuentry>
+      </skulist>
+      <skulist name="CECHAxx (COK-001)" warn="false" warnmsg="" minver="1.00">
+        <skuentry type="idps">01</skuentry>
+        <skuentry type="metldr0">EDA0</skuentry>
+        <skuentry type="metldr1">0ED6</skuentry>
+        <skuentry type="bootldr0">2A2A</skuentry>
+        <skuentry type="bootldr1">2A2A</skuentry>
+        <skuentry type="bootldrsize">2A2E0</skuentry>
+      </skulist>
+      <skulist name="CECHBxx (COK-001)" warn="false" warnmsg="" minver="1.00">
+        <skuentry type="idps">02</skuentry>
+        <skuentry type="metldr0">EDA0</skuentry>
+        <skuentry type="metldr1">0ED6</skuentry>
+        <skuentry type="bootldr0">2A2A</skuentry>
+        <skuentry type="bootldr1">2A2A</skuentry>
+        <skuentry type="bootldrsize">2A2E0</skuentry>
+      </skulist>
+      <skulist name="CECHCxx (COK-002)" warn="false" warnmsg="" minver="1.00">
+        <skuentry type="idps">03</skuentry>
+        <skuentry type="metldr0">EDA0</skuentry>
+        <skuentry type="metldr1">0ED6</skuentry>
+        <skuentry type="bootldr0">2A2A</skuentry>
+        <skuentry type="bootldr1">2A2A</skuentry>
+        <skuentry type="bootldrsize">2A2E0</skuentry>
+      </skulist>
+      <skulist name="CECHCxx (COK-002)" warn="false" warnmsg="" minver="1.00">
+        <skuentry type="idps">03</skuentry>
+        <skuentry type="metldr0">EBF0</skuentry>
+        <skuentry type="metldr1">0EBB</skuentry>
+        <skuentry type="bootldr0">3044</skuentry>
+        <skuentry type="bootldr1">3044</skuentry>
+        <skuentry type="bootldrsize">30480</skuentry>
+      </skulist>
+      <skulist name="CECHAxx (COK-001)" warn="false" warnmsg="" minver="1.00">
+        <skuentry type="idps">01</skuentry>
+        <skuentry type="metldr0">EDE0</skuentry>
+        <skuentry type="metldr1">0EDA</skuentry>
+        <skuentry type="bootldr0">2A37</skuentry>
+        <skuentry type="bootldr1">2A37</skuentry>
+        <skuentry type="bootldrsize">2A3B0</skuentry>
+      </skulist>
+      <skulist name="CECHCxx (COK-002)" warn="false" warnmsg="" minver="1.00">
+        <skuentry type="idps">03</skuentry>
+        <skuentry type="metldr0">EDE0</skuentry>
+        <skuentry type="metldr1">0EDA</skuentry>
+        <skuentry type="bootldr0">2A37</skuentry>
+        <skuentry type="bootldr1">2A37</skuentry>
+        <skuentry type="bootldrsize">2A3B0</skuentry>
+      </skulist>
+      <skulist name="CECHCxx (COK-002)" warn="false" warnmsg="" minver="1.00">
+        <skuentry type="idps">03</skuentry>
+        <skuentry type="metldr0">E7B0</skuentry>
+        <skuentry type="metldr1">0E77</skuentry>
+        <skuentry type="bootldr0">2E8C</skuentry>
+        <skuentry type="bootldr1">2E8C</skuentry>
+        <skuentry type="bootldrsize">2E900</skuentry>
+      </skulist>
+      <skulist name="CECHGxx (SEM-001)" warn="false" warnmsg="" minver="1.90">
+        <skuentry type="idps">05</skuentry>
+        <skuentry type="metldr0">E7B0</skuentry>
+        <skuentry type="metldr1">0E77</skuentry>
+        <skuentry type="bootldr0">2E8C</skuentry>
+        <skuentry type="bootldr1">2E8C</skuentry>
+        <skuentry type="bootldrsize">2E900</skuentry>
+      </skulist>
+      <skulist name="CECHGxx (SEM-001)" warn="false" warnmsg="" minver="2.30">
+        <skuentry type="idps">05</skuentry>
+        <skuentry type="metldr0">E7B0</skuentry>
+        <skuentry type="metldr1">0E77</skuentry>
+        <skuentry type="bootldr0">2F1C</skuentry>
+        <skuentry type="bootldr1">2F1C</skuentry>
+        <skuentry type="bootldrsize">2F200</skuentry>
+      </skulist>
+      <skulist name="CECHGxx (SEM-001)" warn="false" warnmsg="" minver="2.30">
+        <skuentry type="idps">05</skuentry>
+        <skuentry type="metldr0">E8C0</skuentry>
+        <skuentry type="metldr1">0E88</skuentry>
+        <skuentry type="bootldr0">2EF4</skuentry>
+        <skuentry type="bootldr1">2EF4</skuentry>
+        <skuentry type="bootldrsize">2EF80</skuentry>
+      </skulist>
+      <skulist name="CECHExx (COK-002)" warn="false" warnmsg="" minver="N/A">
+        <skuentry type="idps">03</skuentry>
+        <skuentry type="metldr0">EA60</skuentry>
+        <skuentry type="metldr1">0EA2</skuentry>
+        <skuentry type="bootldr0">2EE3</skuentry>
+        <skuentry type="bootldr1">2EE3</skuentry>
+        <skuentry type="bootldrsize">2EE70</skuentry>
+      </skulist>
+      <skulist name="CECHExx (COK-002W)" warn="false" warnmsg="" minver="3.40">
+        <skuentry type="idps">03</skuentry>
+        <skuentry type="metldr0">E920</skuentry>
+        <skuentry type="metldr1">0E8E</skuentry>
+        <skuentry type="bootldr0">2F4B</skuentry>
+        <skuentry type="bootldr1">2F4B</skuentry>
+        <skuentry type="bootldrsize">2F4F0</skuentry>
+      </skulist>
+    </skumodels>
   </type>
   <type size="16777216" name="NOR">
     <!-- Single value entries -->
@@ -314,6 +344,7 @@
         000000000000000000000000006FFFE0
       </binentry>
     </binentrysingle>
+
     <!-- Multi value entries -->
     <binentrymulti>
       <binentry name="metldr Header" ismulti="true" offset="820" ascii="true" description="">
@@ -399,6 +430,48 @@
       <datatreshold key="*">30</datatreshold>
     </datalist>
 
+    <repchecks>
+      <repcheck name="Header Magic0 Repetitions" offset="10">
+        000000000FACE0FF00000000DEADBEEF
+      </repcheck>
+      <repcheck name="Header Magic1 Repetitions" offset="F00010">
+        000000000FACE0FF00000000DEADFACE
+      </repcheck>
+      <repcheck name="asecure_loader Repetitions" offset="420">
+        617365637572655F6C6F616465720000
+      </repcheck>
+      <repcheck name="eEID Repetitions" offset="450">
+        65454944000000000000000000000000
+      </repcheck>
+      <repcheck name="cISD Repetitions" offset="480">
+        63495344000000000000000000000000
+      </repcheck>
+      <repcheck name="cCSD Repetitions" offset="4B0">
+        63435344000000000000000000000000
+      </repcheck>
+      <repcheck name="trvk_prg0 Repetitions" offset="4E0">
+        7472766B5F7072673000000000000000
+      </repcheck>
+      <repcheck name="trvk_prg1 Repetitions" offset="510">
+        7472766B5F7072673100000000000000
+      </repcheck>
+      <repcheck name="trvk_pkg0 Repetitions" offset="540">
+        7472766B5F706B673000000000000000
+      </repcheck>
+      <repcheck name="trvk_pkg1 Repetitions" offset="570">
+        7472766B5F706B673100000000000000
+      </repcheck>
+      <repcheck name="ros0 Repetitions" offset="5A0">
+        726F7330000000000000000000000000
+      </repcheck>
+      <repcheck name="ros1 Repetitions" offset="5D0">
+        726F7331000000000000000000000000
+      </repcheck>
+      <repcheck name="cvtrm Repetitions" offset="600">
+        637674726D0000000000000000000000
+      </repcheck>
+    </repchecks>
+
     <skulistdata>
       <skudataentry offset="2F077" size="1">idps</skudataentry>
       <skudataentry offset="81E" size="2">metldr0</skudataentry>
@@ -408,158 +481,152 @@
       <skudataentry offset="FC0002" size="2">bootldrsize</skudataentry>
     </skulistdata>
 
-    <skulist name="CECHHxx (DIA-001)" warn="false" warnmsg="" minver="2.30">
-      <skuentry type="idps">06</skuentry>
-      <skuentry type="metldr0">E7B0</skuentry>
-      <skuentry type="metldr1">0E77</skuentry>
-      <skuentry type="bootldr0">2F1C</skuentry>
-      <skuentry type="bootldr1">2F1C</skuentry>
-      <skuentry type="bootldrsize">2F200</skuentry>
-    </skulist>
-    <skulist name="CECHHxx (DIA-001)" warn="false" warnmsg="" minver="2.30">
-      <skuentry type="idps">06</skuentry>
-      <skuentry type="metldr0">E8C0</skuentry>
-      <skuentry type="metldr1">0E88</skuentry>
-      <skuentry type="bootldr0">2EF4</skuentry>
-      <skuentry type="bootldr1">2EF4</skuentry>
-      <skuentry type="bootldrsize">2EF80</skuentry>
-    </skulist>
-    <skulist name="CECHHxx (DIA-001)" warn="false" warnmsg="" minver="1.97">
-      <skuentry type="idps">06</skuentry>
-      <skuentry type="metldr0">E8E0</skuentry>
-      <skuentry type="metldr1">0E8A</skuentry>
-      <skuentry type="bootldr0">2EF4</skuentry>
-      <skuentry type="bootldr1">2EF4</skuentry>
-      <skuentry type="bootldrsize">2EF80</skuentry>
-    </skulist>
-    <skulist name="CECHJxx (DIA-002) datecode:8B" warn="false" warnmsg="" minver="2.30">
-      <skuentry type="idps">07</skuentry>
-      <skuentry type="metldr0">E8E0</skuentry>
-      <skuentry type="metldr1">0E8A</skuentry>
-      <skuentry type="bootldr0">2EF4</skuentry>
-      <skuentry type="bootldr1">2EF4</skuentry>
-      <skuentry type="bootldrsize">2EF80</skuentry>
-    </skulist>
-    <skulist name="CECHHxx (DIA-001) or CECHMxx (DIA-001)" warn="false" warnmsg="" minver="1.97">
-      <skuentry type="idps">06</skuentry>
-      <skuentry type="metldr0">EA60</skuentry>
-      <skuentry type="metldr1">0EA2</skuentry>
-      <skuentry type="bootldr0">2EE3</skuentry>
-      <skuentry type="bootldr1">2EE3</skuentry>
-      <skuentry type="bootldrsize">2EE70</skuentry>
-    </skulist>
-    <skulist name="CECHJxx (DIA-002) or CECHKxx (DIA-002) datecode:8C" warn="false" warnmsg="" minver="2.30">
-      <skuentry type="idps">07</skuentry>
-      <skuentry type="metldr0">EA60</skuentry>
-      <skuentry type="metldr1">0EA2</skuentry>
-      <skuentry type="bootldr0">2EE3</skuentry>
-      <skuentry type="bootldr1">2EE3</skuentry>
-      <skuentry type="bootldrsize">2EE70</skuentry>
-    </skulist>
-    <skulist name="CECHLxx (VER-001) or CECHPxx (VER-001)" warn="false" warnmsg="" minver="2.45">
-      <skuentry type="idps">08</skuentry>
-      <skuentry type="metldr0">E8D0</skuentry>
-      <skuentry type="metldr1">0E89</skuentry>
-      <skuentry type="bootldr0">2EAB</skuentry>
-      <skuentry type="bootldr1">2EAB</skuentry>
-      <skuentry type="bootldrsize">2EAF0</skuentry>
-    </skulist>
-    <skulist name="CECHLxx (VER-001)" warn="false" warnmsg="" minver="2.45">
-      <skuentry type="idps">08</skuentry>
-      <skuentry type="metldr0">E8D0</skuentry>
-      <skuentry type="metldr1">0E89</skuentry>
-      <skuentry type="bootldr0">2EB3</skuentry>
-      <skuentry type="bootldr1">2EB3</skuentry>
-      <skuentry type="bootldrsize">2EB70</skuentry>
-    </skulist>
-    <skulist name="CECHLxx (VER-001)" warn="false" warnmsg="" minver="2.30">
-      <skuentry type="idps">08</skuentry>
-      <skuentry type="metldr0">E890</skuentry>
-      <skuentry type="metldr1">0E85</skuentry>
-      <skuentry type="bootldr0">2F13</skuentry>
-      <skuentry type="bootldr1">2F13</skuentry>
-      <skuentry type="bootldrsize">2F170</skuentry>
-    </skulist>
-    <skulist name="CECH-20xx (DYN-001)" warn="false" warnmsg="" minver="2.70">
-      <skuentry type="idps">09</skuentry>
-      <skuentry type="metldr0">E890</skuentry>
-      <skuentry type="metldr1">0E85</skuentry>
-      <skuentry type="bootldr0">2F13</skuentry>
-      <skuentry type="bootldr1">2F13</skuentry>
-      <skuentry type="bootldrsize">2F170</skuentry>
-    </skulist>
-    <skulist name="CECH-20xx (DYN-001)" warn="false" warnmsg="" minver="2.70">
-      <skuentry type="idps">09</skuentry>
-      <skuentry type="metldr0">E920</skuentry>
-      <skuentry type="metldr1">0E8E</skuentry>
-      <skuentry type="bootldr0">2F3B</skuentry>
-      <skuentry type="bootldr1">2F3B</skuentry>
-      <skuentry type="bootldrsize">2F3F0</skuentry>
-    </skulist>
-    <skulist name="CECH-21xx (SUR-001)" warn="false" warnmsg="" minver="3.20">
-      <skuentry type="idps">0A</skuentry>
-      <skuentry type="metldr0">E920</skuentry>
-      <skuentry type="metldr1">0E8E</skuentry>
-      <skuentry type="bootldr0">2F4B</skuentry>
-      <skuentry type="bootldr1">2F4B</skuentry>
-      <skuentry type="bootldrsize">2F4F0</skuentry>
-    </skulist>
-    <skulist name="CECH-25xx (JTP-001) datecode: 0Cor CECH-25xx (JSD-001) datecode: 0C" warn="false" warnmsg=""
-             minver="3.40">
-      <skuentry type="idps">0B</skuentry>
-      <skuentry type="metldr0">E920</skuentry>
-      <skuentry type="metldr1">0E8E</skuentry>
-      <skuentry type="bootldr0">2F4B</skuentry>
-      <skuentry type="bootldr1">2F4B</skuentry>
-      <skuentry type="bootldrsize">2F4F0</skuentry>
-    </skulist>
-    <skulist name="CECH-25xx (JSD-001) datecode: 0Dor CECH-25xx (JTP-001) datecode:1A" warn="false" warnmsg=""
-             minver="3.50">
-      <skuentry type="idps">0B</skuentry>
-      <skuentry type="metldr0">E960</skuentry>
-      <skuentry type="metldr1">0E92</skuentry>
-      <skuentry type="bootldr0">2F53</skuentry>
-      <skuentry type="bootldr1">2F53</skuentry>
-      <skuentry type="bootldrsize">2F570</skuentry>
-    </skulist>
-    <skulist
-      name="CECH-25xx (JTP-001) datecode:1Aor CECH-25xx (JSD-001) datecode:1B or CECH-25xx (JTP-001) datecode:1B"
-      warn="true" warnmsg="WARNING: Nor must be patched with4.30/4.31Patchset to install CFW on this machine!"
-      minver="3.56">
-      <skuentry type="idps">0B</skuentry>
-      <skuentry type="metldr0">E960</skuentry>
-      <skuentry type="metldr1">0E92</skuentry>
-      <skuentry type="bootldr0">2F5B</skuentry>
-      <skuentry type="bootldr1">2F5B</skuentry>
-      <skuentry type="bootldrsize">2F5F0</skuentry>
-    </skulist>
-    <!-- NON-Downgradeable dumps -->
-    <skulist name="CECH-25xx (JSD-001) datecode:1B or CECH-25xx (JTP-001)" warn="true"
-             warnmsg="WARNING: The machine this dump belongs to is currently not downgradeable!" minver="3.60">
-      <skuentry type="idps">0B</skuentry>
-      <skuentry type="metldr0">F920</skuentry>
-      <skuentry type="metldr1">0F8E</skuentry>
-      <skuentry type="bootldr0">2FFB</skuentry>
-      <skuentry type="bootldr1">2FFB</skuentry>
-      <skuentry type="bootldrsize">2FFF0</skuentry>
-    </skulist>
-    <skulist name="CECH-30xx (KTE-001)" warn="true"
-             warnmsg="WARNING: The machine this dump belongs to is currently not downgradeable!" minver="3.60">
-      <skuentry type="idps">0C</skuentry>
-      <skuentry type="metldr0">F920</skuentry>
-      <skuentry type="metldr1">0F8E</skuentry>
-      <skuentry type="bootldr0">2FFB</skuentry>
-      <skuentry type="bootldr1">2FFB</skuentry>
-      <skuentry type="bootldrsize">2FFF0</skuentry>
-    </skulist>
-    <skulist name="CECH-40xx (MSX-001) or CECH-40xx (MPX-001)" warn="true"
-             warnmsg="WARNING: The machine this dump belongs to is currently not downgradeable!" minver="4.20">
-      <skuentry type="idps">0D</skuentry>
-      <skuentry type="metldr0">F9B0</skuentry>
-      <skuentry type="metldr1">0F97</skuentry>
-      <skuentry type="bootldr0">301B</skuentry>
-      <skuentry type="bootldr1">301B</skuentry>
-      <skuentry type="bootldrsize">301F0</skuentry>
-    </skulist>
+    <skumodels>
+      <skulist name="CECHHxx (DIA-001)" warn="false" warnmsg="" minver="2.30">
+        <skuentry type="idps">06</skuentry>
+        <skuentry type="metldr0">E7B0</skuentry>
+        <skuentry type="metldr1">0E77</skuentry>
+        <skuentry type="bootldr0">2F1C</skuentry>
+        <skuentry type="bootldr1">2F1C</skuentry>
+        <skuentry type="bootldrsize">2F200</skuentry>
+      </skulist>
+      <skulist name="CECHHxx (DIA-001)" warn="false" warnmsg="" minver="2.30">
+        <skuentry type="idps">06</skuentry>
+        <skuentry type="metldr0">E8C0</skuentry>
+        <skuentry type="metldr1">0E88</skuentry>
+        <skuentry type="bootldr0">2EF4</skuentry>
+        <skuentry type="bootldr1">2EF4</skuentry>
+        <skuentry type="bootldrsize">2EF80</skuentry>
+      </skulist>
+      <skulist name="CECHHxx (DIA-001)" warn="false" warnmsg="" minver="1.97">
+        <skuentry type="idps">06</skuentry>
+        <skuentry type="metldr0">E8E0</skuentry>
+        <skuentry type="metldr1">0E8A</skuentry>
+        <skuentry type="bootldr0">2EF4</skuentry>
+        <skuentry type="bootldr1">2EF4</skuentry>
+        <skuentry type="bootldrsize">2EF80</skuentry>
+      </skulist>
+      <skulist name="CECHJxx (DIA-002) datecode:8B" warn="false" warnmsg="" minver="2.30">
+        <skuentry type="idps">07</skuentry>
+        <skuentry type="metldr0">E8E0</skuentry>
+        <skuentry type="metldr1">0E8A</skuentry>
+        <skuentry type="bootldr0">2EF4</skuentry>
+        <skuentry type="bootldr1">2EF4</skuentry>
+        <skuentry type="bootldrsize">2EF80</skuentry>
+      </skulist>
+      <skulist name="CECHHxx (DIA-001) or CECHMxx (DIA-001)" warn="false" warnmsg="" minver="1.97">
+        <skuentry type="idps">06</skuentry>
+        <skuentry type="metldr0">EA60</skuentry>
+        <skuentry type="metldr1">0EA2</skuentry>
+        <skuentry type="bootldr0">2EE3</skuentry>
+        <skuentry type="bootldr1">2EE3</skuentry>
+        <skuentry type="bootldrsize">2EE70</skuentry>
+      </skulist>
+      <skulist name="CECHJxx (DIA-002) or CECHKxx (DIA-002) datecode:8C" warn="false" warnmsg="" minver="2.30">
+        <skuentry type="idps">07</skuentry>
+        <skuentry type="metldr0">EA60</skuentry>
+        <skuentry type="metldr1">0EA2</skuentry>
+        <skuentry type="bootldr0">2EE3</skuentry>
+        <skuentry type="bootldr1">2EE3</skuentry>
+        <skuentry type="bootldrsize">2EE70</skuentry>
+      </skulist>
+      <skulist name="CECHLxx (VER-001) or CECHPxx (VER-001)" warn="false" warnmsg="" minver="2.45">
+        <skuentry type="idps">08</skuentry>
+        <skuentry type="metldr0">E8D0</skuentry>
+        <skuentry type="metldr1">0E89</skuentry>
+        <skuentry type="bootldr0">2EAB</skuentry>
+        <skuentry type="bootldr1">2EAB</skuentry>
+        <skuentry type="bootldrsize">2EAF0</skuentry>
+      </skulist>
+      <skulist name="CECHLxx (VER-001)" warn="false" warnmsg="" minver="2.45">
+        <skuentry type="idps">08</skuentry>
+        <skuentry type="metldr0">E8D0</skuentry>
+        <skuentry type="metldr1">0E89</skuentry>
+        <skuentry type="bootldr0">2EB3</skuentry>
+        <skuentry type="bootldr1">2EB3</skuentry>
+        <skuentry type="bootldrsize">2EB70</skuentry>
+      </skulist>
+      <skulist name="CECHLxx (VER-001)" warn="false" warnmsg="" minver="2.30">
+        <skuentry type="idps">08</skuentry>
+        <skuentry type="metldr0">E890</skuentry>
+        <skuentry type="metldr1">0E85</skuentry>
+        <skuentry type="bootldr0">2F13</skuentry>
+        <skuentry type="bootldr1">2F13</skuentry>
+        <skuentry type="bootldrsize">2F170</skuentry>
+      </skulist>
+      <skulist name="CECH-20xx (DYN-001)" warn="false" warnmsg="" minver="2.70">
+        <skuentry type="idps">09</skuentry>
+        <skuentry type="metldr0">E890</skuentry>
+        <skuentry type="metldr1">0E85</skuentry>
+        <skuentry type="bootldr0">2F13</skuentry>
+        <skuentry type="bootldr1">2F13</skuentry>
+        <skuentry type="bootldrsize">2F170</skuentry>
+      </skulist>
+      <skulist name="CECH-20xx (DYN-001)" warn="false" warnmsg="" minver="2.70">
+        <skuentry type="idps">09</skuentry>
+        <skuentry type="metldr0">E920</skuentry>
+        <skuentry type="metldr1">0E8E</skuentry>
+        <skuentry type="bootldr0">2F3B</skuentry>
+        <skuentry type="bootldr1">2F3B</skuentry>
+        <skuentry type="bootldrsize">2F3F0</skuentry>
+      </skulist>
+      <skulist name="CECH-21xx (SUR-001)" warn="false" warnmsg="" minver="3.20">
+        <skuentry type="idps">0A</skuentry>
+        <skuentry type="metldr0">E920</skuentry>
+        <skuentry type="metldr1">0E8E</skuentry>
+        <skuentry type="bootldr0">2F4B</skuentry>
+        <skuentry type="bootldr1">2F4B</skuentry>
+        <skuentry type="bootldrsize">2F4F0</skuentry>
+      </skulist>
+      <skulist name="CECH-25xx (JTP-001) datecode: 0Cor CECH-25xx (JSD-001) datecode: 0C" warn="false" warnmsg="" minver="3.40">
+        <skuentry type="idps">0B</skuentry>
+        <skuentry type="metldr0">E920</skuentry>
+        <skuentry type="metldr1">0E8E</skuentry>
+        <skuentry type="bootldr0">2F4B</skuentry>
+        <skuentry type="bootldr1">2F4B</skuentry>
+        <skuentry type="bootldrsize">2F4F0</skuentry>
+      </skulist>
+      <skulist name="CECH-25xx (JSD-001) datecode: 0Dor CECH-25xx (JTP-001) datecode:1A" warn="false" warnmsg="" minver="3.50">
+        <skuentry type="idps">0B</skuentry>
+        <skuentry type="metldr0">E960</skuentry>
+        <skuentry type="metldr1">0E92</skuentry>
+        <skuentry type="bootldr0">2F53</skuentry>
+        <skuentry type="bootldr1">2F53</skuentry>
+        <skuentry type="bootldrsize">2F570</skuentry>
+      </skulist>
+      <skulist name="CECH-25xx (JTP-001) datecode:1Aor CECH-25xx (JSD-001) datecode:1B or CECH-25xx (JTP-001) datecode:1B" warn="true" warnmsg="WARNING: Nor must be patched with4.30/4.31Patchset to install CFW on this machine!" minver="3.56">
+        <skuentry type="idps">0B</skuentry>
+        <skuentry type="metldr0">E960</skuentry>
+        <skuentry type="metldr1">0E92</skuentry>
+        <skuentry type="bootldr0">2F5B</skuentry>
+        <skuentry type="bootldr1">2F5B</skuentry>
+        <skuentry type="bootldrsize">2F5F0</skuentry>
+      </skulist>
+      <!-- NON-Downgradeable dumps -->
+      <skulist name="CECH-25xx (JSD-001) datecode:1B or CECH-25xx (JTP-001)" warn="true" warnmsg="WARNING: The machine this dump belongs to is currently not downgradeable!" minver="3.60">
+        <skuentry type="idps">0B</skuentry>
+        <skuentry type="metldr0">F920</skuentry>
+        <skuentry type="metldr1">0F8E</skuentry>
+        <skuentry type="bootldr0">2FFB</skuentry>
+        <skuentry type="bootldr1">2FFB</skuentry>
+        <skuentry type="bootldrsize">2FFF0</skuentry>
+      </skulist>
+      <skulist name="CECH-30xx (KTE-001)" warn="true" warnmsg="WARNING: The machine this dump belongs to is currently not downgradeable!" minver="3.60">
+        <skuentry type="idps">0C</skuentry>
+        <skuentry type="metldr0">F920</skuentry>
+        <skuentry type="metldr1">0F8E</skuentry>
+        <skuentry type="bootldr0">2FFB</skuentry>
+        <skuentry type="bootldr1">2FFB</skuentry>
+        <skuentry type="bootldrsize">2FFF0</skuentry>
+      </skulist>
+      <skulist name="CECH-40xx (MSX-001) or CECH-40xx (MPX-001)" warn="true" warnmsg="WARNING: The machine this dump belongs to is currently not downgradeable!" minver="4.20">
+        <skuentry type="idps">0D</skuentry>
+        <skuentry type="metldr0">F9B0</skuentry>
+        <skuentry type="metldr1">0F97</skuentry>
+        <skuentry type="bootldr0">301B</skuentry>
+        <skuentry type="bootldr1">301B</skuentry>
+        <skuentry type="bootldrsize">301F0</skuentry>
+      </skulist>
+    </skumodels>
   </type>
 </root>

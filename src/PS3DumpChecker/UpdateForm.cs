@@ -162,7 +162,7 @@
             File.Move(src, target);
         }
 
-        private static bool CheckHash(string file, string hfile = null) {
+        private static bool CheckHash(string file, string hfile = null, string real = null) {
             FileStream tmp = null;
             try {
                 var wc = new WebClient();
@@ -173,7 +173,9 @@
                 if(string.IsNullOrEmpty(hash))
                     return false;
                 tmp = new FileStream(file, FileMode.Open);
-                var real = "";
+                if(!string.IsNullOrEmpty(real))
+                    return real.Equals(hash, StringComparison.CurrentCultureIgnoreCase);
+                real = "";
                 var thash = MD5.Create().ComputeHash(tmp);
                 foreach(var b in thash)
                     real += b.ToString("X2");
@@ -206,7 +208,11 @@
 
         private void AppbtnClick(object sender, EventArgs e) {
             try {
-                if(CheckHash(Assembly.GetAssembly(typeof(UpdateForm)).CodeBase, "PS3DumpChecker.exe"))
+                var md5 = "";
+                var tmp = MD5.Create().ComputeHash(File.ReadAllBytes(Assembly.GetAssembly(typeof(UpdateForm)).Location));
+                foreach(var b in tmp)
+                    md5 += b.ToString("X2");
+                if(CheckHash("", "PS3DumpChecker.exe", md5))
                     return;
             }
             catch(Exception) {

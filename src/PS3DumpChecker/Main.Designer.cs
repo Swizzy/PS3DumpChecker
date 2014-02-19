@@ -29,6 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.checkbtn = new System.Windows.Forms.Button();
             this.advbox = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -44,20 +45,21 @@
             this.imgstatus = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.status = new System.Windows.Forms.ToolStripStatusLabel();
             this.worker = new System.ComponentModel.BackgroundWorker();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.settings = new System.Windows.Forms.ToolStripMenuItem();
             this.loadConfigurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.update = new System.Windows.Forms.ToolStripMenuItem();
             this.loadHashlistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logstate = new System.Windows.Forms.CheckBox();
             this.statuslabel = new System.Windows.Forms.Label();
+            this.status = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.partslist = new PS3DumpChecker.Controls.CustomListBox();
             this.advbox.SuspendLayout();
             this.imginfo.SuspendLayout();
-            this.statusStrip.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.statusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // checkbtn
@@ -226,24 +228,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Image Status:";
             // 
-            // statusStrip
-            // 
-            this.statusStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
-            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.status});
-            this.statusStrip.Location = new System.Drawing.Point(0, 549);
-            this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(760, 22);
-            this.statusStrip.SizingGrip = false;
-            this.statusStrip.TabIndex = 3;
-            this.statusStrip.Text = "statusStrip";
-            // 
-            // status
-            // 
-            this.status.Name = "status";
-            this.status.Size = new System.Drawing.Size(131, 17);
-            this.status.Text = "Waiting for user input...";
-            // 
             // worker
             // 
             this.worker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.DoWork);
@@ -253,6 +237,7 @@
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.settings,
             this.loadConfigurationToolStripMenuItem,
             this.update,
             this.loadHashlistToolStripMenuItem});
@@ -261,6 +246,15 @@
             this.menuStrip1.Size = new System.Drawing.Size(760, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // settings
+            // 
+            this.settings.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.settings.Image = ((System.Drawing.Image)(resources.GetObject("settings.Image")));
+            this.settings.Name = "settings";
+            this.settings.Size = new System.Drawing.Size(28, 20);
+            this.settings.Text = "settings";
+            this.settings.Click += new System.EventHandler(this.SettingsClick);
             // 
             // loadConfigurationToolStripMenuItem
             // 
@@ -273,7 +267,7 @@
             // 
             this.update.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.update.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.update.Image = global::PS3DumpChecker.Properties.Resources.maj;
+            this.update.Image = ((System.Drawing.Image)(resources.GetObject("update.Image")));
             this.update.Name = "update";
             this.update.Size = new System.Drawing.Size(28, 20);
             this.update.Text = "update";
@@ -308,6 +302,24 @@
             this.statuslabel.Size = new System.Drawing.Size(354, 91);
             this.statuslabel.TabIndex = 6;
             this.statuslabel.Text = "STATUS";
+            // 
+            // status
+            // 
+            this.status.Name = "status";
+            this.status.Size = new System.Drawing.Size(131, 17);
+            this.status.Text = "Waiting for user input...";
+            // 
+            // statusStrip
+            // 
+            this.statusStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.status});
+            this.statusStrip.Location = new System.Drawing.Point(0, 549);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(760, 22);
+            this.statusStrip.SizingGrip = false;
+            this.statusStrip.TabIndex = 3;
+            this.statusStrip.Text = "statusStrip";
             // 
             // partslist
             // 
@@ -350,10 +362,10 @@
             this.advbox.PerformLayout();
             this.imginfo.ResumeLayout(false);
             this.imginfo.PerformLayout();
-            this.statusStrip.ResumeLayout(false);
-            this.statusStrip.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.statusStrip.ResumeLayout(false);
+            this.statusStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -365,8 +377,6 @@
         private System.Windows.Forms.Button checkbtn;
         private System.Windows.Forms.GroupBox advbox;
         private System.Windows.Forms.GroupBox imginfo;
-        private System.Windows.Forms.StatusStrip statusStrip;
-        private System.Windows.Forms.ToolStripStatusLabel status;
         private System.ComponentModel.BackgroundWorker worker;
         private System.Windows.Forms.RichTextBox reversed;
         private System.Windows.Forms.Label label2;
@@ -386,6 +396,9 @@
         private System.Windows.Forms.RichTextBox minverbox;
         private System.Windows.Forms.ToolStripMenuItem update;
         private System.Windows.Forms.ToolStripMenuItem loadHashlistToolStripMenuItem;
+        private System.Windows.Forms.ToolStripStatusLabel status;
+        private System.Windows.Forms.StatusStrip statusStrip;
+        private System.Windows.Forms.ToolStripMenuItem settings;
     }
 }
 
