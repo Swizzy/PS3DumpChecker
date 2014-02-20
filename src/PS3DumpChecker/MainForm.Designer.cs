@@ -1,6 +1,6 @@
 ﻿namespace PS3DumpChecker
 {
-    internal sealed partial class Main
+    internal sealed partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.checkbtn = new System.Windows.Forms.Button();
             this.advbox = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -335,7 +335,7 @@
             this.partslist.TabIndex = 0;
             this.partslist.SelectedIndexChanged += new System.EventHandler(this.PartslistSelectedIndexChanged);
             // 
-            // Main
+            // MainForm
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -353,7 +353,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
-            this.Name = "Main";
+            this.Name = "MainForm";
             this.Text = "PS3 Dump Checker v";
             this.Load += new System.EventHandler(this.MainLoad);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainDragDrop);

@@ -1,5 +1,10 @@
 @echo off
+if not exist "%1" goto notok
 cd "%1"
+goto ok
+:notok
+cd "Latest Compiled Version"
+:ok
 echo Cleaning directory...
 rm *.md5> NUL 2>&1
 rm *.vshost.*> NUL 2>&1

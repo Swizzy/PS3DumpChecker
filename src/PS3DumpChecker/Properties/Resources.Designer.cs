@@ -159,6 +159,15 @@ namespace PS3DumpChecker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to crash.log.
+        /// </summary>
+        internal static string CrashLogName {
+            get {
+                return ResourceManager.GetString("CrashLogName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ok... You can&apos;t read can you? well then... better luck next time!.
         /// </summary>
         internal static string DisclaimerFailedMessage {
@@ -304,6 +313,15 @@ namespace PS3DumpChecker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please send{0}{1}{0}To Swizzy@xeupd.com!.
+        /// </summary>
+        internal static string PleaseSendLogTo {
+            get {
+                return ResourceManager.GetString("PleaseSendLogTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select Dump to check.
         /// </summary>
         internal static string seldump {
@@ -337,6 +355,15 @@ namespace PS3DumpChecker.Properties {
         internal static string WARNING {
             get {
                 return ResourceManager.GetString("WARNING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You&apos;ve found a bug!.
+        /// </summary>
+        internal static string YouFoundABug {
+            get {
+                return ResourceManager.GetString("YouFoundABug", resourceCulture);
             }
         }
     }

@@ -578,7 +578,7 @@
         <skuentry type="bootldr1">2F4B</skuentry>
         <skuentry type="bootldrsize">2F4F0</skuentry>
       </skulist>
-      <skulist name="CECH-25xx (JTP-001) datecode: 0Cor CECH-25xx (JSD-001) datecode: 0C" warn="false" warnmsg="" minver="3.40">
+      <skulist name="CECH-25xx (JTP-001) datecode: 0C or CECH-25xx (JSD-001) datecode: 0C" warn="false" warnmsg="" minver="3.40">
         <skuentry type="idps">0B</skuentry>
         <skuentry type="metldr0">E920</skuentry>
         <skuentry type="metldr1">0E8E</skuentry>
@@ -586,7 +586,7 @@
         <skuentry type="bootldr1">2F4B</skuentry>
         <skuentry type="bootldrsize">2F4F0</skuentry>
       </skulist>
-      <skulist name="CECH-25xx (JSD-001) datecode: 0Dor CECH-25xx (JTP-001) datecode:1A" warn="false" warnmsg="" minver="3.50">
+      <skulist name="CECH-25xx (JSD-001) datecode: 0D or CECH-25xx (JTP-001) datecode:1A" warn="false" warnmsg="" minver="3.50">
         <skuentry type="idps">0B</skuentry>
         <skuentry type="metldr0">E960</skuentry>
         <skuentry type="metldr1">0E92</skuentry>
@@ -594,7 +594,7 @@
         <skuentry type="bootldr1">2F53</skuentry>
         <skuentry type="bootldrsize">2F570</skuentry>
       </skulist>
-      <skulist name="CECH-25xx (JTP-001) datecode:1Aor CECH-25xx (JSD-001) datecode:1B or CECH-25xx (JTP-001) datecode:1B" warn="true" warnmsg="WARNING: Nor must be patched with4.30/4.31Patchset to install CFW on this machine!" minver="3.56">
+      <skulist name="CECH-25xx (JTP-001) datecode:1A or CECH-25xx (JSD-001) datecode:1B or CECH-25xx (JTP-001) datecode:1B" warn="true" warnmsg="WARNING: NOR dump must be patched with 4.xx Patchset to install CFW on this machine!" minver="3.56">
         <skuentry type="idps">0B</skuentry>
         <skuentry type="metldr0">E960</skuentry>
         <skuentry type="metldr1">0E92</skuentry>

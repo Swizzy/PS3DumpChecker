@@ -14,12 +14,12 @@
     using Microsoft.Win32;
     using PS3DumpChecker.Properties;
 
-    internal sealed partial class Main : Form {
+    internal sealed partial class MainForm : Form {
         private static string _version;
-        private readonly string _wrkdir = Path.GetDirectoryName(Application.ExecutablePath);
+        public static readonly string Wrkdir = Path.GetDirectoryName(Application.ExecutablePath);
         private UpdateForm _updateForm = new UpdateForm();
 
-        public Main(ICollection<string> args) {
+        public MainForm(ICollection<string> args) {
             InitializeComponent();
             Common.StatusUpdate += StatusUpdate;
             Common.ListUpdate += CommonOnListUpdate;
@@ -27,8 +27,8 @@
             _version = string.Format("PS3 Dump Checker v{0}.{1} (Build: {2})", app.GetName().Version.Major, app.GetName().Version.Minor, app.GetName().Version.Build);
             Text = _version;
             Icon = Program.AppIcon;
-            if(!string.IsNullOrEmpty(_wrkdir) && Directory.Exists(_wrkdir))
-                Directory.SetCurrentDirectory(_wrkdir);
+            if(!string.IsNullOrEmpty(Wrkdir) && Directory.Exists(Wrkdir))
+                Directory.SetCurrentDirectory(Wrkdir);
             if(Program.GetRegSetting("AutoDLcfg"))
                 _updateForm.CfgbtnClick(null, null);
             var fi = new FileInfo("default.cfg");
@@ -189,7 +189,7 @@
                                 StartInfo = {
                                     Arguments = string.Format("\"{0}\"", res.FileName),
                                     FileName = "patcher.exe",
-                                    WorkingDirectory = _wrkdir
+                                    WorkingDirectory = Wrkdir
                                 }
                             };
                             proc.Start();

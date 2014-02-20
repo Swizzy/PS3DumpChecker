@@ -3,33 +3,41 @@
     using System.Drawing;
     using System.IO;
     using System.Reflection;
+    using System.Security.Permissions;
     using System.Windows.Forms;
     using Microsoft.Win32;
     using PS3DumpChecker.Properties;
 
     internal static class Program {
         internal static readonly Icon AppIcon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
-        internal static Main MainForm;
+        internal static MainForm MainForm;
 
-        private static void ExecHandler(object sender, UnhandledExceptionEventArgs args) {
-            var old = "";
-            if(File.Exists("crash.log"))
-                old = File.ReadAllText("crash.log");
-            old += args.ExceptionObject.ToString();
-            File.WriteAllText("crash.log", old);
-            MessageBox.Show(@"You've found a bug!\r\nPlease send crash.log to swizzy@xeupd.com!");
+        private static void LogException(string ex) {
+            var errorlog = string.Format("{0}\\{1}", MainForm.Wrkdir, Resources.CrashLogName);
+            try {
+                var old = "";
+                if(File.Exists(errorlog))
+                    old = File.ReadAllText(errorlog);
+                old += ex;
+                File.WriteAllText(errorlog, old);
+                MessageBox.Show(string.Format(Resources.PleaseSendLogTo, Environment.NewLine, errorlog), Resources.YouFoundABug);
+            }
+            catch {
+            }
         }
+
+        private static void ExecHandler(object sender, UnhandledExceptionEventArgs args) { LogException(args.ExceptionObject.ToString()); }
 
         /// <summary>
         ///     The main entry point for the application.
         /// </summary>
-        [STAThread] private static void Main(string[] args) {
-            AppDomain.CurrentDomain.UnhandledException += ExecHandler;
+        [SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.ControlAppDomain)] [STAThread] private static void Main(string[] args) {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            AppDomain.CurrentDomain.UnhandledException += ExecHandler;
             if(!HasAcceptedTerms())
                 return;
-            MainForm = new Main(args);
+            MainForm = new MainForm(args);
             Application.Run(MainForm);
         }
 

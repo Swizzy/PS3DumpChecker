@@ -1,3 +1,6 @@
+Build 338 2014-02-20:
+ - Changed: Better error handler, it'll now show you where it saves the crash log and also save it next to the exe instead...
+ - Fixed: Downloading the hashlist/config now properly checks default.cfg/default.hashlist before downloading and not latest.cfg/latest.hashlist
 Build 337 2014-02-20:
  - Added: Error handler for a different type of crash which only effected some users (dafuq?)
  - Fixed: Hopefully fixed the crash some of you experienced with the previous builds (325 & 332 atleast)

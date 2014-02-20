@@ -217,4 +217,13 @@ Did you skip reading these terms/conditions?</value>
   <data name="settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\settings.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="CrashLogName" xml:space="preserve">
+    <value>crash.log</value>
+  </data>
+  <data name="YouFoundABug" xml:space="preserve">
+    <value>You've found a bug!</value>
+  </data>
+  <data name="PleaseSendLogTo" xml:space="preserve">
+    <value>Please send{0}{1}{0}To Swizzy@xeupd.com!</value>
+  </data>
 </root>

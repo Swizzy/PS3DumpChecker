@@ -195,14 +195,14 @@
         }
 
         public void CfgbtnClick(object sender, EventArgs e) {
-            if(CheckHash("latest.cfg"))
+            if(CheckHash("default.cfg"))
                 return;
             statuslbl.Text = Resources.dlinglatestcfg;
             DownloadFile("latest.cfg");
         }
 
         public void HashlistbtnClick(object sender, EventArgs e) {
-            if(CheckHash("latest.hashlist"))
+            if(CheckHash("default.hashlist"))
                 return;
             statuslbl.Text = Resources.dlinghashlist;
             DownloadFile("latest.hashlist");
