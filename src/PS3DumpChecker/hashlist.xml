@@ -9,14 +9,26 @@
     <offset fsize="268435456" type="ROS" name="ROS1 Hash" size="6FFFE0">7C0020</offset>
   </offsets>
   <type name="ROS">
+    <hash name="4.55 CEX Patched (Rogero)" size="6FFFE0">
+      ECA854DD9AC9DA0A45312FFEA53D8190
+    </hash>
     <hash name="4.55 CEX" size="6FFFE0">
       8845D70EAB7B28BB829C378A37121DDF
+    </hash>
+    <hash name="4.53 CEX Patched (Habib)" size="6FFFE0">
+      9B7783493B6F65A5EDFA949E68FDF796
     </hash>
     <hash name="4.53 CEX" size="6FFFE0">
       48031F979F7905F56B0C068BB1D6AFAA
     </hash>
+    <hash name="4.50 CEX Patched (Rogero)" size="6FFFE0">
+      D9B21C13793ABE747D070378667B84DB
+    </hash>
     <hash name="4.50 CEX" size="6FFFE0">
       3B84AB0FA2C9AB1C108B508B0F419639
+    </hash>
+    <hash name="4.46 CEX Patched (Rogero)" size="6FFFE0">
+      7CF42A338F27AC5E63D2F394D5988853
     </hash>
     <hash name="4.46 CEX" size="6FFFE0">
       D18F9F37189627E798694B8A85434A23
