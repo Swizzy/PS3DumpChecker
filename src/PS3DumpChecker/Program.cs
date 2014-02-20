@@ -11,13 +11,23 @@
         internal static readonly Icon AppIcon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
         internal static Main MainForm;
 
+        private static void ExecHandler(object sender, UnhandledExceptionEventArgs args) {
+            var old = "";
+            if(File.Exists("crash.log"))
+                old = File.ReadAllText("crash.log");
+            old += args.ExceptionObject.ToString();
+            File.WriteAllText("crash.log", old);
+            MessageBox.Show(@"You've found a bug!\r\nPlease send crash.log to swizzy@xeupd.com!");
+        }
+
         /// <summary>
-        ///   The main entry point for the application.
+        ///     The main entry point for the application.
         /// </summary>
         [STAThread] private static void Main(string[] args) {
+            AppDomain.CurrentDomain.UnhandledException += ExecHandler;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            if (!HasAcceptedTerms())
+            if(!HasAcceptedTerms())
                 return;
             MainForm = new Main(args);
             Application.Run(MainForm);
@@ -64,32 +74,28 @@
             key.SetValue(setting, value ? 1 : 0);
         }
 
-        internal static bool HasAcceptedTerms(bool disableCheck = false)
-        {
+        internal static bool HasAcceptedTerms(bool disableCheck = false) {
             var key = Registry.CurrentUser.CreateSubKey("Software");
-            if (key == null)
+            if(key == null)
                 return false;
             key = key.CreateSubKey("Swizzy");
-            if (key == null)
+            if(key == null)
                 return false;
             key = key.CreateSubKey("PS3 Dump Checker");
-            if (key == null)
+            if(key == null)
                 return false;
-            if (disableCheck)
+            if(disableCheck)
                 key.SetValue("DonorTermsAccepted", 2);
-            var termskey = key.GetValue("DonorTermsAccepted", 0) is int ? (int)key.GetValue("DonorTermsAccepted", 0) : 0;
+            var termskey = key.GetValue("DonorTermsAccepted", 0) is int ? (int) key.GetValue("DonorTermsAccepted", 0) : 0;
             return termskey == 2 || AcceptRandomized(key, termskey);
         }
 
-        private static bool AcceptRandomized(RegistryKey key, int current)
-        {
+        private static bool AcceptRandomized(RegistryKey key, int current) {
             var ret = false;
             DialogResult res;
-            if (current == 1)
-            {
+            if(current == 1) {
                 res = MessageBox.Show(Resources.AcceptTermsMessage, Resources.AcceptTermsTitle, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
-                switch (res)
-                {
+                switch(res) {
                     case DialogResult.Yes:
                         ret = true;
                         break;
@@ -99,11 +105,9 @@
                         return false;
                 }
             }
-            else
-            {
+            else {
                 res = MessageBox.Show(Resources.AcceptTermsMessageReversed, Resources.AcceptTermsTitle, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
-                switch (res)
-                {
+                switch(res) {
                     case DialogResult.No:
                         ret = true;
                         break;
@@ -114,7 +118,7 @@
                 }
             }
             key.SetValue("DonorTermsAccepted", current == 1 ? 0 : 1);
-            if (!ret)
+            if(!ret)
                 MessageBox.Show(Resources.DisclaimerFailedMessage);
             return ret;
         }

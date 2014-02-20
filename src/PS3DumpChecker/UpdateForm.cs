@@ -165,6 +165,8 @@
         private static bool CheckHash(string file, string hfile = null, string real = null) {
             FileStream tmp = null;
             try {
+                if(!File.Exists(file))
+                    return false; // It doesn't even exist... why bother?
                 var wc = new WebClient();
                 if(string.IsNullOrEmpty(hfile))
                     hfile = file.Equals("latest.exe", StringComparison.CurrentCultureIgnoreCase) ? "PS3DumpChecker.exe" : string.Format("default{0}", file.Substring(file.LastIndexOf('.')));

@@ -1,3 +1,6 @@
+Build 337 2014-02-20:
+ - Added: Error handler for a different type of crash which only effected some users (dafuq?)
+ - Fixed: Hopefully fixed the crash some of you experienced with the previous builds (325 & 332 atleast)
 Build 332 2014-02-20:
  - Added: Button/Icon for Settings
  - Added: Repetitions check (look for data that should only exist once...) [ Enabled by default]
