@@ -1,3 +1,5 @@
+Build 342 2014-02-25:
+ - Fixed: Wording in settings (I originally added 3.55 patching as an option, but spoke to rogero and he explained that his 4.55 works the same way with better compatibility for newer consoles, and also with the noFSM...)
 Build 341 2014-02-25:
  - Added: Option to use internal patcher (Currently included patches are Rogero's 4.55 Patches, they support ALL methods of downgrading [FactoryServiceMode and "NoFSM" CFW install])
    - NOTE: This will be disabled for metldr2 dumps...

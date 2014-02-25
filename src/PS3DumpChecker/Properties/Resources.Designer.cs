@@ -422,7 +422,7 @@ namespace PS3DumpChecker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use embedded 3.55 patches.
+        ///   Looks up a localized string similar to Use embedded patches.
         /// </summary>
         internal static string UseEmbeddedPatches {
             get {
@@ -431,7 +431,7 @@ namespace PS3DumpChecker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use internal 3.55 patcher.
+        ///   Looks up a localized string similar to Use internal patcher.
         /// </summary>
         internal static string UseInternalPatcher {
             get {
