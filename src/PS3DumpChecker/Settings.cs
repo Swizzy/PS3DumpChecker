@@ -17,7 +17,7 @@
 #else
             UseInternalPatcher.Text = Resources.UseInternalPatcher; // This will use external files
 #endif
-
+            disabledisclaimerbtn.Enabled = !Program.HasAcceptedTerms2();
         }
 
         private static void SetCheckBoxes(Control ctrl) {
@@ -46,6 +46,11 @@
             if(dohashcheck.Checked)
                 Program.MainForm.DoParseHashList();
             Close();
+        }
+
+        private void DisabledisclaimerbtnClick(object sender, EventArgs e) {
+            Program.HasAcceptedTerms(true);
+            MessageBox.Show(Resources.YouveBeenWarned);
         }
     }
 }

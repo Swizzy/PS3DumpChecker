@@ -35,6 +35,7 @@
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             AppDomain.CurrentDomain.UnhandledException += ExecHandler;
+            ConvertOldTermsToNew();
             if(!HasAcceptedTerms())
                 return;
             MainForm = new MainForm(args);
@@ -82,6 +83,38 @@
             key.SetValue(setting, value ? 1 : 0);
         }
 
+        internal static bool HasAcceptedTerms2()
+        {
+            var key = Registry.CurrentUser.CreateSubKey("Software");
+            if (key == null)
+                return false;
+            key = key.CreateSubKey("Swizzy");
+            if (key == null)
+                return false;
+            key = key.CreateSubKey("PS3 Dump Checker");
+            if (key == null)
+                return false;
+            var termskey = key.GetValue("TermsAccepted", 0) is int ? (int)key.GetValue("TermsAccepted", 0) : 0;
+            return termskey == 2;
+        }
+
+        private static void ConvertOldTermsToNew() {
+            var key = Registry.CurrentUser.CreateSubKey("Software");
+            if(key == null)
+                return;
+            key = key.CreateSubKey("Swizzy");
+            if (key == null)
+                return;
+            key = key.CreateSubKey("PS3 Dump Checker");
+            if (key == null)
+                return;
+            var termskey = key.GetValue("DonorTermsAccepted", -1) is int ? (int)key.GetValue("DonorTermsAccepted", -1) : 0;
+            if(termskey == -1)
+                return;
+            key.SetValue("TermsAccepted", termskey);
+            key.DeleteValue("DonorTermsAccepted");
+        }
+
         internal static bool HasAcceptedTerms(bool disableCheck = false) {
             var key = Registry.CurrentUser.CreateSubKey("Software");
             if(key == null)
@@ -93,8 +126,8 @@
             if(key == null)
                 return false;
             if(disableCheck)
-                key.SetValue("DonorTermsAccepted", 2);
-            var termskey = key.GetValue("DonorTermsAccepted", 0) is int ? (int) key.GetValue("DonorTermsAccepted", 0) : 0;
+                key.SetValue("TermsAccepted", 2);
+            var termskey = key.GetValue("TermsAccepted", 0) is int ? (int)key.GetValue("TermsAccepted", 0) : 0;
             return termskey == 2 || AcceptRandomized(key, termskey);
         }
 

@@ -255,4 +255,7 @@ Did you skip reading these terms/conditions?</value>
   <data name="UseEmbeddedPatches" xml:space="preserve">
     <value>Use embedded patches</value>
   </data>
+  <data name="YouveBeenWarned" xml:space="preserve">
+    <value>You have been warned...</value>
+  </data>
 </root>

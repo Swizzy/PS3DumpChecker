@@ -456,5 +456,14 @@ namespace PS3DumpChecker.Properties {
                 return ResourceManager.GetString("YouFoundABug", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have been warned....
+        /// </summary>
+        internal static string YouveBeenWarned {
+            get {
+                return ResourceManager.GetString("YouveBeenWarned", resourceCulture);
+            }
+        }
     }
 }
