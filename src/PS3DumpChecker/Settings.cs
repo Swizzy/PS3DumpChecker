@@ -1,6 +1,7 @@
 ﻿namespace PS3DumpChecker {
     using System;
     using System.Windows.Forms;
+    using PS3DumpChecker.Properties;
 
     internal sealed partial class Settings : Form {
         internal Settings() {
@@ -10,6 +11,13 @@
                 if(ctrl is GroupBox)
                     SetCheckBoxes(ctrl);
             }
+            SetCheckBoxes(this);
+#if EMBEDDED_PATCHES
+            UseInternalPatcher.Text = Resources.UseEmbeddedPatches; // This will use embedded files
+#else
+            UseInternalPatcher.Text = Resources.UseInternalPatcher; // This will use external files
+#endif
+
         }
 
         private static void SetCheckBoxes(Control ctrl) {
@@ -34,6 +42,7 @@
             foreach(Control ctrl in Controls)
                 if(ctrl is GroupBox)
                     GetCheckBoxes(ctrl);
+            GetCheckBoxes(this);
             if(dohashcheck.Checked)
                 Program.MainForm.DoParseHashList();
             Close();

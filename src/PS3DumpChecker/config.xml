@@ -350,7 +350,7 @@
       <binentry name="metldr Header" ismulti="true" offset="820" ascii="true" description="">
         6D65746C64720000
       </binentry> <!-- METLDR -->
-      <binentry name="metldr Header" ismulti="true" offset="820" ascii="true" description="">
+      <binentry name="metldr Header" ismulti="true" offset="820" ascii="true" description="" disablepatch="true">
         6D65746C64723200
       </binentry> <!-- METLDR2-->
 

@@ -11,6 +11,7 @@
 
     internal static class Checks {
         private static int _checkId;
+        private static Common.ImgInfo _ret;
 
         private static void AddItem(Common.PartsObject data) {
             Common.AddItem(_checkId, data);
@@ -21,7 +22,7 @@
             _checkId = 0;
             var fi = new FileInfo(file);
             var checkckount = 0;
-            var ret = new Common.ImgInfo {
+            _ret = new Common.ImgInfo {
                                          FileName = file
                                          };
             var checkdata = Common.Types[fi.Length];
@@ -33,7 +34,7 @@
                 Logger.WriteLine("Statistics check started...");
                 checkckount++;
                 if(!CheckStatisticsList(GetStatisticsAndFillData(fi, ref data), data.Length))
-                    Common.AddBad(ref ret);
+                    Common.AddBad(ref _ret);
                 Common.SendStatus("Statistics check Done!");
             }
             else {
@@ -54,11 +55,11 @@
                     var bintmp = string.Format("Binary check for {0} Started...", key);
                     Logger.Write(string.Format("{0,-50} Result: ", bintmp));
                     if(!checkdata.Bincheck.Value[key].Value.IsMulti) {
-                        if(!CheckBinPart(ref data, key, ref ret.Reversed))
-                            Common.AddBad(ref ret);
+                        if(!CheckBinPart(ref data, key, ref _ret.Reversed))
+                            Common.AddBad(ref _ret);
                     }
                     else if(!CheckBinPart(ref data, key))
-                        Common.AddBad(ref ret);
+                        Common.AddBad(ref _ret);
                     GC.Collect();
                 }
             }
@@ -77,8 +78,8 @@
                     Common.SendStatus(string.Format("Parsing Image... Checking Data Statistics for: {0}", key.Name));
                     var datatmp = string.Format("Data Statistics check for {0} Started...", key.Name);
                     Logger.Write(string.Format("{0,-50} Result: ", datatmp));
-                    if(!CheckDataPart(ref data, key, ret.Reversed))
-                        Common.AddBad(ref ret);
+                    if(!CheckDataPart(ref data, key, _ret.Reversed))
+                        Common.AddBad(ref _ret);
                     GC.Collect();
                 }
             }
@@ -93,7 +94,7 @@
             if(checkdata.SKUList.Value.Count > 0) {
                 Logger.WriteLine("SKU List check Started!");
                 Common.SendStatus("Checking SKU List...");
-                var skuCheckDataList = GetSkuCheckData(ret.Reversed, ref data, ref checkdata);
+                var skuCheckDataList = GetSkuCheckData(_ret.Reversed, ref data, ref checkdata);
 
                 var skuEntryList = new List<Common.SKUEntry>(checkdata.SKUList.Value);
                 foreach(var entry in skuCheckDataList) {
@@ -113,9 +114,9 @@
                 foreach(var entry in skuCheckDataList)
                     datamsg += entry.Type.Equals("bootldrsize", StringComparison.CurrentCultureIgnoreCase) ? string.Format("{0} = {1:X4}{2}", entry.Type, entry.Size, Environment.NewLine) : string.Format("{0} = {1}{2}", entry.Type, entry.Data, Environment.NewLine);
                 if(skuEntryList.Count == skuCheckDataList.Count) {
-                    ret.SKUModel = skuEntryList[0].Name;
-                    ret.MinVer = skuEntryList[0].MinVer;
-                    Logger.WriteLine(string.Format("SKU Model: {0}", ret.SKUModel));
+                    _ret.SKUModel = skuEntryList[0].Name;
+                    _ret.MinVer = skuEntryList[0].MinVer;
+                    Logger.WriteLine(string.Format("SKU Model: {0}", _ret.SKUModel));
                     var msg = "";
                     if(skuEntryList[0].Warn) {
                         foreach(var entry in skuEntryList) {
@@ -130,9 +131,9 @@
                     }
                 }
                 else {
-                    Common.AddBad(ref ret);
-                    ret.SKUModel = null;
-                    ret.MinVer = null;
+                    Common.AddBad(ref _ret);
+                    _ret.SKUModel = null;
+                    _ret.MinVer = null;
                     Logger.WriteLine("No matching SKU model found!");
                     foreach(var entry in skuCheckDataList)
                         Logger.WriteLine(entry.Type.Equals("bootldrsize", StringComparison.CurrentCultureIgnoreCase) ? string.Format("{0} = {1:X4}", entry.Type, entry.Size) : string.Format("{0} = {1}", entry.Type, entry.Data));
@@ -156,8 +157,8 @@
                     Common.SendStatus(string.Format("Parsing Image... Checking Hash for: {0}", check.Name));
                     var hashtmp = string.Format("Hash check for {0} Started...", check.Name);
                     Logger.Write(string.Format("{0,-50} Result: ", hashtmp));
-                    if(!CheckHash(ret.Reversed, ref data, check))
-                        Common.AddBad(ref ret);
+                    if(!CheckHash(_ret.Reversed, ref data, check))
+                        Common.AddBad(ref _ret);
                     GC.Collect();
                 }
             }
@@ -167,34 +168,38 @@
 
             #endregion Hash check
 
+            #region Repetitions Check
+
             if (Program.GetRegSetting("dorepcheck", true) && checkdata.RepCheck.Value.Count > 0)
             {
                 Logger.WriteLine("Repetitions check Started!");
                 checkckount++;
                 Common.SendStatus("Parsing Image... Checking Binary for: Repetitions");
-                if (!Repetitions(ret.Reversed, ref data, ref checkdata))
-                    Common.AddBad(ref ret);
+                if (!Repetitions(_ret.Reversed, ref data, ref checkdata))
+                    Common.AddBad(ref _ret);
             }
             else
                 Logger.WriteLine(string.Format("{0,-50} (nothing to check)", "Repetitions check skipped!"));
             Common.SendStatus("Repetitions check(s) Done!");
 
+            #endregion
+
             #region Final Output
 
             Common.SendStatus(string.Format("All checks ({3} Checks) have been completed after {0} Minutes {1} Seconds and {2} Milliseconds", sw.Elapsed.Minutes, sw.Elapsed.Seconds, sw.Elapsed.Milliseconds, checkckount));
             Logger.WriteLine(string.Format("All checks ({3} Checks) have been completed after {0} Minutes {1} Seconds and {2} Milliseconds", sw.Elapsed.Minutes, sw.Elapsed.Seconds, sw.Elapsed.Milliseconds, checkckount));
-            ret.IsOk = ret.BadCount == 0;
-            ret.Status = ret.IsOk ? "Dump has been validated!" : "Dump is bad!";
-            if(!ret.IsOk)
-                MessageBox.Show(string.Format("ERROR: Your dump failed on {0} of {1} Checks\nPlease check the log for more information!", ret.BadCount, checkckount), Resources.Checks_StartCheck_ERROR___Bad_dump, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            var tmp = ret.IsOk ? "Pass!" : "Failed!";
-            var outtmp = ret.IsOk ? string.Format("Tests done: {0}", checkckount) : string.Format("Bad count: {0} of {1} Tests", ret.BadCount, checkckount);
+            _ret.IsOk = _ret.BadCount == 0;
+            _ret.Status = _ret.IsOk ? "Dump has been validated!" : "Dump is bad!";
+            if(!_ret.IsOk)
+                MessageBox.Show(string.Format("ERROR: Your dump failed on {0} of {1} Checks\nPlease check the log for more information!", _ret.BadCount, checkckount), Resources.Checks_StartCheck_ERROR___Bad_dump, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            var tmp = _ret.IsOk ? "Pass!" : "Failed!";
+            var outtmp = _ret.IsOk ? string.Format("Tests done: {0}", checkckount) : string.Format("Bad count: {0} of {1} Tests", _ret.BadCount, checkckount);
             Logger.WriteLine2(string.Format("{0,-50} Check result: {1}", outtmp, tmp));
             sw.Stop();
 
             #endregion Final Output
 
-            return ret;
+            return _ret;
         }
 
         private static Dictionary<byte, double> GetStatisticsAndFillData(FileInfo fi, ref byte[] data) {
@@ -351,6 +356,8 @@
                 isok = msg.Equals(d.Expected, StringComparison.CurrentCultureIgnoreCase);
                 if(!isok)
                     continue;
+                if(d.DisablePatch)
+                    _ret.DisablePatch = true;
                 break;
             }
             if(!isok) {
@@ -373,6 +380,8 @@
                     if(!isok)
                         continue;
                     datareversed = true;
+                    if (d.DisablePatch)
+                        _ret.DisablePatch = true;
                     break;
                 }
             }

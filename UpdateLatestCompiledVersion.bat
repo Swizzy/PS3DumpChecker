@@ -13,4 +13,10 @@ copy ..\src\PS3DumpChecker\config.xml default.cfg >NUL
 echo Updating default.hashlist...
 copy ..\src\PS3DumpChecker\hashlist.xml default.hashlist >NUL
 ..\MD5Gen.exe default.cfg default.hashlist PS3DumpChecker.exe
+echo Updating PS3DumpCheckver.version...
+for /F "tokens=*" %%a in ('..\DotNETAssembly2Version.exe PS3DumpChecker.exe') do set ver=%%a
+if (%ERRORLEVEL% geq 1) goto exit
+echo %ver% >> PS3DumpChecker.version
+echo Latest version is: %ver%
+:exit
 pause

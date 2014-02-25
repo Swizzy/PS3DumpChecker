@@ -1,3 +1,13 @@
+Build 341 2014-02-25:
+ - Added: Option to use internal patcher (Currently included patches are Rogero's 4.55 Patches, they support ALL methods of downgrading [FactoryServiceMode and "NoFSM" CFW install])
+   - NOTE: This will be disabled for metldr2 dumps...
+   - NOTE: The embedded patches can be overridden by placing a new one as "patch.bin" next to the exe...
+ - Added: Version check for the application update check
+ - Fixed: Better error handling when checking for updates, and moved the code to check for cfg/hashlist updates to form load instead (allowing for it to load first so you know it haven't crashed...)
+ - Added: You'll now be notified if you're already using the latest hashlist/cfg when doing a manual update check
+ - Added: There's now a tool to fix problems with NOR dumps that were made with address lines swapped by accident... you can access it by pressing Ctrl + F9 (Thanks goes to Judges for the code snippet to do this! :D)
+   - NOTE: This was added as a way for me to simulate errors, thus the name of it "Simulate Shit" xD There's also a tool to edit a dump to simulate a bad address line... (not useful for most of you ;))
+ - Changed: The changelog now uses the font "Consolas" to make sure the formatting is the same as when i write it in Visual Studio :)
 Build 338 2014-02-20:
  - Changed: Better error handler, it'll now show you where it saves the crash log and also save it next to the exe instead...
  - Fixed: Downloading the hashlist/config now properly checks default.cfg/default.hashlist before downloading and not latest.cfg/latest.hashlist

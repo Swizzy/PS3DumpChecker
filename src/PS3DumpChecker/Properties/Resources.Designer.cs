@@ -96,6 +96,24 @@ namespace PS3DumpChecker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You are already using the latest cfg!.
+        /// </summary>
+        internal static string AlreadyUsingLatestCFG {
+            get {
+                return ResourceManager.GetString("AlreadyUsingLatestCFG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You are already using the latest hashlist!.
+        /// </summary>
+        internal static string AlreadyUsingLatestHashlist {
+            get {
+                return ResourceManager.GetString("AlreadyUsingLatestHashlist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Patch Image?.
         /// </summary>
         internal static string autopatch {
@@ -258,6 +276,33 @@ namespace PS3DumpChecker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There was an error while downloading the changelog... try again later....
+        /// </summary>
+        internal static string ErrorDownloadingChangelog {
+            get {
+                return ResourceManager.GetString("ErrorDownloadingChangelog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There was an error while downloading the update... Try again later!.
+        /// </summary>
+        internal static string ErrorDownloadingUpdate {
+            get {
+                return ResourceManager.GetString("ErrorDownloadingUpdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There was an error while checking for updates... try again later!.
+        /// </summary>
+        internal static string ErrorWhileCheckingForUpdates {
+            get {
+                return ResourceManager.GetString("ErrorWhileCheckingForUpdates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hashlists |*.hashlist|All Files|*.*.
         /// </summary>
         internal static string hashlist_filter {
@@ -272,6 +317,15 @@ namespace PS3DumpChecker.Properties {
         internal static string httperror {
             get {
                 return ResourceManager.GetString("httperror", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You are already running the latest version, or the online version haven&apos;t been updated properly....
+        /// </summary>
+        internal static string LatestVersionRunningOrNotUpdatedOnline {
+            get {
+                return ResourceManager.GetString("LatestVersionRunningOrNotUpdatedOnline", resourceCulture);
             }
         }
         
@@ -313,6 +367,24 @@ namespace PS3DumpChecker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Woops, online version is bad! :&apos;(.
+        /// </summary>
+        internal static string OnlineVersionIsBad {
+            get {
+                return ResourceManager.GetString("OnlineVersionIsBad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ERROR: Unable to patch {0} can&apos;t find: {1}.
+        /// </summary>
+        internal static string PatchFailedCantFindPatchFile {
+            get {
+                return ResourceManager.GetString("PatchFailedCantFindPatchFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please send{0}{1}{0}To Swizzy@xeupd.com!.
         /// </summary>
         internal static string PleaseSendLogTo {
@@ -346,6 +418,24 @@ namespace PS3DumpChecker.Properties {
             get {
                 object obj = ResourceManager.GetObject("settings", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use embedded 3.55 patches.
+        /// </summary>
+        internal static string UseEmbeddedPatches {
+            get {
+                return ResourceManager.GetString("UseEmbeddedPatches", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use internal 3.55 patcher.
+        /// </summary>
+        internal static string UseInternalPatcher {
+            get {
+                return ResourceManager.GetString("UseInternalPatcher", resourceCulture);
             }
         }
         

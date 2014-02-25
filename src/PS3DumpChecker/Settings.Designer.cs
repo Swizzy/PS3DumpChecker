@@ -37,6 +37,7 @@
             this.dorepcheck = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.UseInternalPatcher = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -56,7 +57,7 @@
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button1.Location = new System.Drawing.Point(12, 199);
+            this.button1.Location = new System.Drawing.Point(12, 222);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(182, 23);
             this.button1.TabIndex = 1;
@@ -138,12 +139,23 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Auto Settings";
             // 
+            // UseInternalPatcher
+            // 
+            this.UseInternalPatcher.AutoSize = true;
+            this.UseInternalPatcher.Location = new System.Drawing.Point(12, 199);
+            this.UseInternalPatcher.Name = "UseInternalPatcher";
+            this.UseInternalPatcher.Size = new System.Drawing.Size(139, 17);
+            this.UseInternalPatcher.TabIndex = 3;
+            this.UseInternalPatcher.Text = "Use embedded patches";
+            this.UseInternalPatcher.UseVisualStyleBackColor = true;
+            // 
             // Settings
             // 
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(206, 234);
+            this.ClientSize = new System.Drawing.Size(206, 257);
+            this.Controls.Add(this.UseInternalPatcher);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
@@ -151,12 +163,14 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Settings";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Settings";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -171,5 +185,6 @@
         private System.Windows.Forms.CheckBox dorepcheck;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.CheckBox UseInternalPatcher;
     }
 }

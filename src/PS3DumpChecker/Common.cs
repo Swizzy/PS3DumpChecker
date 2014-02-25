@@ -160,6 +160,7 @@
             internal bool Reversed;
             internal string SKUModel;
             internal string Status;
+            internal bool DisablePatch;
         }
 
         #endregion
@@ -169,10 +170,12 @@
         public struct MultiBin {
             internal readonly string Expected;
             internal readonly string Id;
+            internal readonly bool DisablePatch;
 
-            internal MultiBin(string expected, string id) {
+            internal MultiBin(string expected, string id, bool disablepatch = false) {
                 Expected = expected;
                 Id = id;
+                DisablePatch = disablepatch;
             }
         }
 

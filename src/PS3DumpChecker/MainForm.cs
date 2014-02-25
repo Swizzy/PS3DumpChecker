@@ -12,6 +12,7 @@
     using System.Windows.Forms;
     using System.Xml;
     using Microsoft.Win32;
+    using PS3DumpChecker.Patches;
     using PS3DumpChecker.Properties;
 
     internal sealed partial class MainForm : Form {
@@ -29,22 +30,6 @@
             Icon = Program.AppIcon;
             if(!string.IsNullOrEmpty(Wrkdir) && Directory.Exists(Wrkdir))
                 Directory.SetCurrentDirectory(Wrkdir);
-            if(Program.GetRegSetting("AutoDLcfg"))
-                _updateForm.CfgbtnClick(null, null);
-            var fi = new FileInfo("default.cfg");
-            if(fi.Exists && fi.Length > 0)
-                ParseConfig("default.cfg");
-            else {
-                Program.ExtractResource(fi, "config.xml", false);
-                fi = new FileInfo("default.cfg");
-                if(fi.Exists && fi.Length > 0)
-                    ParseConfig("default.cfg");
-            }
-            if(Program.GetRegSetting("dohashcheck", true)) {
-                if(Program.GetRegSetting("AutoDLhashlist"))
-                    _updateForm.HashlistbtnClick(null, null);
-                DoParseHashList();
-            }
             if(args.Count < 1)
                 return;
             foreach(var s in args) {
@@ -62,7 +47,8 @@
                 Program.SetRegSetting("dohashcheck");
             if(Program.GetRegSetting("dorepcheck", true))
                 Program.SetRegSetting("dorepcheck");
-
+            if (Program.GetRegSetting("UseInternalPatcher", true))
+                Program.SetRegSetting("UseInternalPatcher");
             #endregion
         }
 
@@ -184,18 +170,8 @@
                         statuslabel.Text = res.IsOk ? "OK" : "BAD";
                         statuslabel.ForeColor = res.IsOk ? Color.Green : Color.Red;
                         statuslabel.Visible = true;
-                        if(res.IsOk && File.Exists("patcher.exe") && (Program.GetRegSetting("autopatch") || MessageBox.Show(Resources.autopatchmsg, Resources.autopatch, MessageBoxButtons.YesNoCancel) == DialogResult.Yes)) {
-                            var proc = new Process {
-                                StartInfo = {
-                                    Arguments = string.Format("\"{0}\"", res.FileName),
-                                    FileName = "patcher.exe",
-                                    WorkingDirectory = Wrkdir
-                                }
-                            };
-                            proc.Start();
-                            if(Program.GetRegSetting("autoexit"))
-                                Close();
-                        }
+                        if(res.IsOk && !res.DisablePatch && Program.GetRegSetting("autopatch"))
+                            Patch(res.FileName, res.Reversed);
                     }
                 }
                 catch {
@@ -203,6 +179,28 @@
             }
             if(Common.Types.Count > 0)
                 checkbtn.Enabled = true;
+        }
+
+        private void Patch(string fileName, bool swap) {
+            var useint = Program.GetRegSetting("UseInternalPatcher");
+            if(!useint && !File.Exists("patcher.exe"))
+                return;
+            if(MessageBox.Show(Resources.autopatchmsg, Resources.autopatch, MessageBoxButtons.YesNoCancel) != DialogResult.Yes)
+                return;
+            if(useint)
+                Patcher.PatchImage(fileName, swap);
+            else {
+                var proc = new Process {
+                    StartInfo = {
+                        Arguments = string.Format("\"{0}\"", fileName),
+                        FileName = "patcher.exe",
+                        WorkingDirectory = Wrkdir
+                    }
+                };
+                proc.Start();
+                if(Program.GetRegSetting("autoexit"))
+                    Close();
+            }
         }
 
         private void PartslistSelectedIndexChanged(object sender, EventArgs e) {
@@ -323,8 +321,9 @@
                             }
                             if(xml["ismulti"] != null && xml["ismulti"].Equals("true", StringComparison.CurrentCultureIgnoreCase)) {
                                 var id = xml["id"];
+                                var disablepatch = !string.IsNullOrEmpty(xml["disablepatch"]) && xml["disablepatch"].Equals("true", StringComparison.CurrentCultureIgnoreCase);
                                 xml.Read();
-                                Common.Types[size].Bincheck.Value[key].Value.ExpectedList.Value.Add(new Common.MultiBin(Regex.Replace(xml.Value, @"\s+", ""), id));
+                                Common.Types[size].Bincheck.Value[key].Value.ExpectedList.Value.Add(new Common.MultiBin(Regex.Replace(xml.Value, @"\s+", ""), id, disablepatch));
                             }
                             break;
 
@@ -499,6 +498,9 @@
                 case (Keys.F1 | Keys.Control):
                     Program.HasAcceptedTerms(true);
                     return true;
+                case (Keys.F9 | Keys.Control):
+                    new Simulation().ShowDialog();
+                    return true;
                 default:
                     return base.ProcessCmdKey(ref msg, keyData);
             }
@@ -517,6 +519,22 @@
         }
 
         private void MainLoad(object sender, EventArgs e) {
+            if(Program.GetRegSetting("AutoDLcfg"))
+                _updateForm.CfgbtnClick(false);
+            var fi = new FileInfo("default.cfg");
+            if(fi.Exists && fi.Length > 0)
+                ParseConfig("default.cfg");
+            else {
+                Program.ExtractResource(fi, "config.xml", false);
+                fi = new FileInfo("default.cfg");
+                if(fi.Exists && fi.Length > 0)
+                    ParseConfig("default.cfg");
+            }
+            if(Program.GetRegSetting("dohashcheck", true)) {
+                if(Program.GetRegSetting("AutoDLhashlist"))
+                    _updateForm.HashlistbtnClick(false);
+                DoParseHashList();
+            }
             if(Screen.FromControl(this).Bounds.Height >= Height)
                 return;
             var diff = Height - Screen.FromControl(this).Bounds.Height;

@@ -47,6 +47,10 @@
             try {
                 var url = GetFinalUrl("https://github.com/Swizzy/PS3DumpChecker/raw/master/Latest%20Compiled%20Version/changelog");
                 var wc = new WebClient();
+                if(string.IsNullOrEmpty(url)) {
+                    MessageBox.Show(Resources.ErrorDownloadingChangelog, Resources.error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 e.Result = wc.DownloadString(url);
                 if(string.IsNullOrEmpty(e.Result as string))
                     e.Result = "Oh noes! There is no changelog for you :'(";
@@ -56,7 +60,7 @@
                 if(code == HttpStatusCode.NoContent || code == HttpStatusCode.NotFound)
                     e.Result = "Oh noes! There is no changelog for you :'(";
                 else
-                    e.Result = string.Format("Oh noes! You've found a bug!! Please copy 'n' paste the error below and send to me... {0}{0}{0}{1}", Environment.NewLine, ex);
+                    throw;
             }
         }
 
@@ -148,8 +152,10 @@
                 if(file == null)
                     throw new ArgumentNullException(Resources.NoFile, new Exception(Resources.NoFile));
                 var hfile = file.Equals("latest.exe", StringComparison.CurrentCultureIgnoreCase) ? "PS3DumpChecker.exe" : string.Format("default{0}", file.Substring(file.LastIndexOf('.')));
-                var url = GetFinalUrl(string.Format("{0}/{1}?raw=true", "https://github.com/Swizzy/PS3DumpChecker/raw/master/Latest%20Compiled%20Version", hfile));
                 var wc = new WebClient();
+                var url = GetFinalUrl(string.Format("{0}/{1}?raw=true", "https://github.com/Swizzy/PS3DumpChecker/raw/master/Latest%20Compiled%20Version", hfile));
+                if(string.IsNullOrEmpty(url))
+                    return;
                 wc.DownloadFile(url, file);
             }
             catch(WebException ex) {
@@ -171,6 +177,10 @@
                 if(string.IsNullOrEmpty(hfile))
                     hfile = file.Equals("latest.exe", StringComparison.CurrentCultureIgnoreCase) ? "PS3DumpChecker.exe" : string.Format("default{0}", file.Substring(file.LastIndexOf('.')));
                 var url = GetFinalUrl(string.Format("{0}/{1}.md5", "https://github.com/Swizzy/PS3DumpChecker/raw/master/Latest%20Compiled%20Version", hfile));
+                if(string.IsNullOrEmpty(url)) {
+                    MessageBox.Show(Resources.ErrorDownloadingUpdate, Resources.error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
                 var hash = wc.DownloadString(url);
                 if(string.IsNullOrEmpty(hash))
                     return false;
@@ -194,33 +204,67 @@
             }
         }
 
-        public void CfgbtnClick(object sender, EventArgs e) {
-            if(CheckHash("default.cfg"))
+        public void CfgbtnClick(object sender, EventArgs e) { CfgbtnClick(); }
+
+        public void CfgbtnClick(bool showError = true) {
+            if(CheckHash("default.cfg")) {
+                if(showError)
+                    MessageBox.Show(Resources.AlreadyUsingLatestCFG);
                 return;
+            }
             statuslbl.Text = Resources.dlinglatestcfg;
             DownloadFile("latest.cfg");
         }
 
-        public void HashlistbtnClick(object sender, EventArgs e) {
-            if(CheckHash("default.hashlist"))
+        public void HashlistbtnClick(object sender, EventArgs e) { HashlistbtnClick(); }
+
+        public void HashlistbtnClick(bool showError = true) {
+            if(CheckHash("default.hashlist")) {
+                if(showError)
+                    MessageBox.Show(Resources.AlreadyUsingLatestHashlist);
                 return;
+            }
             statuslbl.Text = Resources.dlinghashlist;
             DownloadFile("latest.hashlist");
         }
 
         private void AppbtnClick(object sender, EventArgs e) {
             try {
-                var md5 = "";
-                var tmp = MD5.Create().ComputeHash(File.ReadAllBytes(Assembly.GetAssembly(typeof(UpdateForm)).Location));
-                foreach(var b in tmp)
-                    md5 += b.ToString("X2");
-                if(CheckHash("", "PS3DumpChecker.exe", md5))
+                var wc = new WebClient();
+                var url = GetFinalUrl("https://github.com/Swizzy/PS3DumpChecker/raw/master/Latest%20Compiled%20Version/PS3DumpChecker.exe.version");
+                if(string.IsNullOrEmpty(url)) {
+                    MessageBox.Show(Resources.ErrorWhileCheckingForUpdates, Resources.error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
+                }
+                try {
+                    var tmp = wc.DownloadString(url);
+                    if(string.IsNullOrEmpty(tmp))
+                        return;
+                    try {
+                        if(Assembly.GetAssembly(typeof(UpdateForm)).GetName().Version >= new Version(tmp)) {
+                            MessageBox.Show(Resources.LatestVersionRunningOrNotUpdatedOnline);
+                            return;
+                        }
+                        statuslbl.Text = Resources.dlingapp;
+                        DownloadFile("latest.exe");
+                    }
+                    catch(Exception ex) {
+                        if(ex is FormatException || ex is OverflowException || ex is ArgumentOutOfRangeException)
+                            MessageBox.Show(Resources.OnlineVersionIsBad, Resources.error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else
+                            throw;
+                    }
+                }
+                catch(WebException ex) {
+                    if(((HttpWebResponse) ex.Response).StatusCode == HttpStatusCode.NotFound)
+                        MessageBox.Show(Resources.ErrorWhileCheckingForUpdates, Resources.error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                        throw;
+                }
             }
-            catch(Exception) {
+            catch(WebException ex) {
+                MessageBox.Show(((HttpWebResponse) ex.Response).StatusDescription, Resources.httperror, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            statuslbl.Text = Resources.dlingapp;
-            DownloadFile("latest.exe");
         }
     }
 }

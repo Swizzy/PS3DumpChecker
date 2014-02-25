@@ -226,4 +226,34 @@ Did you skip reading these terms/conditions?</value>
   <data name="PleaseSendLogTo" xml:space="preserve">
     <value>Please send{0}{1}{0}To Swizzy@xeupd.com!</value>
   </data>
+  <data name="OnlineVersionIsBad" xml:space="preserve">
+    <value>Woops, online version is bad! :'(</value>
+  </data>
+  <data name="LatestVersionRunningOrNotUpdatedOnline" xml:space="preserve">
+    <value>You are already running the latest version, or the online version haven't been updated properly...</value>
+  </data>
+  <data name="ErrorWhileCheckingForUpdates" xml:space="preserve">
+    <value>There was an error while checking for updates... try again later!</value>
+  </data>
+  <data name="ErrorDownloadingChangelog" xml:space="preserve">
+    <value>There was an error while downloading the changelog... try again later...</value>
+  </data>
+  <data name="ErrorDownloadingUpdate" xml:space="preserve">
+    <value>There was an error while downloading the update... Try again later!</value>
+  </data>
+  <data name="AlreadyUsingLatestHashlist" xml:space="preserve">
+    <value>You are already using the latest hashlist!</value>
+  </data>
+  <data name="AlreadyUsingLatestCFG" xml:space="preserve">
+    <value>You are already using the latest cfg!</value>
+  </data>
+  <data name="PatchFailedCantFindPatchFile" xml:space="preserve">
+    <value>ERROR: Unable to patch {0} can't find: {1}</value>
+  </data>
+  <data name="UseInternalPatcher" xml:space="preserve">
+    <value>Use internal 3.55 patcher</value>
+  </data>
+  <data name="UseEmbeddedPatches" xml:space="preserve">
+    <value>Use embedded 3.55 patches</value>
+  </data>
 </root>

@@ -90,6 +90,7 @@
             // changelog
             // 
             this.changelog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.changelog.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.changelog.Location = new System.Drawing.Point(3, 16);
             this.changelog.Name = "changelog";
             this.changelog.ReadOnly = true;
