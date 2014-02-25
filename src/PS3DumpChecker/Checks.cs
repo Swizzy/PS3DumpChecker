@@ -563,14 +563,17 @@
             var ret = true;
             var tmp = reversed ? Encoding.BigEndianUnicode.GetString(data) : Encoding.Unicode.GetString(data);
             var bigbuilder = new StringBuilder();
+            var checkLines = 0;
             foreach(var key in checkData.RepCheck.Value.Keys) {
                 var rep = checkData.RepCheck.Value[key].Value;
                 rep.FoundAt.Clear();
                 Logger.Write(string.Format("{0,-50} Result: ", string.Format("Repetitions check for {0} Started...", rep.Name)));
                 foreach (Match match in Regex.Matches(tmp, Regex.Escape(key))) {
-                    if(match.Index * 2 == rep.Offset)
+                    var index = match.Index * 2;
+                    if(index == rep.Offset)
                         continue;
-                    rep.FoundAt.Add(match.Index * 2);
+                    rep.FoundAt.Add(index);
+                    checkLines |= (index - rep.Offset) / 2;
                     ret = false;
                 }
                 if(rep.FoundAt.Count <= 0)
@@ -584,22 +587,62 @@
                 bigbuilder.AppendLine(string.Format("{0} Found at {1} offsets:{2}", rep.Name, rep.FoundAt.Count, builder));
                 bigbuilder.AppendLine(string.Format("{0} Expected at: 0x{1:X}", rep.Name, rep.Offset));
             }
-            //for (int i = 0; i < data.Length; i += 0x10) {
-            //    var tmp = Common.GetDataForTest(ref data, i, 0x10);
-            //    if(!checkData.RepCheck.Value.ContainsKey(tmp))
-            //        continue;
-            //    if(i == checkData.RepCheck.Value[tmp].Value.Offset) // We want to find it here... ;)
-            //        continue;
-            //    ret = false; // Uhoh! we found a repetition!
-            //    if (checkData.RepCheck.Value[tmp].Value.FoundAt == null)
-            //        checkData.RepCheck.Value[tmp].Value.FoundAt = new List<int>();
-            //    checkData.RepCheck.Value[tmp].Value.FoundAt.Add(i);
-            //}
             if(ret)
                 bigbuilder.AppendLine("No Repetitions found!");
+            else {
+                var s = bigbuilder.ToString(); // Save current data
+                bigbuilder.Length = 0; // Reset it so we can start fresh
+                bigbuilder.Append("You should check address line(s): ");
+                for(var i = 0; i < 30; i++)
+                    if((checkLines & (1 << i)) > 0)
+                        bigbuilder.AppendFormat("{0} ", (AddressLines) (1 << i));
+                bigbuilder.AppendLine(); // Make sure the rest of it ends up on a new line...
+                bigbuilder.Append(s); // Add the saved data back
+            }
             AddItem(new Common.PartsObject { Name = "Repetitions Check", ActualString = bigbuilder.ToString(), ExpectedString = "No Repetitions are supposed to be listed!", Result = ret } );
             return ret;
         }
+
+        #region Nested type: AddressLines
+
+        private enum AddressLines {
+            // ReSharper disable UnusedMember.Local
+            A0 = 1 << 0,
+            A1 = 1 << 1,
+            A2 = 1 << 2,
+            A3 = 1 << 3,
+            A4 = 1 << 4,
+            A5 = 1 << 5,
+            A6 = 1 << 6,
+            A7 = 1 << 7,
+            A8 = 1 << 8,
+            A9 = 1 << 9,
+            A10 = 1 << 10,
+            A11 = 1 << 11,
+            A12 = 1 << 12,
+            A13 = 1 << 13,
+            A14 = 1 << 14,
+            A15 = 1 << 15,
+            A16 = 1 << 16,
+            A17 = 1 << 17,
+            A18 = 1 << 18,
+            A19 = 1 << 19,
+            A20 = 1 << 20,
+            A21 = 1 << 21,
+            A22 = 1 << 22,
+            A23 = 1 << 23,
+            A24 = 1 << 24,
+            A25 = 1 << 25,
+            A26 = 1 << 26,
+            A27 = 1 << 27,
+            A28 = 1 << 28,
+            A29 = 1 << 29,
+            A30 = 1 << 30
+            // ReSharper restore UnusedMember.Local
+        }
+
+        #endregion
+
 
         #region Nested type: SkuCheckData
 

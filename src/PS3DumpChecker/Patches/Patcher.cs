@@ -7,7 +7,7 @@
     internal static class Patcher {
         private static byte[] GetPatchData(string name, bool swap) {
             var data = new byte[0]; // It has to be initalized as something to compile when used as Embedded patches...
-            if(!File.Exists(name))
+            if (!File.Exists(name.Substring(name.IndexOf('.') + 1))) // Strip "Patches." and check for the file "patch.bin"
 #if EMBEDDED_PATCHES
             {
                 BinaryReader reader = null;
@@ -26,11 +26,11 @@
                         input.Close();
                 }
             }
+            else 
 #else
                 throw new FileNotFoundException(name);
-            name = name.Substring(name.IndexOf('.')); // Strip "Patches"
-            data = File.ReadAllBytes(name);
 #endif
+            data = File.ReadAllBytes(name.Substring(name.IndexOf('.') + 1)); // Strip "Patches."
             if (swap)
                 Common.SwapBytes(ref data);
             return data;

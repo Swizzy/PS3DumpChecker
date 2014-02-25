@@ -1,3 +1,7 @@
+Build 343 2014-02-25:
+ - Fixed: Loading "patch.bin" now works properly...
+ - Added: When repetitions are failing you'll be told what address line(s) to check in order to solve the problem
+   - NOTE: The feature have been tested properly now... and... If A0 is bad the whole image will look REALLY bad... there is no way i can reliably check for this error atm (repetitions don't happen because the check size is too big)
 Build 342 2014-02-25:
  - Fixed: Wording in settings (I originally added 3.55 patching as an option, but spoke to rogero and he explained that his 4.55 works the same way with better compatibility for newer consoles, and also with the noFSM...)
 Build 341 2014-02-25:
