@@ -166,7 +166,7 @@
                         return false;
                 }
             }
-            key.SetValue("DonorTermsAccepted", current == 1 ? 0 : 1);
+            key.SetValue("TermsAccepted", current == 1 ? 0 : 1);
             if(!ret)
                 MessageBox.Show(Resources.DisclaimerFailedMessage);
             return ret;

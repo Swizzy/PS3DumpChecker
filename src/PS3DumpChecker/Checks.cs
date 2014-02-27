@@ -625,7 +625,6 @@
         {
             var bigbuilder = new StringBuilder();
             var ret = true;
-            var exp = "No Failed matches are supposed to be listed!";
             foreach (var key in checkdata.DataMatchList.Value.Keys) {
                 _checkckount++;
                 var smallbuilder = new StringBuilder();
@@ -651,7 +650,7 @@
             }
             if(ret)
                 bigbuilder.Append("All match checks are OK!");
-            AddItem(new Common.PartsObject { Name = "Data Match Check", ActualString = bigbuilder.ToString(), ExpectedString = exp, Result = ret });
+            AddItem(new Common.PartsObject { Name = "Data Match Check", ActualString = bigbuilder.ToString(), ExpectedString = "No Failed matches are supposed to be listed!", Result = ret });
             return ret;
         }
 
