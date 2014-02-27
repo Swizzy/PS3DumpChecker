@@ -47,8 +47,9 @@
                 Program.SetRegSetting("dohashcheck");
             if(Program.GetRegSetting("dorepcheck", true))
                 Program.SetRegSetting("dorepcheck");
-            if (Program.GetRegSetting("UseInternalPatcher", true))
+            if(Program.GetRegSetting("UseInternalPatcher", true))
                 Program.SetRegSetting("UseInternalPatcher");
+
             #endregion
         }
 
@@ -256,13 +257,12 @@
                             #region Statistics part
 
                         case "stats":
-                            if(Common.Types.ContainsKey(size))
-                                xml.Read();
+                            if(!Common.Types.ContainsKey(size))
+                                break;
+                            xml.Read();
                             Common.Types[size].StatDescription.Value = xml.Value;
                             break;
                         case "statspart":
-                            if(!Common.Types.ContainsKey(size))
-                                break;
                             var key = xml["key"];
                             if(key == null)
                                 break;
@@ -461,6 +461,44 @@
                             break;
 
                             #endregion
+
+                            #region Datamatches Entries
+
+                        case "datamatchid":
+                            if(!Common.Types.ContainsKey(size))
+                                break;
+                            var tmpid = xml["id"];
+                            if(string.IsNullOrEmpty(tmpid))
+                                break;
+                            if(!Common.Types[size].DataMatchList.Value.ContainsKey(tmpid))
+                                Common.Types[size].DataMatchList.Value.Add(tmpid, new Holder<Common.DataMatchID>(new Common.DataMatchID()));
+                            xml.Read();
+                            if(string.IsNullOrEmpty(xml.Value))
+                                break;
+                            Common.Types[size].DataMatchList.Value[tmpid].Value.Name = xml.Value;
+                            break;
+
+                        case "datamatch":
+                            if(!Common.Types.ContainsKey(size))
+                                break;
+                            var tmpid2 = xml["id"];
+                            if(string.IsNullOrEmpty(tmpid2))
+                                break;
+                            if(!Common.Types[size].DataMatchList.Value.ContainsKey(tmpid2))
+                                break;
+                            var tmpmatch = new Common.DataMatch();
+                            if(!int.TryParse(xml["offset"], NumberStyles.HexNumber, null, out tmpmatch.Offset))
+                                break;
+                            if(!int.TryParse(xml["length"], NumberStyles.HexNumber, null, out tmpmatch.Length))
+                                break;
+                            xml.Read();
+                            if(string.IsNullOrEmpty(xml.Value))
+                                break;
+                            tmpmatch.Name = xml.Value;
+                            Common.Types[size].DataMatchList.Value[tmpid2].Value.Data.Add(tmpmatch);
+                            break;
+
+                            #endregion
                     }
                 }
             }
@@ -519,8 +557,14 @@
         }
 
         private void MainLoad(object sender, EventArgs e) {
+#if DEBUG
+            File.Delete("default.cfg");
+            File.Delete("default.hashlist");
+#endif
+#if !DEBUG
             if(Program.GetRegSetting("AutoDLcfg"))
                 _updateForm.CfgbtnClick(false);
+#endif
             var fi = new FileInfo("default.cfg");
             if(fi.Exists && fi.Length > 0)
                 ParseConfig("default.cfg");
@@ -531,8 +575,10 @@
                     ParseConfig("default.cfg");
             }
             if(Program.GetRegSetting("dohashcheck", true)) {
+#if !DEBUG
                 if(Program.GetRegSetting("AutoDLhashlist"))
                     _updateForm.HashlistbtnClick(false);
+#endif
                 DoParseHashList();
             }
             if(Screen.FromControl(this).Bounds.Height >= Height)

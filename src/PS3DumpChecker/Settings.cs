@@ -50,7 +50,6 @@
 
         private void DisabledisclaimerbtnClick(object sender, EventArgs e) {
             Program.HasAcceptedTerms(true);
-            MessageBox.Show(Resources.YouveBeenWarned);
         }
     }
 }

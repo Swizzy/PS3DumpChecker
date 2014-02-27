@@ -115,6 +115,23 @@
       <datatreshold key="*">30</datatreshold>
     </datalist>
 
+    <matches>
+      <datamatchid id="0">bootldr size</datamatchid>
+      <datamatchid id="1">per console nonce</datamatchid>
+      <id0>
+        <datamatch offset="2" length="2" id="0">bootldr0</datamatch>
+        <datamatch offset="12" length="2" id="0">bootldr1</datamatch>
+      </id0>
+      <id1>
+        <datamatch offset="14" length="C" id="1">bootldr0</datamatch>
+        <datamatch offset="F000014" length="C" id="1">bootldr1</datamatch>
+        <datamatch offset="40854" length="C" id="1">metldr</datamatch>
+        <datamatch offset="80884" length="C" id="1">eid0</datamatch>
+        <datamatch offset="81AB4" length="C" id="1">eid3</datamatch>
+        <datamatch offset="81BE4" length="C" id="1">eid5</datamatch>
+      </id1>
+    </matches>
+    
     <repchecks>
       <repcheck name="Header Magic Repetition" offset="40010">
         000000000FACE0FF00000000DEADBEEF
@@ -428,6 +445,23 @@
     <datalist name="bootldr" offset="FC0000" ldrsize="FC0002">
       <datatreshold key="*">30</datatreshold>
     </datalist>
+
+    <datamatches>
+      <datamatchid id="0">bootldr size</datamatchid>
+      <datamatchid id="1">per console nonce</datamatchid>
+      <id0>
+        <datamatch offset="FC0002" length="2" id="0">bootldr0</datamatch>
+        <datamatch offset="FC0012" length="2" id="0">bootldr1</datamatch>
+      </id0>
+      <id1>
+        <datamatch offset="FC0014" length="C" id="1">bootldr</datamatch>
+        <datamatch offset="854" length="C" id="1">metldr</datamatch>
+        <datamatch offset="2F084" length="C" id="1">eid0</datamatch>
+        <datamatch offset="302B4" length="C" id="1">eid3</datamatch>
+        <datamatch offset="303E4" length="C" id="1">eid5</datamatch>
+      </id1>
+    </datamatches>
+
 
     <repchecks>
       <repcheck name="Header Magic0 Repetitions" offset="10">

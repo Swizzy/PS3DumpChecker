@@ -12,6 +12,7 @@
     internal static class Checks {
         private static int _checkId;
         private static Common.ImgInfo _ret;
+        private static int _checkckount;
 
         private static void AddItem(Common.PartsObject data) {
             Common.AddItem(_checkId, data);
@@ -21,7 +22,7 @@
         public static Common.ImgInfo StartCheck(string file, ref Stopwatch sw) {
             _checkId = 0;
             var fi = new FileInfo(file);
-            var checkckount = 0;
+            _checkckount = 0;
             _ret = new Common.ImgInfo {
                                          FileName = file
                                          };
@@ -32,7 +33,7 @@
 
             if(checkdata.Statlist.Value.Count > 0) {
                 Logger.WriteLine("Statistics check started...");
-                checkckount++;
+                _checkckount++;
                 if(!CheckStatisticsList(GetStatisticsAndFillData(fi, ref data), data.Length))
                     Common.AddBad(ref _ret);
                 Common.SendStatus("Statistics check Done!");
@@ -50,7 +51,7 @@
             if(checkdata.Bincheck.Value.Count > 0) {
                 Logger.WriteLine("Binary check Started!");
                 foreach(var key in checkdata.Bincheck.Value.Keys) {
-                    checkckount++;
+                    _checkckount++;
                     Common.SendStatus(string.Format("Parsing Image... Checking Binary for: {0}", key));
                     var bintmp = string.Format("Binary check for {0} Started...", key);
                     Logger.Write(string.Format("{0,-50} Result: ", bintmp));
@@ -74,7 +75,7 @@
             if(checkdata.DataCheckList.Value.Count > 0) {
                 Logger.WriteLine("Data check Started!");
                 foreach(var key in checkdata.DataCheckList.Value) {
-                    checkckount++;
+                    _checkckount++;
                     Common.SendStatus(string.Format("Parsing Image... Checking Data Statistics for: {0}", key.Name));
                     var datatmp = string.Format("Data Statistics check for {0} Started...", key.Name);
                     Logger.Write(string.Format("{0,-50} Result: ", datatmp));
@@ -152,7 +153,7 @@
             if(Program.GetRegSetting("dohashcheck", true) && Common.Hashes.Offsets.ContainsKey(data.Length) && Common.Hashes.Offsets[data.Length].Value.Count > 0) {
                 Logger.WriteLine("Hash check Started!");
                 foreach(var check in Common.Hashes.Offsets[data.Length].Value) {
-                    checkckount++;
+                    _checkckount++;
 
                     Common.SendStatus(string.Format("Parsing Image... Checking Hash for: {0}", check.Name));
                     var hashtmp = string.Format("Hash check for {0} Started...", check.Name);
@@ -173,7 +174,6 @@
             if (Program.GetRegSetting("dorepcheck", true) && checkdata.RepCheck.Value.Count > 0)
             {
                 Logger.WriteLine("Repetitions check Started!");
-                checkckount++;
                 Common.SendStatus("Parsing Image... Checking Binary for: Repetitions");
                 if (!Repetitions(_ret.Reversed, ref data, ref checkdata))
                     Common.AddBad(ref _ret);
@@ -184,16 +184,31 @@
 
             #endregion
 
+            #region DataMatch Check
+
+            if (checkdata.DataMatchList.Value.Count > 0)
+            {
+                Logger.WriteLine("Data Mach check Started!");
+                Common.SendStatus("Parsing Image... Checking Binary for: Data Matches");
+                if (!CheckDataMatches(ref data, ref checkdata))
+                    Common.AddBad(ref _ret);
+            }
+            else
+                Logger.WriteLine(string.Format("{0,-50} (nothing to check)", "Data Match check skipped!"));
+            Common.SendStatus("Data Match check(s) Done!");
+
+            #endregion
+
             #region Final Output
 
-            Common.SendStatus(string.Format("All checks ({3} Checks) have been completed after {0} Minutes {1} Seconds and {2} Milliseconds", sw.Elapsed.Minutes, sw.Elapsed.Seconds, sw.Elapsed.Milliseconds, checkckount));
-            Logger.WriteLine(string.Format("All checks ({3} Checks) have been completed after {0} Minutes {1} Seconds and {2} Milliseconds", sw.Elapsed.Minutes, sw.Elapsed.Seconds, sw.Elapsed.Milliseconds, checkckount));
+            Common.SendStatus(string.Format("All checks ({3} Checks) have been completed after {0} Minutes {1} Seconds and {2} Milliseconds", sw.Elapsed.Minutes, sw.Elapsed.Seconds, sw.Elapsed.Milliseconds, _checkckount));
+            Logger.WriteLine(string.Format("All checks ({3} Checks) have been completed after {0} Minutes {1} Seconds and {2} Milliseconds", sw.Elapsed.Minutes, sw.Elapsed.Seconds, sw.Elapsed.Milliseconds, _checkckount));
             _ret.IsOk = _ret.BadCount == 0;
             _ret.Status = _ret.IsOk ? "Dump has been validated!" : "Dump is bad!";
             if(!_ret.IsOk)
-                MessageBox.Show(string.Format("ERROR: Your dump failed on {0} of {1} Checks\nPlease check the log for more information!", _ret.BadCount, checkckount), Resources.Checks_StartCheck_ERROR___Bad_dump, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(string.Format("ERROR: Your dump failed on {0} of {1} Checks\nPlease check the log for more information!", _ret.BadCount, _checkckount), Resources.Checks_StartCheck_ERROR___Bad_dump, MessageBoxButtons.OK, MessageBoxIcon.Error);
             var tmp = _ret.IsOk ? "Pass!" : "Failed!";
-            var outtmp = _ret.IsOk ? string.Format("Tests done: {0}", checkckount) : string.Format("Bad count: {0} of {1} Tests", _ret.BadCount, checkckount);
+            var outtmp = _ret.IsOk ? string.Format("Tests done: {0}", _checkckount) : string.Format("Bad count: {0} of {1} Tests", _ret.BadCount, _checkckount);
             Logger.WriteLine2(string.Format("{0,-50} Check result: {1}", outtmp, tmp));
             sw.Stop();
 
@@ -201,7 +216,7 @@
 
             return _ret;
         }
-
+        
         private static Dictionary<byte, double> GetStatisticsAndFillData(FileInfo fi, ref byte[] data) {
             var count = new Dictionary<byte, ulong>();
             using(var br = new BinaryReader(fi.OpenRead())) {
@@ -565,6 +580,7 @@
             var bigbuilder = new StringBuilder();
             var checkLines = 0;
             foreach(var key in checkData.RepCheck.Value.Keys) {
+                _checkckount++;
                 var rep = checkData.RepCheck.Value[key].Value;
                 rep.FoundAt.Clear();
                 Logger.Write(string.Format("{0,-50} Result: ", string.Format("Repetitions check for {0} Started...", rep.Name)));
@@ -576,9 +592,11 @@
                     checkLines |= (index - rep.Offset) / 2;
                     ret = false;
                 }
-                if(rep.FoundAt.Count <= 0)
+                if(rep.FoundAt.Count <= 0) {
+                    Logger.WriteLine2("OK!");
                     continue;
-                Logger.WriteLine2(ret ? "OK!" : string.Format("FAILED! {0}Actual data:", Environment.NewLine));
+                }
+                Logger.WriteLine2(string.Format("FAILED! {0}Actual data:", Environment.NewLine));
                 var builder = new StringBuilder();
                 foreach (var offset in rep.FoundAt)
                     builder.Append(string.Format(" 0x{0:X}", offset));
@@ -600,6 +618,40 @@
                 bigbuilder.Append(s); // Add the saved data back
             }
             AddItem(new Common.PartsObject { Name = "Repetitions Check", ActualString = bigbuilder.ToString(), ExpectedString = "No Repetitions are supposed to be listed!", Result = ret } );
+            return ret;
+        }
+
+        private static bool CheckDataMatches(ref byte[] data, ref Common.TypeData checkdata)
+        {
+            var bigbuilder = new StringBuilder();
+            var ret = true;
+            var exp = "No Failed matches are supposed to be listed!";
+            foreach (var key in checkdata.DataMatchList.Value.Keys) {
+                _checkckount++;
+                var smallbuilder = new StringBuilder();
+                var islastok = true;
+                var testlist = new Dictionary<string, string>();
+                var laststring = "";
+                bigbuilder.AppendLine(string.Format("Check name: {0}", checkdata.DataMatchList.Value[key].Value.Name));
+                foreach (var testdata in checkdata.DataMatchList.Value[key].Value.Data) {
+                    var tmp = Common.GetDataForTest(ref data, testdata.Offset, testdata.Length);
+                    if(!testlist.ContainsKey(tmp) && testlist.Count != 0)
+                        islastok = false;
+                    if (!testlist.ContainsKey(tmp))
+                        testlist.Add(tmp, testdata.Name);
+                    smallbuilder.AppendLine(string.Format("{0} : {1}", testdata.Name, tmp));
+                    laststring = tmp;
+                }
+                if(!islastok) {
+                    ret = false;
+                    bigbuilder.Append(smallbuilder); // Add to the big one
+                }
+                else
+                    bigbuilder.AppendLine(string.Format("All data matching: {0}", laststring));
+            }
+            if(ret)
+                bigbuilder.Append("All match checks are OK!");
+            AddItem(new Common.PartsObject { Name = "Data Match Check", ActualString = bigbuilder.ToString(), ExpectedString = exp, Result = ret });
             return ret;
         }
 

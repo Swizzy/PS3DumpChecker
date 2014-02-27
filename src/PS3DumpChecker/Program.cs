@@ -15,10 +15,11 @@
         private static void LogException(string ex) {
             var errorlog = string.Format("{0}\\{1}", MainForm.Wrkdir, Resources.CrashLogName);
             try {
+                var ver = Assembly.GetAssembly(typeof(Program)).GetName().Version;
                 var old = "";
                 if(File.Exists(errorlog))
                     old = File.ReadAllText(errorlog);
-                old += ex;
+                old += ex + string.Format("\r\nPS3 Dump Checker v{0}.{1} (Build: {2}) Error Log:", ver.Major, ver.Minor, ver.Build);
                 File.WriteAllText(errorlog, old);
                 MessageBox.Show(string.Format(Resources.PleaseSendLogTo, Environment.NewLine, errorlog), Resources.YouFoundABug);
             }
@@ -83,18 +84,17 @@
             key.SetValue(setting, value ? 1 : 0);
         }
 
-        internal static bool HasAcceptedTerms2()
-        {
+        internal static bool HasAcceptedTerms2() {
             var key = Registry.CurrentUser.CreateSubKey("Software");
-            if (key == null)
+            if(key == null)
                 return false;
             key = key.CreateSubKey("Swizzy");
-            if (key == null)
+            if(key == null)
                 return false;
             key = key.CreateSubKey("PS3 Dump Checker");
-            if (key == null)
+            if(key == null)
                 return false;
-            var termskey = key.GetValue("TermsAccepted", 0) is int ? (int)key.GetValue("TermsAccepted", 0) : 0;
+            var termskey = key.GetValue("TermsAccepted", 0) is int ? (int) key.GetValue("TermsAccepted", 0) : 0;
             return termskey == 2;
         }
 
@@ -103,16 +103,22 @@
             if(key == null)
                 return;
             key = key.CreateSubKey("Swizzy");
-            if (key == null)
+            if(key == null)
                 return;
             key = key.CreateSubKey("PS3 Dump Checker");
-            if (key == null)
+            if(key == null)
                 return;
-            var termskey = key.GetValue("DonorTermsAccepted", -1) is int ? (int)key.GetValue("DonorTermsAccepted", -1) : 0;
+            if(key.GetValue("TermsAccepted") != null || key.GetValue("DonorTermsAccepted") == null) // It already exists or DonorTermsAccepted don't exist...
+                return;
+            var termskey = key.GetValue("DonorTermsAccepted") is int ? (int) key.GetValue("DonorTermsAccepted", -1) : 0;
             if(termskey == -1)
                 return;
             key.SetValue("TermsAccepted", termskey);
-            key.DeleteValue("DonorTermsAccepted");
+            try {
+                key.DeleteValue("DonorTermsAccepted"); // Try to delete the old one, it's not used anymore, and we don't want this to cause a crash....
+            }
+            catch {
+            }
         }
 
         internal static bool HasAcceptedTerms(bool disableCheck = false) {
@@ -125,9 +131,11 @@
             key = key.CreateSubKey("PS3 Dump Checker");
             if(key == null)
                 return false;
-            if(disableCheck)
+            if(disableCheck) {
                 key.SetValue("TermsAccepted", 2);
-            var termskey = key.GetValue("TermsAccepted", 0) is int ? (int)key.GetValue("TermsAccepted", 0) : 0;
+                MessageBox.Show(Resources.YouveBeenWarned);
+            }
+            var termskey = key.GetValue("TermsAccepted", 0) is int ? (int) key.GetValue("TermsAccepted", 0) : 0;
             return termskey == 2 || AcceptRandomized(key, termskey);
         }
 

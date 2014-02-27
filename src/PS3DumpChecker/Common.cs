@@ -85,7 +85,7 @@
 
         public static string GetDataForTest(IList<byte> data) {
             var c = new char[data.Count * 2];
-            int i = 0;
+            var i = 0;
             for (var p = 0; i < data.Count; )
             {
                 var d = data[i++];
@@ -95,10 +95,11 @@
             return new string(c);
         }
 
-        public static string GetDataForTest(ref byte[] data, int i, int count)
+        public static string GetDataForTest(ref byte[] data, int offset, int length)
         {
-            var c = new char[data.Length * 2];
-            for (var p = 0; i < count; )
+            var c = new char[length * 2];
+            var i = offset;
+            for (var p = 0; i < offset + length; )
             {
                 var d = data[i++];
                 c[p++] = HexCharTable[d / 0x10];
@@ -194,10 +195,31 @@
 
         #region Nested type: RepCheckData
 
-        internal class RepCheckData {
+        internal sealed class RepCheckData {
             internal string Name;
             internal int Offset;
-            internal List<int> FoundAt = new List<int>();
+            internal readonly List<int> FoundAt = new List<int>();
+        }
+
+        #endregion
+
+        #region Nested type: DataMatch
+
+        internal sealed class DataMatch
+        {
+            internal string Name;
+            internal int Offset;
+            internal int Length;
+        }
+
+        #endregion
+
+        #region Nested type: DataMatchID
+
+        internal sealed class DataMatchID
+        {
+            internal string Name;
+            internal List<DataMatch> Data = new List<DataMatch>();
         }
 
         #endregion
@@ -246,6 +268,7 @@
             internal readonly Holder<Dictionary<string, Holder<BinCheck>>> Bincheck;
             internal readonly Holder<List<DataCheck>> DataCheckList;
             internal readonly Holder<string> Name;
+            internal readonly Holder<Dictionary<string, Holder<DataMatchID>>> DataMatchList;
             internal readonly Holder<Dictionary<string, Holder<RepCheckData>>> RepCheck;
             internal readonly Holder<List<SKUDataEntry>> SKUDataList;
             internal readonly Holder<List<SKUEntry>> SKUList;
@@ -253,6 +276,7 @@
             internal readonly Holder<Dictionary<string, Holder<StatCheck>>> Statlist;
 
             internal TypeData(bool isnew = true) {
+                DataMatchList = new Holder<Dictionary<string, Holder<DataMatchID>>>(new Dictionary<string, Holder<DataMatchID>>());
                 RepCheck = new Holder<Dictionary<string, Holder<RepCheckData>>>(new Dictionary<string, Holder<RepCheckData>>());
                 SKUList = new Holder<List<SKUEntry>>(new List<SKUEntry>());
                 SKUDataList = new Holder<List<SKUDataEntry>>(new List<SKUDataEntry>());
