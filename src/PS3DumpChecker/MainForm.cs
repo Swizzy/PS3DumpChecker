@@ -19,6 +19,8 @@
         private static string _version;
         public static readonly string Wrkdir = Path.GetDirectoryName(Application.ExecutablePath);
         private UpdateForm _updateForm = new UpdateForm();
+        private readonly bool _autoCheck;
+        private readonly string _autoCheckFile;
 
         public MainForm(ICollection<string> args) {
             InitializeComponent();
@@ -28,16 +30,15 @@
             _version = string.Format("PS3 Dump Checker v{0}.{1} (Build: {2})", app.GetName().Version.Major, app.GetName().Version.Minor, app.GetName().Version.Build);
             Text = _version;
             Icon = Program.AppIcon;
-            if(!string.IsNullOrEmpty(Wrkdir) && Directory.Exists(Wrkdir))
-                Directory.SetCurrentDirectory(Wrkdir);
             if(args.Count < 1)
                 return;
             foreach(var s in args) {
                 if(!File.Exists(s))
                     continue;
-                if(worker.IsBusy)
+                if (_autoCheck)
                     return;
-                StartCheck(s);
+                _autoCheck = true;
+                _autoCheckFile = s;
             }
             SystemEvents.DisplaySettingsChanged += MainLoad;
 
@@ -581,6 +582,8 @@
 #endif
                 DoParseHashList();
             }
+            if (_autoCheck)
+                StartCheck(_autoCheckFile);
             if(Screen.FromControl(this).Bounds.Height >= Height)
                 return;
             var diff = Height - Screen.FromControl(this).Bounds.Height;

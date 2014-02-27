@@ -40,6 +40,8 @@
             if(!HasAcceptedTerms())
                 return;
             MainForm = new MainForm(args);
+            if (!string.IsNullOrEmpty(MainForm.Wrkdir) && Directory.Exists(MainForm.Wrkdir))
+                Directory.SetCurrentDirectory(MainForm.Wrkdir);
             Application.Run(MainForm);
         }
 

@@ -1,3 +1,5 @@
+Build 348 2014-02-27:
+ - Fixed: Dropping a dump on the exe will now work again (Thanks to Baileyscream for the bug report!)
 Build 347 2014-02-27:
  - Fixed: Old formwat for the disclaimer was still partially used by accident, doesn't really have a big effect, as it's converted on each boot untill you disable the disclaimer...
 Build 346 2014-02-27:
