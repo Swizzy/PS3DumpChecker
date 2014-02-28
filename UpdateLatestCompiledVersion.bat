@@ -17,7 +17,7 @@ copy ..\src\PS3DumpChecker\hashlist.xml default.hashlist >NUL
 echo Updating PS3DumpCheckver.version...
 for /F "tokens=*" %%a in ('..\DotNETAssembly2Version.exe PS3DumpChecker.exe') do set ver=%%a
 if (%ERRORLEVEL% geq 1) goto exit
-echo %ver% >> PS3DumpChecker.version
+echo %ver% >> PS3DumpChecker.exe.version
 echo Latest version is: %ver%
 :exit
 pause
