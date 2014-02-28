@@ -13,6 +13,8 @@
         private static int _checkId;
         private static Common.ImgInfo _ret;
         private static int _checkckount;
+        private static bool _dohash;
+        private static Common.TypeData _checkdata;
 
         private static void AddItem(Common.PartsObject data) {
             Common.AddItem(_checkId, data);
@@ -24,14 +26,14 @@
             var fi = new FileInfo(file);
             _checkckount = 0;
             _ret = new Common.ImgInfo {
-                                         FileName = file
-                                         };
-            var checkdata = Common.Types[fi.Length];
+                FileName = file
+            };
+            _checkdata = Common.Types[fi.Length];
             var data = new byte[fi.Length];
 
             #region Statistics check
 
-            if(checkdata.Statlist.Value.Count > 0) {
+            if(_checkdata.Statlist.Value.Count > 0) {
                 Logger.WriteLine("Statistics check started...");
                 _checkckount++;
                 if(!CheckStatisticsList(GetStatisticsAndFillData(fi, ref data), data.Length))
@@ -48,14 +50,14 @@
 
             #region Binary check
 
-            if(checkdata.Bincheck.Value.Count > 0) {
+            if(_checkdata.Bincheck.Value.Count > 0) {
                 Logger.WriteLine("Binary check Started!");
-                foreach(var key in checkdata.Bincheck.Value.Keys) {
+                foreach(var key in _checkdata.Bincheck.Value.Keys) {
                     _checkckount++;
                     Common.SendStatus(string.Format("Parsing Image... Checking Binary for: {0}", key));
                     var bintmp = string.Format("Binary check for {0} Started...", key);
                     Logger.Write(string.Format("{0,-50} Result: ", bintmp));
-                    if(!checkdata.Bincheck.Value[key].Value.IsMulti) {
+                    if(!_checkdata.Bincheck.Value[key].Value.IsMulti) {
                         if(!CheckBinPart(ref data, key, ref _ret.Reversed))
                             Common.AddBad(ref _ret);
                     }
@@ -72,9 +74,9 @@
 
             #region Data check
 
-            if(checkdata.DataCheckList.Value.Count > 0) {
+            if(_checkdata.DataCheckList.Value.Count > 0) {
                 Logger.WriteLine("Data check Started!");
-                foreach(var key in checkdata.DataCheckList.Value) {
+                foreach(var key in _checkdata.DataCheckList.Value) {
                     _checkckount++;
                     Common.SendStatus(string.Format("Parsing Image... Checking Data Statistics for: {0}", key.Name));
                     var datatmp = string.Format("Data Statistics check for {0} Started...", key.Name);
@@ -92,12 +94,12 @@
 
             #region SKU List check
 
-            if(checkdata.SKUList.Value.Count > 0) {
+            if(_checkdata.SKUList.Value.Count > 0) {
                 Logger.WriteLine("SKU List check Started!");
                 Common.SendStatus("Checking SKU List...");
-                var skuCheckDataList = GetSkuCheckData(_ret.Reversed, ref data, ref checkdata);
+                var skuCheckDataList = GetSkuCheckData(_ret.Reversed, ref data, ref _checkdata);
 
-                var skuEntryList = new List<Common.SKUEntry>(checkdata.SKUList.Value);
+                var skuEntryList = new List<Common.SKUEntry>(_checkdata.SKUList.Value);
                 foreach(var entry in skuCheckDataList) {
                     if(skuEntryList.Count < skuCheckDataList.Count)
                         break;
@@ -140,8 +142,11 @@
                         Logger.WriteLine(entry.Type.Equals("bootldrsize", StringComparison.CurrentCultureIgnoreCase) ? string.Format("{0} = {1:X4}", entry.Type, entry.Size) : string.Format("{0} = {1}", entry.Type, entry.Data));
                 }
                 AddItem(new Common.PartsObject {
-                                               Name = "SKUIdentity Data", ActualString = datamsg.Trim(), ExpectedString = "", Result = (skuEntryList.Count == skuCheckDataList.Count),
-                                               });
+                    Name = "SKUIdentity Data",
+                    ActualString = datamsg.Trim(),
+                    ExpectedString = "",
+                    Result = (skuEntryList.Count == skuCheckDataList.Count),
+                });
             }
             else
                 Logger.WriteLine(string.Format("{0,-50} (nothing to check)", "SKU List check skipped!"));
@@ -150,11 +155,11 @@
 
             #region Hash check
 
-            if(Program.GetRegSetting("dohashcheck", true) && Common.Hashes.Offsets.ContainsKey(data.Length) && Common.Hashes.Offsets[data.Length].Value.Count > 0) {
+            _dohash = Program.GetRegSetting("dohashcheck", true);
+            if(_dohash && Common.Hashes != null && Common.Hashes.Offsets.ContainsKey(data.Length) && Common.Hashes.Offsets[data.Length].Value.Count > 0) {
                 Logger.WriteLine("Hash check Started!");
                 foreach(var check in Common.Hashes.Offsets[data.Length].Value) {
                     _checkckount++;
-
                     Common.SendStatus(string.Format("Parsing Image... Checking Hash for: {0}", check.Name));
                     var hashtmp = string.Format("Hash check for {0} Started...", check.Name);
                     Logger.Write(string.Format("{0,-50} Result: ", hashtmp));
@@ -169,13 +174,38 @@
 
             #endregion Hash check
 
+            #region ROSVersion check
+
+            if(Program.GetRegSetting("dorosvercheck", true) && _checkdata.ROS0Offset > 0 && _checkdata.ROS1Offset > 0) {
+                _checkckount++;
+                Common.SendStatus("Parsing Image... Checking ROS0 Version");
+                Logger.Write(string.Format("{0,-50} Result: ", "ROS Version check for ROS0 Started..."));
+                var ret = CheckROSVersion(ref data, _checkdata.ROS0Offset, out _ret.ROS0Version);
+                if (!ret)
+                    Common.AddBad(ref _ret);
+                Logger.WriteLine2(!ret ? "FAILED!" : string.Format("OK! ({0})", _ret.ROS0Version));
+                AddItem(new Common.PartsObject { ActualString = _ret.ROS0Version, ExpectedString = "ROS0 version in the format: ###.###", Name = "ROS0 Version", Result = ret });
+                _checkckount++;
+                Common.SendStatus("Parsing Image... Checking ROS0 Version");
+                Logger.Write(string.Format("{0,-50} Result: ", "ROS Version check for ROS1 Started..."));
+                ret = CheckROSVersion(ref data, _checkdata.ROS1Offset, out _ret.ROS1Version);
+                if (!ret)
+                    Common.AddBad(ref _ret);
+                Logger.WriteLine2(!ret ? "FAILED!" : string.Format("OK! ({0})", _ret.ROS1Version));
+                AddItem(new Common.PartsObject { ActualString = _ret.ROS1Version, ExpectedString = "ROS1 version in the format: ###.###", Name = "ROS1 Version", Result = ret });
+            }
+            else
+                Logger.WriteLine(string.Format("{0,-50} (nothing to check)", "ROS Version check skipped!"));
+            Common.SendStatus("ROS Version checks Done!");
+
+            #endregion Hash check
+
             #region Repetitions Check
 
-            if (Program.GetRegSetting("dorepcheck", true) && checkdata.RepCheck.Value.Count > 0)
-            {
+            if(Program.GetRegSetting("dorepcheck", true) && _checkdata.RepCheck.Value.Count > 0) {
                 Logger.WriteLine("Repetitions check Started!");
                 Common.SendStatus("Parsing Image... Checking Binary for: Repetitions");
-                if (!Repetitions(_ret.Reversed, ref data, ref checkdata))
+                if(!Repetitions(_ret.Reversed, ref data, ref _checkdata))
                     Common.AddBad(ref _ret);
             }
             else
@@ -186,11 +216,10 @@
 
             #region DataMatch Check
 
-            if (checkdata.DataMatchList.Value.Count > 0)
-            {
+            if(_checkdata.DataMatchList.Value.Count > 0) {
                 Logger.WriteLine("Data Mach check Started!");
                 Common.SendStatus("Parsing Image... Checking Binary for: Data Matches");
-                if (!CheckDataMatches(ref data, ref checkdata))
+                if(!CheckDataMatches(ref data, ref _checkdata))
                     Common.AddBad(ref _ret);
             }
             else
@@ -216,7 +245,7 @@
 
             return _ret;
         }
-        
+
         private static Dictionary<byte, double> GetStatisticsAndFillData(FileInfo fi, ref byte[] data) {
             var count = new Dictionary<byte, ulong>();
             using(var br = new BinaryReader(fi.OpenRead())) {
@@ -272,8 +301,11 @@
             foreach(var key in list)
                 msg += String.Format("0x{0:X2} : {1:F2}%{2}", key, tmp[key], Environment.NewLine);
             AddItem(new Common.PartsObject {
-                                           Name = "Statistics", ActualString = msg.Trim(), ExpectedString = Common.Types[len].StatDescription.Value, Result = isok
-                                           });
+                Name = "Statistics",
+                ActualString = msg.Trim(),
+                ExpectedString = Common.Types[len].StatDescription.Value,
+                Result = isok
+            });
             Logger.WriteLine(string.Format("{0,-50} Result: {1}", "Statistics check Completed!", isok ? "OK!" : "FAILED!"));
             return isok;
         }
@@ -328,8 +360,11 @@
             if(checkdata.Value.Asciiout)
                 msg += string.Format("{0}Ascii Value: {1}", Environment.NewLine, Encoding.ASCII.GetString(tmp));
             AddItem(new Common.PartsObject {
-                                           Name = name.Trim(), ActualString = msg.Trim(), ExpectedString = expmsg, Result = isok
-                                           });
+                Name = name.Trim(),
+                ActualString = msg.Trim(),
+                ExpectedString = expmsg,
+                Result = isok
+            });
             Logger.WriteLine2(isok ? "OK!" : string.Format("FAILED! {0}{1}Actual data: {2}", expmsg, Environment.NewLine, msg));
             return isok;
         }
@@ -395,7 +430,7 @@
                     if(!isok)
                         continue;
                     datareversed = true;
-                    if (d.DisablePatch)
+                    if(d.DisablePatch)
                         _ret.DisablePatch = true;
                     break;
                 }
@@ -411,8 +446,11 @@
                 msg += string.Format("{0}Ascii Value: {1}", Environment.NewLine, asciidata);
             }
             AddItem(new Common.PartsObject {
-                                           Name = name.Trim(), ActualString = msg.Trim(), ExpectedString = expmsg, Result = isok,
-                                           });
+                Name = name.Trim(),
+                ActualString = msg.Trim(),
+                ExpectedString = expmsg,
+                Result = isok,
+            });
             Logger.WriteLine2(isok ? "OK!" : string.Format("FAILED! {0}{1}Actual data: {2}", expmsg, Environment.NewLine, msg));
             return isok;
         }
@@ -421,8 +459,8 @@
             var ret = new List<SkuCheckData>();
             foreach(var skuDataEntry in checkdata.SKUDataList.Value) {
                 var skuCheckDataEntry = new SkuCheckData {
-                                                         Type = skuDataEntry.Type
-                                                         };
+                    Type = skuDataEntry.Type
+                };
                 var tmpdata = new byte[skuDataEntry.Size];
                 Buffer.BlockCopy(data, (int) skuDataEntry.Offset, tmpdata, 0, tmpdata.Length);
                 if(reversed) {
@@ -553,8 +591,11 @@
                         expmsg += string.Format("{0}Everything should be less then {1:F2}%", Environment.NewLine, val);
                 }
                 AddItem(new Common.PartsObject {
-                                               Name = checkdata.Name.Trim(), ActualString = actmsg.Trim(), ExpectedString = expmsg.Trim(), Result = isok
-                                               });
+                    Name = checkdata.Name.Trim(),
+                    ActualString = actmsg.Trim(),
+                    ExpectedString = expmsg.Trim(),
+                    Result = isok
+                });
                 Logger.WriteLine2(isok ? "OK!" : string.Format("FAILED! {0}{1}Actual data: {2}", expmsg, Environment.NewLine, actmsg));
             }
             else
@@ -564,12 +605,15 @@
 
         private static bool CheckHash(bool reversed, ref byte[] data, HashCheck.HashListObject checkdata) {
             string hash;
-            var tmp = Common.Hashes.CheckHash(ref data, checkdata.Offset, checkdata.Size, reversed, checkdata.Type, out hash);
+            var tmp = Common.Hashes.CheckHash(ref data, checkdata.Offset, checkdata.Size, reversed, checkdata.Type, checkdata.Name, out hash);
             var isok = !string.IsNullOrEmpty(tmp);
             hash = isok ? string.Format("{0}{1}{1}MD5 Hash: {2}", tmp, Environment.NewLine, hash) : string.Format("MD5 Hash: {0}", hash);
             AddItem(new Common.PartsObject {
-                                           Name = checkdata.Name, ActualString = hash, ExpectedString = "Check the hashlist for more information...", Result = isok
-                                           });
+                Name = checkdata.Name,
+                ActualString = hash,
+                ExpectedString = "Check the hashlist for more information...",
+                Result = isok
+            });
             Logger.WriteLine2(isok ? "OK!" : string.Format("FAILED! {0}Actual data: {1}", Environment.NewLine, hash));
             return isok;
         }
@@ -584,7 +628,7 @@
                 var rep = checkData.RepCheck.Value[key].Value;
                 rep.FoundAt.Clear();
                 Logger.Write(string.Format("{0,-50} Result: ", string.Format("Repetitions check for {0} Started...", rep.Name)));
-                foreach (Match match in Regex.Matches(tmp, Regex.Escape(key))) {
+                foreach(Match match in Regex.Matches(tmp, Regex.Escape(key))) {
                     var index = match.Index * 2;
                     if(index == rep.Offset)
                         continue;
@@ -598,7 +642,7 @@
                 }
                 Logger.WriteLine2(string.Format("FAILED! {0}Actual data:", Environment.NewLine));
                 var builder = new StringBuilder();
-                foreach (var offset in rep.FoundAt)
+                foreach(var offset in rep.FoundAt)
                     builder.Append(string.Format(" 0x{0:X}", offset));
                 Logger.WriteLine2(string.Format("{0} Found at {1} offset(s):{2}", rep.Name, rep.FoundAt.Count, builder));
                 Logger.WriteLine2(string.Format("{0} Expected at: 0x{1:X}", rep.Name, rep.Offset));
@@ -611,32 +655,37 @@
                 var s = bigbuilder.ToString(); // Save current data
                 bigbuilder.Length = 0; // Reset it so we can start fresh
                 bigbuilder.Append("You should check address line(s): ");
-                for(var i = 0; i < 30; i++)
+                for(var i = 0; i < 30; i++) {
                     if((checkLines & (1 << i)) > 0)
                         bigbuilder.AppendFormat("{0} ", (AddressLines) (1 << i));
+                }
                 bigbuilder.AppendLine(); // Make sure the rest of it ends up on a new line...
                 bigbuilder.Append(s); // Add the saved data back
             }
-            AddItem(new Common.PartsObject { Name = "Repetitions Check", ActualString = bigbuilder.ToString(), ExpectedString = "No Repetitions are supposed to be listed!", Result = ret } );
+            AddItem(new Common.PartsObject {
+                Name = "Repetitions Check",
+                ActualString = bigbuilder.ToString(),
+                ExpectedString = "No Repetitions are supposed to be listed!",
+                Result = ret
+            });
             return ret;
         }
 
-        private static bool CheckDataMatches(ref byte[] data, ref Common.TypeData checkdata)
-        {
+        private static bool CheckDataMatches(ref byte[] data, ref Common.TypeData checkdata) {
             var bigbuilder = new StringBuilder();
             var ret = true;
-            foreach (var key in checkdata.DataMatchList.Value.Keys) {
+            foreach(var key in checkdata.DataMatchList.Value.Keys) {
                 _checkckount++;
                 var smallbuilder = new StringBuilder();
                 var islastok = true;
                 var testlist = new Dictionary<string, string>();
                 var laststring = "";
                 bigbuilder.AppendLine(string.Format("Check name: {0}", checkdata.DataMatchList.Value[key].Value.Name));
-                foreach (var testdata in checkdata.DataMatchList.Value[key].Value.Data) {
+                foreach(var testdata in checkdata.DataMatchList.Value[key].Value.Data) {
                     var tmp = Common.GetDataForTest(ref data, testdata.Offset, testdata.Length);
                     if(!testlist.ContainsKey(tmp) && testlist.Count != 0)
                         islastok = false;
-                    if (!testlist.ContainsKey(tmp))
+                    if(!testlist.ContainsKey(tmp))
                         testlist.Add(tmp, testdata.Name);
                     smallbuilder.AppendLine(string.Format("{0} : {1}", testdata.Name, tmp));
                     laststring = tmp;
@@ -650,8 +699,53 @@
             }
             if(ret)
                 bigbuilder.Append("All match checks are OK!");
-            AddItem(new Common.PartsObject { Name = "Data Match Check", ActualString = bigbuilder.ToString(), ExpectedString = "No Failed matches are supposed to be listed!", Result = ret });
+            AddItem(new Common.PartsObject {
+                Name = "Data Match Check",
+                ActualString = bigbuilder.ToString(),
+                ExpectedString = "No Failed matches are supposed to be listed!",
+                Result = ret
+            });
             return ret;
+        }
+
+        private static bool CheckROSVersion(ref byte[] data, int offset, out string rosversion) {
+            var rosdata = new byte[0x6FFFE0];
+            Buffer.BlockCopy(data, offset, rosdata, 0, rosdata.Length);
+            if(_ret.Reversed)
+                Common.SwapBytes(ref rosdata);
+            rosversion = GetROSVersion(ref rosdata);
+            if(_dohash && Common.Hashes != null && Common.Hashes.Offsets.ContainsKey(data.Length) && Common.Hashes.Offsets[data.Length].Value.Count > 0) {
+                if(_checkdata.ROS0Offset == offset)
+                    return rosversion == HashCheck.ROS0Ver;
+                if(_checkdata.ROS1Offset == offset)
+                    return rosversion == HashCheck.ROS1Ver;
+            }
+            return Regex.IsMatch(rosversion, "[0-9]{3}.[0-9]{3}");
+        }
+
+        private static string GetROSVersion(ref byte[] data) {
+            foreach(var e in GetRosEntries(ref data)) {
+                if(!e.Filename.Equals("sdk_version", StringComparison.CurrentCultureIgnoreCase))
+                    continue;
+                return Encoding.ASCII.GetString(data, (int) e.Offset, (int) e.Size).Trim();
+            }
+            return "N/A";
+        }
+
+        private static IEnumerable<ROSEntry> GetRosEntries(ref byte[] data) {
+            var entrycount = Common.Swap(BitConverter.ToUInt32(data, 0x4));
+            var list = new List<ROSEntry>();
+            for(var i = 0; i < entrycount; i++) {
+                var entryoffset = Common.Swap(BitConverter.ToUInt64(data, 0x10 + (i * 0x30)));
+                var size = Common.Swap(BitConverter.ToUInt64(data, 0x18 + (i * 0x30)));
+                var name = Encoding.ASCII.GetString(data, 0x20 + (i * 0x30), 0x20).Replace("\0", "");
+                list.Add(new ROSEntry {
+                    Filename = name,
+                    Offset = entryoffset,
+                    Size = size
+                });
+            }
+            return list;
         }
 
         #region Nested type: AddressLines
@@ -694,6 +788,15 @@
 
         #endregion
 
+        #region Nested type: ROSEntry
+
+        private sealed class ROSEntry {
+            public string Filename;
+            public ulong Offset;
+            public ulong Size;
+        }
+
+        #endregion
 
         #region Nested type: SkuCheckData
 

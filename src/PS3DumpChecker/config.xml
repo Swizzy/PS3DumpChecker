@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <type size="268435456" name="NAND">
+    <ros0offset>C0030</ros0offset>
+    <ros1offset>7C0020</ros1offset>
     <!-- Single value entries -->
     <binentrysingle>
       <binentry name="Header Magic" ismulti="false" offset="40010" ascii="false" description="Header Magic">
@@ -295,6 +297,8 @@
     </skumodels>
   </type>
   <type size="16777216" name="NOR">
+    <ros0offset>C0010</ros0offset>
+    <ros1offset>7C0010</ros1offset>
     <!-- Single value entries -->
     <binentrysingle>
       <binentry name="Header Magic0" ismulti="false" offset="10" ascii="false" description="Header Magic0">
@@ -461,7 +465,6 @@
         <datamatch offset="303E4" length="C" id="1">eid5</datamatch>
       </id1>
     </datamatches>
-
 
     <repchecks>
       <repcheck name="Header Magic0 Repetitions" offset="10">

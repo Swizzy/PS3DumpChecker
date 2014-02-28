@@ -115,6 +115,10 @@
             return ret + 0x40;
         }
 
+        public static ulong Swap(ulong x) { return x << 56 | x << 40 & 0xff000000000000 | x << 24 & 0xff0000000000 | x << 8 & 0xff00000000 | x >> 8 & 0xff000000 | x >> 24 & 0xff0000 | x >> 40 & 0xff00 | x >> 56; }
+
+        public static uint Swap(uint x) { return (x & 0x000000FF) << 24 | (x & 0x0000FF00) << 8 | (x & 0x00FF0000) >> 8 | (x & 0xFF000000) >> 24; }
+
         #region Nested type: BinCheck
 
         public struct BinCheck {
@@ -162,6 +166,8 @@
             internal string SKUModel;
             internal string Status;
             internal bool DisablePatch;
+            internal string ROS0Version;
+            internal string ROS1Version;
         }
 
         #endregion
@@ -264,7 +270,7 @@
 
         #region Nested type: TypeData
 
-        internal struct TypeData {
+        internal class TypeData {
             internal readonly Holder<Dictionary<string, Holder<BinCheck>>> Bincheck;
             internal readonly Holder<List<DataCheck>> DataCheckList;
             internal readonly Holder<string> Name;
@@ -274,6 +280,8 @@
             internal readonly Holder<List<SKUEntry>> SKUList;
             internal readonly Holder<string> StatDescription;
             internal readonly Holder<Dictionary<string, Holder<StatCheck>>> Statlist;
+            internal int ROS0Offset;
+            internal int ROS1Offset;
 
             internal TypeData(bool isnew = true) {
                 DataMatchList = new Holder<Dictionary<string, Holder<DataMatchID>>>(new Dictionary<string, Holder<DataMatchID>>());

@@ -52,16 +52,22 @@
                         var patchdata = GetPatchData("Patches.patch.bin", swap);
                         switch(src.BaseStream.Length) {
                             case 0x1000000L:
-                                Common.SendStatus("Applying patch 1 of 2");
+                                Common.SendStatus("Applying patch 1 of 3");
                                 ApplyPatch(0xC0010, ref patchdata, target);
-                                Common.SendStatus("Applying patch 2 of 2");
+                                Common.SendStatus("Applying patch 2 of 3");
                                 ApplyPatch(0x7C0010, ref patchdata, target);
+                                Common.SendStatus("Applying patch 3 of 3");
+                                patchdata = GetPatchData("Patches.nor.bin", swap);
+                                ApplyPatch(0x40000, ref patchdata, target);
                                 break;
                             case 0x10000000L:
-                                Common.SendStatus("Applying patch 1 of 2");
+                                Common.SendStatus("Applying patch 1 of 3");
                                 ApplyPatch(0xC0030, ref patchdata, target);
-                                Common.SendStatus("Applying patch 2 of 2");
+                                Common.SendStatus("Applying patch 2 of 3");
                                 ApplyPatch(0x7C0020, ref patchdata, target);
+                                Common.SendStatus("Applying patch 3 of 3");
+                                patchdata = GetPatchData("Patches.nand.bin", swap);
+                                ApplyPatch(0x91800, ref patchdata, target);
                                 break;
                             default:
                                 throw new NotSupportedException(string.Format("src.BaseStream.Length: 0x{0:X}L", src.BaseStream.Length));

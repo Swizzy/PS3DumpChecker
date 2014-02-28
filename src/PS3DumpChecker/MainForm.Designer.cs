@@ -56,6 +56,10 @@
             this.status = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.partslist = new PS3DumpChecker.Controls.CustomListBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.rosver0box = new System.Windows.Forms.RichTextBox();
+            this.rosver1box = new System.Windows.Forms.RichTextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.advbox.SuspendLayout();
             this.imginfo.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -79,7 +83,7 @@
             this.advbox.Controls.Add(this.label3);
             this.advbox.Controls.Add(this.expdatabox);
             this.advbox.Controls.Add(this.actdatabox);
-            this.advbox.Location = new System.Drawing.Point(298, 167);
+            this.advbox.Location = new System.Drawing.Point(298, 193);
             this.advbox.Name = "advbox";
             this.advbox.Size = new System.Drawing.Size(450, 281);
             this.advbox.TabIndex = 2;
@@ -133,8 +137,12 @@
             // 
             // imginfo
             // 
+            this.imginfo.Controls.Add(this.label8);
+            this.imginfo.Controls.Add(this.label7);
             this.imginfo.Controls.Add(this.label6);
             this.imginfo.Controls.Add(this.minverbox);
+            this.imginfo.Controls.Add(this.rosver1box);
+            this.imginfo.Controls.Add(this.rosver0box);
             this.imginfo.Controls.Add(this.reversed);
             this.imginfo.Controls.Add(this.label2);
             this.imginfo.Controls.Add(this.idmatchbox);
@@ -143,7 +151,7 @@
             this.imginfo.Controls.Add(this.label1);
             this.imginfo.Location = new System.Drawing.Point(298, 64);
             this.imginfo.Name = "imginfo";
-            this.imginfo.Size = new System.Drawing.Size(450, 97);
+            this.imginfo.Size = new System.Drawing.Size(450, 123);
             this.imginfo.TabIndex = 0;
             this.imginfo.TabStop = false;
             this.imginfo.Text = "Image Information";
@@ -297,7 +305,7 @@
             this.statuslabel.AutoSize = true;
             this.statuslabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statuslabel.ForeColor = System.Drawing.Color.Black;
-            this.statuslabel.Location = new System.Drawing.Point(298, 451);
+            this.statuslabel.Location = new System.Drawing.Point(298, 477);
             this.statuslabel.Name = "statuslabel";
             this.statuslabel.Size = new System.Drawing.Size(354, 91);
             this.statuslabel.TabIndex = 6;
@@ -314,7 +322,7 @@
             this.statusStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.status});
-            this.statusStrip.Location = new System.Drawing.Point(0, 549);
+            this.statusStrip.Location = new System.Drawing.Point(0, 575);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(760, 22);
             this.statusStrip.SizingGrip = false;
@@ -330,10 +338,50 @@
             this.partslist.Location = new System.Drawing.Point(12, 33);
             this.partslist.Name = "partslist";
             this.partslist.ScrollAlwaysVisible = true;
-            this.partslist.Size = new System.Drawing.Size(280, 500);
+            this.partslist.Size = new System.Drawing.Size(280, 526);
             this.partslist.Sorted = true;
             this.partslist.TabIndex = 0;
             this.partslist.SelectedIndexChanged += new System.EventHandler(this.PartslistSelectedIndexChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(39, 100);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(77, 13);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "ROS0 Version:";
+            // 
+            // rosver0box
+            // 
+            this.rosver0box.ForeColor = System.Drawing.Color.Black;
+            this.rosver0box.Location = new System.Drawing.Point(122, 97);
+            this.rosver0box.Multiline = false;
+            this.rosver0box.Name = "rosver0box";
+            this.rosver0box.ReadOnly = true;
+            this.rosver0box.Size = new System.Drawing.Size(50, 20);
+            this.rosver0box.TabIndex = 1;
+            this.rosver0box.Text = "N/A";
+            // 
+            // rosver1box
+            // 
+            this.rosver1box.ForeColor = System.Drawing.Color.Black;
+            this.rosver1box.Location = new System.Drawing.Point(261, 97);
+            this.rosver1box.Multiline = false;
+            this.rosver1box.Name = "rosver1box";
+            this.rosver1box.ReadOnly = true;
+            this.rosver1box.Size = new System.Drawing.Size(50, 20);
+            this.rosver1box.TabIndex = 1;
+            this.rosver1box.Text = "N/A";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(178, 100);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(77, 13);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "ROS1 Version:";
             // 
             // MainForm
             // 
@@ -341,7 +389,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
-            this.ClientSize = new System.Drawing.Size(760, 571);
+            this.ClientSize = new System.Drawing.Size(760, 597);
             this.Controls.Add(this.statuslabel);
             this.Controls.Add(this.logstate);
             this.Controls.Add(this.statusStrip);
@@ -399,6 +447,10 @@
         private System.Windows.Forms.ToolStripStatusLabel status;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripMenuItem settings;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.RichTextBox rosver1box;
+        private System.Windows.Forms.RichTextBox rosver0box;
     }
 }
 

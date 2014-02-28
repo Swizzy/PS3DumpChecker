@@ -148,6 +148,9 @@
             imgstatus.Text = Resources.N_A;
             reversed.Text = Resources.N_A;
             idmatchbox.Text = Resources.N_A;
+            minverbox.Text = Resources.N_A;
+            rosver0box.Text = Resources.N_A;
+            rosver1box.Text = Resources.N_A;
             statuslabel.Visible = false;
             actdatabox.Text = "";
             expdatabox.Text = "";
@@ -170,8 +173,11 @@
                         idmatchbox.Text = res.SKUModel ?? "No matching SKU model found!";
                         minverbox.Text = res.MinVer ?? "N/A";
                         statuslabel.Text = res.IsOk ? "OK" : "BAD";
+                        rosver0box.Text = res.ROS0Version;
+                        rosver1box.Text = res.ROS1Version;
                         statuslabel.ForeColor = res.IsOk ? Color.Green : Color.Red;
                         statuslabel.Visible = true;
+                        
                         if(res.IsOk && !res.DisablePatch && Program.GetRegSetting("autopatch"))
                             Patch(res.FileName, res.Reversed);
                     }
@@ -250,7 +256,7 @@
                         case "type":
                             if(long.TryParse(xml["size"], out size)) {
                                 if(!Common.Types.ContainsKey(size))
-                                    Common.Types.Add(size, new Common.TypeData(true));
+                                    Common.Types.Add(size, new Common.TypeData());
                                 Common.Types[size].Name.Value = xml["name"];
                             }
                             break;
@@ -500,6 +506,24 @@
                             break;
 
                             #endregion
+
+                        #region ROS#Offset
+                        case "ros0offset":
+                            if (!Common.Types.ContainsKey(size))
+                                break;
+                            xml.Read();
+                            if(!int.TryParse(xml.Value, NumberStyles.HexNumber, null, out Common.Types[size].ROS0Offset))
+                                Common.Types[size].ROS0Offset = -1;
+                            break;
+                        case "ros1offset":
+                            if (!Common.Types.ContainsKey(size))
+                                break;
+                            xml.Read();
+                            if (!int.TryParse(xml.Value, NumberStyles.HexNumber, null, out Common.Types[size].ROS1Offset))
+                                Common.Types[size].ROS1Offset = -1;
+                            break;
+
+                        #endregion
                     }
                 }
             }
