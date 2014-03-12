@@ -34,7 +34,7 @@
             #region Statistics check
 
             if(_checkdata.Statlist.Value.Count > 0) {
-                Logger.WriteLine("Statistics check started...");
+                Logger.WriteLine(string.Format("{0,92}", "Statistics check started..."));
                 _checkckount++;
                 if(!CheckStatisticsList(GetStatisticsAndFillData(fi, ref data), data.Length))
                     Common.AddBad(ref _ret);
@@ -43,7 +43,7 @@
             else {
                 Common.SendStatus("Skipping Statistics check (nothing to check) Instead: Reading image into memory...");
                 data = File.ReadAllBytes(fi.FullName);
-                Logger.WriteLine(string.Format("{0,-50} (nothing to check)", "Statistics check skipped!"));
+                Logger.WriteLine(string.Format("{0,-70} (nothing to check)", "Statistics check skipped!"));
             }
 
             #endregion Statistics check
@@ -51,12 +51,12 @@
             #region Binary check
 
             if(_checkdata.Bincheck.Value.Count > 0) {
-                Logger.WriteLine("Binary check Started!");
+                Logger.WriteLine(string.Format("{0,92}", "Binary check Started!"));
                 foreach(var key in _checkdata.Bincheck.Value.Keys) {
                     _checkckount++;
                     Common.SendStatus(string.Format("Parsing Image... Checking Binary for: {0}", key));
                     var bintmp = string.Format("Binary check for {0} Started...", key);
-                    Logger.Write(string.Format("{0,-50} Result: ", bintmp));
+                    Logger.Write(string.Format("{0,-70} Result: ", bintmp));
                     if(!_checkdata.Bincheck.Value[key].Value.IsMulti) {
                         if(!CheckBinPart(ref data, key, ref _ret.Reversed))
                             Common.AddBad(ref _ret);
@@ -67,7 +67,7 @@
                 }
             }
             else
-                Logger.WriteLine(string.Format("{0,-50} (nothing to check)", "Binary check skipped!"));
+                Logger.WriteLine(string.Format("{0,-70} (nothing to check)", "Binary check skipped!"));
             Common.SendStatus("Binary check(s) Done!");
 
             #endregion Binary check
@@ -75,101 +75,44 @@
             #region Data check
 
             if(_checkdata.DataCheckList.Value.Count > 0) {
-                Logger.WriteLine("Data check Started!");
+                Logger.WriteLine(string.Format("{0,90}", "Data check Started!"));
                 foreach(var key in _checkdata.DataCheckList.Value) {
                     _checkckount++;
                     Common.SendStatus(string.Format("Parsing Image... Checking Data Statistics for: {0}", key.Name));
                     var datatmp = string.Format("Data Statistics check for {0} Started...", key.Name);
-                    Logger.Write(string.Format("{0,-50} Result: ", datatmp));
+                    Logger.Write(string.Format("{0,-70} Result: ", datatmp));
                     if(!CheckDataPart(ref data, key, _ret.Reversed))
                         Common.AddBad(ref _ret);
                     GC.Collect();
                 }
             }
             else
-                Logger.WriteLine(string.Format("{0,-50} (nothing to check)", "Data check skipped!"));
+                Logger.WriteLine(string.Format("{0,-70} (nothing to check)", "Data check skipped!"));
             Common.SendStatus("Data check(s) Done!");
 
             #endregion Data check
-
-            #region SKU List check
-
-            if(_checkdata.SKUList.Value.Count > 0) {
-                Logger.WriteLine("SKU List check Started!");
-                Common.SendStatus("Checking SKU List...");
-                var skuCheckDataList = GetSkuCheckData(_ret.Reversed, ref data, ref _checkdata);
-
-                var skuEntryList = new List<Common.SKUEntry>(_checkdata.SKUList.Value);
-                foreach(var entry in skuCheckDataList) {
-                    if(skuEntryList.Count < skuCheckDataList.Count)
-                        break;
-                    var tmplist = GetFilterList(skuEntryList, entry);
-                    var tmplist2 = new List<Common.SKUEntry>(skuEntryList);
-                    skuEntryList.Clear();
-                    foreach(var skuEntry in tmplist2) {
-                        foreach(var tmpentry in tmplist) {
-                            if(skuEntry.SKUKey == tmpentry.SKUKey)
-                                skuEntryList.Add(skuEntry);
-                        }
-                    }
-                }
-                var datamsg = "";
-                foreach(var entry in skuCheckDataList)
-                    datamsg += entry.Type.Equals("bootldrsize", StringComparison.CurrentCultureIgnoreCase) ? string.Format("{0} = {1:X4}{2}", entry.Type, entry.Size, Environment.NewLine) : string.Format("{0} = {1}{2}", entry.Type, entry.Data, Environment.NewLine);
-                if(skuEntryList.Count == skuCheckDataList.Count) {
-                    _ret.SKUModel = skuEntryList[0].Name;
-                    _ret.MinVer = skuEntryList[0].MinVer;
-                    Logger.WriteLine(string.Format("SKU Model: {0}", _ret.SKUModel));
-                    var msg = "";
-                    if(skuEntryList[0].Warn) {
-                        foreach(var entry in skuEntryList) {
-                            if(string.IsNullOrEmpty(entry.WarnMsg))
-                                continue;
-                            msg = entry.WarnMsg;
-                            break;
-                        }
-                        MessageBox.Show(msg, Resources.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        Logger.WriteLine(msg);
-                        datamsg += string.Format("{0}{1}", Environment.NewLine, msg);
-                    }
-                }
-                else {
-                    Common.AddBad(ref _ret);
-                    _ret.SKUModel = null;
-                    _ret.MinVer = null;
-                    Logger.WriteLine("No matching SKU model found!");
-                    foreach(var entry in skuCheckDataList)
-                        Logger.WriteLine(entry.Type.Equals("bootldrsize", StringComparison.CurrentCultureIgnoreCase) ? string.Format("{0} = {1:X4}", entry.Type, entry.Size) : string.Format("{0} = {1}", entry.Type, entry.Data));
-                }
-                AddItem(new Common.PartsObject {
-                    Name = "SKUIdentity Data",
-                    ActualString = datamsg.Trim(),
-                    ExpectedString = "",
-                    Result = (skuEntryList.Count == skuCheckDataList.Count),
-                });
-            }
-            else
-                Logger.WriteLine(string.Format("{0,-50} (nothing to check)", "SKU List check skipped!"));
-
-            #endregion SKU List check
 
             #region Hash check
 
             _dohash = Program.GetRegSetting("dohashcheck", true);
             if(_dohash && Common.Hashes != null && Common.Hashes.Offsets.ContainsKey(data.Length) && Common.Hashes.Offsets[data.Length].Value.Count > 0) {
-                Logger.WriteLine("Hash check Started!");
+                Logger.WriteLine(string.Format("{0,90}", "Hash check Started!"));
                 foreach(var check in Common.Hashes.Offsets[data.Length].Value) {
                     _checkckount++;
                     Common.SendStatus(string.Format("Parsing Image... Checking Hash for: {0}", check.Name));
                     var hashtmp = string.Format("Hash check for {0} Started...", check.Name);
-                    Logger.Write(string.Format("{0,-50} Result: ", hashtmp));
+                    Logger.Write(string.Format("{0,-70} Result: ", hashtmp));
                     if(!CheckHash(_ret.Reversed, ref data, check))
                         Common.AddBad(ref _ret);
+                    if (HashCheck.LastIsPatched)
+                        _ret.IsPatched = true;
                     GC.Collect();
                 }
             }
+            else if (_dohash)
+                Logger.WriteLine(string.Format("{0,-70} (nothing to check)", "Hash check skipped!"));
             else
-                Logger.WriteLine(string.Format("{0,-50} (nothing to check)", "Hash check skipped!"));
+                Logger.WriteLine(string.Format("{0,-70} (disabled)", "Hash check skipped!"));
             Common.SendStatus("Hash check(s) Done!");
 
             #endregion Hash check
@@ -177,9 +120,10 @@
             #region ROSVersion check
 
             if(Program.GetRegSetting("dorosvercheck", true) && _checkdata.ROS0Offset > 0 && _checkdata.ROS1Offset > 0) {
+                Logger.WriteLine(string.Format("{0,97}", "ROS Version check Started!"));
                 _checkckount++;
                 Common.SendStatus("Parsing Image... Checking ROS0 Version");
-                Logger.Write(string.Format("{0,-50} Result: ", "ROS Version check for ROS0 Started..."));
+                Logger.Write(string.Format("{0,-70} Result: ", "ROS Version check for ROS0 Started..."));
                 var ret = CheckROSVersion(ref data, _checkdata.ROS0Offset, out _ret.ROS0Version);
                 if (!ret)
                     Common.AddBad(ref _ret);
@@ -187,15 +131,17 @@
                 AddItem(new Common.PartsObject { ActualString = _ret.ROS0Version, ExpectedString = "ROS0 version in the format: ###.###", Name = "ROS0 Version", Result = ret });
                 _checkckount++;
                 Common.SendStatus("Parsing Image... Checking ROS0 Version");
-                Logger.Write(string.Format("{0,-50} Result: ", "ROS Version check for ROS1 Started..."));
+                Logger.Write(string.Format("{0,-70} Result: ", "ROS Version check for ROS1 Started..."));
                 ret = CheckROSVersion(ref data, _checkdata.ROS1Offset, out _ret.ROS1Version);
                 if (!ret)
                     Common.AddBad(ref _ret);
                 Logger.WriteLine2(!ret ? "FAILED!" : string.Format("OK! ({0})", _ret.ROS1Version));
                 AddItem(new Common.PartsObject { ActualString = _ret.ROS1Version, ExpectedString = "ROS1 version in the format: ###.###", Name = "ROS1 Version", Result = ret });
             }
+            else if (Program.GetRegSetting("dorosvercheck", true))
+                Logger.WriteLine(string.Format("{0,-70} (nothing to check)", "ROS Version check skipped!"));
             else
-                Logger.WriteLine(string.Format("{0,-50} (nothing to check)", "ROS Version check skipped!"));
+                Logger.WriteLine(string.Format("{0,-70} (disabled)", "ROS Version check skipped!"));
             Common.SendStatus("ROS Version checks Done!");
 
             #endregion Hash check
@@ -203,13 +149,15 @@
             #region Repetitions Check
 
             if(Program.GetRegSetting("dorepcheck", true) && _checkdata.RepCheck.Value.Count > 0) {
-                Logger.WriteLine("Repetitions check Started!");
+                Logger.WriteLine(string.Format("{0,97}", "Repetitions check Started!"));
                 Common.SendStatus("Parsing Image... Checking Binary for: Repetitions");
                 if(!Repetitions(_ret.Reversed, ref data, ref _checkdata))
                     Common.AddBad(ref _ret);
             }
+            else if (Program.GetRegSetting("dorepcheck", true))
+                Logger.WriteLine(string.Format("{0,-70} (nothing to check)", "Repetitions check skipped!"));
             else
-                Logger.WriteLine(string.Format("{0,-50} (nothing to check)", "Repetitions check skipped!"));
+                Logger.WriteLine(string.Format("{0,-70} (disabled)", "Repetitions check skipped!"));
             Common.SendStatus("Repetitions check(s) Done!");
 
             #endregion
@@ -217,33 +165,149 @@
             #region DataMatch Check
 
             if(_checkdata.DataMatchList.Value.Count > 0) {
-                Logger.WriteLine("Data Mach check Started!");
+                Logger.WriteLine(string.Format("{0,96}", "Data Match check Started!"));
                 Common.SendStatus("Parsing Image... Checking Binary for: Data Matches");
-                if(!CheckDataMatches(ref data, ref _checkdata))
+                if (!CheckDataMatches(ref data, ref _checkdata))
                     Common.AddBad(ref _ret);
+                else
+                    Logger.WriteLine("All is OK!");
             }
             else
-                Logger.WriteLine(string.Format("{0,-50} (nothing to check)", "Data Match check skipped!"));
+                Logger.WriteLine(string.Format("{0,-70} (nothing to check)", "Data Match check skipped!"));
             Common.SendStatus("Data Match check(s) Done!");
 
             #endregion
 
+            #region DataFill Check
+
+            if (_checkdata.DataFillEntries.Value.Count > 0) {
+                Logger.WriteLine(string.Format("{0,95}", "Data Fill check Started!"));
+                foreach (var dataFillEntry in _checkdata.DataFillEntries.Value) {
+                    Common.SendStatus(string.Format("Parsing Image... Checking Data Fill for: {0}", dataFillEntry.Name));
+                    Logger.Write(string.Format("{0,-70} Result: ", string.Format("Data Fill check for: {0} Started!", dataFillEntry.Name)));
+                    if (!CheckDataFill(ref data, dataFillEntry))
+                        Common.AddBad(ref _ret);
+                }
+            }
+            else
+                Logger.WriteLine(string.Format("{0,-70} (nothing to check)", "Data Fill check skipped!"));
+            Common.SendStatus("Data Fill check(s) Done!");
+
+            #endregion
+            //New checks goes here
+
+            #region SKU List check
+
+            if (_checkdata.SKUList.Value.Count > 0)
+            {
+                Logger.WriteLine(string.Format("{0,94}", "SKU List check Started!"));
+                Common.SendStatus("Checking SKU List...");
+                var skuCheckDataList = GetSkuCheckData(_ret.Reversed, ref data, ref _checkdata);
+
+                var skuEntryList = new List<Common.SKUEntry>(_checkdata.SKUList.Value);
+                foreach (var entry in skuCheckDataList)
+                {
+                    if (skuEntryList.Count < skuCheckDataList.Count)
+                        break;
+                    var tmplist = GetFilterList(skuEntryList, entry);
+                    var tmplist2 = new List<Common.SKUEntry>(skuEntryList);
+                    skuEntryList.Clear();
+                    foreach (var skuEntry in tmplist2)
+                    {
+                        foreach (var tmpentry in tmplist)
+                        {
+                            if (skuEntry.SKUKey == tmpentry.SKUKey)
+                                skuEntryList.Add(skuEntry);
+                        }
+                    }
+                }
+                var datamsg = "";
+                foreach (var entry in skuCheckDataList)
+                    datamsg += entry.Type.Equals("bootldrsize", StringComparison.CurrentCultureIgnoreCase) ? string.Format("{0} = {1:X4}{2}", entry.Type, entry.Size, Environment.NewLine) : string.Format("{0} = {1}{2}", entry.Type, entry.Data, Environment.NewLine);
+                if (skuEntryList.Count == skuCheckDataList.Count)
+                {
+                    _ret.SKUModel = skuEntryList[0].Name;
+                    _ret.MinVer = skuEntryList[0].MinVer;
+                    Logger.WriteLine(string.Format("SKU Model: {0}", _ret.SKUModel));
+                    var msg = "";
+                    if (skuEntryList[0].Warn)
+                    {
+                        foreach (var entry in skuEntryList)
+                        {
+                            if (string.IsNullOrEmpty(entry.WarnMsg))
+                                continue;
+                            msg = entry.WarnMsg;
+                            break;
+                        }
+                        MessageBox.Show(msg, Resources.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        Logger.WriteLine(msg);
+                        Logger.WriteLine("");
+                        datamsg += string.Format("{0}{1}", Environment.NewLine, msg);
+                    }
+                }
+                else
+                {
+                    Common.AddBad(ref _ret);
+                    _ret.SKUModel = null;
+                    _ret.MinVer = null;
+                    Logger.WriteLine("No matching SKU model found!");
+                    foreach (var entry in skuCheckDataList)
+                        Logger.WriteLine(entry.Type.Equals("bootldrsize", StringComparison.CurrentCultureIgnoreCase) ? string.Format("{0} = {1:X4}", entry.Type, entry.Size) : string.Format("{0} = {1}", entry.Type, entry.Data));
+                }
+                AddItem(new Common.PartsObject
+                {
+                    Name = "SKUIdentity Data",
+                    ActualString = datamsg.Trim(),
+                    ExpectedString = "",
+                    Result = (skuEntryList.Count == skuCheckDataList.Count),
+                });
+            }
+            else
+                Logger.WriteLine(string.Format("{0,-70} (nothing to check)", "SKU List check skipped!"));
+
+            #endregion SKU List check
+
             #region Final Output
 
-            Common.SendStatus(string.Format("All checks ({3} Checks) have been completed after {0} Minutes {1} Seconds and {2} Milliseconds", sw.Elapsed.Minutes, sw.Elapsed.Seconds, sw.Elapsed.Milliseconds, _checkckount));
-            Logger.WriteLine(string.Format("All checks ({3} Checks) have been completed after {0} Minutes {1} Seconds and {2} Milliseconds", sw.Elapsed.Minutes, sw.Elapsed.Seconds, sw.Elapsed.Milliseconds, _checkckount));
+            var outstring = string.Format("All checks ({2} Checks) have been completed after {0} Second(s) and {1} Millisecond(s)", (int)sw.Elapsed.TotalSeconds, sw.Elapsed.Milliseconds, _checkckount);
+            Common.SendStatus(outstring);
+            Logger.WriteLine(outstring);
             _ret.IsOk = _ret.BadCount == 0;
             _ret.Status = _ret.IsOk ? "Dump has been validated!" : "Dump is bad!";
             if(!_ret.IsOk)
                 MessageBox.Show(string.Format("ERROR: Your dump failed on {0} of {1} Checks\nPlease check the log for more information!", _ret.BadCount, _checkckount), Resources.Checks_StartCheck_ERROR___Bad_dump, MessageBoxButtons.OK, MessageBoxIcon.Error);
             var tmp = _ret.IsOk ? "Pass!" : "Failed!";
             var outtmp = _ret.IsOk ? string.Format("Tests done: {0}", _checkckount) : string.Format("Bad count: {0} of {1} Tests", _ret.BadCount, _checkckount);
-            Logger.WriteLine2(string.Format("{0,-50} Check result: {1}", outtmp, tmp));
+            Logger.WriteLine2(string.Format("{0,-81} Result: {1}", outtmp, tmp));
             sw.Stop();
 
             #endregion Final Output
 
             return _ret;
+        }
+
+        private static bool CheckDataFill(ref byte[] data, Common.DataFillEntry dataFillEntry) { 
+            for (var i = dataFillEntry.Offset; i < dataFillEntry.Offset + dataFillEntry.Length; i++) {
+                if (data[i] == dataFillEntry.Data)
+                    continue;
+                AddItem(new Common.PartsObject {
+                    Name = dataFillEntry.Name,
+                    ActualString = string.Format("The byte @ offset: 0x{0:X}\r\nhas the value: 0x{1:X2}\r\nPlease check the data further down the line manually...", i, data[i]),
+                    ExpectedString = string.Format("The data between offset: 0x{0:X} and 0x{1:X} should be: {2:X2}", dataFillEntry.Offset, dataFillEntry.Offset + dataFillEntry.Length, dataFillEntry.Data),
+                    Result = false
+                });
+                Logger.WriteLine2(string.Format("FAILED!\r\nThe byte @ offset: 0x{0:X}\r\nhas the value: 0x{1:X2}\r\nPlease check the data further down the line manually...", i, data[i]));
+                return false;
+            }
+            AddItem(new Common.PartsObject
+            {
+                Name = dataFillEntry.Name,
+                ActualString = "All is OK!",
+                ExpectedString = string.Format("The data between offset: 0x{0:X} and 0x{1:X} should be: {2:X2}", dataFillEntry.Offset, dataFillEntry.Offset + dataFillEntry.Length, dataFillEntry.Data),
+                Result = true
+            });
+            Logger.WriteLine2("OK!");
+            return true;
         }
 
         private static Dictionary<byte, double> GetStatisticsAndFillData(FileInfo fi, ref byte[] data) {
@@ -293,7 +357,7 @@
                 }
                 if(low <= val && high >= val)
                     continue;
-                Logger.WriteLine(string.Format("Statistics check Failed! 0x{0:X2} doesn't match expected percentage: higher then {1}% lower then {2}% Actual value: {3:F2}%", d, low, high, val));
+                Logger.WriteLine2(string.Format("Statistics check Failed! 0x{0:X2} doesn't match expected percentage: higher then {1}% lower then {2}% Actual value: {3:F2}%", d, low, high, val));
                 isok = false;
             }
             var list = new List<byte>(tmp.Keys);
@@ -306,7 +370,7 @@
                 ExpectedString = Common.Types[len].StatDescription.Value,
                 Result = isok
             });
-            Logger.WriteLine(string.Format("{0,-50} Result: {1}", "Statistics check Completed!", isok ? "OK!" : "FAILED!"));
+            Logger.WriteLine2(string.Format("{0,-70} Result: {1}", "Statistics check Completed!", isok ? "OK!" : "FAILED!"));
             return isok;
         }
 
@@ -627,7 +691,7 @@
                 _checkckount++;
                 var rep = checkData.RepCheck.Value[key].Value;
                 rep.FoundAt.Clear();
-                Logger.Write(string.Format("{0,-50} Result: ", string.Format("Repetitions check for {0} Started...", rep.Name)));
+                Logger.Write(string.Format("{0,-70} Result: ", string.Format("Repetitions check for {0} Started...", rep.Name)));
                 foreach(Match match in Regex.Matches(tmp, Regex.Escape(key))) {
                     var index = match.Index * 2;
                     if(index == rep.Offset)
@@ -720,7 +784,7 @@
                 if(_checkdata.ROS1Offset == offset)
                     return rosversion == HashCheck.ROS1Ver;
             }
-            return Regex.IsMatch(rosversion, "[0-9]{3}.[0-9]{3}");
+            return Regex.IsMatch(rosversion, "[0-9]{3}\\.[0-9]{3}");
         }
 
         private static string GetROSVersion(ref byte[] data) {
@@ -735,6 +799,8 @@
         private static IEnumerable<ROSEntry> GetRosEntries(ref byte[] data) {
             var entrycount = Common.Swap(BitConverter.ToUInt32(data, 0x4));
             var list = new List<ROSEntry>();
+            if (entrycount > 0x100) // There shouldn't be more then like 0x19 entries, but anything greater then 0x100 is WAY off!
+                return list;
             for(var i = 0; i < entrycount; i++) {
                 var entryoffset = Common.Swap(BitConverter.ToUInt64(data, 0x10 + (i * 0x30)));
                 var size = Common.Swap(BitConverter.ToUInt64(data, 0x18 + (i * 0x30)));

@@ -6,7 +6,7 @@
 
     internal static class Patcher {
         private static byte[] GetPatchData(string name, bool swap) {
-            var data = new byte[0]; // It has to be initalized as something to compile when used as Embedded patches...
+            byte[] data;
             if (!File.Exists(name.Substring(name.IndexOf('.') + 1))) // Strip "Patches." and check for the file "patch.bin"
 #if EMBEDDED_PATCHES
             {
@@ -75,6 +75,8 @@
                     }
                 }
                 Common.SendStatus(string.Format("All patches applied to {0}", destFileName));
+                if (!Program.GetRegSetting("autoexit"))
+                    MessageBox.Show(string.Format("All patches applied to {0}", destFileName));
             }
             catch(FileNotFoundException ex) {
                 MessageBox.Show(string.Format(Resources.PatchFailedCantFindPatchFile, filename, ex.Message), Resources.error, MessageBoxButtons.OK, MessageBoxIcon.Error);

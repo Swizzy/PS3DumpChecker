@@ -37,8 +37,12 @@
             this.expdatabox = new System.Windows.Forms.TextBox();
             this.actdatabox = new System.Windows.Forms.TextBox();
             this.imginfo = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.minverbox = new System.Windows.Forms.RichTextBox();
+            this.rosver1box = new System.Windows.Forms.RichTextBox();
+            this.rosver0box = new System.Windows.Forms.RichTextBox();
             this.reversed = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.idmatchbox = new System.Windows.Forms.RichTextBox();
@@ -56,10 +60,8 @@
             this.status = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.partslist = new PS3DumpChecker.Controls.CustomListBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.rosver0box = new System.Windows.Forms.RichTextBox();
-            this.rosver1box = new System.Windows.Forms.RichTextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.isprepatchedbox = new System.Windows.Forms.RichTextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.advbox.SuspendLayout();
             this.imginfo.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -137,12 +139,14 @@
             // 
             // imginfo
             // 
+            this.imginfo.Controls.Add(this.label9);
             this.imginfo.Controls.Add(this.label8);
             this.imginfo.Controls.Add(this.label7);
             this.imginfo.Controls.Add(this.label6);
             this.imginfo.Controls.Add(this.minverbox);
             this.imginfo.Controls.Add(this.rosver1box);
             this.imginfo.Controls.Add(this.rosver0box);
+            this.imginfo.Controls.Add(this.isprepatchedbox);
             this.imginfo.Controls.Add(this.reversed);
             this.imginfo.Controls.Add(this.label2);
             this.imginfo.Controls.Add(this.idmatchbox);
@@ -155,6 +159,24 @@
             this.imginfo.TabIndex = 0;
             this.imginfo.TabStop = false;
             this.imginfo.Text = "Image Information";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(178, 100);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(77, 13);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "ROS1 Version:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(39, 100);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(77, 13);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "ROS0 Version:";
             // 
             // label6
             // 
@@ -175,6 +197,28 @@
             this.minverbox.Size = new System.Drawing.Size(128, 20);
             this.minverbox.TabIndex = 1;
             this.minverbox.Text = "N/A";
+            // 
+            // rosver1box
+            // 
+            this.rosver1box.ForeColor = System.Drawing.Color.Black;
+            this.rosver1box.Location = new System.Drawing.Point(261, 97);
+            this.rosver1box.Multiline = false;
+            this.rosver1box.Name = "rosver1box";
+            this.rosver1box.ReadOnly = true;
+            this.rosver1box.Size = new System.Drawing.Size(50, 20);
+            this.rosver1box.TabIndex = 1;
+            this.rosver1box.Text = "N/A";
+            // 
+            // rosver0box
+            // 
+            this.rosver0box.ForeColor = System.Drawing.Color.Black;
+            this.rosver0box.Location = new System.Drawing.Point(122, 97);
+            this.rosver0box.Multiline = false;
+            this.rosver0box.Name = "rosver0box";
+            this.rosver0box.ReadOnly = true;
+            this.rosver0box.Size = new System.Drawing.Size(50, 20);
+            this.rosver0box.TabIndex = 1;
+            this.rosver0box.Text = "N/A";
             // 
             // reversed
             // 
@@ -343,45 +387,25 @@
             this.partslist.TabIndex = 0;
             this.partslist.SelectedIndexChanged += new System.EventHandler(this.PartslistSelectedIndexChanged);
             // 
-            // label7
+            // isprepatchedbox
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(39, 100);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(77, 13);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "ROS0 Version:";
+            this.isprepatchedbox.ForeColor = System.Drawing.Color.Black;
+            this.isprepatchedbox.Location = new System.Drawing.Point(392, 97);
+            this.isprepatchedbox.Multiline = false;
+            this.isprepatchedbox.Name = "isprepatchedbox";
+            this.isprepatchedbox.ReadOnly = true;
+            this.isprepatchedbox.Size = new System.Drawing.Size(52, 20);
+            this.isprepatchedbox.TabIndex = 1;
+            this.isprepatchedbox.Text = "N/A";
             // 
-            // rosver0box
+            // label9
             // 
-            this.rosver0box.ForeColor = System.Drawing.Color.Black;
-            this.rosver0box.Location = new System.Drawing.Point(122, 97);
-            this.rosver0box.Multiline = false;
-            this.rosver0box.Name = "rosver0box";
-            this.rosver0box.ReadOnly = true;
-            this.rosver0box.Size = new System.Drawing.Size(50, 20);
-            this.rosver0box.TabIndex = 1;
-            this.rosver0box.Text = "N/A";
-            // 
-            // rosver1box
-            // 
-            this.rosver1box.ForeColor = System.Drawing.Color.Black;
-            this.rosver1box.Location = new System.Drawing.Point(261, 97);
-            this.rosver1box.Multiline = false;
-            this.rosver1box.Name = "rosver1box";
-            this.rosver1box.ReadOnly = true;
-            this.rosver1box.Size = new System.Drawing.Size(50, 20);
-            this.rosver1box.TabIndex = 1;
-            this.rosver1box.Text = "N/A";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(178, 100);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(77, 13);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "ROS1 Version:";
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(317, 100);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(69, 13);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "Pre-Patched:";
             // 
             // MainForm
             // 
@@ -451,6 +475,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.RichTextBox rosver1box;
         private System.Windows.Forms.RichTextBox rosver0box;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.RichTextBox isprepatchedbox;
     }
 }
 

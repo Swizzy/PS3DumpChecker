@@ -8,6 +8,7 @@
     internal sealed class HashCheck {
         public static string ROS0Ver;
         public static string ROS1Ver;
+        public static bool LastIsPatched;
         private readonly Dictionary<string, Holder<Dictionary<string, HashListObject>>> _hashlist = new Dictionary<string, Holder<Dictionary<string, HashListObject>>>();
         public readonly Dictionary<long, Holder<List<HashListObject>>> Offsets = new Dictionary<long, Holder<List<HashListObject>>>();
 
@@ -57,7 +58,8 @@
                             tmp = new HashListObject {
                                 Name = xml["name"],
                                 Type = xml["type"],
-                                ROSVersion = xml["rosver"]
+                                ROSVersion = xml["rosver"],
+                                Patched = !string.IsNullOrEmpty(xml["patched"]) && xml["patched"].Equals("true", StringComparison.CurrentCultureIgnoreCase)
                             };
                             //fsize = xml["size"];
                             //long.TryParse(fsize, NumberStyles.AllowHexSpecifier, null, out tmp.Size);
@@ -70,8 +72,8 @@
             Common.SendStatus("Parsing done!");
         }
 
-        public string CheckHash(ref byte[] data, long offset, long size, bool reversed, string type, string name, out string hash)
-        {
+        public string CheckHash(ref byte[] data, long offset, long size, bool reversed, string type, string name, out string hash) {
+            LastIsPatched = false;
             if(name.StartsWith("ros0", StringComparison.InvariantCultureIgnoreCase))
                 ROS0Ver = "";
             else if (name.StartsWith("ros1", StringComparison.InvariantCultureIgnoreCase))
@@ -89,6 +91,8 @@
                     ROS0Ver = _hashlist[type].Value[hash].ROSVersion;
                 if (name.StartsWith("ros1", StringComparison.InvariantCultureIgnoreCase))
                     ROS1Ver = _hashlist[type].Value[hash].ROSVersion;
+                LastIsPatched = _hashlist[type].Value[hash].Patched;
+
             }
             return _hashlist[type].Value.ContainsKey(hash) ? _hashlist[type].Value[hash].Name : "";
         }
@@ -112,6 +116,7 @@
             public string ROSVersion;
             public long Size;
             public string Type;
+            public bool Patched;
         }
 
         #endregion

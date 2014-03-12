@@ -168,6 +168,7 @@
             internal bool DisablePatch;
             internal string ROS0Version;
             internal string ROS1Version;
+            internal bool IsPatched;
         }
 
         #endregion
@@ -268,6 +269,15 @@
 
         #endregion
 
+        public struct DataFillEntry {
+#pragma warning disable 649
+            internal int Offset;
+            internal int Length;
+            internal byte Data;
+            internal string Name;
+#pragma warning restore 649
+        }
+
         #region Nested type: TypeData
 
         internal class TypeData {
@@ -280,10 +290,12 @@
             internal readonly Holder<List<SKUEntry>> SKUList;
             internal readonly Holder<string> StatDescription;
             internal readonly Holder<Dictionary<string, Holder<StatCheck>>> Statlist;
+            internal readonly Holder<List<DataFillEntry>> DataFillEntries;
             internal int ROS0Offset;
             internal int ROS1Offset;
 
             internal TypeData(bool isnew = true) {
+                DataFillEntries = new Holder<List<DataFillEntry>>(new List<DataFillEntry>());
                 DataMatchList = new Holder<Dictionary<string, Holder<DataMatchID>>>(new Dictionary<string, Holder<DataMatchID>>());
                 RepCheck = new Holder<Dictionary<string, Holder<RepCheckData>>>(new Dictionary<string, Holder<RepCheckData>>());
                 SKUList = new Holder<List<SKUEntry>>(new List<SKUEntry>());
