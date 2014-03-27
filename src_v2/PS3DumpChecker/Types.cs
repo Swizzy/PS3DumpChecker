@@ -5,11 +5,11 @@
         #region Nested type: CheckResults
 
         internal sealed class CheckResults {
-            public string Name;
-            public string Expected;
             public string Actual;
             public int CheckCount;
             public bool DisablePatcher;
+            public string Expected;
+            public string Name;
             public bool Result;
         }
 
@@ -19,7 +19,7 @@
 
         public sealed class MultiBinaryData {
             internal readonly bool AsciiOut;
-            internal readonly List <MultiBinaryDataSub> Data = new List <MultiBinaryDataSub>();
+            internal readonly List<MultiBinaryDataSub> Data = new List<MultiBinaryDataSub>();
             internal readonly int Offset;
 
             public MultiBinaryData(string data, int offset, bool asciiOut, bool disablePatcher = false) {
@@ -48,9 +48,9 @@
         #region Nested type: SKUModel
 
         internal sealed class SKUModel {
+            internal List<SKUModelData> DataList = new List<SKUModelData>();
             internal string MinVer;
             internal string Name;
-            internal List <SKUModelData> DataList = new List <SKUModelData>();
             internal int SKUKey;
             internal bool Warn;
             internal string WarnMsg;

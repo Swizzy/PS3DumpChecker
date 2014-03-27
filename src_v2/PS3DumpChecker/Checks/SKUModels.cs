@@ -8,20 +8,20 @@
     using System.Xml;
 
     internal class SKUModels {
-        private readonly List <Types.SKUModel> _models = new List <Types.SKUModel>();
-        private readonly List <Types.SKUModelOffsets> _nandData = new List <Types.SKUModelOffsets>();
-        private readonly List <Types.SKUModelOffsets> _norData = new List <Types.SKUModelOffsets>();
+        private readonly List<Types.SKUModel> _models = new List<Types.SKUModel>();
+        private readonly List<Types.SKUModelOffsets> _nandData = new List<Types.SKUModelOffsets>();
+        private readonly List<Types.SKUModelOffsets> _norData = new List<Types.SKUModelOffsets>();
 
-        private SKUModels(string filePath) : this(File.OpenRead(filePath)) { }
+        public SKUModels(string filePath): this(File.OpenRead(filePath)) { }
 
-        private SKUModels(Stream stream) {
+        public SKUModels(Stream stream) {
             var key = 0;
             bool nor = false, nand = false;
-            using (var xml = XmlReader.Create(stream)) {
-                while (xml.Read()) {
-                    if (!xml.IsStartElement())
+            using(var xml = XmlReader.Create(stream)) {
+                while(xml.Read()) {
+                    if(!xml.IsStartElement())
                         continue;
-                    switch (xml.Name.ToLower()) {
+                    switch(xml.Name.ToLower()) {
                         case "nordata":
                             nor = true;
                             nand = false;
@@ -32,39 +32,40 @@
                             break;
                         case "skudataentry":
                             var tmp = new Types.SKUModelOffsets();
-                            if (!int.TryParse(xml["offset"], NumberStyles.HexNumber, null, out tmp.Offset))
+                            if(!int.TryParse(xml["offset"], NumberStyles.HexNumber, null, out tmp.Offset))
                                 break;
-                            if (!int.TryParse(xml["size"], NumberStyles.HexNumber, null, out tmp.Size))
+                            if(!int.TryParse(xml["size"], NumberStyles.HexNumber, null, out tmp.Size))
                                 break;
                             xml.Read();
-                            if (string.IsNullOrEmpty(xml.Value))
+                            if(string.IsNullOrEmpty(xml.Value))
                                 break;
                             tmp.Type = xml.Value;
-                            if (nor)
+                            if(nor)
                                 _norData.Add(tmp);
-                            else if (nand)
+                            else if(nand)
                                 _nandData.Add(tmp);
                             break;
                         case "skulist":
                             _models.Add(new Types.SKUModel {
-                                SKUKey = ++key,
-                                Warn = xml["warn"] != null && xml["warn"].Equals("true", StringComparison.CurrentCultureIgnoreCase),
-                                WarnMsg = xml["warnmsg"],
-                                Name = xml["Name"],
-                                MinVer = xml["minver"]
-                            });
+                                                               SKUKey = ++key,
+                                                               Warn = xml["warn"] != null && xml["warn"].Equals("true", StringComparison.CurrentCultureIgnoreCase),
+                                                               WarnMsg = xml["warnmsg"],
+                                                               Name = xml["Name"],
+                                                               MinVer = xml["minver"]
+                                                           });
                             break;
                         case "skuentry":
                             var data = new Types.SKUModelData {
-                                Type = xml["type"]
-                            };
+                                                                  Type = xml["type"]
+                                                              };
                             xml.Read();
-                            if (string.IsNullOrEmpty(xml.Value))
+                            if(string.IsNullOrEmpty(xml.Value))
                                 break;
                             data.Data = Regex.Replace(xml.Value, "\\s+", "");
-                            foreach (var skuModel in _models)
-                                if (skuModel.SKUKey == key)
+                            foreach(var skuModel in _models) {
+                                if(skuModel.SKUKey == key)
                                     skuModel.DataList.Add(data);
+                            }
                             break;
                     }
                 }
@@ -74,8 +75,8 @@
         public Types.SKUModel GetSKUModel(ref byte[] data, ref Types.CheckResults results) {
             var sb = new StringBuilder();
             var list = new List<Types.SKUModel>(_models);
-            List <Types.SKUModelOffsets> offsetlist;
-            switch (data.Length) {
+            List<Types.SKUModelOffsets> offsetlist;
+            switch(data.Length) {
                 case 0x1000000:
                     offsetlist = _norData;
                     break;
@@ -85,9 +86,9 @@
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-            foreach (var entry in offsetlist)
-            {
-                var tmp = entry.Type.Equals("bootldrsize", StringComparison.CurrentCultureIgnoreCase)  ? Common.GetLdrSize(ref data, entry.Offset).ToString("X") : Common.BytesToHex(ref data, entry.Offset, entry.Size);
+            foreach(var entry in offsetlist) {
+                var tmp = entry.Type.Equals("bootldrsize", StringComparison.CurrentCultureIgnoreCase)
+                              ? Common.GetLdrSize(ref data, entry.Offset).ToString("X") : Common.BytesToHex(ref data, entry.Offset, entry.Size);
                 sb.AppendLine(string.Format("{0} : {1}", entry.Type, tmp));
                 GetFilterList(entry.Type, tmp, ref list);
             }
@@ -96,13 +97,13 @@
         }
 
         private static void GetFilterList(string type, string value, ref List<Types.SKUModel> list) {
-            var list2 = new List <Types.SKUModel>();
-            foreach (var skuModel in list) {
-                foreach (var skuModelData in skuModel.DataList)
-                {
-                    if (skuModelData.Type.Equals(type, StringComparison.CurrentCultureIgnoreCase))
-                        if (!skuModelData.Data.Equals(value, StringComparison.CurrentCultureIgnoreCase))
+            var list2 = new List<Types.SKUModel>();
+            foreach(var skuModel in list) {
+                foreach(var skuModelData in skuModel.DataList) {
+                    if(skuModelData.Type.Equals(type, StringComparison.CurrentCultureIgnoreCase)) {
+                        if(!skuModelData.Data.Equals(value, StringComparison.CurrentCultureIgnoreCase))
                             continue;
+                    }
                     list2.Add(skuModel);
                 }
             }

@@ -1,12 +1,12 @@
 ﻿namespace PS3DumpChecker {
+    using PS3DumpChecker.Forms;
+    using PS3DumpChecker.Properties;
     using System;
     using System.Drawing;
     using System.IO;
     using System.Reflection;
     using System.Security.Permissions;
     using System.Windows.Forms;
-    using PS3DumpChecker.Forms;
-    using PS3DumpChecker.Properties;
     using Settings = PS3DumpChecker.Forms.Settings;
 
     internal static class Program {
@@ -16,16 +16,15 @@
         private static void LogException(string ex) {
             var errorlog = string.Format("{0}\\{1}", Path.GetDirectoryName(Application.ExecutablePath), Resources.CrashLogName);
             try {
-                var ver = Assembly.GetAssembly(typeof (Program)).GetName().Version;
+                var ver = Assembly.GetAssembly(typeof(Program)).GetName().Version;
                 var old = "";
-                if (File.Exists(errorlog))
+                if(File.Exists(errorlog))
                     old = File.ReadAllText(errorlog);
                 old += ex + string.Format("\r\nPS3 Dump Checker v{0}.{1} (Build: {2}) Error Log:", ver.Major, ver.Minor, ver.Build);
                 File.WriteAllText(errorlog, old);
                 MessageBox.Show(string.Format(Resources.PleaseSendLogTo, Environment.NewLine, errorlog), Resources.YouFoundABug);
             }
-            catch {
-            }
+            catch {}
         }
 
         private static void ExecHandler(object sender, UnhandledExceptionEventArgs args) { LogException(args.ExceptionObject.ToString()); }
@@ -37,11 +36,11 @@
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             AppDomain.CurrentDomain.UnhandledException += ExecHandler;
-            if (!Settings.HasAcceptedTerms())
+            if(!Settings.HasAcceptedTerms())
                 return;
             MainForm = new MainForm(args);
             var wrkdir = Path.GetDirectoryName(Application.ExecutablePath);
-            if (!string.IsNullOrEmpty(wrkdir) && Directory.Exists(wrkdir))
+            if(!string.IsNullOrEmpty(wrkdir) && Directory.Exists(wrkdir))
                 Directory.SetCurrentDirectory(wrkdir);
             Application.Run(MainForm);
         }

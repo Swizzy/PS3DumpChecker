@@ -1,11 +1,8 @@
 ﻿namespace PS3DumpChecker.Controls {
-    using System.Drawing;
     using System.Windows.Forms;
 
-    internal sealed class CustomListBox : ListBox {
-        public CustomListBox() {
-            SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint, true);
-        }
+    internal sealed class CustomListBox: ListBox {
+        public CustomListBox() { SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint, true); }
 
         protected override void OnDrawItem(DrawItemEventArgs e) {
             if(e.Index < 0)
@@ -21,7 +18,7 @@
             //    TextRenderer.DrawText(e.Graphics, Items[e.Index].ToString().Trim(), e.Font, e.Bounds, color, TextFormatFlags.VerticalCenter | TextFormatFlags.Left);
             //}
             //else
-               TextRenderer.DrawText(e.Graphics, Items[e.Index].ToString(), e.Font, e.Bounds, e.ForeColor);
+            TextRenderer.DrawText(e.Graphics, Items[e.Index].ToString(), e.Font, e.Bounds, e.ForeColor);
         }
 
         protected override void OnPaint(PaintEventArgs e) {
@@ -29,7 +26,8 @@
                 var itemRect = GetItemRectangle(i);
                 if(!e.ClipRectangle.IntersectsWith(itemRect))
                     continue;
-                var diea = SelectedIndices.Contains(i) ? new DrawItemEventArgs(e.Graphics, Font, itemRect, i, DrawItemState.Selected) : new DrawItemEventArgs(e.Graphics, Font, itemRect, i, DrawItemState.None);
+                var diea = SelectedIndices.Contains(i)
+                               ? new DrawItemEventArgs(e.Graphics, Font, itemRect, i, DrawItemState.Selected) : new DrawItemEventArgs(e.Graphics, Font, itemRect, i, DrawItemState.None);
                 OnDrawItem(diea);
             }
         }
