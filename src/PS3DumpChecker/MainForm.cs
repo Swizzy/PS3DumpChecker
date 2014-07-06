@@ -328,11 +328,12 @@
                                     Common.Types[size].Bincheck.Value.Add(key, new Holder <Common.BinCheck>(new Common.BinCheck(null, false, offset, description, ascii, xml.Value)));
                                 }
                             }
-                            if (xml["ismulti"] != null && xml["ismulti"].Equals("true", StringComparison.CurrentCultureIgnoreCase)) {
+                            else if (xml["ismulti"] != null && xml["ismulti"].Equals("true", StringComparison.CurrentCultureIgnoreCase)) {
                                 var id = xml["id"];
                                 var disablepatch = !string.IsNullOrEmpty(xml["disablepatch"]) && xml["disablepatch"].Equals("true", StringComparison.CurrentCultureIgnoreCase);
                                 xml.Read();
-                                Common.Types[size].Bincheck.Value[key].Value.ExpectedList.Value.Add(new Common.MultiBin(Regex.Replace(xml.Value, @"\s+", ""), id, disablepatch));
+                                var explist = Common.Types[size].Bincheck.Value[key].Value;
+                                explist.ExpectedList.Value.Add(new Common.MultiBin(Regex.Replace(xml.Value, @"\s+", ""), id, disablepatch));
                             }
                             break;
 

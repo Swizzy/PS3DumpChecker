@@ -369,7 +369,6 @@
       <binentry name="EID3 Static1" ismulti="false" offset="302A8" ascii="false" description="">00000000</binentry>
       <binentry name="EID3 Static2" ismulti="false" offset="302B0" ascii="false" description="">000100D0</binentry>
       <!--<binentry name="EID5 IDPS0" ismulti="false" offset="303D0" ascii="false" description="">00000100</binentry>--> <!-- Seems to break 7 other checks o.O -->
-      <binentry name="EID5 IDPS2" ismulti="false" offset="303D6" ascii="false" description="">00</binentry>
       <binentry name="EID5 Static0" ismulti="false" offset="303E0" ascii="false" description="">00120730</binentry>
     </binentrysingle>
 
@@ -420,8 +419,6 @@
       <binentry name="EID5 IDPS1" ismulti="true" offset="303D5" ascii="false" description="">8E</binentry>
       <binentry name="EID5 IDPS1" ismulti="true" offset="303D5" ascii="false" description="">8F</binentry>
 
-      <!-- TODO: Fix the below section, it's throwing a null reference exception :S-->
-      <!--
       <binentry name="EID5 IDPS2" ismulti="true" offset="303D7" ascii="false" description="">00</binentry>
       <binentry name="EID5 IDPS2" ismulti="true" offset="303D7" ascii="false" description="">01</binentry>
       <binentry name="EID5 IDPS2" ismulti="true" offset="303D7" ascii="false" description="">02</binentry>
@@ -436,7 +433,6 @@
       <binentry name="EID5 IDPS2" ismulti="true" offset="303D7" ascii="false" description="">0B</binentry>
       <binentry name="EID5 IDPS2" ismulti="true" offset="303D7" ascii="false" description="">0C</binentry>
       <binentry name="EID5 IDPS2" ismulti="true" offset="303D7" ascii="false" description="">2C</binentry>
-      -->
 
       <!-- TODO: Fix the below section, it only works with byteswapped dumps -->
       <!--
@@ -678,6 +674,14 @@
         <skuentry type="bootldr0">2F3B</skuentry>
         <skuentry type="bootldr1">2F3B</skuentry>
         <skuentry type="bootldrsize">2F3F0</skuentry>
+      </skulist>
+      <skulist name="CECH-20xx (DYN-001)" warn="false" warnmsg="" minver="3.40">
+        <skuentry type="idps">09</skuentry>
+        <skuentry type="metldr0">E920</skuentry>
+        <skuentry type="metldr1">0E8E</skuentry>
+        <skuentry type="bootldr0">2F4B</skuentry>
+        <skuentry type="bootldr1">2F4B</skuentry>
+        <skuentry type="bootldrsize">2F4F0</skuentry>
       </skulist>
       <skulist name="CECH-21xx (SUR-001)" warn="false" warnmsg="" minver="3.20">
         <skuentry type="idps">0A</skuentry>

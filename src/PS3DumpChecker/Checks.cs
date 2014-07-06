@@ -63,7 +63,6 @@
                     }
                     else if(!CheckBinPart(ref data, key))
                         Common.AddBad(ref _ret);
-                    GC.Collect();
                 }
             }
             else
@@ -83,7 +82,6 @@
                     Logger.Write(string.Format("{0,-70} Result: ", datatmp));
                     if(!CheckDataPart(ref data, key, _ret.Reversed))
                         Common.AddBad(ref _ret);
-                    GC.Collect();
                 }
             }
             else
@@ -106,7 +104,6 @@
                         Common.AddBad(ref _ret);
                     if (HashCheck.LastIsPatched)
                         _ret.IsPatched = true;
-                    GC.Collect();
                 }
             }
             else if (_dohash)
@@ -194,6 +191,7 @@
             Common.SendStatus("Data Fill check(s) Done!");
 
             #endregion
+            
             //New checks goes here
 
             #region SKU List check
@@ -336,7 +334,6 @@
         }
 
         private static bool CheckStatisticsList(Dictionary<byte, double> tmp, int len) {
-            GC.Collect();
             var msg = "";
             var statlist = Common.Types[len].Statlist.Value;
             if(statlist == null || statlist.Count == 0)
@@ -375,7 +372,6 @@
         }
 
         private static bool CheckBinPart(ref byte[] data, string name, ref bool reversed) {
-            GC.Collect();
             var datareversed = false;
             var checkdata = Common.Types[data.Length].Bincheck.Value[name];
             if(checkdata.Value.Offset >= data.Length) {
@@ -434,7 +430,6 @@
         }
 
         private static bool CheckBinPart(ref byte[] data, string name) {
-            GC.Collect();
             var datareversed = false;
             var checkdata = Common.Types[data.Length].Bincheck.Value[name];
             if(checkdata.Value.Offset >= data.Length) {
@@ -578,7 +573,6 @@
         }
 
         private static bool CheckDataPart(ref byte[] srcdata, Common.DataCheck checkdata, bool reversed) {
-            GC.Collect();
             if(checkdata.Offset >= srcdata.Length || checkdata.LdrSize > srcdata.Length - 2) {
                 Logger.WriteLine2("FAILED! Faulty configuration (Bad Offset/Ldrsize)!");
                 return false;
@@ -622,7 +616,6 @@
         }
 
         private static bool CheckStatistics(Dictionary<byte, double> inputList, Common.DataCheck checkdata, int length) {
-            GC.Collect();
             var statlist = checkdata.ThresholdList;
             var isok = !(statlist == null || statlist.Count == 0);
             if(isok) {
@@ -779,9 +772,9 @@
                 Common.SwapBytes(ref rosdata);
             rosversion = GetROSVersion(ref rosdata);
             if(_dohash && Common.Hashes != null && Common.Hashes.Offsets.ContainsKey(data.Length) && Common.Hashes.Offsets[data.Length].Value.Count > 0) {
-                if(_checkdata.ROS0Offset == offset)
+                if (_checkdata.ROS0Offset == offset && HashCheck.ROS0Ver != null)
                     return rosversion == HashCheck.ROS0Ver;
-                if(_checkdata.ROS1Offset == offset)
+                if (_checkdata.ROS1Offset == offset && HashCheck.ROS1Ver != null)
                     return rosversion == HashCheck.ROS1Ver;
             }
             return Regex.IsMatch(rosversion, "[0-9]{3}\\.[0-9]{3}");

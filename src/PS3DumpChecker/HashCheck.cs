@@ -105,7 +105,6 @@
                 data[i] = data[i + 1];
                 data[i + 1] = b;
             }
-            GC.Collect();
         }
 
         #region Nested type: HashListObject

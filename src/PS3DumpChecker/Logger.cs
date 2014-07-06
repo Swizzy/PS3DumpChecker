@@ -28,7 +28,6 @@
             try {
                 using(var sw = new StreamWriter(File.Open(LogPath, FileMode.Append, FileAccess.Write, FileShare.ReadWrite)))
                     sw.Write(entry);
-                GC.Collect();
             }
             catch {
             }

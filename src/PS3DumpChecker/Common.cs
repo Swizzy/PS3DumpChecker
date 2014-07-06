@@ -46,7 +46,6 @@
                 data[i] = data[i + 1];
                 data[i + 1] = b;
             }
-            GC.Collect();
             return true;
         }
 
@@ -294,7 +293,7 @@
             internal int ROS0Offset;
             internal int ROS1Offset;
 
-            internal TypeData(bool isnew = true) {
+            internal TypeData() {
                 DataFillEntries = new Holder<List<DataFillEntry>>(new List<DataFillEntry>());
                 DataMatchList = new Holder<Dictionary<string, Holder<DataMatchID>>>(new Dictionary<string, Holder<DataMatchID>>());
                 RepCheck = new Holder<Dictionary<string, Holder<RepCheckData>>>(new Dictionary<string, Holder<RepCheckData>>());
@@ -305,8 +304,6 @@
                 DataCheckList = new Holder<List<DataCheck>>(new List<DataCheck>());
                 Name = new Holder<string>("");
                 StatDescription = new Holder<string>("");
-                if(isnew)
-                    GC.Collect();
             }
         }
 
