@@ -10,7 +10,7 @@
   </offsets>
   <type name="ROS">
     <hash name="4.65 CEX Patched (Darkiris)" size="6FFFE0" rosver="465.000" patched="true">
-      0D4591D224CC404003A555E746DD7B63
+      CA66EBD75B572F238F0E787F30278298
     </hash>
     <hash name="4.65 CEX" size="6FFFE0" rosver="465.000">
       EAA50377EEEA795A4F4EE4BAF5DF43C9
