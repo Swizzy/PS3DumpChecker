@@ -126,8 +126,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup Condition="$(DefineConstants.Contains('EMBEDDED_PATCHES'))">
-    <EmbeddedResource Include="Patches\nand.bin" />
-    <EmbeddedResource Include="Patches\nor.bin" />
     <EmbeddedResource Include="Patches\patch.bin" />
   </ItemGroup>
   <ItemGroup>
@@ -145,7 +143,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_DetectChanges="True" BuildVersion_UpdateFileVersion="True" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_BuildVersioningStyle="None.None.Increment.None" />
+      <UserProperties BuildVersion_BuildVersioningStyle="None.None.Increment.None" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UpdateFileVersion="True" BuildVersion_DetectChanges="True" />
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup Condition="$(Configuration.Contains('Release'))">

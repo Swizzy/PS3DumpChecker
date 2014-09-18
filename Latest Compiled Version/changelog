@@ -1,3 +1,11 @@
+Build 416 2014-09-18:
+ (Swizzy's changes):
+  - Added: ROS version checks. Can be enabled/disabled in settings menu. ROS versions and patch status displayed in "Image Information" group. If a known patched ROS recognized, it will not ask to patch the dump.
+  - Added: new "datafill" type checks. Now large 0x00 and 0xFF areas can be checked.
+ (Littlebalup's changes):
+  - Updated: The embedded CFG. Added, improved, corrected and reorganized some checks (more than 100 checks now, NOR and NAND).
+  - Updated: The embedded hashlist (to the latest one today).
+  - Changed: The embedded 4.55 patch replaced by the Darkiris's 4.65 patch (wich has its size corrected to 6.99MB).
 Build 348 2014-02-27:
  - Fixed: Dropping a dump on the exe will now work again (Thanks to Baileyscream for the bug report!)
 Build 347 2014-02-27:

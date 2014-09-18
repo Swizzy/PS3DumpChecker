@@ -180,6 +180,7 @@
             if (_checkdata.DataFillEntries.Value.Count > 0) {
                 Logger.WriteLine(string.Format("{0,95}", "Data Fill check Started!"));
                 foreach (var dataFillEntry in _checkdata.DataFillEntries.Value) {
+                    _checkckount++;
                     Common.SendStatus(string.Format("Parsing Image... Checking Data Fill for: {0}", dataFillEntry.Name));
                     Logger.Write(string.Format("{0,-70} Result: ", string.Format("Data Fill check for: {0} Started!", dataFillEntry.Name)));
                     if (!CheckDataFill(ref data, dataFillEntry))

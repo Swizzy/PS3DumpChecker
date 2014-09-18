@@ -40,18 +40,6 @@
                 _autoCheck = true;
                 _autoCheckFile = s;
             }
-            SystemEvents.DisplaySettingsChanged += MainLoad;
-
-            #region Set Some defaults
-
-            if (Program.GetRegSetting("dohashcheck", true))
-                Program.SetRegSetting("dohashcheck");
-            if (Program.GetRegSetting("dorepcheck", true))
-                Program.SetRegSetting("dorepcheck");
-            if (Program.GetRegSetting("UseInternalPatcher", true))
-                Program.SetRegSetting("UseInternalPatcher");
-
-            #endregion
         }
 
         public void DoParseHashList() {
@@ -512,21 +500,22 @@
 
                             #region Datafill Entry
 
-                        //case "datafill":
-                        //    if (!Common.Types.ContainsKey(size))
-                        //        break;
-                        //    var datafill = new Common.DataFillEntry {
-                        //        Name = xml["name"]
-                        //    };
-                        //    if (!int.TryParse(xml["offset"], NumberStyles.HexNumber, null, out datafill.Offset))
-                        //        break;
-                        //    if (!int.TryParse(xml["size"], NumberStyles.HexNumber, null, out datafill.Length))
-                        //        break;
-                        //    xml.Read();
-                        //    if (!byte.TryParse(xml.Value, NumberStyles.HexNumber, null, out datafill.Data))
-                        //        break;
-                        //    Common.Types[size].DataFillEntries.Value.Add(datafill);
-                        //    break;
+                        case "datafill":
+                            if (!Common.Types.ContainsKey(size))
+                                break;
+                            var datafill = new Common.DataFillEntry
+                            {
+                                Name = xml["name"]
+                            };
+                            if (!int.TryParse(xml["offset"], NumberStyles.HexNumber, null, out datafill.Offset))
+                                break;
+                            if (!int.TryParse(xml["size"], NumberStyles.HexNumber, null, out datafill.Length))
+                                break;
+                            xml.Read();
+                            if (!byte.TryParse(xml.Value, NumberStyles.HexNumber, null, out datafill.Data))
+                                break;
+                            Common.Types[size].DataFillEntries.Value.Add(datafill);
+                            break;
 
                             #endregion
 
@@ -606,6 +595,22 @@
         }
 
         private void MainLoad(object sender, EventArgs e) {
+  
+            #region Set Some defaults
+
+            if (Program.GetRegSetting("autopatch", true))
+                Program.SetRegSetting("autopatch");
+            if (Program.GetRegSetting("dohashcheck", true))
+                Program.SetRegSetting("dohashcheck");
+            if (Program.GetRegSetting("dorepcheck", true))
+                Program.SetRegSetting("dorepcheck");
+            if (Program.GetRegSetting("dorosvercheck", true))
+                Program.SetRegSetting("dorosvercheck");
+            if (Program.GetRegSetting("UseInternalPatcher", true))
+                Program.SetRegSetting("UseInternalPatcher");
+
+            #endregion
+
 #if DEBUG
             File.Delete("default.cfg");
             File.Delete("default.hashlist");
