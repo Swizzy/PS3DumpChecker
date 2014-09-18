@@ -6,9 +6,9 @@ goto ok
 cd "Latest Compiled Version"
 :ok
 echo Cleaning directory...
-rm *.md5> NUL 2>&1
-rm *.vshost.*> NUL 2>&1
-rm PS3DumpChecker.version> NUL 2>&1
+del *.md5> NUL 2>&1
+del *.vshost.*> NUL 2>&1
+del PS3DumpChecker.version> NUL 2>&1
 echo Updating default.cfg...
 copy ..\src\PS3DumpChecker\config.xml default.cfg >NUL
 echo Updating default.hashlist...
