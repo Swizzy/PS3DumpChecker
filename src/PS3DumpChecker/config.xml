@@ -318,13 +318,13 @@
       <binentry name="010.01   cvtrm Header" ismulti="false" offset="EC0000" ascii="true" description="">534345495654524D</binentry>
       <binentry name="010.02   cvtrm Header Static" ismulti="false" offset="EC0008" ascii="false" description="">00000000000000A80000000000E802000000000000000028</binentry>
       <datafill name="010.03   vtrm0 0x00 Filled Area" offset="EC0020" size="4">00</datafill>
-      <binentry name="010.04   vtrm0" ismulti="false" offset="EC0024" ascii="true" description="">5654524D</binentry>
+      <binentry name="010.04   vtrm0 Magic" ismulti="false" offset="EC0020" ascii="true" description="">000000005654524D00000000000000</binentry>
       <binentry name="010.05   cvtrm Static 0" ismulti="false" offset="EC0028" ascii="false" description="">0000000000000004</binentry>
       <binentry name="010.06   cvtrm Static 1" ismulti="false" offset="EC0050" ascii="false" description="">00000000000000600000000000000920</binentry>
       <binentry name="010.07   cvtrm Static 2" ismulti="false" offset="EC00F8" ascii="false" description="">0000000000EBE48C0000000000000014</binentry>
       <datafill name="010.08   cvtrm 0xFF Filled Area 0" offset="EC011C" size="2E4">FF</datafill>
       <datafill name="010.09   cvtrm 0x00 Filled Area 0" offset="EC0400" size="4">00</datafill>
-      <binentry name="010.10   vtrm1" ismulti="false" offset="EC0404" ascii="true" description="">5654524D</binentry>
+      <binentry name="010.10   vtrm1 Magic" ismulti="false" offset="EC0400" ascii="true" description="">000000005654524D00000000000000</binentry>
       <datafill name="010.11   cvtrm 0xFF Filled Area 1" offset="EC2FFF" size="364C0">FF</datafill>
       <datafill name="010.12   cvtrm 0x00 Filled Area 1" offset="EFF000" size="1000">00</datafill>
     </cvtrm_region>
@@ -884,14 +884,14 @@
       <binentry name="010.02   cvtrm0 Header" ismulti="true" offset="EC0000" ascii="false" description="">00000000FFFFFFFFFFFFFFFFFFFFFFFF</binentry>
       <!-- Might not be valid... -->
       <datafill name="010.03   cvtrm0 0xFF Filled Area" offset="EC0006" size="3FFA">FF</datafill>
-      <binentry name="010.04   vtrm0 Magic" ismulti="false" offset="EC4000" ascii="true" description="">000000005654524D00000000000000</binentry>
+      <binentry name="010.04   vtrm0 Magic" ismulti="false" offset="EC4000" ascii="true" description="">000000005654524D000000000000</binentry>
       <binentry name="010.05   vtrm0 Reserved Entries" ismulti="false" offset="EC4028" ascii="false" description="">0000000000000209</binentry>
       <binentry name="010.06   cvtrm1 Header" ismulti="true" offset="EE0000" ascii="false" description="">53434549FFFFFFFFFFFFFFFFFFFFFFFF</binentry>
       <binentry name="010.06   cvtrm1 Header" ismulti="true" offset="EE0000" ascii="false" description="">00000000FFFDFFFFFFFFFFFFFFFFFFFF</binentry>
       <binentry name="010.06   cvtrm1 Header" ismulti="true" offset="EE0000" ascii="false" description="">00000000FFFFFFFFFFFFFFFFFFFFFFFF</binentry>
       <!-- Might not be valid... -->
       <datafill name="010.07   cvtrm1 0xFF Filled Area" offset="EE0010" size="3FF0">FF</datafill>
-      <binentry name="010.08   vtrm1" ismulti="false" offset="EE4004" ascii="true" description="">5654524D</binentry>
+      <binentry name="010.08   vtrm1 Magic" ismulti="false" offset="EE4000" ascii="true" description="">000000005654524D000000000000</binentry>
     </cvtrm_region>
     <Second_Region_Header>
       <datafill name="011.01   Second Region Header 0x00 Filled Area 0" offset="F00000" size="10">00</datafill>
