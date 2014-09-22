@@ -489,7 +489,9 @@
                                 break;
                             if (!int.TryParse(xml["length"], NumberStyles.HexNumber, null, out tmpmatch.Length))
                                 break;
-                            xml.Read();
+                            if (!int.TryParse(xml["seqrep"], NumberStyles.HexNumber, null, out tmpmatch.SequenceRepetitions))
+                                tmpmatch.SequenceRepetitions = 0;
+                            tmpmatch.DisableDisplay = !string.IsNullOrEmpty(xml["nodisp"]) && xml["nodisp"].Equals("true", StringComparison.CurrentCultureIgnoreCase);                            xml.Read();
                             if (string.IsNullOrEmpty(xml.Value))
                                 break;
                             tmpmatch.Name = xml.Value;

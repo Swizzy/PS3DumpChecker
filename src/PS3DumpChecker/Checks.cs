@@ -728,11 +728,25 @@
             });
             return ret;
         }
+        private static string DoCheckDataMatch(ref byte[] data, int offset, ref StringBuilder smallbuilder, ref Dictionary<string, string> testlist, ref bool islastok, Common.DataMatch testdata) {
+            var name = testdata.Name;
+            if(testdata.SequenceRepetitions > 1)
+                name = string.Format(testdata.Name, offset);
+            var tmp = Common.GetDataForTest(ref data, offset, testdata.Length);
+            if (!testlist.ContainsKey(tmp) && testlist.Count > 0)
+                islastok = false;
+            if (!testlist.ContainsKey(tmp))
+                testlist.Add(tmp, name);
+            smallbuilder.AppendLine(!testdata.DisableDisplay ? string.Format("{0} : {1}", name, tmp) : string.Format("{0} : Too long to display", name));
+            return testdata.DisableDisplay ? "Too long to display" : tmp;
+        }
 
         private static bool CheckDataMatches(ref byte[] data, ref Common.TypeData checkdata) {
             var bigbuilder = new StringBuilder();
             var ret = true;
             foreach(var key in checkdata.DataMatchList.Value.Keys) {
+                int cnt = 0, loffset = 0;
+                Logger.Write(string.Format("Datamatch for Started: {0}", checkdata.DataMatchList.Value[key].Value.Name));
                 _checkckount++;
                 var smallbuilder = new StringBuilder();
                 var islastok = true;
@@ -740,20 +754,30 @@
                 var laststring = "";
                 bigbuilder.AppendLine(string.Format("Check name: {0}", checkdata.DataMatchList.Value[key].Value.Name));
                 foreach(var testdata in checkdata.DataMatchList.Value[key].Value.Data) {
-                    var tmp = Common.GetDataForTest(ref data, testdata.Offset, testdata.Length);
-                    if(!testlist.ContainsKey(tmp) && testlist.Count != 0)
-                        islastok = false;
-                    if(!testlist.ContainsKey(tmp))
-                        testlist.Add(tmp, testdata.Name);
-                    smallbuilder.AppendLine(string.Format("{0} : {1}", testdata.Name, tmp));
-                    laststring = tmp;
+                    if(testdata.SequenceRepetitions <= 0)
+                        laststring = DoCheckDataMatch(ref data, testdata.Offset, ref smallbuilder, ref testlist, ref islastok, testdata);
+                    else {
+                        for(var i = testdata.Offset; i < testdata.Offset + (testdata.Length * testdata.SequenceRepetitions); i += testdata.Length) {
+                            laststring = DoCheckDataMatch(ref data, i, ref smallbuilder, ref testlist, ref islastok, testdata);
+                            loffset = i;
+                            cnt++;
+                        }
+                    }
+                    if(cnt <= 0 || loffset <= 0)
+                        continue;
+                    Console.WriteLine("Count checked: 0x{0:X}", cnt);
+                    Console.WriteLine("End offset: 0x{0:X}", loffset);
                 }
                 if(!islastok) {
                     ret = false;
                     bigbuilder.Append(smallbuilder); // Add to the big one
+                    Logger.WriteLine2(string.Format("{0,-70}", "Result: Failed!"));
+                    Logger.WriteLine2(smallbuilder.ToString());
                 }
-                else
+                else {
                     bigbuilder.AppendLine(string.Format("All data matching: {0}", laststring));
+                    Logger.WriteLine2(string.Format("{0,-70}", "Result: OK!"));
+                }
             }
             if(ret)
                 bigbuilder.Append("All match checks are OK!");

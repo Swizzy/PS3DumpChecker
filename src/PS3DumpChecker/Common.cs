@@ -216,6 +216,8 @@
             internal string Name;
             internal int Offset;
             internal int Length;
+            internal int SequenceRepetitions;
+            internal bool DisableDisplay;
         }
 
         #endregion
