@@ -4,81 +4,81 @@
     <ros0offset>C0030</ros0offset>
     <ros1offset>7C0020</ros1offset>
     <bootldr_top_region>
-      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0" ascii="false" description="">00002A3F</binentry>
-      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0" ascii="false" description="">00002A2A</binentry>
-      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0" ascii="false" description="">00003044</binentry>
-      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0" ascii="false" description="">00002A37</binentry>
-      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0" ascii="false" description="">00002E8C</binentry>
-      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0" ascii="false" description="">00002F1C</binentry>
+      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0">00002A3F</binentry>
+      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0">00002A2A</binentry>
+      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0">00003044</binentry>
+      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0">00002A37</binentry>
+      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0">00002E8C</binentry>
+      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0">00002F1C</binentry>
       <!-- refurbished consoles? -->
-      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0" ascii="false" description="">00002EF4</binentry>
-      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0" ascii="false" description="">00002EE3</binentry>
-      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0" ascii="false" description="">00002EAB</binentry>
-      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0" ascii="false" description="">00002EB3</binentry>
-      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0" ascii="false" description="">00002F13</binentry>
-      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0" ascii="false" description="">00002F3B</binentry>
-      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0" ascii="false" description="">00002F4B</binentry>
-      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0" ascii="false" description="">00002F53</binentry>
-      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0" ascii="false" description="">00002F5B</binentry>
-      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0" ascii="false" description="">00002FFB</binentry>
-      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0" ascii="false" description="">00003003</binentry>
-      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0" ascii="false" description="">0000300B</binentry>
-      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0" ascii="false" description="">0000301B</binentry>
+      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0">00002EF4</binentry>
+      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0">00002EE3</binentry>
+      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0">00002EAB</binentry>
+      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0">00002EB3</binentry>
+      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0">00002F13</binentry>
+      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0">00002F3B</binentry>
+      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0">00002F4B</binentry>
+      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0">00002F53</binentry>
+      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0">00002F5B</binentry>
+      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0">00002FFB</binentry>
+      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0">00003003</binentry>
+      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0">0000300B</binentry>
+      <binentry name="001.01   bootldr0 (Top)" ismulti="true" offset="0">0000301B</binentry>
       <!-- end of refurbished consoles? -->
-      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10" ascii="false" description="">00002A3F</binentry>
-      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10" ascii="false" description="">00002A2A</binentry>
-      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10" ascii="false" description="">00003044</binentry>
-      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10" ascii="false" description="">00002A37</binentry>
-      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10" ascii="false" description="">00002E8C</binentry>
-      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10" ascii="false" description="">00002F1C</binentry>
+      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10">00002A3F</binentry>
+      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10">00002A2A</binentry>
+      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10">00003044</binentry>
+      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10">00002A37</binentry>
+      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10">00002E8C</binentry>
+      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10">00002F1C</binentry>
       <!-- refurbished consoles? -->
-      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10" ascii="false" description="">00002EF4</binentry>
-      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10" ascii="false" description="">00002EE3</binentry>
-      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10" ascii="false" description="">00002EAB</binentry>
-      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10" ascii="false" description="">00002EB3</binentry>
-      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10" ascii="false" description="">00002F13</binentry>
-      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10" ascii="false" description="">00002F3B</binentry>
-      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10" ascii="false" description="">00002F4B</binentry>
-      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10" ascii="false" description="">00002F53</binentry>
-      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10" ascii="false" description="">00002F5B</binentry>
-      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10" ascii="false" description="">00002FFB</binentry>
-      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10" ascii="false" description="">00003003</binentry>
-      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10" ascii="false" description="">0000300B</binentry>
-      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10" ascii="false" description="">0000301B</binentry>
+      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10">00002EF4</binentry>
+      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10">00002EE3</binentry>
+      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10">00002EAB</binentry>
+      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10">00002EB3</binentry>
+      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10">00002F13</binentry>
+      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10">00002F3B</binentry>
+      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10">00002F4B</binentry>
+      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10">00002F53</binentry>
+      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10">00002F5B</binentry>
+      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10">00002FFB</binentry>
+      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10">00003003</binentry>
+      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10">0000300B</binentry>
+      <binentry name="001.02   bootldr1 (Top)" ismulti="true" offset="10">0000301B</binentry>
       <!-- end of refurbished consoles? -->
-      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4" ascii="false" description="">04AD5618648D4994238FB8A1</binentry>
-      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4" ascii="false" description="">5CE463CD5C9EB67AFEA01B54</binentry>
-      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4" ascii="false" description="">1C2181C8EA41865C8B338AEF</binentry>
-      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4" ascii="false" description="">3FF11F14C342443C88B18E90</binentry>
-      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4" ascii="false" description="">BC30D5524B749965CF95AE5F</binentry>
-      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4" ascii="false" description="">F996D84E1A9D50BF97F4A0CE</binentry>
-      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4" ascii="false" description="">31B59A072ED45CB56808C2FC</binentry>
-      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4" ascii="false" description="">065B860C5CF76AC4598DD7B4</binentry>
+      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4">04AD5618648D4994238FB8A1</binentry>
+      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4">5CE463CD5C9EB67AFEA01B54</binentry>
+      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4">1C2181C8EA41865C8B338AEF</binentry>
+      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4">3FF11F14C342443C88B18E90</binentry>
+      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4">BC30D5524B749965CF95AE5F</binentry>
+      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4">F996D84E1A9D50BF97F4A0CE</binentry>
+      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4">31B59A072ED45CB56808C2FC</binentry>
+      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4">065B860C5CF76AC4598DD7B4</binentry>
       <!-- refurbished consoles? -->
-      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4" ascii="false" description="">89EFFD15B3850E3B2A734484</binentry>
-      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4" ascii="false" description="">6EED04A04E41532AC123C718</binentry>
-      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4" ascii="false" description="">E644A075B60B7996C1297AA0</binentry>
-      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4" ascii="false" description="">7B09CBEE002FAF5159F8D5A8</binentry>
-      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4" ascii="false" description="">ED4C79D65D602876FFADA6FD</binentry>
-      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4" ascii="false" description="">B19434A33CF1C866DF420E50</binentry>
-      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4" ascii="false" description="">83EFB976C4DED135327CD377</binentry>
-      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4" ascii="false" description="">61D19BA54168163C019F884B</binentry>
-      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4" ascii="false" description="">92AC2C2157A577C84DDFECDB</binentry>
-      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4" ascii="false" description="">41F793C709418F938944BA7A</binentry>
-      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4" ascii="false" description="">FA46EC86570FCAAA064E8A86</binentry>
-      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4" ascii="false" description="">F5A221B5C05F214201979DAA</binentry>
-      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4" ascii="false" description="">7780B134B6DF258A1ABBAB4D</binentry>
-      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4" ascii="false" description="">CB9E152428B44FD2F93FBC43</binentry>
-      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4" ascii="false" description="">EFB3455D6A9FD751005E34BC</binentry>
-      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4" ascii="false" description="">53921CE7F73341769B7A1ED6</binentry>
-      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4" ascii="false" description="">53E6A0BBB0AFA20067D0B39A</binentry>
-      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4" ascii="false" description="">AA3AEA6E3DA09A581E1E2100</binentry>
-      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4" ascii="false" description="">C5A42771EE5E219A3BFC2C45</binentry>
-      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4" ascii="false" description="">13ECA74A8E14D473129128E8</binentry>
-      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4" ascii="false" description="">63B9D98130DB7BB0F39D124F</binentry>
-      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4" ascii="false" description="">BBCCBF29ECD802844EB28AE6</binentry>
-      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4" ascii="false" description="">2E604104D943D1B534D4C5F5</binentry>
-      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4" ascii="false" description="">1FDC1E2DF00DA36701E2F8F6</binentry>
+      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4">89EFFD15B3850E3B2A734484</binentry>
+      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4">6EED04A04E41532AC123C718</binentry>
+      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4">E644A075B60B7996C1297AA0</binentry>
+      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4">7B09CBEE002FAF5159F8D5A8</binentry>
+      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4">ED4C79D65D602876FFADA6FD</binentry>
+      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4">B19434A33CF1C866DF420E50</binentry>
+      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4">83EFB976C4DED135327CD377</binentry>
+      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4">61D19BA54168163C019F884B</binentry>
+      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4">92AC2C2157A577C84DDFECDB</binentry>
+      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4">41F793C709418F938944BA7A</binentry>
+      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4">FA46EC86570FCAAA064E8A86</binentry>
+      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4">F5A221B5C05F214201979DAA</binentry>
+      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4">7780B134B6DF258A1ABBAB4D</binentry>
+      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4">CB9E152428B44FD2F93FBC43</binentry>
+      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4">EFB3455D6A9FD751005E34BC</binentry>
+      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4">53921CE7F73341769B7A1ED6</binentry>
+      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4">53E6A0BBB0AFA20067D0B39A</binentry>
+      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4">AA3AEA6E3DA09A581E1E2100</binentry>
+      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4">C5A42771EE5E219A3BFC2C45</binentry>
+      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4">13ECA74A8E14D473129128E8</binentry>
+      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4">63B9D98130DB7BB0F39D124F</binentry>
+      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4">BBCCBF29ECD802844EB28AE6</binentry>
+      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4">2E604104D943D1B534D4C5F5</binentry>
+      <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4">1FDC1E2DF00DA36701E2F8F6</binentry>
       <!-- end of refurbished consoles? -->
       <!--  Need to find a way to check bootldr 0xFF filled area from the end of bootldr (depend of ldrsize) to 3FFFF  -->
       <datalist name="001.04   bootldr Statistics (Top)" offset="0" ldrsize="2">
@@ -87,94 +87,93 @@
     </bootldr_top_region>
     <Header_Magic>
       <datafill name="002.00   Header Magic 0x00 Filled Area0" offset="40000" size="10">00</datafill>
-      <binentry name="002.01   Header Magic" ismulti="false" offset="40010" ascii="false" description="">000000000FACE0FF00000000DEADBEEF00000000000000000000000000007600</binentry>
+      <binentry name="002.01   Header Magic" offset="40010">000000000FACE0FF00000000DEADBEEF00000000000000000000000000007600</binentry>
       <datafill name="002.02   Header Magic 0x00 Filled Area1" offset="40030" size="1D0">00</datafill>
     </Header_Magic>
     <flash_region_table>
-      <binentry name="003.01   Flash Region Table Header" ismulti="false" offset="40200" ascii="false" decription="">00000001000000090000000000EBFE00</binentry>
-      <binentry name="003.02   asecure_loader Offset - Length" ismulti="false" offset="40210" ascii="false"
+      <binentry name="003.01   Flash Region Table Header" offset="40200" decription="">00000001000000090000000000EBFE00</binentry>
+      <binentry name="003.02   asecure_loader Offset - Length" offset="40210"
                 decription="">
         00000000000006000000000000040000
       </binentry>
-      <binentry name="003.03   asecure_loader Name" ismulti="false" offset="40220" ascii="true" description="">617365637572655F6C6F61646572000000000000000000000000000000000000</binentry>
-      <binentry name="003.04   eEID Offset - Length" ismulti="false" offset="40240" ascii="false" description="">00000000000406000000000000010000</binentry>
-      <binentry name="003.05   eEID Name" ismulti="false" offset="40250" ascii="true" description="">6545494400000000000000000000000000000000000000000000000000000000</binentry>
-      <binentry name="003.06   cISD Offset - Length" ismulti="false" offset="40270" ascii="false" description="">00000000000506000000000000000800</binentry>
-      <binentry name="003.07   cISD Name" ismulti="false" offset="40280" ascii="true" description="">6349534400000000000000000000000000000000000000000000000000000000</binentry>
-      <binentry name="003.08   cCSD Offset - Length" ismulti="false" offset="402A0" ascii="false" description="">0000000000050E000000000000000800</binentry>
-      <binentry name="003.09   cCSD Name" ismulti="false" offset="402B0" ascii="true" description="">6343534400000000000000000000000000000000000000000000000000000000</binentry>
-      <binentry name="003.10   trvk_prg Offset - Length" ismulti="false" offset="402D0" ascii="false" description="">00000000000516000000000000002000</binentry>
-      <binentry name="003.11   trvk_prg Name" ismulti="false" offset="402E0" ascii="true" description="">7472766B5F707267000000000000000000000000000000000000000000000000</binentry>
-      <binentry name="003.12   trvk_pkg Offset - Length" ismulti="false" offset="40300" ascii="false" description="">00000000000536000000000000002000</binentry>
-      <binentry name="003.13   trvk_pkg Name" ismulti="false" offset="40310" ascii="true" description="">7472766B5F706B67000000000000000000000000000000000000000000000000</binentry>
-      <binentry name="003.14   creserved_0 Offset - Length" ismulti="false" offset="40330" ascii="false" description="">0000000000055600000000000002A800</binentry>
-      <binentry name="003.15   creserved_0 Name" ismulti="false" offset="40340" ascii="true" description="">6372657365727665645F30000000000000000000000000000000000000000000</binentry>
-      <binentry name="003.16   ros Offset - Length" ismulti="false" offset="40360" ascii="false" description="">000000000007FE000000000000E00000</binentry>
-      <binentry name="003.17   ros Name" ismulti="false" offset="40370" ascii="true" description="">726F730000000000000000000000000000000000000000000000000000000000</binentry>
-      <binentry name="003.18   cvtrm Offset - Length" ismulti="false" offset="40390" ascii="false" description="">0000000000E7FE000000000000040000</binentry>
-      <binentry name="003.19   cvtrm Name" ismulti="false" offset="403A0" ascii="true" description="">637674726D000000000000000000000000000000000000000000000000000000</binentry>
+      <binentry name="003.03   asecure_loader Name" offset="40220" ascii="true">617365637572655F6C6F61646572000000000000000000000000000000000000</binentry>
+      <binentry name="003.04   eEID Offset - Length" offset="40240">00000000000406000000000000010000</binentry>
+      <binentry name="003.05   eEID Name" offset="40250" ascii="true">6545494400000000000000000000000000000000000000000000000000000000</binentry>
+      <binentry name="003.06   cISD Offset - Length" offset="40270">00000000000506000000000000000800</binentry>
+      <binentry name="003.07   cISD Name" offset="40280" ascii="true">6349534400000000000000000000000000000000000000000000000000000000</binentry>
+      <binentry name="003.08   cCSD Offset - Length" offset="402A0">0000000000050E000000000000000800</binentry>
+      <binentry name="003.09   cCSD Name" offset="402B0" ascii="true">6343534400000000000000000000000000000000000000000000000000000000</binentry>
+      <binentry name="003.10   trvk_prg Offset - Length" offset="402D0">00000000000516000000000000002000</binentry>
+      <binentry name="003.11   trvk_prg Name" offset="402E0" ascii="true">7472766B5F707267000000000000000000000000000000000000000000000000</binentry>
+      <binentry name="003.12   trvk_pkg Offset - Length" offset="40300">00000000000536000000000000002000</binentry>
+      <binentry name="003.13   trvk_pkg Name" offset="40310" ascii="true">7472766B5F706B67000000000000000000000000000000000000000000000000</binentry>
+      <binentry name="003.14   creserved_0 Offset - Length" offset="40330">0000000000055600000000000002A800</binentry>
+      <binentry name="003.15   creserved_0 Name" offset="40340" ascii="true">6372657365727665645F30000000000000000000000000000000000000000000</binentry>
+      <binentry name="003.16   ros Offset - Length" offset="40360">000000000007FE000000000000E00000</binentry>
+      <binentry name="003.17   ros Name" offset="40370" ascii="true">726F730000000000000000000000000000000000000000000000000000000000</binentry>
+      <binentry name="003.18   cvtrm Offset - Length" offset="40390">0000000000E7FE000000000000040000</binentry>
+      <binentry name="003.19   cvtrm Name" offset="403A0" ascii="true">637674726D000000000000000000000000000000000000000000000000000000</binentry>
       <datafill name="003.20   Flash Region Table 0x00 Filled Area" offset="403B0" size="450">00</datafill>
     </flash_region_table>
     <asure_loader_region>
-      <binentry name="004.01   asecure_loader Header" ismulti="false" offset="40800" ascii="false" description="">00000001000000010000000000040000</binentry>
-      <binentry name="004.02   metldr Offset" ismulti="false" offset="40810" ascii="false" decription="">0000000000000040</binentry>
-      <binentry name="004.03   metldr Length" ismulti="true" offset="40818" ascii="false" description="">000000000000EE10</binentry>
-      <binentry name="004.03   metldr Length" ismulti="true" offset="40818" ascii="false" description="">000000000000EDA0</binentry>
-      <binentry name="004.03   metldr Length" ismulti="true" offset="40818" ascii="false" description="">000000000000EBF0</binentry>
-      <binentry name="004.03   metldr Length" ismulti="true" offset="40818" ascii="false" description="">000000000000EDE0</binentry>
-      <binentry name="004.03   metldr Length" ismulti="true" offset="40818" ascii="false" description="">000000000000E7B0</binentry>
+      <binentry name="004.01   asecure_loader Header" offset="40800">00000001000000010000000000040000</binentry>
+      <binentry name="004.02   metldr Offset" offset="40810" decription="">0000000000000040</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="40818">000000000000EE10</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="40818">000000000000EDA0</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="40818">000000000000EBF0</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="40818">000000000000EDE0</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="40818">000000000000E7B0</binentry>
       <!-- refurbished consoles? -->
-      <binentry name="004.03   metldr Length" ismulti="true" offset="40818" ascii="false" description="">000000000000E8C0</binentry>
-      <binentry name="004.03   metldr Length" ismulti="true" offset="40818" ascii="false" description="">000000000000E8E0</binentry>
-      <binentry name="004.03   metldr Length" ismulti="true" offset="40818" ascii="false" description="">000000000000EA60</binentry>
-      <binentry name="004.03   metldr Length" ismulti="true" offset="40818" ascii="false" description="">000000000000E8D0</binentry>
-      <binentry name="004.03   metldr Length" ismulti="true" offset="40818" ascii="false" description="">000000000000E890</binentry>
-      <binentry name="004.03   metldr Length" ismulti="true" offset="40818" ascii="false" description="">000000000000E920</binentry>
-      <binentry name="004.03   metldr Length" ismulti="true" offset="40818" ascii="false" description="">000000000000E960</binentry>
-      <binentry name="004.03   metldr Length" ismulti="true" offset="40818" ascii="false" description="">000000000000F920</binentry>
-      <binentry name="004.03   metldr Length" ismulti="true" offset="40818" ascii="false" description="">000000000000F9B0</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="40818">000000000000E8C0</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="40818">000000000000E8E0</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="40818">000000000000EA60</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="40818">000000000000E8D0</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="40818">000000000000E890</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="40818">000000000000E920</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="40818">000000000000E960</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="40818">000000000000F920</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="40818">000000000000F9B0</binentry>
       <!-- end of refurbished consoles? -->
-      <binentry name="004.04   metldr Name" ismulti="false" offset="40820" ascii="true" description=""
-                disablepatch="false">
+      <binentry name="004.04   metldr Name" offset="40820" ascii="true">
         6D65746C647200000000000000000000
         00000000000000000000000000000000
       </binentry> <!-- METLDR -->
-      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840" ascii="false" description="">00000EDD2F6C622ECA7FAE0D2F76B5D4</binentry>
-      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840" ascii="false" description="">00000ED648F43FDE3EEE37119C673663</binentry>
-      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840" ascii="false" description="">00000EBB94C6A30BBF2F50752E8DC052</binentry>
-      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840" ascii="false" description="">00000EDA81CF2EF41A336897E0493CB8</binentry>
-      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840" ascii="false" description="">00000E771362F2C2E6835D6FC144F246</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840">00000EDD2F6C622ECA7FAE0D2F76B5D4</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840">00000ED648F43FDE3EEE37119C673663</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840">00000EBB94C6A30BBF2F50752E8DC052</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840">00000EDA81CF2EF41A336897E0493CB8</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840">00000E771362F2C2E6835D6FC144F246</binentry>
       <!-- refurbished consoles? -->
-      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840" ascii="false" description="">00000E887822C41EB9F00FA4830A0B69</binentry>
-      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840" ascii="false" description="">00000E8A5E1F9CED758B6B94442BF031</binentry>
-      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840" ascii="false" description="">00000EA253E7EA237889AE20322A9708</binentry>
-      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840" ascii="false" description="">00000E8943B6EF4AE20F7400C8809E53</binentry>
-      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840" ascii="false" description="">00000E85BC78B8F02879A81184A0DA74</binentry>
-      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840" ascii="false" description="">00000E8E99873BC715F280809C302225</binentry>
-      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840" ascii="false" description="">00000E92C3266E4BBB282E76B7677095</binentry>
-      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840" ascii="false" description="">00000E92DBA53B0AB5181D971524615B</binentry>
-      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840" ascii="false" description="">00000F8E6ED7BCD81F11EA34425F9B9D</binentry>
-      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840" ascii="false" description="">00000F8E656EC1D96595F85C1F9C6196</binentry>
-      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840" ascii="false" description="">00000F8E39ECF2D2ACC0E0752248A9F8</binentry>
-      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840" ascii="false" description="">00000F97EA838371878EF0892A5EF6B6</binentry>
-      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840" ascii="false" description="">00000F97C36C2E4300AACBE6F64FAD92</binentry>
-      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840" ascii="false" description="">00000F97A2834B1DFD969CC1769517C6</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840">00000E887822C41EB9F00FA4830A0B69</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840">00000E8A5E1F9CED758B6B94442BF031</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840">00000EA253E7EA237889AE20322A9708</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840">00000E8943B6EF4AE20F7400C8809E53</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840">00000E85BC78B8F02879A81184A0DA74</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840">00000E8E99873BC715F280809C302225</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840">00000E92C3266E4BBB282E76B7677095</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840">00000E92DBA53B0AB5181D971524615B</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840">00000F8E6ED7BCD81F11EA34425F9B9D</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840">00000F8E656EC1D96595F85C1F9C6196</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840">00000F8E39ECF2D2ACC0E0752248A9F8</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840">00000F97EA838371878EF0892A5EF6B6</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840">00000F97C36C2E4300AACBE6F64FAD92</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840">00000F97A2834B1DFD969CC1769517C6</binentry>
       <!-- end of refurbished consoles? -->
-      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="40850" ascii="false" description="">00000EDD</binentry>
-      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="40850" ascii="false" description="">00000ED6</binentry>
-      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="40850" ascii="false" description="">00000EBB</binentry>
-      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="40850" ascii="false" description="">00000EDA</binentry>
-      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="40850" ascii="false" description="">00000E77</binentry>
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="40850">00000EDD</binentry>
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="40850">00000ED6</binentry>
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="40850">00000EBB</binentry>
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="40850">00000EDA</binentry>
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="40850">00000E77</binentry>
       <!-- refurbished consoles? -->
-      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="40850" ascii="false" description="">00000E88</binentry>
-      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="40850" ascii="false" description="">00000E8A</binentry>
-      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="40850" ascii="false" description="">00000EA2</binentry>
-      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="40850" ascii="false" description="">00000E89</binentry>
-      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="40850" ascii="false" description="">00000E85</binentry>
-      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="40850" ascii="false" description="">00000E8E</binentry>
-      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="40850" ascii="false" description="">00000E92</binentry>
-      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="40850" ascii="false" description="">00000F8E</binentry>
-      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="40850" ascii="false" description="">00000F97</binentry>
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="40850">00000E88</binentry>
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="40850">00000E8A</binentry>
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="40850">00000EA2</binentry>
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="40850">00000E89</binentry>
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="40850">00000E85</binentry>
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="40850">00000E8E</binentry>
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="40850">00000E92</binentry>
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="40850">00000F8E</binentry>
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="40850">00000F97</binentry>
       <!-- end of refurbished consoles? -->
       <!--  Need to find a way to check asecure_loader 0x00 filled area from the end of metldr (depend of ldrsize) to 807FF  -->
       <datalist name="004.07   metldr Statistics" offset="40840" ldrsize="40842">
@@ -182,78 +181,78 @@
       </datalist>
     </asure_loader_region>
     <eEID_region>
-      <binentry name="005.01   eEID Header" ismulti="false" offset="80800" ascii="false" description="">0000000600001DD00000000000000000</binentry>
-      <binentry name="005.02   EID0 Offset - Length" ismulti="false" offset="80810" ascii="false" description="">00000070000008600000000000000000</binentry>
-      <binentry name="005.03   EID1 Offset - Length" ismulti="false" offset="80820" ascii="false" description="">000008D0000002A00000000000000001</binentry>
-      <binentry name="005.04   EID2 Offset - Length" ismulti="false" offset="80830" ascii="false" description="">00000B70000007300000000000000002</binentry>
-      <binentry name="005.05   EID3 Offset - Length" ismulti="false" offset="80840" ascii="false" description="">000012A0000001000000000000000003</binentry>
-      <binentry name="005.06   EID4 Offset - Length" ismulti="false" offset="80850" ascii="false" description="">000013A0000000300000000000000004</binentry>
-      <binentry name="005.07   EID5 Offset - Length" ismulti="false" offset="80860" ascii="false" description="">000013D000000A000000000000000005</binentry>
-      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="80870" ascii="false" description="">000000010082</binentry>
-      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="80870" ascii="false" description="">000000010083</binentry>
-      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="80870" ascii="false" description="">000000010084</binentry>
-      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="80870" ascii="false" description="">000000010085</binentry>
-      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="80870" ascii="false" description="">000000010086</binentry>
-      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="80870" ascii="false" description="">000000010087</binentry>
-      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="80870" ascii="false" description="">000000010088</binentry>
-      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="80870" ascii="false" description="">000000010089</binentry>
-      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="80870" ascii="false" description="">00000001008A</binentry>
-      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="80870" ascii="false" description="">00000001008B</binentry>
-      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="80870" ascii="false" description="">00000001008C</binentry>
-      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="80870" ascii="false" description="">00000001008E</binentry>
-      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="80870" ascii="false" description="">00000001008F</binentry>
-      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="80876" ascii="false" description="">0001</binentry>
-      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="80876" ascii="false" description="">0002</binentry>
-      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="80876" ascii="false" description="">0003</binentry>
-      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="80876" ascii="false" description="">0004</binentry>
-      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="80876" ascii="false" description="">0005</binentry>
-      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="80876" ascii="false" description="">0006</binentry>
-      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="80876" ascii="false" description="">0007</binentry>
-      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="80876" ascii="false" description="">0008</binentry>
-      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="80876" ascii="false" description="">0009</binentry>
-      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="80876" ascii="false" description="">000A</binentry>
-      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="80876" ascii="false" description="">000B</binentry>
-      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="80876" ascii="false" description="">000C</binentry>
-      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="80876" ascii="false" description="">000D</binentry>
-      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="80876" ascii="false" description="">000E</binentry>
-      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="80876" ascii="false" description="">000F</binentry>
-      <binentry name="005.10   EID0 Static" ismulti="false" offset="80880" ascii="false" description="">0012000B</binentry>
-      <binentry name="005.11   EID2 BlockSize/Padding" ismulti="false" offset="81370" ascii="false" description="">
+      <binentry name="005.01   eEID Header" offset="80800">0000000600001DD00000000000000000</binentry>
+      <binentry name="005.02   EID0 Offset - Length" offset="80810">00000070000008600000000000000000</binentry>
+      <binentry name="005.03   EID1 Offset - Length" offset="80820">000008D0000002A00000000000000001</binentry>
+      <binentry name="005.04   EID2 Offset - Length" offset="80830">00000B70000007300000000000000002</binentry>
+      <binentry name="005.05   EID3 Offset - Length" offset="80840">000012A0000001000000000000000003</binentry>
+      <binentry name="005.06   EID4 Offset - Length" offset="80850">000013A0000000300000000000000004</binentry>
+      <binentry name="005.07   EID5 Offset - Length" offset="80860">000013D000000A000000000000000005</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="80870">000000010082</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="80870">000000010083</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="80870">000000010084</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="80870">000000010085</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="80870">000000010086</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="80870">000000010087</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="80870">000000010088</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="80870">000000010089</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="80870">00000001008A</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="80870">00000001008B</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="80870">00000001008C</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="80870">00000001008E</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="80870">00000001008F</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="80876">0001</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="80876">0002</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="80876">0003</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="80876">0004</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="80876">0005</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="80876">0006</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="80876">0007</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="80876">0008</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="80876">0009</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="80876">000A</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="80876">000B</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="80876">000C</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="80876">000D</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="80876">000E</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="80876">000F</binentry>
+      <binentry name="005.10   EID0 Static" offset="80880">0012000B</binentry>
+      <binentry name="005.11   EID2 BlockSize/Padding" offset="81370">
         00800690000000000000000000000000
         00000000000000000000000000000000
       </binentry>
-      <binentry name="005.12   EID3 Static0" ismulti="false" offset="81AA0" ascii="false" description="">00000001</binentry>
-      <binentry name="005.13   EID3 Static1" ismulti="false" offset="81AA8" ascii="false" description="">00000000</binentry>
-      <binentry name="005.14   EID3 Static2" ismulti="false" offset="81AB0" ascii="false" description="">000100D0</binentry>
-      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="81BD0" ascii="false" description="">000000010082</binentry>
-      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="81BD0" ascii="false" description="">000000010083</binentry>
-      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="81BD0" ascii="false" description="">000000010084</binentry>
-      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="81BD0" ascii="false" description="">000000010085</binentry>
-      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="81BD0" ascii="false" description="">000000010086</binentry>
-      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="81BD0" ascii="false" description="">000000010087</binentry>
-      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="81BD0" ascii="false" description="">000000010088</binentry>
-      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="81BD0" ascii="false" description="">000000010089</binentry>
-      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="81BD0" ascii="false" description="">00000001008A</binentry>
-      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="81BD0" ascii="false" description="">00000001008B</binentry>
-      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="81BD0" ascii="false" description="">00000001008C</binentry>
-      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="81BD0" ascii="false" description="">00000001008E</binentry>
-      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="81BD0" ascii="false" description="">00000001008F</binentry>
-      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="81BD6" ascii="false" description="">0001</binentry>
-      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="81BD6" ascii="false" description="">0002</binentry>
-      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="81BD6" ascii="false" description="">0003</binentry>
-      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="81BD6" ascii="false" description="">0004</binentry>
-      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="81BD6" ascii="false" description="">0005</binentry>
-      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="81BD6" ascii="false" description="">0006</binentry>
-      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="81BD6" ascii="false" description="">0007</binentry>
-      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="81BD6" ascii="false" description="">0008</binentry>
-      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="81BD6" ascii="false" description="">0009</binentry>
-      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="81BD6" ascii="false" description="">000A</binentry>
-      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="81BD6" ascii="false" description="">000B</binentry>
-      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="81BD6" ascii="false" description="">000C</binentry>
-      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="81BD6" ascii="false" description="">000D</binentry>
-      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="81BD6" ascii="false" description="">000E</binentry>
-      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="81BD6" ascii="false" description="">000F</binentry>
-      <binentry name="005.17   EID5 Static" ismulti="false" offset="81BE0" ascii="false" description="">00120730</binentry>
+      <binentry name="005.12   EID3 Static0" offset="81AA0">00000001</binentry>
+      <binentry name="005.13   EID3 Static1" offset="81AA8">00000000</binentry>
+      <binentry name="005.14   EID3 Static2" offset="81AB0">000100D0</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="81BD0">000000010082</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="81BD0">000000010083</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="81BD0">000000010084</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="81BD0">000000010085</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="81BD0">000000010086</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="81BD0">000000010087</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="81BD0">000000010088</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="81BD0">000000010089</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="81BD0">00000001008A</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="81BD0">00000001008B</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="81BD0">00000001008C</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="81BD0">00000001008E</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="81BD0">00000001008F</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="81BD6">0001</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="81BD6">0002</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="81BD6">0003</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="81BD6">0004</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="81BD6">0005</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="81BD6">0006</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="81BD6">0007</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="81BD6">0008</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="81BD6">0009</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="81BD6">000A</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="81BD6">000B</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="81BD6">000C</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="81BD6">000D</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="81BD6">000E</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="81BD6">000F</binentry>
+      <binentry name="005.17   EID5 Static" offset="81BE0">00120730</binentry>
       <datafill name="005.18   eEID Region 0xFF Filled Area" offset="825D0" size="E230">FF</datafill>
       <datalist name="005.19   eEID Statistics0" offset="80880" size="AF0">
         <datatreshold key="*">1,1</datatreshold>
@@ -263,156 +262,154 @@
       </datalist>
     </eEID_region>
     <cISD_region>
-      <binentry name="006.01   cISD Header" ismulti="false" offset="90800" ascii="false" description="">00000003000002700000000000000000</binentry>
-      <binentry name="006.02   cISD0 Offset - Length" ismulti="false" offset="90810" ascii="false" description="">00000040000000200000000000000000</binentry>
-      <binentry name="006.03   cISD1 Offset - Length" ismulti="false" offset="90820" ascii="false" description="">00000060000002000000000000000001</binentry>
-      <binentry name="006.04   cISD2 Offset - Length" ismulti="false" offset="90830" ascii="false" description="">00000260000000100000000000000002</binentry>
+      <binentry name="006.01   cISD Header" offset="90800">00000003000002700000000000000000</binentry>
+      <binentry name="006.02   cISD0 Offset - Length" offset="90810">00000040000000200000000000000000</binentry>
+      <binentry name="006.03   cISD1 Offset - Length" offset="90820">00000060000002000000000000000001</binentry>
+      <binentry name="006.04   cISD2 Offset - Length" offset="90830">00000260000000100000000000000002</binentry>
       <datafill name="006.05   cISD0 0xFF Filled Area" offset="90846" size="1A">FF</datafill>
-      <binentry name="006.06   cISD1 IDLog Header" ismulti="false" offset="90860" ascii="true" description="">7F49444C</binentry>
-      <binentry name="006.07   cISD1 Static1" ismulti="false" offset="90864" ascii="false" description="">000200600100</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="908A4" ascii="false" description="">001100110012</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="908A4" ascii="false" description="">001300130022</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="908A4" ascii="false" description="">001900190028</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="908A4" ascii="false" description="">002500250034 </binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="908A4" ascii="false" description="">002800280038</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="908A4" ascii="false" description="">003100310041 </binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="908A4" ascii="false" description="">003900390049</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="908A4" ascii="false" description="">004500450067</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="908A4" ascii="false" description="">004700470071 </binentry>
+      <binentry name="006.06   cISD1 IDLog Header" offset="90860" ascii="true">7F49444C</binentry>
+      <binentry name="006.07   cISD1 Static1" offset="90864">000200600100</binentry>
+      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="908A4">001100110012</binentry>
+      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="908A4">001300130022</binentry>
+      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="908A4">001900190028</binentry>
+      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="908A4">002500250034 </binentry>
+      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="908A4">002800280038</binentry>
+      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="908A4">003100310041 </binentry>
+      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="908A4">003900390049</binentry>
+      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="908A4">004500450067</binentry>
+      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="908A4">004700470071 </binentry>
       <datafill name="006.09   cISD1 0xFF Filled Area 0" offset="908AC" size="4">FF</datafill>
-      <binentry name="006.10   cISD1 Static2" ismulti="false" offset="908AA" ascii="false" description="">0001</binentry>
-      <binentry name="006.11   cISD1 Semistatic2" ismulti="true" offset="908B0" ascii="false" description="">0001001100020012</binentry>
-      <binentry name="006.11   cISD1 Semistatic2" ismulti="true" offset="908B0" ascii="false" description="">0001001200020012</binentry>
-      <binentry name="006.11   cISD1 Semistatic2" ismulti="true" offset="908B0" ascii="false" description="">0002001100020012</binentry>
+      <binentry name="006.10   cISD1 Static2" offset="908AA">0001</binentry>
+      <binentry name="006.11   cISD1 Semistatic2" ismulti="true" offset="908B0">0001001100020012</binentry>
+      <binentry name="006.11   cISD1 Semistatic2" ismulti="true" offset="908B0">0001001200020012</binentry>
+      <binentry name="006.11   cISD1 Semistatic2" ismulti="true" offset="908B0">0002001100020012</binentry>
       <datafill name="006.12   cISD1 0xFF Filled Area 1" offset="908C0" size="1A0">FF</datafill>
       <datalist name="006.13   cISD1 Statistics" offset="90870" size="3C">
         <datatreshold key="FF">0</datatreshold>
       </datalist>
-      <binentry name="006.14   cISD2" ismulti="true" offset="90A60" ascii="false" description="">1FFF0000000000000000000000000000</binentry>
-      <binentry name="006.14   cISD2" ismulti="true" offset="90A60" ascii="false" description="">07FF0000000000000000000000000000</binentry>
-      <binentry name="006.14   cISD2" ismulti="true" offset="90A60" ascii="false" description="">3FFF0000000000000000000000000000</binentry>
+      <binentry name="006.14   cISD2" ismulti="true" offset="90A60">1FFF0000000000000000000000000000</binentry>
+      <binentry name="006.14   cISD2" ismulti="true" offset="90A60">07FF0000000000000000000000000000</binentry>
+      <binentry name="006.14   cISD2" ismulti="true" offset="90A60">3FFF0000000000000000000000000000</binentry>
       <datafill name="006.15   cISD 0xFF Filled Area" offset="90A70" size="590">FF</datafill>
     </cISD_region>
     <cCSD_region>
-      <binentry name="007.01   cCSD Header" ismulti="false" offset="91000" ascii="false" description="">00000001000008000000000000000000</binentry>
-      <binentry name="007.02   cCSD Entry Table" ismulti="false" offset="91010" ascii="false" description="">00000020000000300000000000000000</binentry>
+      <binentry name="007.01   cCSD Header" offset="91000">00000001000008000000000000000000</binentry>
+      <binentry name="007.02   cCSD Entry Table" offset="91010">00000020000000300000000000000000</binentry>
       <datafill name="007.03   cCSD 0xFF Filled Area" offset="91020" size="7E0">FF</datafill>
     </cCSD_region>
     <Revokation_region>
-      <binentry name="008.01   trvk_prg0 SCE" ismulti="false" offset="91830" ascii="true" description="">53434500</binentry>
+      <binentry name="008.01   trvk_prg0 SCE" offset="91830" ascii="true">53434500</binentry>
       <!-- same comments than NOR -->
-      <binentry name="008.02   trvk_prg1 SCE" ismulti="false" offset="92820" ascii="true" description="">53434500</binentry>
+      <binentry name="008.02   trvk_prg1 SCE" offset="92820" ascii="true">53434500</binentry>
       <!-- same comments than NOR -->
-      <binentry name="008.03   trvk_pkg0 SCE" ismulti="false" offset="93830" ascii="true" description="">53434500</binentry>
+      <binentry name="008.03   trvk_pkg0 SCE" offset="93830" ascii="true">53434500</binentry>
       <!-- same comments than NOR -->
-      <binentry name="008.04   trvk_pkg1 SCE" ismulti="false" offset="94820" ascii="true" description="">53434500</binentry>
+      <binentry name="008.04   trvk_pkg1 SCE" offset="94820" ascii="true">53434500</binentry>
       <!-- same comments than NOR -->
     </Revokation_region>
     <CoreOS_region>
-      <binentry name="009.01   ROS Header" ismulti="true" offset="C0000" ascii="false" description="">000000000070001000000000007000100000000000E000000000000000000000</binentry>
-      <binentry name="009.01   ROS Header" ismulti="true" offset="C0000" ascii="false" description="">000000000000002000000000000000200000000000E000000000000000000000</binentry>
-      <binentry name="009.02   ros0 Header" ismulti="false" offset="C0020" ascii="false" description="">000000000000000000000000006FFFE0</binentry>
-      <binentry name="009.03   ros1 Header" ismulti="false" offset="7C0010" ascii="false" description="">000000000000000000000000006FFFE0</binentry>
+      <binentry name="009.01   ROS Header" ismulti="true" offset="C0000">000000000070001000000000007000100000000000E000000000000000000000</binentry>
+      <binentry name="009.01   ROS Header" ismulti="true" offset="C0000">000000000000002000000000000000200000000000E000000000000000000000</binentry>
+      <binentry name="009.02   ros0 Header" offset="C0020">000000000000000000000000006FFFE0</binentry>
+      <binentry name="009.03   ros1 Header" offset="7C0010">000000000000000000000000006FFFE0</binentry>
     </CoreOS_region>
     <cvtrm_region>
-      <binentry name="010.01   cvtrm Header" ismulti="false" offset="EC0000" ascii="true" description="">534345495654524D</binentry>
-      <binentry name="010.02   cvtrm Header Static" ismulti="false" offset="EC0008" ascii="false" description="">00000000000000A80000000000E802000000000000000028</binentry>
+      <binentry name="010.01   cvtrm Header" offset="EC0000" ascii="true">534345495654524D</binentry>
+      <binentry name="010.02   cvtrm Header Static" offset="EC0008">00000000000000A80000000000E802000000000000000028</binentry>
       <datafill name="010.03   vtrm0 0x00 Filled Area" offset="EC0020" size="4">00</datafill>
-      <binentry name="010.04   vtrm0 Magic" ismulti="false" offset="EC0020" ascii="true" description="">000000005654524D00000000000000</binentry>
-      <binentry name="010.05   cvtrm Static 0" ismulti="false" offset="EC0028" ascii="false" description="">0000000000000004</binentry>
-      <binentry name="010.06   cvtrm Static 1" ismulti="false" offset="EC0050" ascii="false" description="">00000000000000600000000000000920</binentry>
-      <binentry name="010.07   cvtrm Static 2" ismulti="false" offset="EC00F8" ascii="false" description="">0000000000EBE48C0000000000000014</binentry>
+      <binentry name="010.04   vtrm0 Magic" offset="EC0020" ascii="true">000000005654524D00000000000000</binentry>
+      <binentry name="010.05   cvtrm Static 0" offset="EC0028">0000000000000004</binentry>
+      <binentry name="010.06   cvtrm Static 1" offset="EC0050">00000000000000600000000000000920</binentry>
+      <binentry name="010.07   cvtrm Static 2" offset="EC00F8">0000000000EBE48C0000000000000014</binentry>
       <datafill name="010.08   cvtrm 0xFF Filled Area 0" offset="EC011C" size="2E4">FF</datafill>
       <datafill name="010.09   cvtrm 0x00 Filled Area 0" offset="EC0400" size="4">00</datafill>
-      <binentry name="010.10   vtrm1 Magic" ismulti="false" offset="EC0400" ascii="true" description="">000000005654524D00000000000000</binentry>
+      <binentry name="010.10   vtrm1 Magic" offset="EC0400" ascii="true">000000005654524D00000000000000</binentry>
       <datafill name="010.11   cvtrm 0xFF Filled Area 1" offset="EC2FFF" size="364C0">FF</datafill>
       <datafill name="010.12   cvtrm 0x00 Filled Area 1" offset="EFF000" size="1000">00</datafill>
     </cvtrm_region>
-    <cell_ext_os_area_region>
-      <binentry name="011.01   cell_ext_os_area" ismulti="false" offset="E780200" ascii="false" description="">
-        00000000FFFFFFFFFFFFFFFFFFFFFFFF
-        00000003FFFFFFFFFFFFFFFFFFFFFFFF
-        00000000000000000000FFFFFFFFFFFF
-        000000000000000000000000FFFFFFFF
-        0000000000000000FFFFFFFFFFFFFFFF
-      </binentry>
-    </cell_ext_os_area_region>
+    <binentry name="011.01   cell_ext_os_area" offset="E780200">
+      00000000FFFFFFFFFFFFFFFFFFFFFFFF
+      00000003FFFFFFFFFFFFFFFFFFFFFFFF
+      00000000000000000000FFFFFFFFFFFF
+      000000000000000000000000FFFFFFFF
+      0000000000000000FFFFFFFFFFFFFFFF
+    </binentry>
     <bootldr_bottom_region>
-      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000" ascii="false" description="">00002A3F</binentry>
-      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000" ascii="false" description="">00002A2A</binentry>
-      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000" ascii="false" description="">00003044</binentry>
-      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000" ascii="false" description="">00002A37</binentry>
-      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000" ascii="false" description="">00002E8C</binentry>
-      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000" ascii="false" description="">00002F1C</binentry>
+      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000">00002A3F</binentry>
+      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000">00002A2A</binentry>
+      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000">00003044</binentry>
+      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000">00002A37</binentry>
+      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000">00002E8C</binentry>
+      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000">00002F1C</binentry>
       <!-- refurbished consoles? -->
-      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000" ascii="false" description="">00002EF4</binentry>
-      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000" ascii="false" description="">00002EE3</binentry>
-      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000" ascii="false" description="">00002EAB</binentry>
-      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000" ascii="false" description="">00002EB3</binentry>
-      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000" ascii="false" description="">00002F13</binentry>
-      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000" ascii="false" description="">00002F3B</binentry>
-      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000" ascii="false" description="">00002F4B</binentry>
-      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000" ascii="false" description="">00002F53</binentry>
-      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000" ascii="false" description="">00002F5B</binentry>
-      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000" ascii="false" description="">00002FFB</binentry>
-      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000" ascii="false" description="">00003003</binentry>
-      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000" ascii="false" description="">0000300B</binentry>
-      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000" ascii="false" description="">0000301B</binentry>
+      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000">00002EF4</binentry>
+      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000">00002EE3</binentry>
+      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000">00002EAB</binentry>
+      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000">00002EB3</binentry>
+      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000">00002F13</binentry>
+      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000">00002F3B</binentry>
+      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000">00002F4B</binentry>
+      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000">00002F53</binentry>
+      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000">00002F5B</binentry>
+      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000">00002FFB</binentry>
+      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000">00003003</binentry>
+      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000">0000300B</binentry>
+      <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000">0000301B</binentry>
       <!-- end of refurbished consoles? -->
-      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010" ascii="false" description="">00002A3F</binentry>
-      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010" ascii="false" description="">00002A2A</binentry>
-      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010" ascii="false" description="">00003044</binentry>
-      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010" ascii="false" description="">00002A37</binentry>
-      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010" ascii="false" description="">00002E8C</binentry>
-      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010" ascii="false" description="">00002F1C</binentry>
+      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010">00002A3F</binentry>
+      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010">00002A2A</binentry>
+      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010">00003044</binentry>
+      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010">00002A37</binentry>
+      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010">00002E8C</binentry>
+      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010">00002F1C</binentry>
       <!-- refurbished consoles? -->
-      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010" ascii="false" description="">00002EF4</binentry>
-      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010" ascii="false" description="">00002EE3</binentry>
-      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010" ascii="false" description="">00002EAB</binentry>
-      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010" ascii="false" description="">00002EB3</binentry>
-      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010" ascii="false" description="">00002F13</binentry>
-      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010" ascii="false" description="">00002F3B</binentry>
-      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010" ascii="false" description="">00002F4B</binentry>
-      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010" ascii="false" description="">00002F53</binentry>
-      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010" ascii="false" description="">00002F5B</binentry>
-      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010" ascii="false" description="">00002FFB</binentry>
-      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010" ascii="false" description="">00003003</binentry>
-      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010" ascii="false" description="">0000300B</binentry>
-      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010" ascii="false" description="">0000301B</binentry>
+      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010">00002EF4</binentry>
+      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010">00002EE3</binentry>
+      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010">00002EAB</binentry>
+      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010">00002EB3</binentry>
+      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010">00002F13</binentry>
+      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010">00002F3B</binentry>
+      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010">00002F4B</binentry>
+      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010">00002F53</binentry>
+      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010">00002F5B</binentry>
+      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010">00002FFB</binentry>
+      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010">00003003</binentry>
+      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010">0000300B</binentry>
+      <binentry name="012.02   bootldr1 (Bottom)" ismulti="true" offset="F000010">0000301B</binentry>
       <!-- end of refurbished consoles? -->
-      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004" ascii="false" description="">04AD5618648D4994238FB8A1</binentry>
-      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004" ascii="false" description="">5CE463CD5C9EB67AFEA01B54</binentry>
-      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004" ascii="false" description="">1C2181C8EA41865C8B338AEF</binentry>
-      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004" ascii="false" description="">3FF11F14C342443C88B18E90</binentry>
-      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004" ascii="false" description="">BC30D5524B749965CF95AE5F</binentry>
-      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004" ascii="false" description="">F996D84E1A9D50BF97F4A0CE</binentry>
-      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004" ascii="false" description="">31B59A072ED45CB56808C2FC</binentry>
-      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004" ascii="false" description="">065B860C5CF76AC4598DD7B4</binentry>
+      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004">04AD5618648D4994238FB8A1</binentry>
+      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004">5CE463CD5C9EB67AFEA01B54</binentry>
+      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004">1C2181C8EA41865C8B338AEF</binentry>
+      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004">3FF11F14C342443C88B18E90</binentry>
+      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004">BC30D5524B749965CF95AE5F</binentry>
+      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004">F996D84E1A9D50BF97F4A0CE</binentry>
+      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004">31B59A072ED45CB56808C2FC</binentry>
+      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004">065B860C5CF76AC4598DD7B4</binentry>
       <!-- refurbished consoles? -->
-      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004" ascii="false" description="">89EFFD15B3850E3B2A734484</binentry>
-      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004" ascii="false" description="">6EED04A04E41532AC123C718</binentry>
-      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004" ascii="false" description="">E644A075B60B7996C1297AA0</binentry>
-      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004" ascii="false" description="">7B09CBEE002FAF5159F8D5A8</binentry>
-      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004" ascii="false" description="">ED4C79D65D602876FFADA6FD</binentry>
-      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004" ascii="false" description="">B19434A33CF1C866DF420E50</binentry>
-      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004" ascii="false" description="">83EFB976C4DED135327CD377</binentry>
-      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004" ascii="false" description="">61D19BA54168163C019F884B</binentry>
-      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004" ascii="false" description="">92AC2C2157A577C84DDFECDB</binentry>
-      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004" ascii="false" description="">41F793C709418F938944BA7A</binentry>
-      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004" ascii="false" description="">FA46EC86570FCAAA064E8A86</binentry>
-      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004" ascii="false" description="">F5A221B5C05F214201979DAA</binentry>
-      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004" ascii="false" description="">7780B134B6DF258A1ABBAB4D</binentry>
-      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004" ascii="false" description="">CB9E152428B44FD2F93FBC43</binentry>
-      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004" ascii="false" description="">EFB3455D6A9FD751005E34BC</binentry>
-      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004" ascii="false" description="">53921CE7F73341769B7A1ED6</binentry>
-      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004" ascii="false" description="">53E6A0BBB0AFA20067D0B39A</binentry>
-      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004" ascii="false" description="">AA3AEA6E3DA09A581E1E2100</binentry>
-      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004" ascii="false" description="">C5A42771EE5E219A3BFC2C45</binentry>
-      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004" ascii="false" description="">13ECA74A8E14D473129128E8</binentry>
-      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004" ascii="false" description="">63B9D98130DB7BB0F39D124F</binentry>
-      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004" ascii="false" description="">BBCCBF29ECD802844EB28AE6</binentry>
-      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004" ascii="false" description="">2E604104D943D1B534D4C5F5</binentry>
-      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004" ascii="false" description="">1FDC1E2DF00DA36701E2F8F6</binentry>
+      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004">89EFFD15B3850E3B2A734484</binentry>
+      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004">6EED04A04E41532AC123C718</binentry>
+      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004">E644A075B60B7996C1297AA0</binentry>
+      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004">7B09CBEE002FAF5159F8D5A8</binentry>
+      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004">ED4C79D65D602876FFADA6FD</binentry>
+      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004">B19434A33CF1C866DF420E50</binentry>
+      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004">83EFB976C4DED135327CD377</binentry>
+      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004">61D19BA54168163C019F884B</binentry>
+      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004">92AC2C2157A577C84DDFECDB</binentry>
+      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004">41F793C709418F938944BA7A</binentry>
+      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004">FA46EC86570FCAAA064E8A86</binentry>
+      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004">F5A221B5C05F214201979DAA</binentry>
+      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004">7780B134B6DF258A1ABBAB4D</binentry>
+      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004">CB9E152428B44FD2F93FBC43</binentry>
+      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004">EFB3455D6A9FD751005E34BC</binentry>
+      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004">53921CE7F73341769B7A1ED6</binentry>
+      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004">53E6A0BBB0AFA20067D0B39A</binentry>
+      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004">AA3AEA6E3DA09A581E1E2100</binentry>
+      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004">C5A42771EE5E219A3BFC2C45</binentry>
+      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004">13ECA74A8E14D473129128E8</binentry>
+      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004">63B9D98130DB7BB0F39D124F</binentry>
+      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004">BBCCBF29ECD802844EB28AE6</binentry>
+      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004">2E604104D943D1B534D4C5F5</binentry>
+      <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004">1FDC1E2DF00DA36701E2F8F6</binentry>
       <!-- end of refurbished consoles? -->
       <!--  Need to find a way to check bootldr 0xFF filled area from the end of bootldr (depend of ldrsize) to FFFFFFF  -->
       <datalist name="012.04   bootldr Statistics (Bottom)" offset="F000000" ldrsize="2">
@@ -502,7 +499,7 @@
       <skudataentry offset="2" size="2">bootldrsize</skudataentry>
     </skulistdata>
     <skumodels>
-      <skulist name="CECHAxx (COK-001)" warn="false" warnmsg="" minver="1.00">
+      <skulist name="CECHAxx (COK-001)" minver="1.00">
         <skuentry type="idps">01</skuentry>
         <skuentry type="metldr0">EE10</skuentry>
         <skuentry type="metldr1">0EDD</skuentry>
@@ -510,7 +507,7 @@
         <skuentry type="bootldr1">2A3F</skuentry>
         <skuentry type="bootldrsize">2A430</skuentry>
       </skulist>
-      <skulist name="CECHExx (COK-002)" warn="false" warnmsg="" minver="2.70">
+      <skulist name="CECHExx (COK-002)" minver="2.70">
         <skuentry type="idps">03</skuentry>
         <skuentry type="metldr0">EE10</skuentry>
         <skuentry type="metldr1">0EDD</skuentry>
@@ -518,7 +515,7 @@
         <skuentry type="bootldr1">2A3F</skuentry>
         <skuentry type="bootldrsize">2A430</skuentry>
       </skulist>
-      <skulist name="CECHExx (COK-002)" warn="false" warnmsg="" minver="1.00">
+      <skulist name="CECHExx (COK-002)" minver="1.00">
         <skuentry type="idps">04</skuentry>
         <skuentry type="metldr0">EE10</skuentry>
         <skuentry type="metldr1">0EDD</skuentry>
@@ -526,7 +523,7 @@
         <skuentry type="bootldr1">2A3F</skuentry>
         <skuentry type="bootldrsize">2A430</skuentry>
       </skulist>
-      <skulist name="CECHAxx (COK-001)" warn="false" warnmsg="" minver="1.00">
+      <skulist name="CECHAxx (COK-001)" minver="1.00">
         <skuentry type="idps">01</skuentry>
         <skuentry type="metldr0">EDA0</skuentry>
         <skuentry type="metldr1">0ED6</skuentry>
@@ -534,7 +531,7 @@
         <skuentry type="bootldr1">2A2A</skuentry>
         <skuentry type="bootldrsize">2A2E0</skuentry>
       </skulist>
-      <skulist name="CECHBxx (COK-001)" warn="false" warnmsg="" minver="1.00">
+      <skulist name="CECHBxx (COK-001)" minver="1.00">
         <skuentry type="idps">02</skuentry>
         <skuentry type="metldr0">EDA0</skuentry>
         <skuentry type="metldr1">0ED6</skuentry>
@@ -542,7 +539,7 @@
         <skuentry type="bootldr1">2A2A</skuentry>
         <skuentry type="bootldrsize">2A2E0</skuentry>
       </skulist>
-      <skulist name="CECHCxx (COK-002)" warn="false" warnmsg="" minver="1.00">
+      <skulist name="CECHCxx (COK-002)" minver="1.00">
         <skuentry type="idps">03</skuentry>
         <skuentry type="metldr0">EDA0</skuentry>
         <skuentry type="metldr1">0ED6</skuentry>
@@ -550,7 +547,7 @@
         <skuentry type="bootldr1">2A2A</skuentry>
         <skuentry type="bootldrsize">2A2E0</skuentry>
       </skulist>
-      <skulist name="CECHCxx (COK-002)" warn="false" warnmsg="" minver="1.00">
+      <skulist name="CECHCxx (COK-002)" minver="1.00">
         <skuentry type="idps">03</skuentry>
         <skuentry type="metldr0">EBF0</skuentry>
         <skuentry type="metldr1">0EBB</skuentry>
@@ -558,7 +555,7 @@
         <skuentry type="bootldr1">3044</skuentry>
         <skuentry type="bootldrsize">30480</skuentry>
       </skulist>
-      <skulist name="CECHAxx (COK-001)" warn="false" warnmsg="" minver="1.00">
+      <skulist name="CECHAxx (COK-001)" minver="1.00">
         <skuentry type="idps">01</skuentry>
         <skuentry type="metldr0">EDE0</skuentry>
         <skuentry type="metldr1">0EDA</skuentry>
@@ -566,7 +563,7 @@
         <skuentry type="bootldr1">2A37</skuentry>
         <skuentry type="bootldrsize">2A3B0</skuentry>
       </skulist>
-      <skulist name="CECHCxx (COK-002)" warn="false" warnmsg="" minver="1.00">
+      <skulist name="CECHCxx (COK-002)" minver="1.00">
         <skuentry type="idps">03</skuentry>
         <skuentry type="metldr0">EDE0</skuentry>
         <skuentry type="metldr1">0EDA</skuentry>
@@ -574,7 +571,7 @@
         <skuentry type="bootldr1">2A37</skuentry>
         <skuentry type="bootldrsize">2A3B0</skuentry>
       </skulist>
-      <skulist name="CECHCxx (COK-002)" warn="false" warnmsg="" minver="1.00">
+      <skulist name="CECHCxx (COK-002)" minver="1.00">
         <skuentry type="idps">03</skuentry>
         <skuentry type="metldr0">E7B0</skuentry>
         <skuentry type="metldr1">0E77</skuentry>
@@ -582,7 +579,7 @@
         <skuentry type="bootldr1">2E8C</skuentry>
         <skuentry type="bootldrsize">2E900</skuentry>
       </skulist>
-      <skulist name="CECHGxx (SEM-001)" warn="false" warnmsg="" minver="1.90">
+      <skulist name="CECHGxx (SEM-001)" minver="1.90">
         <skuentry type="idps">05</skuentry>
         <skuentry type="metldr0">E7B0</skuentry>
         <skuentry type="metldr1">0E77</skuentry>
@@ -590,7 +587,7 @@
         <skuentry type="bootldr1">2E8C</skuentry>
         <skuentry type="bootldrsize">2E900</skuentry>
       </skulist>
-      <skulist name="CECHGxx (SEM-001)" warn="false" warnmsg="" minver="2.30">
+      <skulist name="CECHGxx (SEM-001)" minver="2.30">
         <skuentry type="idps">05</skuentry>
         <skuentry type="metldr0">E7B0</skuentry>
         <skuentry type="metldr1">0E77</skuentry>
@@ -598,7 +595,7 @@
         <skuentry type="bootldr1">2F1C</skuentry>
         <skuentry type="bootldrsize">2F200</skuentry>
       </skulist>
-      <skulist name="CECHGxx (SEM-001)" warn="false" warnmsg="" minver="2.30">
+      <skulist name="CECHGxx (SEM-001)" minver="2.30">
         <skuentry type="idps">05</skuentry>
         <skuentry type="metldr0">E8C0</skuentry>
         <skuentry type="metldr1">0E88</skuentry>
@@ -606,7 +603,7 @@
         <skuentry type="bootldr1">2EF4</skuentry>
         <skuentry type="bootldrsize">2EF80</skuentry>
       </skulist>
-      <skulist name="CECHExx (COK-002)" warn="false" warnmsg="" minver="N/A">
+      <skulist name="CECHExx (COK-002)" minver="N/A">
         <skuentry type="idps">03</skuentry>
         <skuentry type="metldr0">EA60</skuentry>
         <skuentry type="metldr1">0EA2</skuentry>
@@ -614,7 +611,7 @@
         <skuentry type="bootldr1">2EE3</skuentry>
         <skuentry type="bootldrsize">2EE70</skuentry>
       </skulist>
-      <skulist name="CECHExx (COK-002W)" warn="false" warnmsg="" minver="3.40">
+      <skulist name="CECHExx (COK-002W)" minver="3.40">
         <skuentry type="idps">03</skuentry>
         <skuentry type="metldr0">E920</skuentry>
         <skuentry type="metldr1">0E8E</skuentry>
@@ -629,86 +626,85 @@
     <ros1offset>7C0010</ros1offset>
     <first_region_header>
       <datafill name="001.00   First Region Header 0x00 Filled Area0" offset="0" size="10">00</datafill>
-      <binentry name="001.01   First Region Header Magic" ismulti="false" offset="10" ascii="false" description="">000000000FACE0FF00000000DEADBEEF00000000000000000000000000007800</binentry>
+      <binentry name="001.01   First Region Header Magic" offset="10">000000000FACE0FF00000000DEADBEEF00000000000000000000000000007800</binentry>
       <datafill name="001.02   First Region Header 0x00 Filled Area1" offset="30" size="1D0">00</datafill>
     </first_region_header>
     <flash_format>
-      <binentry name="002.00   Flash Format" ismulti="false" offset="200" ascii="true" description="">49464900000000010000000200000000</binentry>
+      <binentry name="002.00   Flash Format" offset="200" ascii="true">49464900000000010000000200000000</binentry>
       <datafill name="002.01   Flash Format 0xFF Filled Area" offset="210" size="1F0">FF</datafill>
     </flash_format>
     <flash_region_table>
-      <binentry name="003.01   Flash Region Table Header" ismulti="false" offset="400" ascii="false" decription="">000000010000000B0000000000EFFC00</binentry>
-      <binentry name="003.02   asecure_loader Offset - Length" ismulti="false" offset="410" ascii="false" decription="">0000000000000400000000000002E800</binentry>
-      <binentry name="003.03   asecure_loader Name" ismulti="false" offset="420" ascii="true" description="">617365637572655F6C6F61646572000000000000000000000000000000000000</binentry>
-      <binentry name="003.04   eEID Offset - Length" ismulti="false" offset="440" ascii="false" description="">000000000002EC000000000000010000</binentry>
-      <binentry name="003.05   eEID Name" ismulti="false" offset="450" ascii="true" description="">6545494400000000000000000000000000000000000000000000000000000000</binentry>
-      <binentry name="003.06   cISD Offset - Length" ismulti="false" offset="470" ascii="false" description="">000000000003EC000000000000000800</binentry>
-      <binentry name="003.07   cISD Name" ismulti="false" offset="480" ascii="true" description="">6349534400000000000000000000000000000000000000000000000000000000</binentry>
-      <binentry name="003.08   cCSD Offset - Length" ismulti="false" offset="4A0" ascii="false" description="">000000000003F4000000000000000800</binentry>
-      <binentry name="003.09   cCSD Name" ismulti="false" offset="4B0" ascii="true" description="">6343534400000000000000000000000000000000000000000000000000000000</binentry>
-      <binentry name="003.10   trvk_prg0 Offset - Length" ismulti="false" offset="4D0" ascii="false" description="">000000000003FC000000000000020000</binentry>
-      <binentry name="003.11   trvk_prg0 Name" ismulti="false" offset="4E0" ascii="true" description="">7472766B5F707267300000000000000000000000000000000000000000000000</binentry>
-      <binentry name="003.12   trvk_prg1 Offset - Length" ismulti="false" offset="500" ascii="false" description="">000000000005FC000000000000020000</binentry>
-      <binentry name="003.13   trvk_prg1 Name" ismulti="false" offset="510" ascii="true" description="">7472766B5F707267310000000000000000000000000000000000000000000000</binentry>
-      <binentry name="003.14   trvk_pkg0 Offset - Length" ismulti="false" offset="530" ascii="false" description="">000000000007FC000000000000020000</binentry>
-      <binentry name="003.15   trvk_pkg0 Name" ismulti="false" offset="540" ascii="true" description="">7472766B5F706B67300000000000000000000000000000000000000000000000</binentry>
-      <binentry name="003.16   trvk_pkg1 Offset - Length" ismulti="false" offset="560" ascii="false" description="">000000000009FC000000000000020000</binentry>
-      <binentry name="003.17   trvk_pkg1 Name" ismulti="false" offset="570" ascii="true" description="">7472766B5F706B67310000000000000000000000000000000000000000000000</binentry>
-      <binentry name="003.18   ros0 Offset - Length" ismulti="false" offset="590" ascii="false" description="">00000000000BFC000000000000700000</binentry>
-      <binentry name="003.19   ros0 Name" ismulti="false" offset="5A0" ascii="true" description="">726F733000000000000000000000000000000000000000000000000000000000</binentry>
-      <binentry name="003.20   ros1 Offset - Length" ismulti="false" offset="5C0" ascii="false" description="">00000000007BFC000000000000700000</binentry>
-      <binentry name="003.21   ros1 Name" ismulti="false" offset="5D0" ascii="true" description="">726F733100000000000000000000000000000000000000000000000000000000</binentry>
-      <binentry name="003.22   cvtrm Offset - Length" ismulti="false" offset="5F0" ascii="false" description="">0000000000EBFC000000000000040000</binentry>
-      <binentry name="003.23   cvtrm Name" ismulti="false" offset="600" ascii="true" description="">637674726D000000000000000000000000000000000000000000000000000000</binentry>
+      <binentry name="003.01   Flash Region Table Header" offset="400" decription="">000000010000000B0000000000EFFC00</binentry>
+      <binentry name="003.02   asecure_loader Offset - Length" offset="410" decription="">0000000000000400000000000002E800</binentry>
+      <binentry name="003.03   asecure_loader Name" offset="420" ascii="true">617365637572655F6C6F61646572000000000000000000000000000000000000</binentry>
+      <binentry name="003.04   eEID Offset - Length" offset="440">000000000002EC000000000000010000</binentry>
+      <binentry name="003.05   eEID Name" offset="450" ascii="true">6545494400000000000000000000000000000000000000000000000000000000</binentry>
+      <binentry name="003.06   cISD Offset - Length" offset="470">000000000003EC000000000000000800</binentry>
+      <binentry name="003.07   cISD Name" offset="480" ascii="true">6349534400000000000000000000000000000000000000000000000000000000</binentry>
+      <binentry name="003.08   cCSD Offset - Length" offset="4A0">000000000003F4000000000000000800</binentry>
+      <binentry name="003.09   cCSD Name" offset="4B0" ascii="true">6343534400000000000000000000000000000000000000000000000000000000</binentry>
+      <binentry name="003.10   trvk_prg0 Offset - Length" offset="4D0">000000000003FC000000000000020000</binentry>
+      <binentry name="003.11   trvk_prg0 Name" offset="4E0" ascii="true">7472766B5F707267300000000000000000000000000000000000000000000000</binentry>
+      <binentry name="003.12   trvk_prg1 Offset - Length" offset="500">000000000005FC000000000000020000</binentry>
+      <binentry name="003.13   trvk_prg1 Name" offset="510" ascii="true">7472766B5F707267310000000000000000000000000000000000000000000000</binentry>
+      <binentry name="003.14   trvk_pkg0 Offset - Length" offset="530">000000000007FC000000000000020000</binentry>
+      <binentry name="003.15   trvk_pkg0 Name" offset="540" ascii="true">7472766B5F706B67300000000000000000000000000000000000000000000000</binentry>
+      <binentry name="003.16   trvk_pkg1 Offset - Length" offset="560">000000000009FC000000000000020000</binentry>
+      <binentry name="003.17   trvk_pkg1 Name" offset="570" ascii="true">7472766B5F706B67310000000000000000000000000000000000000000000000</binentry>
+      <binentry name="003.18   ros0 Offset - Length" offset="590">00000000000BFC000000000000700000</binentry>
+      <binentry name="003.19   ros0 Name" offset="5A0" ascii="true">726F733000000000000000000000000000000000000000000000000000000000</binentry>
+      <binentry name="003.20   ros1 Offset - Length" offset="5C0">00000000007BFC000000000000700000</binentry>
+      <binentry name="003.21   ros1 Name" offset="5D0" ascii="true">726F733100000000000000000000000000000000000000000000000000000000</binentry>
+      <binentry name="003.22   cvtrm Offset - Length" offset="5F0">0000000000EBFC000000000000040000</binentry>
+      <binentry name="003.23   cvtrm Name" offset="600" ascii="true">637674726D000000000000000000000000000000000000000000000000000000</binentry>
       <datafill name="003.24   Flash Region Table 0x00 Filled Area" offset="610" size="1F0">00</datafill>
     </flash_region_table>
     <asure_loader_region>
-      <binentry name="004.01   asecure_loader Header" ismulti="false" offset="800" ascii="false" description="">0000000100000001000000000002E800</binentry>
-      <binentry name="004.02   metldr Offset" ismulti="false" offset="810" ascii="false" decription="">0000000000000040</binentry>
-      <binentry name="004.03   metldr Length" ismulti="true" offset="818" ascii="false" description="">000000000000E7B0</binentry>
-      <binentry name="004.03   metldr Length" ismulti="true" offset="818" ascii="false" description="">000000000000E8C0</binentry>
-      <binentry name="004.03   metldr Length" ismulti="true" offset="818" ascii="false" description="">000000000000E8E0</binentry>
-      <binentry name="004.03   metldr Length" ismulti="true" offset="818" ascii="false" description="">000000000000E8D0</binentry>
-      <binentry name="004.03   metldr Length" ismulti="true" offset="818" ascii="false" description="">000000000000EA60</binentry>
-      <binentry name="004.03   metldr Length" ismulti="true" offset="818" ascii="false" description="">000000000000E890</binentry>
-      <binentry name="004.03   metldr Length" ismulti="true" offset="818" ascii="false" description="">000000000000E920</binentry>
-      <binentry name="004.03   metldr Length" ismulti="true" offset="818" ascii="false" description="">000000000000E960</binentry>
-      <binentry name="004.03   metldr Length" ismulti="true" offset="818" ascii="false" description="">000000000000F920</binentry>
-      <binentry name="004.03   metldr Length" ismulti="true" offset="818" ascii="false" description="">000000000000F9B0</binentry>
-      <binentry name="004.04   metldr Name" ismulti="true" offset="820" ascii="true" description=""
-                disablepatch="false">
+      <binentry name="004.01   asecure_loader Header" offset="800">0000000100000001000000000002E800</binentry>
+      <binentry name="004.02   metldr Offset" offset="810" decription="">0000000000000040</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="818">000000000000E7B0</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="818">000000000000E8C0</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="818">000000000000E8E0</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="818">000000000000E8D0</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="818">000000000000EA60</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="818">000000000000E890</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="818">000000000000E920</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="818">000000000000E960</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="818">000000000000F920</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="818">000000000000F9B0</binentry>
+      <binentry name="004.04   metldr Name" ismulti="true" offset="820" ascii="true">
         6D65746C647200000000000000000000
         00000000000000000000000000000000
       </binentry> <!-- METLDR -->
-      <binentry name="004.04   metldr Name" ismulti="true" offset="820" ascii="true" description="" disablepatch="true">
+      <binentry name="004.04   metldr Name" ismulti="true" offset="820" ascii="true" disablepatch="true">
         6D65746C64722E320000000000000000
         00000000000000000000000000000000
       </binentry> <!-- METLDR2-->
-      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840" ascii="false" description="">00000E771362F2C2E6835D6FC144F246</binentry>
-      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840" ascii="false" description="">00000E887822C41EB9F00FA4830A0B69</binentry>
-      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840" ascii="false" description="">00000E8A5E1F9CED758B6B94442BF031</binentry>
-      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840" ascii="false" description="">00000EA253E7EA237889AE20322A9708</binentry>
-      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840" ascii="false" description="">00000E8943B6EF4AE20F7400C8809E53</binentry>
-      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840" ascii="false" description="">00000E85BC78B8F02879A81184A0DA74</binentry>
-      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840" ascii="false" description="">00000E8E99873BC715F280809C302225</binentry>
-      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840" ascii="false" description="">00000E92C3266E4BBB282E76B7677095</binentry>
-      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840" ascii="false" description="">00000E92DBA53B0AB5181D971524615B</binentry>
-      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840" ascii="false" description="">00000F8E6ED7BCD81F11EA34425F9B9D</binentry>
-      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840" ascii="false" description="">00000F8E656EC1D96595F85C1F9C6196</binentry>
-      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840" ascii="false" description="">00000F8E39ECF2D2ACC0E0752248A9F8</binentry>
-      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840" ascii="false" description="">00000F97EA838371878EF0892A5EF6B6</binentry>
-      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840" ascii="false" description="">00000F97C36C2E4300AACBE6F64FAD92</binentry>
-      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840" ascii="false" description="">00000F97A2834B1DFD969CC1769517C6</binentry>
-      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="850" ascii="false" description="">00000E77</binentry>
-      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="850" ascii="false" description="">00000E88</binentry>
-      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="850" ascii="false" description="">00000E8A</binentry>
-      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="850" ascii="false" description="">00000EA2</binentry>
-      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="850" ascii="false" description="">00000E89</binentry>
-      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="850" ascii="false" description="">00000E85</binentry>
-      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="850" ascii="false" description="">00000E8E</binentry>
-      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="850" ascii="false" description="">00000E92</binentry>
-      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="850" ascii="false" description="">00000F8E</binentry>
-      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="850" ascii="false" description="">00000F97</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000E771362F2C2E6835D6FC144F246</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000E887822C41EB9F00FA4830A0B69</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000E8A5E1F9CED758B6B94442BF031</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000EA253E7EA237889AE20322A9708</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000E8943B6EF4AE20F7400C8809E53</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000E85BC78B8F02879A81184A0DA74</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000E8E99873BC715F280809C302225</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000E92C3266E4BBB282E76B7677095</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000E92DBA53B0AB5181D971524615B</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000F8E6ED7BCD81F11EA34425F9B9D</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000F8E656EC1D96595F85C1F9C6196</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000F8E39ECF2D2ACC0E0752248A9F8</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000F97EA838371878EF0892A5EF6B6</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000F97C36C2E4300AACBE6F64FAD92</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000F97A2834B1DFD969CC1769517C6</binentry>
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="850">00000E77</binentry>
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="850">00000E88</binentry>
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="850">00000E8A</binentry>
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="850">00000EA2</binentry>
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="850">00000E89</binentry>
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="850">00000E85</binentry>
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="850">00000E8E</binentry>
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="850">00000E92</binentry>
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="850">00000F8E</binentry>
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="850">00000F97</binentry>
       <datalist name="004.07   metldr Statistics" offset="840" ldrsize="842">
         <datatreshold key="*">0,5</datatreshold>
       </datalist>
@@ -716,78 +712,78 @@
       <datafill name="0x00 Filled Area asecure_loader" offset="?????" size="?????">00</datafill>  -->
     </asure_loader_region>
     <eEID_region>
-      <binentry name="005.01   eEID Header" ismulti="false" offset="2F000" ascii="false" description="">0000000600001DD00000000000000000</binentry>
-      <binentry name="005.02   EID0 Offset - Length" ismulti="false" offset="2F010" ascii="false" description="">00000070000008600000000000000000</binentry>
-      <binentry name="005.03   EID1 Offset - Length" ismulti="false" offset="2F020" ascii="false" description="">000008D0000002A00000000000000001</binentry>
-      <binentry name="005.04   EID2 Offset - Length" ismulti="false" offset="2F030" ascii="false" description="">00000B70000007300000000000000002</binentry>
-      <binentry name="005.05   EID3 Offset - Length" ismulti="false" offset="2F040" ascii="false" description="">000012A0000001000000000000000003</binentry>
-      <binentry name="005.06   EID4 Offset - Length" ismulti="false" offset="2F050" ascii="false" description="">000013A0000000300000000000000004</binentry>
-      <binentry name="005.07   EID5 Offset - Length" ismulti="false" offset="2F060" ascii="false" description="">000013D000000A000000000000000005</binentry>
-      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="2F070" ascii="false" description="">000000010082</binentry>
-      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="2F070" ascii="false" description="">000000010083</binentry>
-      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="2F070" ascii="false" description="">000000010084</binentry>
-      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="2F070" ascii="false" description="">000000010085</binentry>
-      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="2F070" ascii="false" description="">000000010086</binentry>
-      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="2F070" ascii="false" description="">000000010087</binentry>
-      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="2F070" ascii="false" description="">000000010088</binentry>
-      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="2F070" ascii="false" description="">000000010089</binentry>
-      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="2F070" ascii="false" description="">00000001008A</binentry>
-      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="2F070" ascii="false" description="">00000001008B</binentry>
-      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="2F070" ascii="false" description="">00000001008C</binentry>
-      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="2F070" ascii="false" description="">00000001008E</binentry>
-      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="2F070" ascii="false" description="">00000001008F</binentry>
-      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="2F076" ascii="false" description="">0001</binentry>
-      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="2F076" ascii="false" description="">0002</binentry>
-      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="2F076" ascii="false" description="">0003</binentry>
-      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="2F076" ascii="false" description="">0004</binentry>
-      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="2F076" ascii="false" description="">0005</binentry>
-      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="2F076" ascii="false" description="">0006</binentry>
-      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="2F076" ascii="false" description="">0007</binentry>
-      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="2F076" ascii="false" description="">0008</binentry>
-      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="2F076" ascii="false" description="">0009</binentry>
-      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="2F076" ascii="false" description="">000A</binentry>
-      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="2F076" ascii="false" description="">000B</binentry>
-      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="2F076" ascii="false" description="">000C</binentry>
-      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="2F076" ascii="false" description="">000D</binentry>
-      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="2F076" ascii="false" description="">000E</binentry>
-      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="2F076" ascii="false" description="">000F</binentry>
-      <binentry name="005.10   EID0 Static" ismulti="false" offset="2F080" ascii="false" description="">0012000B</binentry>
-      <binentry name="005.11   EID2 BlockSize/Padding" ismulti="false" offset="2FB70" ascii="false" description="">
+      <binentry name="005.01   eEID Header" offset="2F000">0000000600001DD00000000000000000</binentry>
+      <binentry name="005.02   EID0 Offset - Length" offset="2F010">00000070000008600000000000000000</binentry>
+      <binentry name="005.03   EID1 Offset - Length" offset="2F020">000008D0000002A00000000000000001</binentry>
+      <binentry name="005.04   EID2 Offset - Length" offset="2F030">00000B70000007300000000000000002</binentry>
+      <binentry name="005.05   EID3 Offset - Length" offset="2F040">000012A0000001000000000000000003</binentry>
+      <binentry name="005.06   EID4 Offset - Length" offset="2F050">000013A0000000300000000000000004</binentry>
+      <binentry name="005.07   EID5 Offset - Length" offset="2F060">000013D000000A000000000000000005</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="2F070">000000010082</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="2F070">000000010083</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="2F070">000000010084</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="2F070">000000010085</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="2F070">000000010086</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="2F070">000000010087</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="2F070">000000010088</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="2F070">000000010089</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="2F070">00000001008A</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="2F070">00000001008B</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="2F070">00000001008C</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="2F070">00000001008E</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="2F070">00000001008F</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="2F076">0001</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="2F076">0002</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="2F076">0003</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="2F076">0004</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="2F076">0005</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="2F076">0006</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="2F076">0007</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="2F076">0008</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="2F076">0009</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="2F076">000A</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="2F076">000B</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="2F076">000C</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="2F076">000D</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="2F076">000E</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="2F076">000F</binentry>
+      <binentry name="005.10   EID0 Static" offset="2F080">0012000B</binentry>
+      <binentry name="005.11   EID2 BlockSize/Padding" offset="2FB70">
         00800690000000000000000000000000
         00000000000000000000000000000000
       </binentry>
-      <binentry name="005.12   EID3 Static0" ismulti="false" offset="302A0" ascii="false" description="">00000001</binentry>
-      <binentry name="005.13   EID3 Static1" ismulti="false" offset="302A8" ascii="false" description="">00000000</binentry>
-      <binentry name="005.14   EID3 Static2" ismulti="false" offset="302B0" ascii="false" description="">000100D0</binentry>
-      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="303D0" ascii="false" description="">000000010082</binentry>
-      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="303D0" ascii="false" description="">000000010083</binentry>
-      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="303D0" ascii="false" description="">000000010084</binentry>
-      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="303D0" ascii="false" description="">000000010085</binentry>
-      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="303D0" ascii="false" description="">000000010086</binentry>
-      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="303D0" ascii="false" description="">000000010087</binentry>
-      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="303D0" ascii="false" description="">000000010088</binentry>
-      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="303D0" ascii="false" description="">000000010089</binentry>
-      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="303D0" ascii="false" description="">00000001008A</binentry>
-      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="303D0" ascii="false" description="">00000001008B</binentry>
-      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="303D0" ascii="false" description="">00000001008C</binentry>
-      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="303D0" ascii="false" description="">00000001008E</binentry>
-      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="303D0" ascii="false" description="">00000001008F</binentry>
-      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="303D6" ascii="false" description="">0001</binentry>
-      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="303D6" ascii="false" description="">0002</binentry>
-      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="303D6" ascii="false" description="">0003</binentry>
-      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="303D6" ascii="false" description="">0004</binentry>
-      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="303D6" ascii="false" description="">0005</binentry>
-      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="303D6" ascii="false" description="">0006</binentry>
-      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="303D6" ascii="false" description="">0007</binentry>
-      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="303D6" ascii="false" description="">0008</binentry>
-      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="303D6" ascii="false" description="">0009</binentry>
-      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="303D6" ascii="false" description="">000A</binentry>
-      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="303D6" ascii="false" description="">000B</binentry>
-      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="303D6" ascii="false" description="">000C</binentry>
-      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="303D6" ascii="false" description="">000D</binentry>
-      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="303D6" ascii="false" description="">000E</binentry>
-      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="303D6" ascii="false" description="">000F</binentry>
-      <binentry name="005.17   EID5 Static" ismulti="false" offset="303E0" ascii="false" description="">00120730</binentry>
+      <binentry name="005.12   EID3 Static0" offset="302A0">00000001</binentry>
+      <binentry name="005.13   EID3 Static1" offset="302A8">00000000</binentry>
+      <binentry name="005.14   EID3 Static2" offset="302B0">000100D0</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="303D0">000000010082</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="303D0">000000010083</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="303D0">000000010084</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="303D0">000000010085</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="303D0">000000010086</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="303D0">000000010087</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="303D0">000000010088</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="303D0">000000010089</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="303D0">00000001008A</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="303D0">00000001008B</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="303D0">00000001008C</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="303D0">00000001008E</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="303D0">00000001008F</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="303D6">0001</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="303D6">0002</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="303D6">0003</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="303D6">0004</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="303D6">0005</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="303D6">0006</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="303D6">0007</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="303D6">0008</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="303D6">0009</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="303D6">000A</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="303D6">000B</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="303D6">000C</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="303D6">000D</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="303D6">000E</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="303D6">000F</binentry>
+      <binentry name="005.17   EID5 Static" offset="303E0">00120730</binentry>
       <datafill name="005.18   eEID Region 0xFF Filled Area" offset="30DD0" size="E230">FF</datafill>
       <datalist name="005.19   eEID Statistics0" offset="2F080" size="AF0">
         <datatreshold key="*">1,1</datatreshold>
@@ -797,118 +793,116 @@
       </datalist>
     </eEID_region>
     <cISD_region>
-      <binentry name="006.01   cISD Header" ismulti="false" offset="3F000" ascii="false" description="">00000003000002700000000000000000</binentry>
-      <binentry name="006.02   cISD0 Offset - Length" ismulti="false" offset="3F010" ascii="false" description="">00000040000000200000000000000000</binentry>
-      <binentry name="006.03   cISD1 Offset - Length" ismulti="false" offset="3F020" ascii="false" description="">00000060000002000000000000000001</binentry>
-      <binentry name="006.04   cISD2 Offset - Length" ismulti="false" offset="3F030" ascii="false" description="">00000260000000100000000000000002</binentry>
+      <binentry name="006.01   cISD Header" offset="3F000">00000003000002700000000000000000</binentry>
+      <binentry name="006.02   cISD0 Offset - Length" offset="3F010">00000040000000200000000000000000</binentry>
+      <binentry name="006.03   cISD1 Offset - Length" offset="3F020">00000060000002000000000000000001</binentry>
+      <binentry name="006.04   cISD2 Offset - Length" offset="3F030">00000260000000100000000000000002</binentry>
       <datafill name="006.05   cISD0 0xFF Filled Area" offset="3F046" size="1A">FF</datafill>
-      <binentry name="006.06   cISD1 IDLog Header" ismulti="false" offset="3F060" ascii="true" description="">7F49444C</binentry>
-      <binentry name="006.07   cISD1 Static1" ismulti="false" offset="3F064" ascii="false" description="">000200600100</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4" ascii="false" description="">004700470071</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4" ascii="false" description="">005200520071</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4" ascii="false" description="">005400540080</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4" ascii="false" description="">006200620090</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4" ascii="false" description="">006200620092</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4" ascii="false" description="">006600660096</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4" ascii="false" description="">007300730096</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4" ascii="false" description="">007900790106</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4" ascii="false" description="">008500850106</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4" ascii="false" description="">008500850114</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4" ascii="false" description="">008700870114</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4" ascii="false" description="">009100910114</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4" ascii="false" description="">009900990118</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4" ascii="false" description="">010101010124</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4" ascii="false" description="">010101010128</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4" ascii="false" description="">010701070128</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4" ascii="false" description="">010701070134</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4" ascii="false" description="">011101110138</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4" ascii="false" description="">011101110140</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4" ascii="false" description="">011301130142</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4" ascii="false" description="">012101210150</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4" ascii="false" description="">012301230152</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4" ascii="false" description="">013101310160</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4" ascii="false" description="">016501650180</binentry>
+      <binentry name="006.06   cISD1 IDLog Header" offset="3F060" ascii="true">7F49444C</binentry>
+      <binentry name="006.07   cISD1 Static1" offset="3F064">000200600100</binentry>
+      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">004700470071</binentry>
+      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">005200520071</binentry>
+      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">005400540080</binentry>
+      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">006200620090</binentry>
+      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">006200620092</binentry>
+      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">006600660096</binentry>
+      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">007300730096</binentry>
+      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">007900790106</binentry>
+      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">008500850106</binentry>
+      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">008500850114</binentry>
+      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">008700870114</binentry>
+      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">009100910114</binentry>
+      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">009900990118</binentry>
+      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">010101010124</binentry>
+      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">010101010128</binentry>
+      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">010701070128</binentry>
+      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">010701070134</binentry>
+      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">011101110138</binentry>
+      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">011101110140</binentry>
+      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">011301130142</binentry>
+      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">012101210150</binentry>
+      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">012301230152</binentry>
+      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">013101310160</binentry>
+      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">016501650180</binentry>
       <datafill name="006.09   cISD1 0xFF Filled Area 0" offset="3F0AC" size="4">FF</datafill>
-      <binentry name="006.10   cISD1 Static2" ismulti="false" offset="3F0AA" ascii="false" description="">0001</binentry>
-      <binentry name="006.11   cISD1 Semistatic2" ismulti="false" offset="3F0B0" ascii="false" description="">0002001100020012</binentry>
+      <binentry name="006.10   cISD1 Static2" offset="3F0AA">0001</binentry>
+      <binentry name="006.11   cISD1 Semistatic2" offset="3F0B0">0002001100020012</binentry>
       <datafill name="006.12   cISD1 0xFF Filled Area 1" offset="3F0C0" size="1A0">FF</datafill>
       <datalist name="006.13   cISD1 Statistics" offset="3F070" size="3C">
         <datatreshold key="FF">0</datatreshold>
       </datalist>
-      <binentry name="006.14   cISD2" ismulti="true" offset="3F260" ascii="false" description="">1FFF0000000000000000000000000000</binentry>
-      <binentry name="006.14   cISD2" ismulti="true" offset="3F260" ascii="false" description="">07FF0000000000000000000000000000</binentry>
-      <binentry name="006.14   cISD2" ismulti="true" offset="3F260" ascii="false" description="">3FFF0000000000000000000000000000</binentry>
+      <binentry name="006.14   cISD2" ismulti="true" offset="3F260">1FFF0000000000000000000000000000</binentry>
+      <binentry name="006.14   cISD2" ismulti="true" offset="3F260">07FF0000000000000000000000000000</binentry>
+      <binentry name="006.14   cISD2" ismulti="true" offset="3F260">3FFF0000000000000000000000000000</binentry>
       <datafill name="006.15   cISD 0xFF Filled Area" offset="3F270" size="590">FF</datafill>
       <!-- TODO: Fix the below section, it only works with byteswapped dumps -->
       <!--  littlebalup's comment: bug should be due to impair (3) bytes  -->
       <!--
-      <binentry name="cISD0 MAC ADDRESS" ismulti="true" offset="3F040" ascii="false" description="">00141F</binentry>
-      <binentry name="cISD0 MAC ADDRESS" ismulti="true" offset="3F040" ascii="false" description="">001315</binentry>
-      <binentry name="cISD0 MAC ADDRESS" ismulti="true" offset="3F040" ascii="false" description="">0015C1</binentry>
-      <binentry name="cISD0 MAC ADDRESS" ismulti="true" offset="3F040" ascii="false" description="">0019C5</binentry>
-      <binentry name="cISD0 MAC ADDRESS" ismulti="true" offset="3F040" ascii="false" description="">001D0D</binentry>
-      <binentry name="cISD0 MAC ADDRESS" ismulti="true" offset="3F040" ascii="false" description="">001FA7</binentry>
-      <binentry name="cISD0 MAC ADDRESS" ismulti="true" offset="3F040" ascii="false" description="">0022A6</binentry>
-      <binentry name="cISD0 MAC ADDRESS" ismulti="true" offset="3F040" ascii="false" description="">00248D</binentry>
-      <binentry name="cISD0 MAC ADDRESS" ismulti="true" offset="3F040" ascii="false" description="">280DFC</binentry>
-      <binentry name="cISD0 MAC ADDRESS" ismulti="true" offset="3F040" ascii="false" description="">A8E3EE</binentry>
-      <binentry name="cISD0 MAC ADDRESS" ismulti="true" offset="3F040" ascii="false" description="">F8D0AC</binentry>
-      <binentry name="cISD0 MAC ADDRESS" ismulti="true" offset="3F040" ascii="false" description="">FC0FE6</binentry>
+      <binentry name="cISD0 MAC ADDRESS" ismulti="true" offset="3F040">00141F</binentry>
+      <binentry name="cISD0 MAC ADDRESS" ismulti="true" offset="3F040">001315</binentry>
+      <binentry name="cISD0 MAC ADDRESS" ismulti="true" offset="3F040">0015C1</binentry>
+      <binentry name="cISD0 MAC ADDRESS" ismulti="true" offset="3F040">0019C5</binentry>
+      <binentry name="cISD0 MAC ADDRESS" ismulti="true" offset="3F040">001D0D</binentry>
+      <binentry name="cISD0 MAC ADDRESS" ismulti="true" offset="3F040">001FA7</binentry>
+      <binentry name="cISD0 MAC ADDRESS" ismulti="true" offset="3F040">0022A6</binentry>
+      <binentry name="cISD0 MAC ADDRESS" ismulti="true" offset="3F040">00248D</binentry>
+      <binentry name="cISD0 MAC ADDRESS" ismulti="true" offset="3F040">280DFC</binentry>
+      <binentry name="cISD0 MAC ADDRESS" ismulti="true" offset="3F040">A8E3EE</binentry>
+      <binentry name="cISD0 MAC ADDRESS" ismulti="true" offset="3F040">F8D0AC</binentry>
+      <binentry name="cISD0 MAC ADDRESS" ismulti="true" offset="3F040">FC0FE6</binentry>
       -->
     </cISD_region>
     <cCSD_region>
-      <binentry name="007.01   cCSD Header" ismulti="false" offset="3F800" ascii="false" description="">00000001000008000000000000000000</binentry>
-      <binentry name="007.02   cCSD Entry Table" ismulti="false" offset="3F810" ascii="false" description="">00000020000000300000000000000000</binentry>
+      <binentry name="007.01   cCSD Header" offset="3F800">00000001000008000000000000000000</binentry>
+      <binentry name="007.02   cCSD Entry Table" offset="3F810">00000020000000300000000000000000</binentry>
       <datafill name="007.03   cCSD 0xFF Filled Area" offset="3F820" size="7E0">FF</datafill>
     </cCSD_region>
     <Revokation_region>
-      <binentry name="008.01   trvk_prg0 SCE" ismulti="false" offset="40010" ascii="true" description="">53434500</binentry>
+      <binentry name="008.01   trvk_prg0 SCE" offset="40010" ascii="true">53434500</binentry>
       <!--  Need to find a way to check trvk_prg0 0x00 filled area (start is relative to data size at 4000E, length 0x0D00)  -->
       <!--  Need to find a way to check trvk_prg0 0xFF filled area (follow previous 0x00 area to 5FFFF)  -->
-      <binentry name="008.02   trvk_prg1 SCE" ismulti="false" offset="60010" ascii="true" description="">53434500</binentry>
+      <binentry name="008.02   trvk_prg1 SCE" offset="60010" ascii="true">53434500</binentry>
       <!--  Need to find a way to check trvk_prg1 0x00 filled area (start is relative to data size at 6000E, length 0x0D00)  -->
       <!--  Need to find a way to check trvk_prg1 0xFF filled area (follow previous 0x00 area to 7FFFF)  -->
-      <binentry name="008.03   trvk_pkg0 SCE" ismulti="false" offset="80010" ascii="true" description="">53434500</binentry>
+      <binentry name="008.03   trvk_pkg0 SCE" offset="80010" ascii="true">53434500</binentry>
       <!--  Need to find a way to check trvk_pkg0 0x00 filled area (start is relative to data size at 8000E, length 0x0D80)  -->
       <!--  Need to find a way to check trvk_pkg0 0xFF filled area (follow previous 0x00 area to 9FFFF)  -->
-      <binentry name="008.04   trvk_pkg1 SCE" ismulti="false" offset="A0010" ascii="true" description="">53434500</binentry>
+      <binentry name="008.04   trvk_pkg1 SCE" offset="A0010" ascii="true">53434500</binentry>
       <!--  Need to find a way to check trvk_pkg1 0x00 filled area (start is relative to data size at A000E, length 0x0D80)  -->
       <!--  Need to find a way to check trvk_pkg1 0xFF filled area (follow previous 0x00 area to BFFFF)  -->
     </Revokation_region>
     <CoreOS_region>
-      <binentry name="009.01   ros0 Header" ismulti="false" offset="C0000" ascii="false" description="">000000000000000000000000006FFFE0</binentry>
-      <binentry name="009.02   ros1 Header" ismulti="false" offset="7C0000" ascii="false" description="">000000000000000000000000006FFFE0</binentry>
+      <binentry name="009.01   ros0 Header" offset="C0000">000000000000000000000000006FFFE0</binentry>
+      <binentry name="009.02   ros1 Header" offset="7C0000">000000000000000000000000006FFFE0</binentry>
     </CoreOS_region>
     <cvtrm_region>
       <datafill name="010.01   cvtrm0 0xFF Filled Area" offset="EBFFF0" size="10">FF</datafill>
-      <binentry name="010.02   cvtrm0 Header" ismulti="true" offset="EC0000" ascii="false" description="">53434549FFFFFFFFFFFFFFFFFFFFFFFF</binentry>
-      <binentry name="010.02   cvtrm0 Header" ismulti="true" offset="EC0000" ascii="false" description="">00000000FFFDFFFFFFFFFFFFFFFFFFFF</binentry>
-      <binentry name="010.02   cvtrm0 Header" ismulti="true" offset="EC0000" ascii="false" description="">00000000FFFFFFFFFFFFFFFFFFFFFFFF</binentry>
+      <binentry name="010.02   cvtrm0 Header" ismulti="true" offset="EC0000">53434549FFFFFFFFFFFFFFFFFFFFFFFF</binentry>
+      <binentry name="010.02   cvtrm0 Header" ismulti="true" offset="EC0000">00000000FFFDFFFFFFFFFFFFFFFFFFFF</binentry>
+      <binentry name="010.02   cvtrm0 Header" ismulti="true" offset="EC0000">00000000FFFFFFFFFFFFFFFFFFFFFFFF</binentry>
       <!-- Might not be valid... -->
       <datafill name="010.03   cvtrm0 0xFF Filled Area" offset="EC0006" size="3FFA">FF</datafill>
-      <binentry name="010.04   vtrm0 Magic" ismulti="false" offset="EC4000" ascii="true" description="">000000005654524D000000000000</binentry>
-      <binentry name="010.05   vtrm0 Reserved Entries" ismulti="false" offset="EC4028" ascii="false" description="">0000000000000209</binentry>
-      <binentry name="010.06   cvtrm1 Header" ismulti="true" offset="EE0000" ascii="false" description="">53434549FFFFFFFFFFFFFFFFFFFFFFFF</binentry>
-      <binentry name="010.06   cvtrm1 Header" ismulti="true" offset="EE0000" ascii="false" description="">00000000FFFDFFFFFFFFFFFFFFFFFFFF</binentry>
-      <binentry name="010.06   cvtrm1 Header" ismulti="true" offset="EE0000" ascii="false" description="">00000000FFFFFFFFFFFFFFFFFFFFFFFF</binentry>
+      <binentry name="010.04   vtrm0 Magic" offset="EC4000" ascii="true">000000005654524D000000000000</binentry>
+      <binentry name="010.05   vtrm0 Reserved Entries" offset="EC4028">0000000000000209</binentry>
+      <binentry name="010.06   cvtrm1 Header" ismulti="true" offset="EE0000">53434549FFFFFFFFFFFFFFFFFFFFFFFF</binentry>
+      <binentry name="010.06   cvtrm1 Header" ismulti="true" offset="EE0000">00000000FFFDFFFFFFFFFFFFFFFFFFFF</binentry>
+      <binentry name="010.06   cvtrm1 Header" ismulti="true" offset="EE0000">00000000FFFFFFFFFFFFFFFFFFFFFFFF</binentry>
       <!-- Might not be valid... -->
       <datafill name="010.07   cvtrm1 0xFF Filled Area" offset="EE0010" size="3FF0">FF</datafill>
-      <binentry name="010.08   vtrm1 Magic" ismulti="false" offset="EE4000" ascii="true" description="">000000005654524D000000000000</binentry>
+      <binentry name="010.08   vtrm1 Magic" offset="EE4000" ascii="true">000000005654524D000000000000</binentry>
     </cvtrm_region>
     <Second_Region_Header>
       <datafill name="011.01   Second Region Header 0x00 Filled Area 0" offset="F00000" size="10">00</datafill>
-      <binentry name="011.02   Second Region Header Magic" ismulti="false" offset="F00010" ascii="false" description="">000000000FACE0FF00000000DEADFACE</binentry>
-      <binentry name="011.03   Second Region Header Count" ismulti="false" offset="F00020" ascii="false" description="">0000000000000003</binentry>
+      <binentry name="011.02   Second Region Header Magic" offset="F00010">000000000FACE0FF00000000DEADFACE</binentry>
+      <binentry name="011.03   Second Region Header Count" offset="F00020">0000000000000003</binentry>
       <datafill name="011.04   Second Region Header 0x00 Filled Area 1" offset="F00030" size="90">00</datafill>
-      <binentry name="011.05   Second Region Unknown Block 0" ismulti="false" offset="F000C0" ascii="false"
-                description="">
+      <binentry name="011.05   Second Region Unknown Block 0" offset="F000C0">
         00000000000079000000000000000100
         10700000010000010000000000000003
         10700000020000010000000000000003
       </binentry>
       <datafill name="011.06   Second Region Header 0x00 Filled Area 2" offset="F000F0" size="60">00</datafill>
-      <binentry name="011.07   Second Region Unknown Block 1" ismulti="false" offset="F00150" ascii="false"
-                description="">
+      <binentry name="011.07   Second Region Unknown Block 1" offset="F00150">
         0000000000007A000000000000000400
         10700000010000010000000000000003
         10700000020000010000000000000003
@@ -918,7 +912,7 @@
     </Second_Region_Header>
     <datafill name="012.01   unreferenced area 0xFF Filled" offset="F01000" size="1F000">FF</datafill>
     <CELL_EXTNOR_AREA_Region>
-      <binentry name="013.01   CELL_EXTNOR_AREA Header" ismulti="false" offset="F20000" ascii="true" description="">43454C4C5F4558544E4F525F41524541</binentry>
+      <binentry name="013.01   CELL_EXTNOR_AREA Header" offset="F20000" ascii="true">43454C4C5F4558544E4F525F41524541</binentry>
       <datafill name="013.02   CELL_EXTNOR_AREA 0x00 Filled Area 0" offset="F20040" size="1C0">00</datafill>
       <datafill name="013.03   CELL_EXTNOR_AREA 0x00 Filled Area 1" offset="F20240" size="1FDC0">00</datafill>
       <datafill name="013.04   CELL_EXTNOR_AREA 0x00 Filled Area 2" offset="F40030" size="1FFD0">00</datafill>
@@ -933,59 +927,59 @@
       <datafill name="013.09   CELL_EXTNOR_AREA 0xFF Filled Area 1" offset="FA9C00" size="16400">FF</datafill>
     </CELL_EXTNOR_AREA_Region>
     <bootldr_region>
-      <binentry name="014.01   bootldr0" ismulti="true" offset="FC0000" ascii="false" description="">00002F1C</binentry>
-      <binentry name="014.01   bootldr0" ismulti="true" offset="FC0000" ascii="false" description="">00002EF4</binentry>
-      <binentry name="014.01   bootldr0" ismulti="true" offset="FC0000" ascii="false" description="">00002EE3</binentry>
-      <binentry name="014.01   bootldr0" ismulti="true" offset="FC0000" ascii="false" description="">00002EAB</binentry>
-      <binentry name="014.01   bootldr0" ismulti="true" offset="FC0000" ascii="false" description="">00002EB3</binentry>
-      <binentry name="014.01   bootldr0" ismulti="true" offset="FC0000" ascii="false" description="">00002F13</binentry>
-      <binentry name="014.01   bootldr0" ismulti="true" offset="FC0000" ascii="false" description="">00002F3B</binentry>
-      <binentry name="014.01   bootldr0" ismulti="true" offset="FC0000" ascii="false" description="">00002F4B</binentry>
-      <binentry name="014.01   bootldr0" ismulti="true" offset="FC0000" ascii="false" description="">00002F53</binentry>
-      <binentry name="014.01   bootldr0" ismulti="true" offset="FC0000" ascii="false" description="">00002F5B</binentry>
-      <binentry name="014.01   bootldr0" ismulti="true" offset="FC0000" ascii="false" description="">00002FFB</binentry>
-      <binentry name="014.01   bootldr0" ismulti="true" offset="FC0000" ascii="false" description="">00003003</binentry>
-      <binentry name="014.01   bootldr0" ismulti="true" offset="FC0000" ascii="false" description="">0000300B</binentry>
-      <binentry name="014.01   bootldr0" ismulti="true" offset="FC0000" ascii="false" description="">0000301B</binentry>
-      <binentry name="014.02   bootldr1" ismulti="true" offset="FC0010" ascii="false" description="">00002F1C</binentry>
-      <binentry name="014.02   bootldr1" ismulti="true" offset="FC0010" ascii="false" description="">00002EF4</binentry>
-      <binentry name="014.02   bootldr1" ismulti="true" offset="FC0010" ascii="false" description="">00002EE3</binentry>
-      <binentry name="014.02   bootldr1" ismulti="true" offset="FC0010" ascii="false" description="">00002EAB</binentry>
-      <binentry name="014.02   bootldr1" ismulti="true" offset="FC0010" ascii="false" description="">00002EB3</binentry>
-      <binentry name="014.02   bootldr1" ismulti="true" offset="FC0010" ascii="false" description="">00002F13</binentry>
-      <binentry name="014.02   bootldr1" ismulti="true" offset="FC0010" ascii="false" description="">00002F3B</binentry>
-      <binentry name="014.02   bootldr1" ismulti="true" offset="FC0010" ascii="false" description="">00002F4B</binentry>
-      <binentry name="014.02   bootldr1" ismulti="true" offset="FC0010" ascii="false" description="">00002F53</binentry>
-      <binentry name="014.02   bootldr1" ismulti="true" offset="FC0010" ascii="false" description="">00002F5B</binentry>
-      <binentry name="014.02   bootldr1" ismulti="true" offset="FC0010" ascii="false" description="">00002FFB</binentry>
-      <binentry name="014.02   bootldr1" ismulti="true" offset="FC0010" ascii="false" description="">00003003</binentry>
-      <binentry name="014.02   bootldr1" ismulti="true" offset="FC0010" ascii="false" description="">0000300B</binentry>
-      <binentry name="014.02   bootldr1" ismulti="true" offset="FC0010" ascii="false" description="">0000301B</binentry>
-      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004" ascii="false" description="">065B860C5CF76AC4598DD7B4</binentry>
-      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004" ascii="false" description="">89EFFD15B3850E3B2A734484</binentry>
-      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004" ascii="false" description="">6EED04A04E41532AC123C718</binentry>
-      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004" ascii="false" description="">E644A075B60B7996C1297AA0</binentry>
-      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004" ascii="false" description="">7B09CBEE002FAF5159F8D5A8</binentry>
-      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004" ascii="false" description="">ED4C79D65D602876FFADA6FD</binentry>
-      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004" ascii="false" description="">B19434A33CF1C866DF420E50</binentry>
-      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004" ascii="false" description="">83EFB976C4DED135327CD377</binentry>
-      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004" ascii="false" description="">61D19BA54168163C019F884B</binentry>
-      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004" ascii="false" description="">92AC2C2157A577C84DDFECDB</binentry>
-      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004" ascii="false" description="">41F793C709418F938944BA7A</binentry>
-      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004" ascii="false" description="">FA46EC86570FCAAA064E8A86</binentry>
-      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004" ascii="false" description="">F5A221B5C05F214201979DAA</binentry>
-      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004" ascii="false" description="">7780B134B6DF258A1ABBAB4D</binentry>
-      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004" ascii="false" description="">CB9E152428B44FD2F93FBC43</binentry>
-      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004" ascii="false" description="">EFB3455D6A9FD751005E34BC</binentry>
-      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004" ascii="false" description="">53921CE7F73341769B7A1ED6</binentry>
-      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004" ascii="false" description="">53E6A0BBB0AFA20067D0B39A</binentry>
-      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004" ascii="false" description="">AA3AEA6E3DA09A581E1E2100</binentry>
-      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004" ascii="false" description="">C5A42771EE5E219A3BFC2C45</binentry>
-      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004" ascii="false" description="">13ECA74A8E14D473129128E8</binentry>
-      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004" ascii="false" description="">63B9D98130DB7BB0F39D124F</binentry>
-      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004" ascii="false" description="">BBCCBF29ECD802844EB28AE6</binentry>
-      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004" ascii="false" description="">2E604104D943D1B534D4C5F5</binentry>
-      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004" ascii="false" description="">1FDC1E2DF00DA36701E2F8F6</binentry>
+      <binentry name="014.01   bootldr0" ismulti="true" offset="FC0000">00002F1C</binentry>
+      <binentry name="014.01   bootldr0" ismulti="true" offset="FC0000">00002EF4</binentry>
+      <binentry name="014.01   bootldr0" ismulti="true" offset="FC0000">00002EE3</binentry>
+      <binentry name="014.01   bootldr0" ismulti="true" offset="FC0000">00002EAB</binentry>
+      <binentry name="014.01   bootldr0" ismulti="true" offset="FC0000">00002EB3</binentry>
+      <binentry name="014.01   bootldr0" ismulti="true" offset="FC0000">00002F13</binentry>
+      <binentry name="014.01   bootldr0" ismulti="true" offset="FC0000">00002F3B</binentry>
+      <binentry name="014.01   bootldr0" ismulti="true" offset="FC0000">00002F4B</binentry>
+      <binentry name="014.01   bootldr0" ismulti="true" offset="FC0000">00002F53</binentry>
+      <binentry name="014.01   bootldr0" ismulti="true" offset="FC0000">00002F5B</binentry>
+      <binentry name="014.01   bootldr0" ismulti="true" offset="FC0000">00002FFB</binentry>
+      <binentry name="014.01   bootldr0" ismulti="true" offset="FC0000">00003003</binentry>
+      <binentry name="014.01   bootldr0" ismulti="true" offset="FC0000">0000300B</binentry>
+      <binentry name="014.01   bootldr0" ismulti="true" offset="FC0000">0000301B</binentry>
+      <binentry name="014.02   bootldr1" ismulti="true" offset="FC0010">00002F1C</binentry>
+      <binentry name="014.02   bootldr1" ismulti="true" offset="FC0010">00002EF4</binentry>
+      <binentry name="014.02   bootldr1" ismulti="true" offset="FC0010">00002EE3</binentry>
+      <binentry name="014.02   bootldr1" ismulti="true" offset="FC0010">00002EAB</binentry>
+      <binentry name="014.02   bootldr1" ismulti="true" offset="FC0010">00002EB3</binentry>
+      <binentry name="014.02   bootldr1" ismulti="true" offset="FC0010">00002F13</binentry>
+      <binentry name="014.02   bootldr1" ismulti="true" offset="FC0010">00002F3B</binentry>
+      <binentry name="014.02   bootldr1" ismulti="true" offset="FC0010">00002F4B</binentry>
+      <binentry name="014.02   bootldr1" ismulti="true" offset="FC0010">00002F53</binentry>
+      <binentry name="014.02   bootldr1" ismulti="true" offset="FC0010">00002F5B</binentry>
+      <binentry name="014.02   bootldr1" ismulti="true" offset="FC0010">00002FFB</binentry>
+      <binentry name="014.02   bootldr1" ismulti="true" offset="FC0010">00003003</binentry>
+      <binentry name="014.02   bootldr1" ismulti="true" offset="FC0010">0000300B</binentry>
+      <binentry name="014.02   bootldr1" ismulti="true" offset="FC0010">0000301B</binentry>
+      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004">065B860C5CF76AC4598DD7B4</binentry>
+      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004">89EFFD15B3850E3B2A734484</binentry>
+      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004">6EED04A04E41532AC123C718</binentry>
+      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004">E644A075B60B7996C1297AA0</binentry>
+      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004">7B09CBEE002FAF5159F8D5A8</binentry>
+      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004">ED4C79D65D602876FFADA6FD</binentry>
+      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004">B19434A33CF1C866DF420E50</binentry>
+      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004">83EFB976C4DED135327CD377</binentry>
+      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004">61D19BA54168163C019F884B</binentry>
+      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004">92AC2C2157A577C84DDFECDB</binentry>
+      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004">41F793C709418F938944BA7A</binentry>
+      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004">FA46EC86570FCAAA064E8A86</binentry>
+      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004">F5A221B5C05F214201979DAA</binentry>
+      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004">7780B134B6DF258A1ABBAB4D</binentry>
+      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004">CB9E152428B44FD2F93FBC43</binentry>
+      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004">EFB3455D6A9FD751005E34BC</binentry>
+      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004">53921CE7F73341769B7A1ED6</binentry>
+      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004">53E6A0BBB0AFA20067D0B39A</binentry>
+      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004">AA3AEA6E3DA09A581E1E2100</binentry>
+      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004">C5A42771EE5E219A3BFC2C45</binentry>
+      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004">13ECA74A8E14D473129128E8</binentry>
+      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004">63B9D98130DB7BB0F39D124F</binentry>
+      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004">BBCCBF29ECD802844EB28AE6</binentry>
+      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004">2E604104D943D1B534D4C5F5</binentry>
+      <binentry name="014.03   bootldr Rev key" ismulti="true" offset="FC0004">1FDC1E2DF00DA36701E2F8F6</binentry>
       <datalist name="014.04   bootldr Statistics" offset="FC0000" ldrsize="FC0002">
         <datatreshold key="*">0,5</datatreshold>
       </datalist>
@@ -1025,13 +1019,9 @@
       </id4>
       <id5>
         <datamatch offset="EDD748" length="14" id="5" seqrep="C7">offset 0x{0:X}</datamatch>
-         Stops at: 0xEDE6C0 
         <datamatch offset="EDE6E8" length="14" id="5" seqrep="141">offset 0x{0:X}</datamatch>
-         Stops at: 0xEDFFE8 
         <datamatch offset="EFD748" length="14" id="5" seqrep="C7">offset 0x{0:X}</datamatch>
-         Stops at: 0xEFE6C0
         <datamatch offset="EFE6E8" length="14" id="5" seqrep="141">offset 0x{0:X}</datamatch>
-         Stops at: 0xEFFFE8
       </id5>
       <id6>
         <datamatch offset="EDE6D4" length="14" id="6">vtrm1 offset EDE6D4</datamatch>
@@ -1062,7 +1052,7 @@
       <skudataentry offset="FC0002" size="2">bootldrsize</skudataentry>
     </skulistdata>
     <skumodels>
-      <skulist name="CECHHxx (DIA-001)" warn="false" warnmsg="" minver="2.30">
+      <skulist name="CECHHxx (DIA-001)" minver="2.30">
         <skuentry type="idps">06</skuentry>
         <skuentry type="metldr0">E7B0</skuentry>
         <skuentry type="metldr1">0E77</skuentry>
@@ -1070,7 +1060,7 @@
         <skuentry type="bootldr1">2F1C</skuentry>
         <skuentry type="bootldrsize">2F200</skuentry>
       </skulist>
-      <skulist name="CECHHxx (DIA-001)" warn="false" warnmsg="" minver="2.30">
+      <skulist name="CECHHxx (DIA-001)" minver="2.30">
         <skuentry type="idps">06</skuentry>
         <skuentry type="metldr0">E8C0</skuentry>
         <skuentry type="metldr1">0E88</skuentry>
@@ -1078,7 +1068,7 @@
         <skuentry type="bootldr1">2EF4</skuentry>
         <skuentry type="bootldrsize">2EF80</skuentry>
       </skulist>
-      <skulist name="CECHHxx (DIA-001)" warn="false" warnmsg="" minver="1.97">
+      <skulist name="CECHHxx (DIA-001)" minver="1.97">
         <skuentry type="idps">06</skuentry>
         <skuentry type="metldr0">E8E0</skuentry>
         <skuentry type="metldr1">0E8A</skuentry>
@@ -1086,7 +1076,7 @@
         <skuentry type="bootldr1">2EF4</skuentry>
         <skuentry type="bootldrsize">2EF80</skuentry>
       </skulist>
-      <skulist name="CECHJxx (DIA-002) datecode:8B" warn="false" warnmsg="" minver="2.30">
+      <skulist name="CECHJxx (DIA-002) datecode:8B" minver="2.30">
         <skuentry type="idps">07</skuentry>
         <skuentry type="metldr0">E8E0</skuentry>
         <skuentry type="metldr1">0E8A</skuentry>
@@ -1094,7 +1084,7 @@
         <skuentry type="bootldr1">2EF4</skuentry>
         <skuentry type="bootldrsize">2EF80</skuentry>
       </skulist>
-      <skulist name="CECHHxx (DIA-001) or CECHMxx (DIA-001)" warn="false" warnmsg="" minver="1.97">
+      <skulist name="CECHHxx (DIA-001) or CECHMxx (DIA-001)" minver="1.97">
         <skuentry type="idps">06</skuentry>
         <skuentry type="metldr0">EA60</skuentry>
         <skuentry type="metldr1">0EA2</skuentry>
@@ -1102,7 +1092,7 @@
         <skuentry type="bootldr1">2EE3</skuentry>
         <skuentry type="bootldrsize">2EE70</skuentry>
       </skulist>
-      <skulist name="CECHJxx (DIA-002) or CECHKxx (DIA-002) datecode:8C" warn="false" warnmsg="" minver="2.30">
+      <skulist name="CECHJxx (DIA-002) or CECHKxx (DIA-002) datecode:8C" minver="2.30">
         <skuentry type="idps">07</skuentry>
         <skuentry type="metldr0">EA60</skuentry>
         <skuentry type="metldr1">0EA2</skuentry>
@@ -1110,7 +1100,7 @@
         <skuentry type="bootldr1">2EE3</skuentry>
         <skuentry type="bootldrsize">2EE70</skuentry>
       </skulist>
-      <skulist name="CECHLxx (VER-001) or CECHPxx (VER-001)" warn="false" warnmsg="" minver="2.45">
+      <skulist name="CECHLxx (VER-001) or CECHPxx (VER-001)" minver="2.45">
         <skuentry type="idps">08</skuentry>
         <skuentry type="metldr0">E8D0</skuentry>
         <skuentry type="metldr1">0E89</skuentry>
@@ -1118,7 +1108,7 @@
         <skuentry type="bootldr1">2EAB</skuentry>
         <skuentry type="bootldrsize">2EAF0</skuentry>
       </skulist>
-      <skulist name="CECHLxx (VER-001)" warn="false" warnmsg="" minver="2.45">
+      <skulist name="CECHLxx (VER-001)" minver="2.45">
         <skuentry type="idps">08</skuentry>
         <skuentry type="metldr0">E8D0</skuentry>
         <skuentry type="metldr1">0E89</skuentry>
@@ -1126,7 +1116,7 @@
         <skuentry type="bootldr1">2EB3</skuentry>
         <skuentry type="bootldrsize">2EB70</skuentry>
       </skulist>
-      <skulist name="CECHLxx (VER-001)" warn="false" warnmsg="" minver="2.30">
+      <skulist name="CECHLxx (VER-001)" minver="2.30">
         <skuentry type="idps">08</skuentry>
         <skuentry type="metldr0">E890</skuentry>
         <skuentry type="metldr1">0E85</skuentry>
@@ -1134,7 +1124,7 @@
         <skuentry type="bootldr1">2F13</skuentry>
         <skuentry type="bootldrsize">2F170</skuentry>
       </skulist>
-      <skulist name="CECH-20xx (DYN-001)" warn="false" warnmsg="" minver="2.70">
+      <skulist name="CECH-20xx (DYN-001)" minver="2.70">
         <skuentry type="idps">09</skuentry>
         <skuentry type="metldr0">E890</skuentry>
         <skuentry type="metldr1">0E85</skuentry>
@@ -1142,7 +1132,7 @@
         <skuentry type="bootldr1">2F13</skuentry>
         <skuentry type="bootldrsize">2F170</skuentry>
       </skulist>
-      <skulist name="CECH-20xx (DYN-001)" warn="false" warnmsg="" minver="2.70">
+      <skulist name="CECH-20xx (DYN-001)" minver="2.70">
         <skuentry type="idps">09</skuentry>
         <skuentry type="metldr0">E920</skuentry>
         <skuentry type="metldr1">0E8E</skuentry>
@@ -1150,7 +1140,7 @@
         <skuentry type="bootldr1">2F3B</skuentry>
         <skuentry type="bootldrsize">2F3F0</skuentry>
       </skulist>
-      <skulist name="CECH-20xx (DYN-001)" warn="false" warnmsg="" minver="3.40">
+      <skulist name="CECH-20xx (DYN-001)" minver="3.40">
         <skuentry type="idps">09</skuentry>
         <skuentry type="metldr0">E920</skuentry>
         <skuentry type="metldr1">0E8E</skuentry>
@@ -1158,7 +1148,7 @@
         <skuentry type="bootldr1">2F4B</skuentry>
         <skuentry type="bootldrsize">2F4F0</skuentry>
       </skulist>
-      <skulist name="CECH-21xx (SUR-001)" warn="false" warnmsg="" minver="3.20">
+      <skulist name="CECH-21xx (SUR-001)" minver="3.20">
         <skuentry type="idps">0A</skuentry>
         <skuentry type="metldr0">E920</skuentry>
         <skuentry type="metldr1">0E8E</skuentry>
@@ -1166,7 +1156,7 @@
         <skuentry type="bootldr1">2F4B</skuentry>
         <skuentry type="bootldrsize">2F4F0</skuentry>
       </skulist>
-      <skulist name="CECH-25xx (JTP-001) datecode: 0C or CECH-25xx (JSD-001) datecode: 0C" warn="false" warnmsg=""
+      <skulist name="CECH-25xx (JTP-001) datecode: 0C or CECH-25xx (JSD-001) datecode: 0C"
                minver="3.40">
         <skuentry type="idps">0B</skuentry>
         <skuentry type="metldr0">E920</skuentry>
@@ -1175,7 +1165,7 @@
         <skuentry type="bootldr1">2F4B</skuentry>
         <skuentry type="bootldrsize">2F4F0</skuentry>
       </skulist>
-      <skulist name="CECH-25xx (JSD-001) datecode: 0D or CECH-25xx (JTP-001) datecode:1A" warn="false" warnmsg=""
+      <skulist name="CECH-25xx (JSD-001) datecode: 0D or CECH-25xx (JTP-001) datecode:1A"
                minver="3.50">
         <skuentry type="idps">0B</skuentry>
         <skuentry type="metldr0">E960</skuentry>
