@@ -86,9 +86,9 @@
       </datalist>
     </bootldr_top_region>
     <Header_Magic>
-      <datafill name="002.00   Header Magic 0x00 Filled Area0" offset="40000" size="10">00</datafill>
+      <datafill name="002.00   Header Magic 0x00 Filled Area 0" offset="40000" size="10">00</datafill>
       <binentry name="002.01   Header Magic" offset="40010">000000000FACE0FF00000000DEADBEEF00000000000000000000000000007600</binentry>
-      <datafill name="002.02   Header Magic 0x00 Filled Area1" offset="40030" size="1D0">00</datafill>
+      <datafill name="002.02   Header Magic 0x00 Filled Area 1" offset="40030" size="1D0">00</datafill>
     </Header_Magic>
     <flash_region_table>
       <binentry name="003.01   Flash Region Table Header" offset="40200" decription="">00000001000000090000000000EBFE00</binentry>
@@ -283,6 +283,7 @@
       <binentry name="006.11   cISD1 Semistatic2" ismulti="true" offset="908B0">0001001100020012</binentry>
       <binentry name="006.11   cISD1 Semistatic2" ismulti="true" offset="908B0">0001001200020012</binentry>
       <binentry name="006.11   cISD1 Semistatic2" ismulti="true" offset="908B0">0002001100020012</binentry>
+      <binentry name="006.11   cISD1 Semistatic2" ismulti="true" offset="908B0">0002001200020012</binentry>
       <datafill name="006.12   cISD1 0xFF Filled Area 1" offset="908C0" size="1A0">FF</datafill>
       <datalist name="006.13   cISD1 Statistics" offset="90870" size="3C">
         <datatreshold key="FF">0</datatreshold>
@@ -327,13 +328,18 @@
       <datafill name="010.11   cvtrm 0xFF Filled Area 1" offset="EC2FFF" size="364C0">FF</datafill>
       <datafill name="010.12   cvtrm 0x00 Filled Area 1" offset="EFF000" size="1000">00</datafill>
     </cvtrm_region>
-    <binentry name="011.01   cell_ext_os_area" offset="E780200">
-      00000000FFFFFFFFFFFFFFFFFFFFFFFF
-      00000003FFFFFFFFFFFFFFFFFFFFFFFF
-      00000000000000000000FFFFFFFFFFFF
-      000000000000000000000000FFFFFFFF
-      0000000000000000FFFFFFFFFFFFFFFF
-    </binentry>
+    <cell_ext_os_area>
+      <datafill name="011.01   cell_ext_os_area Header" offset="E780000" size="20">FF</datafill>
+      <datafill name="011.02   cell_ext_os_area 0xFF Filled Area 0" offset="E780028" size="1D8">FF</datafill>
+      <binentry name="011.03   cell_ext_os_area Break Section" offset="E780200">
+        00000000FFFFFFFFFFFFFFFFFFFFFFFF
+        00000003FFFFFFFFFFFFFFFFFFFFFFFF
+        00000000000000000000FFFFFFFFFFFF
+        000000000000000000000000FFFFFFFF
+        0000000000000000FFFFFFFFFFFFFFFF
+      </binentry>
+      <datafill name="011.04   cell_ext_os_area 0xFF Filled Area 1" offset="E780250" size="1B0">FF</datafill>
+    </cell_ext_os_area>
     <bootldr_bottom_region>
       <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000">00002A3F</binentry>
       <binentry name="012.01   bootldr0 (Bottom)" ismulti="true" offset="F000000">00002A2A</binentry>
@@ -416,14 +422,12 @@
         <datatreshold key="*">0,5</datatreshold>
       </datalist>
     </bootldr_bottom_region>
-    <matches>
+    <datamatches>
       <datamatchid id="0">bootldr size</datamatchid>
       <datamatchid id="1">per console nonce</datamatchid>
-      <!--       <datamatchid id="2">CELL_EXTNOR_AREA Hash1</datamatchid> -->
-      <!--       <datamatchid id="3">CELL_EXTNOR_AREA Hash2</datamatchid> -->
-      <datamatchid id="4">bootldr test</datamatchid>
-      <datamatchid id="5">metldr size</datamatchid>
-      <datamatchid id="6">cvtrm data</datamatchid>
+      <datamatchid id="2">bootldr</datamatchid>
+      <datamatchid id="3">metldr size</datamatchid>
+      <datamatchid id="4">cvtrm data</datamatchid>
       <id0>
         <datamatch offset="0" length="4" id="0">bootldr0 Top</datamatch>
         <datamatch offset="10" length="4" id="0">bootldr1 Top</datamatch>
@@ -438,29 +442,19 @@
         <datamatch offset="81AB4" length="C" id="1">eid3</datamatch>
         <datamatch offset="81BE4" length="C" id="1">eid5</datamatch>
       </id1>
-      <!--
       <id2>
-        <datamatch offset="F40000" length="30" id="2">CELL_EXTNOR_AREA F40000 Hash</datamatch>
-        <datamatch offset="F80000" length="30" id="2">CELL_EXTNOR_AREA F80000 Hash</datamatch>
+        <datamatch offset="0" length="40000" id="2" nodisp="true">bootldr Top</datamatch>
+        <datamatch offset="F000000" length="40000" id="2" nodisp="true">bootldr Bottom</datamatch>
       </id2>
       <id3>
-        <datamatch offset="F60000" length="30" id="3">CELL_EXTNOR_AREA F60000 Hash</datamatch>
-        <datamatch offset="FA0000" length="30" id="3">CELL_EXTNOR_AREA FA0000 Hash</datamatch>
+        <datamatch offset="40840" length="4" id="3">metldr size 0</datamatch>
+        <datamatch offset="40850" length="4" id="3">metldr size 1</datamatch>
       </id3>
-      -->
       <id4>
-        <datamatch offset="0" length="40000" id="4" nodisp="true">bootldr Top</datamatch>
-        <datamatch offset="F000000" length="40000" id="4" nodisp="true">bootldr Bottom</datamatch>
+        <datamatch offset="EC0030" length="10" id="4">cvtrm data 0</datamatch>
+        <datamatch offset="EC0030" length="10" id="4">cvtrm data 1</datamatch>
       </id4>
-      <id5>
-        <datamatch offset="40840" length="4" id="5">metldr0</datamatch>
-        <datamatch offset="40850" length="4" id="5">metldr1</datamatch>
-      </id5>
-      <id6>
-        <datamatch offset="EC0030" length="10" id="6">metldr0</datamatch>
-        <datamatch offset="EC0030" length="10" id="6">metldr1</datamatch>
-      </id6>
-    </matches>
+    </datamatches>
     <repchecks>
       <repcheck name="Header Magic Repetition" offset="40010">
         000000000FACE0FF00000000DEADBEEF
@@ -625,13 +619,14 @@
     <ros0offset>C0010</ros0offset>
     <ros1offset>7C0010</ros1offset>
     <first_region_header>
-      <datafill name="001.00   First Region Header 0x00 Filled Area0" offset="0" size="10">00</datafill>
+      <datafill name="001.00   First Region Header 0x00 Filled Area 0" offset="0" size="10">00</datafill>
       <binentry name="001.01   First Region Header Magic" offset="10">000000000FACE0FF00000000DEADBEEF00000000000000000000000000007800</binentry>
-      <datafill name="001.02   First Region Header 0x00 Filled Area1" offset="30" size="1D0">00</datafill>
+      <datafill name="001.02   First Region Header 0x00 Filled Area 1" offset="30" size="1D0">00</datafill>
     </first_region_header>
     <flash_format>
-      <binentry name="002.00   Flash Format" offset="200" ascii="true">49464900000000010000000200000000</binentry>
-      <datafill name="002.01   Flash Format 0xFF Filled Area" offset="210" size="1F0">FF</datafill>
+      <binentry name="002.00   Flash Format String" offset="200" ascii="true">49464900</binentry>
+      <binentry name="002.01   Flash Format Version" offset="204">000000010000000200000000</binentry>
+      <datafill name="002.02   Flash Format 0xFF Filled Area" offset="210" size="1F0">FF</datafill>
     </flash_format>
     <flash_region_table>
       <binentry name="003.01   Flash Region Table Header" offset="400" decription="">000000010000000B0000000000EFFC00</binentry>
@@ -826,7 +821,8 @@
       <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">016501650180</binentry>
       <datafill name="006.09   cISD1 0xFF Filled Area 0" offset="3F0AC" size="4">FF</datafill>
       <binentry name="006.10   cISD1 Static2" offset="3F0AA">0001</binentry>
-      <binentry name="006.11   cISD1 Semistatic2" offset="3F0B0">0002001100020012</binentry>
+      <binentry name="006.11   cISD1 Semistatic2" ismulti="true" offset="3F0B0">0002001100020012</binentry>
+      <binentry name="006.11   cISD1 Semistatic2" ismulti="true" offset="3F0B0">0002001200020012</binentry>
       <datafill name="006.12   cISD1 0xFF Filled Area 1" offset="3F0C0" size="1A0">FF</datafill>
       <datalist name="006.13   cISD1 Statistics" offset="3F070" size="3C">
         <datatreshold key="FF">0</datatreshold>
