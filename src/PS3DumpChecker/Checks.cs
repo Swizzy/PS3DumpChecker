@@ -256,7 +256,7 @@
                 AddItem(new Common.PartsObject
                 {
                     Name = "SKUIdentity Data",
-                    ActualString = datamsg.Trim(),
+                    ActualString = datamsg.Trim().Replace("\0", " "),
                     ExpectedString = "",
                     Result = (skuEntryList.Count == skuCheckDataList.Count),
                 });
@@ -364,8 +364,8 @@
                 msg += String.Format("0x{0:X2} : {1:F2}%{2}", key, tmp[key], Environment.NewLine);
             AddItem(new Common.PartsObject {
                 Name = "Statistics",
-                ActualString = msg.Trim(),
-                ExpectedString = Common.Types[len].StatDescription.Value,
+                ActualString = msg.Trim().Replace("\0", " "),
+                ExpectedString = Common.Types[len].StatDescription.Value.Replace("\0", " "),
                 Result = isok
             });
             Logger.WriteLine2(string.Format("{0,-70} Result: {1}", "Statistics check Completed!", isok ? "OK!" : "FAILED!"));
@@ -422,8 +422,8 @@
                 msg += string.Format("{0}Ascii Value: {1}", Environment.NewLine, Encoding.ASCII.GetString(tmp));
             AddItem(new Common.PartsObject {
                 Name = name.Trim(),
-                ActualString = msg.Trim(),
-                ExpectedString = expmsg,
+                ActualString = msg.Trim().Replace("\0", " "),
+                ExpectedString = expmsg.Replace("\0", " "),
                 Result = isok
             });
             Logger.WriteLine2(isok ? "OK!" : string.Format("FAILED! {0}{1}Actual data: {2}", expmsg, Environment.NewLine, msg));
@@ -507,8 +507,8 @@
             }
             AddItem(new Common.PartsObject {
                 Name = name.Trim(),
-                ActualString = msg.Trim(),
-                ExpectedString = expmsg,
+                ActualString = msg.Trim().Replace("\0", " "),
+                ExpectedString = expmsg.Replace("\0", " "),
                 Result = isok,
             });
             Logger.WriteLine2(isok ? "OK!" : string.Format("FAILED! {0}{1}Actual data: {2}", expmsg, Environment.NewLine, msg));
@@ -650,8 +650,8 @@
                 }
                 AddItem(new Common.PartsObject {
                     Name = checkdata.Name.Trim(),
-                    ActualString = actmsg.Trim(),
-                    ExpectedString = expmsg.Trim(),
+                    ActualString = actmsg.Trim().Replace("\0", " "),
+                    ExpectedString = expmsg.Trim().Replace("\0", " "),
                     Result = isok
                 });
                 Logger.WriteLine2(isok ? "OK!" : string.Format("FAILED! {0}{1}Actual data: {2}", expmsg, Environment.NewLine, actmsg));
@@ -722,7 +722,7 @@
             }
             AddItem(new Common.PartsObject {
                 Name = "Repetitions Check",
-                ActualString = bigbuilder.ToString(),
+                ActualString = bigbuilder.ToString().Replace("\0", " "),
                 ExpectedString = "No Repetitions are supposed to be listed!",
                 Result = ret
             });
@@ -746,7 +746,7 @@
             var ret = true;
             foreach(var key in checkdata.DataMatchList.Value.Keys) {
                 int cnt = 0, loffset = 0;
-                Logger.Write(string.Format("Datamatch for Started: {0}", checkdata.DataMatchList.Value[key].Value.Name));
+                Logger.Write(string.Format("{0,-70} Result: ", string.Format("Datamatch for: {0} Started", checkdata.DataMatchList.Value[key].Value.Name)));
                 _checkckount++;
                 var smallbuilder = new StringBuilder();
                 var islastok = true;
@@ -771,19 +771,19 @@
                 if(!islastok) {
                     ret = false;
                     bigbuilder.Append(smallbuilder); // Add to the big one
-                    Logger.WriteLine2(string.Format("{0,-70}", "Result: Failed!"));
+                    Logger.WriteLine2("Failed!");
                     Logger.WriteLine2(smallbuilder.ToString());
                 }
                 else {
                     bigbuilder.AppendLine(string.Format("All data matching: {0}", laststring));
-                    Logger.WriteLine2(string.Format("{0,-70}", "Result: OK!"));
+                    Logger.WriteLine2("OK!");
                 }
             }
             if(ret)
                 bigbuilder.Append("All match checks are OK!");
             AddItem(new Common.PartsObject {
                 Name = "Data Match Check",
-                ActualString = bigbuilder.ToString(),
+                ActualString = bigbuilder.ToString().Replace("\0", " "),
                 ExpectedString = "No Failed matches are supposed to be listed!",
                 Result = ret
             });
@@ -796,12 +796,13 @@
             if(_ret.Reversed)
                 Common.SwapBytes(ref rosdata);
             rosversion = GetROSVersion(ref rosdata);
-            if(_dohash && Common.Hashes != null && Common.Hashes.Offsets.ContainsKey(data.Length) && Common.Hashes.Offsets[data.Length].Value.Count > 0) {
-                if (_checkdata.ROS0Offset == offset && HashCheck.ROS0Ver != null)
-                    return rosversion == HashCheck.ROS0Ver;
-                if (_checkdata.ROS1Offset == offset && HashCheck.ROS1Ver != null)
-                    return rosversion == HashCheck.ROS1Ver;
-            }
+            // This shit is stupid!
+            //if(_dohash && Common.Hashes != null && Common.Hashes.Offsets.ContainsKey(data.Length) && Common.Hashes.Offsets[data.Length].Value.Count > 0) {
+            //    if (_checkdata.ROS0Offset == offset && HashCheck.ROS0Ver != null)
+            //        return rosversion == HashCheck.ROS0Ver;
+            //    if (_checkdata.ROS1Offset == offset && HashCheck.ROS1Ver != null)
+            //        return rosversion == HashCheck.ROS1Ver;
+            //}
             return Regex.IsMatch(rosversion, "[0-9]{3}\\.[0-9]{3}");
         }
 

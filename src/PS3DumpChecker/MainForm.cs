@@ -11,7 +11,6 @@
     using System.Text.RegularExpressions;
     using System.Windows.Forms;
     using System.Xml;
-    using Microsoft.Win32;
     using PS3DumpChecker.Patches;
     using PS3DumpChecker.Properties;
 
@@ -410,7 +409,7 @@
                             if (!Common.Types.ContainsKey(size))
                                 break;
                             skUkey++;
-                            skuWarn = (xml["warn"].Equals("true", StringComparison.CurrentCultureIgnoreCase));
+                            skuWarn = xml["warn"] != null && xml["warn"].Equals("true", StringComparison.CurrentCultureIgnoreCase);
                             skuName = xml["name"];
                             skuWarnMsg = xml["warnmsg"];
                             skuMinVer = xml["minver"];

@@ -54,7 +54,7 @@
             var count = 0;
             foreach(var b in data) {
                 ret += String.Format("{0:X2} ", b);
-                if((count % 0x10) == 0 && count > 0x10)
+                if(((count + 1) % 0x10) == 0 && count >= 0xF)
                     ret += Environment.NewLine;
                 count++;
             }
@@ -75,8 +75,8 @@
                     ret += String.Format("{0} ", c);
                 else
                     ret += String.Format("{0}", c);
-                if((count % 0x20) == 0 && count > 0x20)
-                    ret += Environment.NewLine;
+                if(((count + 1) % 0x20) == 0 && count >= 0x1E)
+                    ret = ret.Trim() + Environment.NewLine;
                 count++;
             }
             return ret;
