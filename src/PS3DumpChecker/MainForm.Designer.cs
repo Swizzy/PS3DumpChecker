@@ -117,6 +117,7 @@
             // 
             this.expdatabox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.expdatabox.Font = new System.Drawing.Font("Monospac821 BT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.expdatabox.Location = new System.Drawing.Point(6, 32);
             this.expdatabox.Multiline = true;
             this.expdatabox.Name = "expdatabox";
@@ -129,6 +130,7 @@
             // 
             this.actdatabox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.actdatabox.Font = new System.Drawing.Font("Monospac821 BT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.actdatabox.Location = new System.Drawing.Point(6, 163);
             this.actdatabox.Multiline = true;
             this.actdatabox.Name = "actdatabox";
@@ -400,7 +402,6 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.partslist.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.partslist.FormattingEnabled = true;
-            this.partslist.ItemHeight = 16;
             this.partslist.Location = new System.Drawing.Point(12, 33);
             this.partslist.Name = "partslist";
             this.partslist.ScrollAlwaysVisible = true;
