@@ -134,7 +134,14 @@
                     Offset = 0;
                 ExpectedList = expectedList != null ? new Holder<List<MultiBin>>(expectedList) : null;
                 Expected = Regex.Replace(expected, @"\s+", "");
-                Description = description;
+                if(!string.IsNullOrEmpty(description)) {
+                    description = description.Trim();
+                    description += Environment.NewLine;
+                    description = description.Replace("\\n", Environment.NewLine);
+                }
+                else
+                    description = "";
+                Description = description.Trim();
                 Asciiout = (asciiout != null && asciiout.Equals("true", StringComparison.CurrentCultureIgnoreCase));
             }
         }

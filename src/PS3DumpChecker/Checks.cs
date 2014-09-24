@@ -16,6 +16,23 @@
         private static bool _dohash;
         private static Common.TypeData _checkdata;
 
+        private static string GetAsciiString(byte[] data, int offset = 0, int length = -1) {
+            if(length <= 0 && offset > 0)
+                length = data.Length - offset;
+            else
+                length = data.Length;
+            return Regex.Replace(Encoding.ASCII.GetString(data, offset, length), "[^\u0020-\u007E]", " ");
+            //var ret = new StringBuilder();
+            //foreach (var c in Encoding.ASCII.GetString(data, offset, length))
+            //{
+            //    if (c > 0x1F && c < 0x7F)
+            //        ret.Append(c);
+            //    else
+            //        ret.Append(" ");
+            //}
+            //return ret.ToString();
+        }
+
         private static void AddItem(Common.PartsObject data) {
             Common.AddItem(_checkId, data);
             _checkId++;
@@ -256,7 +273,7 @@
                 AddItem(new Common.PartsObject
                 {
                     Name = "SKUIdentity Data",
-                    ActualString = datamsg.Trim().Replace("\0", " "),
+                    ActualString = datamsg.Trim(),
                     ExpectedString = "",
                     Result = (skuEntryList.Count == skuCheckDataList.Count),
                 });
@@ -364,8 +381,8 @@
                 msg += String.Format("0x{0:X2} : {1:F2}%{2}", key, tmp[key], Environment.NewLine);
             AddItem(new Common.PartsObject {
                 Name = "Statistics",
-                ActualString = msg.Trim().Replace("\0", " "),
-                ExpectedString = Common.Types[len].StatDescription.Value.Replace("\0", " "),
+                ActualString = msg.Trim(),
+                ExpectedString = Common.Types[len].StatDescription.Value,
                 Result = isok
             });
             Logger.WriteLine2(string.Format("{0,-70} Result: {1}", "Statistics check Completed!", isok ? "OK!" : "FAILED!"));
@@ -379,7 +396,7 @@
                 Logger.WriteLine2("FAILED! Faulty configuration (Bad Offset)!");
                 return false;
             }
-            var expmsg = string.Format("{0}{1}Offset: 0x{2:X}{1}", checkdata.Value.Description, Environment.NewLine, checkdata.Value.Offset);
+            var expmsg = string.Format("{0}Offset: 0x{2:X}{1}", checkdata.Value.Description, Environment.NewLine, checkdata.Value.Offset);
             if(!string.IsNullOrEmpty(checkdata.Value.Expected)) {
                 if((checkdata.Value.Expected.Length % 2) != 0) {
                     Logger.WriteLine2("FAILED! Nothing to check! (a.k.a Faulty configuration!)");
@@ -388,7 +405,7 @@
                 expmsg += string.Format("Expected data:{0}", Environment.NewLine);
                 expmsg += Common.GetDataReadable(checkdata.Value.Expected).Trim();
                 if(checkdata.Value.Asciiout)
-                    expmsg += string.Format("{0}Ascii Value: {1}", Environment.NewLine, Encoding.ASCII.GetString(Common.HexToArray(checkdata.Value.Expected)));
+                    expmsg += string.Format("{0}Ascii Value: {1}", Environment.NewLine, GetAsciiString(Common.HexToArray(checkdata.Value.Expected)));
             }
             else {
                 Logger.WriteLine2("FAILED! Faulty configuration!");
@@ -419,11 +436,11 @@
                 msg += string.Format("{0}Reversed (checked) data:{0}{1}", Environment.NewLine, Common.GetDataReadable(tmp));
             }
             if(checkdata.Value.Asciiout)
-                msg += string.Format("{0}Ascii Value: {1}", Environment.NewLine, Encoding.ASCII.GetString(tmp));
+                msg += string.Format("{0}Ascii Value: {1}", Environment.NewLine, GetAsciiString(tmp));
             AddItem(new Common.PartsObject {
                 Name = name.Trim(),
-                ActualString = msg.Trim().Replace("\0", " "),
-                ExpectedString = expmsg.Replace("\0", " "),
+                ActualString = msg.Trim(),
+                ExpectedString = expmsg,
                 Result = isok
             });
             Logger.WriteLine2(isok ? "OK!" : string.Format("FAILED! {0}{1}Actual data: {2}", expmsg, Environment.NewLine, msg));
@@ -437,7 +454,7 @@
                 Logger.WriteLine2("FAILED! Faulty configuration (Bad Offset)!");
                 return false;
             }
-            var expmsg = string.Format("{0}{1}Offset: 0x{2:X}{1}", checkdata.Value.Description, Environment.NewLine, checkdata.Value.Offset);
+            var expmsg = string.Format("{0}Offset: 0x{2:X}{1}", checkdata.Value.Description, Environment.NewLine, checkdata.Value.Offset);
             var length = 0;
             foreach(var d in checkdata.Value.ExpectedList.Value) {
                 var count = 0;
@@ -507,8 +524,8 @@
             }
             AddItem(new Common.PartsObject {
                 Name = name.Trim(),
-                ActualString = msg.Trim().Replace("\0", " "),
-                ExpectedString = expmsg.Replace("\0", " "),
+                ActualString = msg.Trim(),
+                ExpectedString = expmsg,
                 Result = isok,
             });
             Logger.WriteLine2(isok ? "OK!" : string.Format("FAILED! {0}{1}Actual data: {2}", expmsg, Environment.NewLine, msg));
@@ -650,8 +667,8 @@
                 }
                 AddItem(new Common.PartsObject {
                     Name = checkdata.Name.Trim(),
-                    ActualString = actmsg.Trim().Replace("\0", " "),
-                    ExpectedString = expmsg.Trim().Replace("\0", " "),
+                    ActualString = actmsg.Trim(),
+                    ExpectedString = expmsg.Trim(),
                     Result = isok
                 });
                 Logger.WriteLine2(isok ? "OK!" : string.Format("FAILED! {0}{1}Actual data: {2}", expmsg, Environment.NewLine, actmsg));
@@ -722,7 +739,7 @@
             }
             AddItem(new Common.PartsObject {
                 Name = "Repetitions Check",
-                ActualString = bigbuilder.ToString().Replace("\0", " "),
+                ActualString = bigbuilder.ToString(),
                 ExpectedString = "No Repetitions are supposed to be listed!",
                 Result = ret
             });
@@ -783,7 +800,7 @@
                 bigbuilder.Append("All match checks are OK!");
             AddItem(new Common.PartsObject {
                 Name = "Data Match Check",
-                ActualString = bigbuilder.ToString().Replace("\0", " "),
+                ActualString = bigbuilder.ToString(),
                 ExpectedString = "No Failed matches are supposed to be listed!",
                 Result = ret
             });

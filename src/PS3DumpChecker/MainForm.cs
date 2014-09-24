@@ -257,6 +257,11 @@
                                 break;
                             xml.Read();
                             Common.Types[size].StatDescription.Value = xml.Value;
+                            if (!string.IsNullOrEmpty(Common.Types[size].StatDescription.Value)) {
+                                Common.Types[size].StatDescription.Value = Common.Types[size].StatDescription.Value.Trim();
+                                Common.Types[size].StatDescription.Value += Environment.NewLine;
+                                Common.Types[size].StatDescription.Value.Replace("\\n", Environment.NewLine);
+                            }
                             break;
                         case "statspart":
                             var key = xml["key"];
@@ -598,7 +603,8 @@
         private void MainLoad(object sender, EventArgs e) {
   
             #region Set Some defaults
-
+            if (Program.GetRegSetting("logstate", true))
+                Program.SetRegSetting("logstate");
             if (Program.GetRegSetting("autopatch", true))
                 Program.SetRegSetting("autopatch");
             if (Program.GetRegSetting("dohashcheck", true))
@@ -609,8 +615,9 @@
                 Program.SetRegSetting("dorosvercheck");
             if (Program.GetRegSetting("UseInternalPatcher", true))
                 Program.SetRegSetting("UseInternalPatcher");
-
             #endregion
+
+            logstate.Checked = Program.GetRegSetting("logstate");
 
 #if DEBUG
             File.Delete("default.cfg");
@@ -654,5 +661,7 @@
             using (var set = new Settings())
                 set.ShowDialog();
         }
+
+        private void logstate_CheckedChanged(object sender, EventArgs e) { Program.SetRegSetting("logstate", logstate.Checked); }
     }
 }
