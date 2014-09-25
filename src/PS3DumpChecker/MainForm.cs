@@ -29,6 +29,18 @@
             _version = string.Format("PS3 Dump Checker v{0}.{1} (Build: {2})", app.GetName().Version.Major, app.GetName().Version.Minor, app.GetName().Version.Build);
             Text = _version;
             Icon = Program.AppIcon;
+            actdatabox.Font = new Font(FontFamily.GenericMonospace, actdatabox.Font.Size);
+            expdatabox.Font = new Font(FontFamily.GenericMonospace, actdatabox.Font.Size);
+            //partslist.Font = new Font(FontFamily.GenericMonospace, partslist.Font.Size);  //font too wide for the listbox
+            foreach (var control in imginfo.Controls)
+            {
+                if (control is Label)
+                    continue;
+                var rtbox = control as RichTextBox;
+                if (rtbox == null)
+                    continue;
+                rtbox.Font = new Font(FontFamily.GenericMonospace, rtbox.Font.Size);
+            }
             if (args.Count < 1)
                 return;
             foreach (var s in args) {
@@ -143,6 +155,7 @@
             actdatabox.Text = "";
             expdatabox.Text = "";
             checkbtn.Enabled = false;
+            forcePatchToolStripMenuItem.Enabled = false;
             Logger.Enabled = logstate.Checked;
             worker.RunWorkerAsync(file);
         }
@@ -166,7 +179,10 @@
                         rosver1box.Text = res.ROS1Version ?? Resources.N_A;
                         statuslabel.ForeColor = res.IsOk ? Color.Green : Color.Red;
                         statuslabel.Visible = true;
-
+                        forcePatchToolStripMenuItem.Enabled = true;
+                        Common.dmpname = res.FileName;
+                        Common.swapstate = res.Reversed;
+                        Common.chkresult = res.IsOk;
                         if (res.IsOk && !res.DisablePatch && !res.IsPatched && Program.GetRegSetting("autopatch"))
                             Patch(res.FileName, res.Reversed);
                     }
@@ -182,8 +198,15 @@
             var useint = Program.GetRegSetting("UseInternalPatcher");
             if (!useint && !File.Exists("patcher.exe"))
                 return;
-            if (MessageBox.Show(Resources.autopatchmsg, Resources.autopatch, MessageBoxButtons.YesNoCancel) != DialogResult.Yes)
-                return;
+            if (Common.chkresult) {
+                if (MessageBox.Show(Resources.autopatchmsg, Resources.autopatch, MessageBoxButtons.YesNo) != DialogResult.Yes)
+                    return;
+                    }
+            else
+            {
+                     if (MessageBox.Show(Resources.warningforcepatch, Resources.autopatch, MessageBoxButtons.YesNo) != DialogResult.Yes)
+                    return;
+            }
             if (useint)
                 Patcher.PatchImage(fileName, swap);
             else {
@@ -618,6 +641,7 @@
             #endregion
 
             logstate.Checked = Program.GetRegSetting("logstate");
+            forcePatchToolStripMenuItem.Visible = Program.GetRegSetting("forcepatch");
 
 #if DEBUG
             File.Delete("default.cfg");
@@ -663,5 +687,9 @@
         }
 
         private void logstate_CheckedChanged(object sender, EventArgs e) { Program.SetRegSetting("logstate", logstate.Checked); }
+
+        private void forcePatchToolStripMenuItem_Click(object sender, EventArgs e) { Patch(Common.dmpname, Common.swapstate); }
+
+        public void forcepatchstate() { forcePatchToolStripMenuItem.Visible = Program.GetRegSetting("forcepatch"); }
     }
 }

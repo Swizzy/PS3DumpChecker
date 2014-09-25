@@ -10,6 +10,11 @@
         internal static HashCheck Hashes;
         internal static readonly Dictionary<int, PartsObject> PartList = new Dictionary<int, PartsObject>();
 
+        public static string dmpname;
+        public static bool swapstate;
+        public static bool chkresult;
+
+                
         public static event EventHandler<StatusEventArgs> StatusUpdate;
 
         public static event EventHandler ListUpdate;

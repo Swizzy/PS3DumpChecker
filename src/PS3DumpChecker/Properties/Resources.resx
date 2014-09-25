@@ -258,4 +258,9 @@ Did you skip reading these terms/conditions?</value>
   <data name="YouveBeenWarned" xml:space="preserve">
     <value>You have been warned...</value>
   </data>
+  <data name="warningforcepatch" xml:space="preserve">
+    <value>!! WARNING !!
+Image has been checked as BAD! 
+Do you realy want to force patch this image?</value>
+  </data>
 </root>

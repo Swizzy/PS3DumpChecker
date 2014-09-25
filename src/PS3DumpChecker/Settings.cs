@@ -45,6 +45,7 @@
             GetCheckBoxes(this);
             if(dohashcheck.Checked)
                 Program.MainForm.DoParseHashList();
+            Program.MainForm.forcepatchstate();
             Close();
         }
 

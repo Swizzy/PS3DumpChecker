@@ -36,12 +36,15 @@
             this.AutoDLhashlist = new System.Windows.Forms.CheckBox();
             this.dorepcheck = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dorosvercheck = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.UseInternalPatcher = new System.Windows.Forms.CheckBox();
             this.disabledisclaimerbtn = new System.Windows.Forms.Button();
-            this.dorosvercheck = new System.Windows.Forms.CheckBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.forcepatch = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // autopatch
@@ -59,7 +62,7 @@
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button1.Location = new System.Drawing.Point(12, 274);
+            this.button1.Location = new System.Drawing.Point(12, 322);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(182, 23);
             this.button1.TabIndex = 1;
@@ -129,6 +132,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Checks";
             // 
+            // dorosvercheck
+            // 
+            this.dorosvercheck.AutoSize = true;
+            this.dorosvercheck.Location = new System.Drawing.Point(6, 65);
+            this.dorosvercheck.Name = "dorosvercheck";
+            this.dorosvercheck.Size = new System.Drawing.Size(161, 17);
+            this.dorosvercheck.TabIndex = 0;
+            this.dorosvercheck.Text = "Enable ROS Version checks";
+            this.dorosvercheck.UseVisualStyleBackColor = true;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.autopatch);
@@ -145,7 +158,7 @@
             // UseInternalPatcher
             // 
             this.UseInternalPatcher.AutoSize = true;
-            this.UseInternalPatcher.Location = new System.Drawing.Point(12, 222);
+            this.UseInternalPatcher.Location = new System.Drawing.Point(6, 19);
             this.UseInternalPatcher.Name = "UseInternalPatcher";
             this.UseInternalPatcher.Size = new System.Drawing.Size(139, 17);
             this.UseInternalPatcher.TabIndex = 3;
@@ -158,7 +171,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.disabledisclaimerbtn.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.disabledisclaimerbtn.Enabled = false;
-            this.disabledisclaimerbtn.Location = new System.Drawing.Point(12, 245);
+            this.disabledisclaimerbtn.Location = new System.Drawing.Point(12, 293);
             this.disabledisclaimerbtn.Name = "disabledisclaimerbtn";
             this.disabledisclaimerbtn.Size = new System.Drawing.Size(182, 23);
             this.disabledisclaimerbtn.TabIndex = 1;
@@ -166,27 +179,38 @@
             this.disabledisclaimerbtn.UseVisualStyleBackColor = true;
             this.disabledisclaimerbtn.Click += new System.EventHandler(this.DisabledisclaimerbtnClick);
             // 
-            // dorosvercheck
+            // groupBox3
             // 
-            this.dorosvercheck.AutoSize = true;
-            this.dorosvercheck.Location = new System.Drawing.Point(6, 65);
-            this.dorosvercheck.Name = "dorosvercheck";
-            this.dorosvercheck.Size = new System.Drawing.Size(161, 17);
-            this.dorosvercheck.TabIndex = 0;
-            this.dorosvercheck.Text = "Enable ROS Version checks";
-            this.dorosvercheck.UseVisualStyleBackColor = true;
+            this.groupBox3.Controls.Add(this.forcepatch);
+            this.groupBox3.Controls.Add(this.UseInternalPatcher);
+            this.groupBox3.Location = new System.Drawing.Point(12, 222);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(182, 65);
+            this.groupBox3.TabIndex = 3;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Patchs";
+            // 
+            // forcepatch
+            // 
+            this.forcepatch.AutoSize = true;
+            this.forcepatch.Location = new System.Drawing.Point(6, 41);
+            this.forcepatch.Name = "forcepatch";
+            this.forcepatch.Size = new System.Drawing.Size(130, 17);
+            this.forcepatch.TabIndex = 4;
+            this.forcepatch.Text = "Enable force patching";
+            this.forcepatch.UseVisualStyleBackColor = true;
             // 
             // Settings
             // 
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(206, 309);
-            this.Controls.Add(this.UseInternalPatcher);
+            this.ClientSize = new System.Drawing.Size(206, 357);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.disabledisclaimerbtn);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.groupBox3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -197,8 +221,9 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -216,5 +241,7 @@
         private System.Windows.Forms.CheckBox UseInternalPatcher;
         private System.Windows.Forms.Button disabledisclaimerbtn;
         private System.Windows.Forms.CheckBox dorosvercheck;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.CheckBox forcepatch;
     }
 }
