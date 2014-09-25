@@ -201,10 +201,9 @@
             if (Common.chkresult) {
                 if (MessageBox.Show(Resources.autopatchmsg, Resources.autopatch, MessageBoxButtons.YesNo) != DialogResult.Yes)
                     return;
-                    }
-            else
-            {
-                     if (MessageBox.Show(Resources.warningforcepatch, Resources.autopatch, MessageBoxButtons.YesNo) != DialogResult.Yes)
+            }
+            else {
+                if (MessageBox.Show(Resources.warningforcepatch, Resources.autopatch, MessageBoxButtons.YesNo) != DialogResult.Yes)
                     return;
             }
             if (useint)

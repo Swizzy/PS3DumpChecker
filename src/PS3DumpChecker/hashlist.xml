@@ -63,6 +63,9 @@
     <hash name="4.31 CEX" size="6FFFE0">
       5888F186C7B1B5198F221806201CE7AC
     </hash>
+    <hash name="4.30 CEX Patched (Three Musketeers)" size="6FFFE0" patched="true">
+      6CE56CC2BD4238E831E9A64E4547A81B
+    </hash>
     <hash name="4.30 CEX" size="6FFFE0">
       C7398C79576A90888DE0887DB9B5FA46
     </hash>
