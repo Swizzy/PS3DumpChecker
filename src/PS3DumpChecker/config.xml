@@ -1072,7 +1072,7 @@
         <skuentry type="bootldr1">2EF4</skuentry>
         <skuentry type="bootldrsize">2EF80</skuentry>
       </skulist>
-      <skulist name="CECHJxx (DIA-002) datecode:8B" minver="2.30">
+      <skulist name="CECHJxx datecode:8B (DIA-002)" minver="2.30">
         <skuentry type="idps">07</skuentry>
         <skuentry type="metldr0">E8E0</skuentry>
         <skuentry type="metldr1">0E8A</skuentry>
@@ -1080,7 +1080,7 @@
         <skuentry type="bootldr1">2EF4</skuentry>
         <skuentry type="bootldrsize">2EF80</skuentry>
       </skulist>
-      <skulist name="CECHHxx (DIA-001) or CECHMxx (DIA-001)" minver="1.97">
+      <skulist name="CECHHxx or CECHMxx (DIA-001)" minver="1.97">
         <skuentry type="idps">06</skuentry>
         <skuentry type="metldr0">EA60</skuentry>
         <skuentry type="metldr1">0EA2</skuentry>
@@ -1088,7 +1088,7 @@
         <skuentry type="bootldr1">2EE3</skuentry>
         <skuentry type="bootldrsize">2EE70</skuentry>
       </skulist>
-      <skulist name="CECHJxx (DIA-002) or CECHKxx (DIA-002) datecode:8C" minver="2.30">
+      <skulist name="CECHJxx or CECHKxx datecode:8C (DIA-002)" minver="2.30">
         <skuentry type="idps">07</skuentry>
         <skuentry type="metldr0">EA60</skuentry>
         <skuentry type="metldr1">0EA2</skuentry>
@@ -1096,7 +1096,7 @@
         <skuentry type="bootldr1">2EE3</skuentry>
         <skuentry type="bootldrsize">2EE70</skuentry>
       </skulist>
-      <skulist name="CECHLxx (VER-001) or CECHPxx (VER-001)" minver="2.45">
+      <skulist name="CECHLxx or CECHPxx (VER-001)" minver="2.45">
         <skuentry type="idps">08</skuentry>
         <skuentry type="metldr0">E8D0</skuentry>
         <skuentry type="metldr1">0E89</skuentry>
@@ -1152,7 +1152,7 @@
         <skuentry type="bootldr1">2F4B</skuentry>
         <skuentry type="bootldrsize">2F4F0</skuentry>
       </skulist>
-      <skulist name="CECH-25xx (JTP-001) datecode: 0C or CECH-25xx (JSD-001) datecode: 0C"
+      <skulist name="CECH-25xx datecode:0C (JSD-001 or JTP-001)"
                minver="3.40">
         <skuentry type="idps">0B</skuentry>
         <skuentry type="metldr0">E920</skuentry>
@@ -1161,7 +1161,7 @@
         <skuentry type="bootldr1">2F4B</skuentry>
         <skuentry type="bootldrsize">2F4F0</skuentry>
       </skulist>
-      <skulist name="CECH-25xx (JSD-001) datecode: 0D or CECH-25xx (JTP-001) datecode:1A"
+      <skulist name="CECH-25xx datecode:0D or 1A (JSD-001 or JTP-001)"
                minver="3.50">
         <skuentry type="idps">0B</skuentry>
         <skuentry type="metldr0">E960</skuentry>
@@ -1171,7 +1171,7 @@
         <skuentry type="bootldrsize">2F570</skuentry>
       </skulist>
       <skulist
-        name="CECH-25xx (JTP-001) datecode:1A or CECH-25xx (JSD-001) datecode:1B or CECH-25xx (JTP-001) datecode:1B"
+        name="CECH-25xx datecode:1A or 1B (JSD-001 or JTP-001)"
         warn="true" warnmsg="WARNING: NOR dump must be patched with 4.xx Patchset to install CFW on this machine!"
         minver="3.56">
         <skuentry type="idps">0B</skuentry>
@@ -1182,7 +1182,7 @@
         <skuentry type="bootldrsize">2F5F0</skuentry>
       </skulist>
       <!-- NON-Downgradeable dumps -->
-      <skulist name="CECH-25xx (JSD-001) datecode:1B or CECH-25xx (JTP-001)" warn="true"
+      <skulist name="CECH-25xx datecode:1B or none (JSD-001 or JTP-001)" warn="true"
                warnmsg="WARNING: The machine this dump belongs to is currently not downgradeable!" minver="3.60">
         <skuentry type="idps">0B</skuentry>
         <skuentry type="metldr0">F920</skuentry>
@@ -1200,9 +1200,36 @@
         <skuentry type="bootldr1">2FFB</skuentry>
         <skuentry type="bootldrsize">2FFF0</skuentry>
       </skulist>
-      <skulist name="CECH-40xx (MSX-001) or CECH-40xx (MPX-001)" warn="true"
+      <skulist name="CECH-30xx (KTE-001)" warn="true"
+               warnmsg="WARNING: The machine this dump belongs to is currently not downgradeable!" minver="3.65">
+        <skuentry type="idps">0C</skuentry>
+        <skuentry type="metldr0">F9B0</skuentry>
+        <skuentry type="metldr1">0F97</skuentry>
+        <skuentry type="bootldr0">3003</skuentry>
+        <skuentry type="bootldr1">3003</skuentry>
+        <skuentry type="bootldrsize">30070</skuentry>
+      </skulist>
+      <skulist name="CECH-30xx datecode:1C (KTE-001)" warn="true"
+               warnmsg="WARNING: The machine this dump belongs to is currently not downgradeable!" minver="3.72">
+        <skuentry type="idps">0C</skuentry>
+        <skuentry type="metldr0">F9B0</skuentry>
+        <skuentry type="metldr1">0F97</skuentry>
+        <skuentry type="bootldr0">300B</skuentry>
+        <skuentry type="bootldr1">300B</skuentry>
+        <skuentry type="bootldrsize">300F0</skuentry>
+      </skulist>
+      <skulist name="CECH-40xx (MSX-001 or MPX-001)" warn="true"
                warnmsg="WARNING: The machine this dump belongs to is currently not downgradeable!" minver="4.20">
         <skuentry type="idps">0D</skuentry>
+        <skuentry type="metldr0">F9B0</skuentry>
+        <skuentry type="metldr1">0F97</skuentry>
+        <skuentry type="bootldr0">301B</skuentry>
+        <skuentry type="bootldr1">301B</skuentry>
+        <skuentry type="bootldrsize">301F0</skuentry>
+      </skulist>
+      <skulist name="CECH-40xx '12GB' (MSX-001)" warn="true"
+               warnmsg="WARNING: The machine this dump belongs to is currently not downgradeable!" minver="4.22">
+        <skuentry type="idps">2C</skuentry>
         <skuentry type="metldr0">F9B0</skuentry>
         <skuentry type="metldr1">0F97</skuentry>
         <skuentry type="bootldr0">301B</skuentry>
