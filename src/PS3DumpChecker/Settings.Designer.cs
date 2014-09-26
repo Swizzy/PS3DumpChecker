@@ -50,9 +50,10 @@
             // autopatch
             // 
             this.autopatch.AutoSize = true;
-            this.autopatch.Location = new System.Drawing.Point(6, 18);
+            this.autopatch.Location = new System.Drawing.Point(9, 28);
+            this.autopatch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.autopatch.Name = "autopatch";
-            this.autopatch.Size = new System.Drawing.Size(113, 17);
+            this.autopatch.Size = new System.Drawing.Size(165, 24);
             this.autopatch.TabIndex = 0;
             this.autopatch.Text = "Enable auto patch";
             this.autopatch.UseVisualStyleBackColor = true;
@@ -62,9 +63,10 @@
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button1.Location = new System.Drawing.Point(12, 322);
+            this.button1.Location = new System.Drawing.Point(18, 495);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(182, 23);
+            this.button1.Size = new System.Drawing.Size(273, 35);
             this.button1.TabIndex = 1;
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = true;
@@ -73,9 +75,10 @@
             // autoexit
             // 
             this.autoexit.AutoSize = true;
-            this.autoexit.Location = new System.Drawing.Point(6, 41);
+            this.autoexit.Location = new System.Drawing.Point(9, 63);
+            this.autoexit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.autoexit.Name = "autoexit";
-            this.autoexit.Size = new System.Drawing.Size(156, 17);
+            this.autoexit.Size = new System.Drawing.Size(230, 24);
             this.autoexit.TabIndex = 0;
             this.autoexit.Text = "Enable auto exit after patch";
             this.autoexit.UseVisualStyleBackColor = true;
@@ -83,9 +86,10 @@
             // dohashcheck
             // 
             this.dohashcheck.AutoSize = true;
-            this.dohashcheck.Location = new System.Drawing.Point(6, 19);
+            this.dohashcheck.Location = new System.Drawing.Point(9, 29);
+            this.dohashcheck.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dohashcheck.Name = "dohashcheck";
-            this.dohashcheck.Size = new System.Drawing.Size(123, 17);
+            this.dohashcheck.Size = new System.Drawing.Size(178, 24);
             this.dohashcheck.TabIndex = 0;
             this.dohashcheck.Text = "Enable hash checks";
             this.dohashcheck.UseVisualStyleBackColor = true;
@@ -93,9 +97,10 @@
             // AutoDLcfg
             // 
             this.AutoDLcfg.AutoSize = true;
-            this.AutoDLcfg.Location = new System.Drawing.Point(6, 64);
+            this.AutoDLcfg.Location = new System.Drawing.Point(9, 98);
+            this.AutoDLcfg.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.AutoDLcfg.Name = "AutoDLcfg";
-            this.AutoDLcfg.Size = new System.Drawing.Size(150, 17);
+            this.AutoDLcfg.Size = new System.Drawing.Size(219, 24);
             this.AutoDLcfg.TabIndex = 0;
             this.AutoDLcfg.Text = "Enable auto cfg download";
             this.AutoDLcfg.UseVisualStyleBackColor = true;
@@ -103,9 +108,10 @@
             // AutoDLhashlist
             // 
             this.AutoDLhashlist.AutoSize = true;
-            this.AutoDLhashlist.Location = new System.Drawing.Point(6, 87);
+            this.AutoDLhashlist.Location = new System.Drawing.Point(9, 134);
+            this.AutoDLhashlist.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.AutoDLhashlist.Name = "AutoDLhashlist";
-            this.AutoDLhashlist.Size = new System.Drawing.Size(170, 17);
+            this.AutoDLhashlist.Size = new System.Drawing.Size(251, 24);
             this.AutoDLhashlist.TabIndex = 0;
             this.AutoDLhashlist.Text = "Enable auto hashlist download";
             this.AutoDLhashlist.UseVisualStyleBackColor = true;
@@ -113,9 +119,10 @@
             // dorepcheck
             // 
             this.dorepcheck.AutoSize = true;
-            this.dorepcheck.Location = new System.Drawing.Point(6, 42);
+            this.dorepcheck.Location = new System.Drawing.Point(9, 65);
+            this.dorepcheck.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dorepcheck.Name = "dorepcheck";
-            this.dorepcheck.Size = new System.Drawing.Size(148, 17);
+            this.dorepcheck.Size = new System.Drawing.Size(217, 24);
             this.dorepcheck.TabIndex = 0;
             this.dorepcheck.Text = "Enable repetitions checks";
             this.dorepcheck.UseVisualStyleBackColor = true;
@@ -125,9 +132,11 @@
             this.groupBox1.Controls.Add(this.dohashcheck);
             this.groupBox1.Controls.Add(this.dorosvercheck);
             this.groupBox1.Controls.Add(this.dorepcheck);
-            this.groupBox1.Location = new System.Drawing.Point(12, 128);
+            this.groupBox1.Location = new System.Drawing.Point(18, 197);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(182, 88);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Size = new System.Drawing.Size(273, 135);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Checks";
@@ -135,9 +144,10 @@
             // dorosvercheck
             // 
             this.dorosvercheck.AutoSize = true;
-            this.dorosvercheck.Location = new System.Drawing.Point(6, 65);
+            this.dorosvercheck.Location = new System.Drawing.Point(9, 100);
+            this.dorosvercheck.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dorosvercheck.Name = "dorosvercheck";
-            this.dorosvercheck.Size = new System.Drawing.Size(161, 17);
+            this.dorosvercheck.Size = new System.Drawing.Size(236, 24);
             this.dorosvercheck.TabIndex = 0;
             this.dorosvercheck.Text = "Enable ROS Version checks";
             this.dorosvercheck.UseVisualStyleBackColor = true;
@@ -148,9 +158,11 @@
             this.groupBox2.Controls.Add(this.autoexit);
             this.groupBox2.Controls.Add(this.AutoDLcfg);
             this.groupBox2.Controls.Add(this.AutoDLhashlist);
-            this.groupBox2.Location = new System.Drawing.Point(12, 12);
+            this.groupBox2.Location = new System.Drawing.Point(18, 18);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(182, 110);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox2.Size = new System.Drawing.Size(273, 169);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Auto Settings";
@@ -158,9 +170,10 @@
             // UseInternalPatcher
             // 
             this.UseInternalPatcher.AutoSize = true;
-            this.UseInternalPatcher.Location = new System.Drawing.Point(6, 19);
+            this.UseInternalPatcher.Location = new System.Drawing.Point(9, 29);
+            this.UseInternalPatcher.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.UseInternalPatcher.Name = "UseInternalPatcher";
-            this.UseInternalPatcher.Size = new System.Drawing.Size(139, 17);
+            this.UseInternalPatcher.Size = new System.Drawing.Size(205, 24);
             this.UseInternalPatcher.TabIndex = 3;
             this.UseInternalPatcher.Text = "Use embedded patches";
             this.UseInternalPatcher.UseVisualStyleBackColor = true;
@@ -171,9 +184,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.disabledisclaimerbtn.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.disabledisclaimerbtn.Enabled = false;
-            this.disabledisclaimerbtn.Location = new System.Drawing.Point(12, 293);
+            this.disabledisclaimerbtn.Location = new System.Drawing.Point(18, 451);
+            this.disabledisclaimerbtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.disabledisclaimerbtn.Name = "disabledisclaimerbtn";
-            this.disabledisclaimerbtn.Size = new System.Drawing.Size(182, 23);
+            this.disabledisclaimerbtn.Size = new System.Drawing.Size(273, 35);
             this.disabledisclaimerbtn.TabIndex = 1;
             this.disabledisclaimerbtn.Text = "Disable Disclaimer";
             this.disabledisclaimerbtn.UseVisualStyleBackColor = true;
@@ -183,19 +197,22 @@
             // 
             this.groupBox3.Controls.Add(this.forcepatch);
             this.groupBox3.Controls.Add(this.UseInternalPatcher);
-            this.groupBox3.Location = new System.Drawing.Point(12, 222);
+            this.groupBox3.Location = new System.Drawing.Point(18, 342);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(182, 65);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox3.Size = new System.Drawing.Size(273, 100);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Patchs";
+            this.groupBox3.Text = "Patcher Settings";
             // 
             // forcepatch
             // 
             this.forcepatch.AutoSize = true;
-            this.forcepatch.Location = new System.Drawing.Point(6, 41);
+            this.forcepatch.Location = new System.Drawing.Point(9, 63);
+            this.forcepatch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.forcepatch.Name = "forcepatch";
-            this.forcepatch.Size = new System.Drawing.Size(130, 17);
+            this.forcepatch.Size = new System.Drawing.Size(190, 24);
             this.forcepatch.TabIndex = 4;
             this.forcepatch.Text = "Enable force patching";
             this.forcepatch.UseVisualStyleBackColor = true;
@@ -203,15 +220,16 @@
             // Settings
             // 
             this.AcceptButton = this.button1;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(206, 357);
+            this.ClientSize = new System.Drawing.Size(309, 549);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.disabledisclaimerbtn);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Settings";
