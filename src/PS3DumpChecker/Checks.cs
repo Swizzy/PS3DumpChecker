@@ -200,7 +200,7 @@
                     _checkckount++;
                     Common.SendStatus(string.Format("Parsing Image... Checking Data Fill for: {0}", dataFillEntry.Name));
                     Logger.Write(string.Format("{0,-70} Result: ", string.Format("Data Fill check for: {0} Started!", dataFillEntry.Name)));
-                    if (!CheckDataFill(ref data, dataFillEntry))
+                    if (!CheckDataFill(ref data, dataFillEntry, _ret.Reversed))
                         Common.AddBad(ref _ret);
                 }
             }
@@ -302,14 +302,34 @@
             return _ret;
         }
 
-        private static bool CheckDataFill(ref byte[] data, Common.DataFillEntry dataFillEntry) { 
-            for (var i = dataFillEntry.Offset; i < dataFillEntry.Offset + dataFillEntry.Length; i++) {
+        private static bool CheckDataFill(ref byte[] data, Common.DataFillEntry dataFillEntry, bool reversed)
+        {
+            long Offset;
+            long Length;
+            if (dataFillEntry.LdrSize != 0 )
+              {
+                  var tmpdata = new byte[2];
+                  Buffer.BlockCopy(data, (int)dataFillEntry.LdrSize, tmpdata, 0, tmpdata.Length);
+                  if (reversed)
+                      Common.SwapBytes(ref tmpdata);
+                long ldrlength = Common.GetLdrSize(ref tmpdata);
+                long tmpval = dataFillEntry.RegionStart + ldrlength;
+                Offset = tmpval;
+                  tmpval = dataFillEntry.RegionSize - ldrlength;
+                  Length = tmpval;
+                  }
+              else
+                   {
+              Length = dataFillEntry.Length;
+              Offset = dataFillEntry.Offset;
+                   }
+            for (var i = Offset; i < Offset + Length; i++) {
                 if (data[i] == dataFillEntry.Data)
                     continue;
                 AddItem(new Common.PartsObject {
                     Name = dataFillEntry.Name,
                     ActualString = string.Format("The byte @ offset: 0x{0:X}\r\nhas the value: 0x{1:X2}\r\nPlease check the data further down the line manually...", i, data[i]),
-                    ExpectedString = string.Format("The data between offset: 0x{0:X} and 0x{1:X} should be: {2:X2}", dataFillEntry.Offset, dataFillEntry.Offset + dataFillEntry.Length, dataFillEntry.Data),
+                    ExpectedString = string.Format("The data between offset: 0x{0:X} and 0x{1:X} should be: {2:X2}", Offset, Offset + Length, dataFillEntry.Data),
                     Result = false
                 });
                 Logger.WriteLine2(string.Format("FAILED!\r\nThe byte @ offset: 0x{0:X}\r\nhas the value: 0x{1:X2}\r\nPlease check the data further down the line manually...", i, data[i]));
@@ -319,7 +339,7 @@
             {
                 Name = dataFillEntry.Name,
                 ActualString = "All is OK!",
-                ExpectedString = string.Format("The data between offset: 0x{0:X} and 0x{1:X} should be: {2:X2}", dataFillEntry.Offset, dataFillEntry.Offset + dataFillEntry.Length, dataFillEntry.Data),
+                ExpectedString = string.Format("The data between offset: 0x{0:X} and 0x{1:X} should be: {2:X2}", Offset, Offset + Length, dataFillEntry.Data),
                 Result = true
             });
             Logger.WriteLine2("OK!");

@@ -288,6 +288,9 @@
             internal int Length;
             internal byte Data;
             internal string Name;
+            internal int RegionStart;
+            internal int RegionSize;
+            internal int LdrSize;
 #pragma warning restore 649
         }
 

@@ -80,10 +80,10 @@
       <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4">2E604104D943D1B534D4C5F5</binentry>
       <binentry name="001.03   bootldr Rev key (Top)" ismulti="true" offset="4">1FDC1E2DF00DA36701E2F8F6</binentry>
       <!-- end of refurbished consoles? -->
-      <!--  Need to find a way to check bootldr 0xFF filled area from the end of bootldr (depend of ldrsize) to 3FFFF  -->
       <datalist name="001.04   bootldr Statistics (Top)" offset="0" ldrsize="2">
         <datatreshold key="*">0,5</datatreshold>
       </datalist>
+      <datafill name="001.05   bootldr (Top) 0xFF Filled Area" regionstart="0" regionsize="40000" ldrsize="2">FF</datafill> 
     </bootldr_top_region>
     <Header_Magic>
       <datafill name="002.00   Header Magic 0x00 Filled Area 0" offset="40000" size="10">00</datafill>
@@ -175,10 +175,10 @@
       <binentry name="004.06   metldr Binary Size" ismulti="true" offset="40850">00000F8E</binentry>
       <binentry name="004.06   metldr Binary Size" ismulti="true" offset="40850">00000F97</binentry>
       <!-- end of refurbished consoles? -->
-      <!--  Need to find a way to check asecure_loader 0x00 filled area from the end of metldr (depend of ldrsize) to 807FF  -->
       <datalist name="004.07   metldr Statistics" offset="40840" ldrsize="40842">
         <datatreshold key="*">0,5</datatreshold>
       </datalist>
+      <datafill name="004.08   asecure_loader 0x00 Filled Area" regionstart="40840" regionsize="2E7C0" ldrsize="40842">00</datafill> 
     </asure_loader_region>
     <eEID_region>
       <binentry name="005.01   eEID Header" offset="80800">0000000600001DD00000000000000000</binentry>
@@ -417,10 +417,10 @@
       <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004">2E604104D943D1B534D4C5F5</binentry>
       <binentry name="012.03   bootldr Rev key (Bottom)" ismulti="true" offset="F000004">1FDC1E2DF00DA36701E2F8F6</binentry>
       <!-- end of refurbished consoles? -->
-      <!--  Need to find a way to check bootldr 0xFF filled area from the end of bootldr (depend of ldrsize) to FFFFFFF  -->
-      <datalist name="012.04   bootldr Statistics (Bottom)" offset="F000000" ldrsize="2">
+      <datalist name="012.04   bootldr Statistics (Bottom)" offset="F000000" ldrsize="F000002">
         <datatreshold key="*">0,5</datatreshold>
       </datalist>
+      <datafill name="012.05   bootldr 0xFF Filled Area" regionstart="F000000" regionsize="40000" ldrsize="F000002">FF</datafill> 
     </bootldr_bottom_region>
     <datamatches>
       <datamatchid id="0">bootldr size</datamatchid>
@@ -703,8 +703,7 @@
       <datalist name="004.07   metldr Statistics" offset="840" ldrsize="842">
         <datatreshold key="*">0,5</datatreshold>
       </datalist>
-      <!--  Need to find a way to check asecure_loader 0x00 filled area from the end of metldr (depend of ldrsize) to 2EFFF
-      <datafill name="0x00 Filled Area asecure_loader" offset="?????" size="?????">00</datafill>  -->
+      <datafill name="004.08   asecure_loader 0x00 Filled Area" regionstart="840" regionsize="2E7C0" ldrsize="842">00</datafill> 
     </asure_loader_region>
     <eEID_region>
       <binentry name="005.01   eEID Header" offset="2F000">0000000600001DD00000000000000000</binentry>
@@ -979,6 +978,7 @@
       <datalist name="014.04   bootldr Statistics" offset="FC0000" ldrsize="FC0002">
         <datatreshold key="*">0,5</datatreshold>
       </datalist>
+      <datafill name="014.05   bootldr 0xFF Filled Area" regionstart="FC0000" regionsize="40000" ldrsize="FC0002">FF</datafill>
     </bootldr_region>
     <datamatches>
       <datamatchid id="0">bootldr size</datamatchid>
