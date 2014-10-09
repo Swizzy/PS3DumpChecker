@@ -142,7 +142,7 @@
                 if (!ret)
                     Common.AddBad(ref _ret);
                 Logger.WriteLine2(!ret ? "FAILED!" : string.Format("OK! ({0})", _ret.ROS0Version));
-                AddItem(new Common.PartsObject { ActualString = _ret.ROS0Version, ExpectedString = "ROS0 version in the format: ###.###", Name = "ROS0 Version", Result = ret });
+                AddItem(new Common.PartsObject { ActualString = _ret.ROS0Version, ExpectedString = "ROS0 version in the format: ###.###", Name = "009.03   ROS0 Version", Result = ret });
                 _checkckount++;
                 Common.SendStatus("Parsing Image... Checking ROS0 Version");
                 Logger.Write(string.Format("{0,-70} Result: ", "ROS Version check for ROS1 Started..."));
@@ -150,7 +150,7 @@
                 if (!ret)
                     Common.AddBad(ref _ret);
                 Logger.WriteLine2(!ret ? "FAILED!" : string.Format("OK! ({0})", _ret.ROS1Version));
-                AddItem(new Common.PartsObject { ActualString = _ret.ROS1Version, ExpectedString = "ROS1 version in the format: ###.###", Name = "ROS1 Version", Result = ret });
+                AddItem(new Common.PartsObject { ActualString = _ret.ROS1Version, ExpectedString = "ROS1 version in the format: ###.###", Name = "009.06   ROS1 Version", Result = ret });
             }
             else if (Program.GetRegSetting("dorosvercheck", true))
                 Logger.WriteLine(string.Format("{0,-70} (nothing to check)", "ROS Version check skipped!"));

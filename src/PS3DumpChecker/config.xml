@@ -86,9 +86,9 @@
       <datafill name="001.05   bootldr (Top) 0xFF Filled Area" regionstart="0" regionsize="40000" ldrsize="2">FF</datafill> 
     </bootldr_top_region>
     <Header_Magic>
-      <datafill name="002.00   Header Magic 0x00 Filled Area 0" offset="40000" size="10">00</datafill>
-      <binentry name="002.01   Header Magic" offset="40010">000000000FACE0FF00000000DEADBEEF00000000000000000000000000007600</binentry>
-      <datafill name="002.02   Header Magic 0x00 Filled Area 1" offset="40030" size="1D0">00</datafill>
+      <datafill name="002.01   Header Magic 0x00 Filled Area 0" offset="40000" size="10">00</datafill>
+      <binentry name="002.02   Header Magic" offset="40010">000000000FACE0FF00000000DEADBEEF00000000000000000000000000007600</binentry>
+      <datafill name="002.03   Header Magic 0x00 Filled Area 1" offset="40030" size="1D0">00</datafill>
     </Header_Magic>
     <flash_region_table>
       <binentry name="003.01   Flash Region Table Header" offset="40200" decription="">00000001000000090000000000EBFE00</binentry>
@@ -268,23 +268,24 @@
       <binentry name="006.04   cISD2 Offset - Length" offset="90830">00000260000000100000000000000002</binentry>
       <datafill name="006.05   cISD0 0xFF Filled Area" offset="90846" size="1A">FF</datafill>
       <binentry name="006.06   cISD1 IDLog Header" offset="90860" ascii="true">7F49444C</binentry>
-      <binentry name="006.07   cISD1 Static1" offset="90864">000200600100</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="908A4">001100110012</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="908A4">001300130022</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="908A4">001900190028</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="908A4">002500250034 </binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="908A4">002800280038</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="908A4">003100310041 </binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="908A4">003900390049</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="908A4">004500450067</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="908A4">004700470071 </binentry>
+      <binentry name="006.07   cISD1 Semistatic 1" ismulti="true" offset="90864">000200600100</binentry>
+      <binentry name="006.07   cISD1 Semistatic 1" ismulti="true" offset="90864">000300680100</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="908A4">001100110012</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="908A4">001300130022</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="908A4">001900190028</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="908A4">002500250034 </binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="908A4">002800280038</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="908A4">003100310041 </binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="908A4">003900390049</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="908A4">004500450067</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="908A4">004700470071 </binentry>
       <datafill name="006.09   cISD1 0xFF Filled Area 0" offset="908AC" size="4">FF</datafill>
-      <binentry name="006.10   cISD1 Static2" offset="908AA">0001</binentry>
-      <binentry name="006.11   cISD1 Semistatic2" ismulti="true" offset="908B0">0001001100020012</binentry>
-      <binentry name="006.11   cISD1 Semistatic2" ismulti="true" offset="908B0">0001001200020012</binentry>
-      <binentry name="006.11   cISD1 Semistatic2" ismulti="true" offset="908B0">0002001100020012</binentry>
-      <binentry name="006.11   cISD1 Semistatic2" ismulti="true" offset="908B0">0002001200020012</binentry>
-      <datafill name="006.12   cISD1 0xFF Filled Area 1" offset="908C0" size="1A0">FF</datafill>
+      <binentry name="006.10   cISD1 Static" offset="908AA">0001</binentry>
+      <binentry name="006.11   cISD1 Semistatic 3" ismulti="true" offset="908B0">0001001100020012</binentry>
+      <binentry name="006.11   cISD1 Semistatic 3" ismulti="true" offset="908B0">0001001200020012</binentry>
+      <binentry name="006.11   cISD1 Semistatic 3" ismulti="true" offset="908B0">0002001100020012</binentry>
+      <binentry name="006.11   cISD1 Semistatic 3" ismulti="true" offset="908B0">0002001200020012</binentry>
+      <datafill name="006.12   cISD1 0xFF Filled Area 1" offset="908C8" size="198">FF</datafill>
       <datalist name="006.13   cISD1 Statistics" offset="90870" size="3C">
         <datatreshold key="FF">0</datatreshold>
       </datalist>
@@ -309,10 +310,10 @@
       <!-- same comments than NOR -->
     </Revokation_region>
     <CoreOS_region>
-      <binentry name="009.01   ROS Header" ismulti="true" offset="C0000">000000000070001000000000007000100000000000E000000000000000000000</binentry>
-      <binentry name="009.01   ROS Header" ismulti="true" offset="C0000">000000000000002000000000000000200000000000E000000000000000000000</binentry>
-      <binentry name="009.02   ros0 Header" offset="C0020">000000000000000000000000006FFFE0</binentry>
-      <binentry name="009.03   ros1 Header" offset="7C0010">000000000000000000000000006FFFE0</binentry>
+      <binentry name="009.00   ROS Header" ismulti="true" offset="C0000">000000000070001000000000007000100000000000E000000000000000000000</binentry>
+      <binentry name="009.00   ROS Header" ismulti="true" offset="C0000">000000000000002000000000000000200000000000E000000000000000000000</binentry>
+      <binentry name="009.01   ROS0 Header" offset="C0020">000000000000000000000000006FFFE0</binentry>
+      <binentry name="009.04   ROS1 Header" offset="7C0010">000000000000000000000000006FFFE0</binentry>
     </CoreOS_region>
     <cvtrm_region>
       <binentry name="010.01   cvtrm Header" offset="EC0000" ascii="true">534345495654524D</binentry>
@@ -619,14 +620,14 @@
     <ros0offset>C0010</ros0offset>
     <ros1offset>7C0010</ros1offset>
     <first_region_header>
-      <datafill name="001.00   First Region Header 0x00 Filled Area 0" offset="0" size="10">00</datafill>
-      <binentry name="001.01   First Region Header Magic" offset="10">000000000FACE0FF00000000DEADBEEF00000000000000000000000000007800</binentry>
-      <datafill name="001.02   First Region Header 0x00 Filled Area 1" offset="30" size="1D0">00</datafill>
+      <datafill name="001.01   First Region Header 0x00 Filled Area 0" offset="0" size="10">00</datafill>
+      <binentry name="001.02   First Region Header Magic" offset="10">000000000FACE0FF00000000DEADBEEF00000000000000000000000000007800</binentry>
+      <datafill name="001.03   First Region Header 0x00 Filled Area 1" offset="30" size="1D0">00</datafill>
     </first_region_header>
     <flash_format>
-      <binentry name="002.00   Flash Format String" offset="200" ascii="true">49464900</binentry>
-      <binentry name="002.01   Flash Format Version" offset="204">000000010000000200000000</binentry>
-      <datafill name="002.02   Flash Format 0xFF Filled Area" offset="210" size="1F0">FF</datafill>
+      <binentry name="002.01   Flash Format String" offset="200" ascii="true">49464900</binentry>
+      <binentry name="002.02   Flash Format Version" offset="204">000000010000000200000000</binentry>
+      <datafill name="002.03   Flash Format 0xFF Filled Area" offset="210" size="1F0">FF</datafill>
     </flash_format>
     <flash_region_table>
       <binentry name="003.01   Flash Region Table Header" offset="400" decription="">000000010000000B0000000000EFFC00</binentry>
@@ -793,36 +794,37 @@
       <binentry name="006.04   cISD2 Offset - Length" offset="3F030">00000260000000100000000000000002</binentry>
       <datafill name="006.05   cISD0 0xFF Filled Area" offset="3F046" size="1A">FF</datafill>
       <binentry name="006.06   cISD1 IDLog Header" offset="3F060" ascii="true">7F49444C</binentry>
-      <binentry name="006.07   cISD1 Static1" offset="3F064">000200600100</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">004700470071</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">005200520071</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">005400540080</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">006200620090</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">006200620092</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">006600660096</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">007300730096</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">007900790106</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">008500850106</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">008500850114</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">008700870114</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">009100910114</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">009900990118</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">010101010124</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">010101010128</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">010701070128</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">010701070134</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">011101110138</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">011101110140</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">011301130142</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">012101210150</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">012301230152</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">013101310160</binentry>
-      <binentry name="006.08   cISD1 Semistatic1" ismulti="true" offset="3F0A4">016501650180</binentry>
+      <binentry name="006.07   cISD1 Semistatic 1" ismulti="true" offset="3F064">000200600100</binentry>
+      <binentry name="006.07   cISD1 Semistatic 1" ismulti="true" offset="3F064">000300680100</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="3F0A4">004700470071</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="3F0A4">005200520071</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="3F0A4">005400540080</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="3F0A4">006200620090</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="3F0A4">006200620092</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="3F0A4">006600660096</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="3F0A4">007300730096</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="3F0A4">007900790106</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="3F0A4">008500850106</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="3F0A4">008500850114</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="3F0A4">008700870114</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="3F0A4">009100910114</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="3F0A4">009900990118</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="3F0A4">010101010124</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="3F0A4">010101010128</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="3F0A4">010701070128</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="3F0A4">010701070134</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="3F0A4">011101110138</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="3F0A4">011101110140</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="3F0A4">011301130142</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="3F0A4">012101210150</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="3F0A4">012301230152</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="3F0A4">013101310160</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="3F0A4">016501650180</binentry>
       <datafill name="006.09   cISD1 0xFF Filled Area 0" offset="3F0AC" size="4">FF</datafill>
-      <binentry name="006.10   cISD1 Static2" offset="3F0AA">0001</binentry>
-      <binentry name="006.11   cISD1 Semistatic2" ismulti="true" offset="3F0B0">0002001100020012</binentry>
-      <binentry name="006.11   cISD1 Semistatic2" ismulti="true" offset="3F0B0">0002001200020012</binentry>
-      <datafill name="006.12   cISD1 0xFF Filled Area 1" offset="3F0C0" size="1A0">FF</datafill>
+      <binentry name="006.10   cISD1 Static" offset="3F0AA">0001</binentry>
+      <binentry name="006.11   cISD1 Semistatic 3" ismulti="true" offset="3F0B0">0002001100020012</binentry>
+      <binentry name="006.11   cISD1 Semistatic 3" ismulti="true" offset="3F0B0">0002001200020012</binentry>
+      <datafill name="006.12   cISD1 0xFF Filled Area 1" offset="3F0C8" size="198">FF</datafill>
       <datalist name="006.13   cISD1 Statistics" offset="3F070" size="3C">
         <datatreshold key="FF">0</datatreshold>
       </datalist>
@@ -867,16 +869,16 @@
       <!--  Need to find a way to check trvk_pkg1 0xFF filled area (follow previous 0x00 area to BFFFF)  -->
     </Revokation_region>
     <CoreOS_region>
-      <binentry name="009.01   ros0 Header" offset="C0000">000000000000000000000000006FFFE0</binentry>
-      <binentry name="009.02   ros1 Header" offset="7C0000">000000000000000000000000006FFFE0</binentry>
+      <binentry name="009.01   ROS0 Header" offset="C0000">000000000000000000000000006FFFE0</binentry>
+      <binentry name="009.04   ROS1 Header" offset="7C0000">000000000000000000000000006FFFE0</binentry>
     </CoreOS_region>
     <cvtrm_region>
-      <datafill name="010.01   cvtrm0 0xFF Filled Area" offset="EBFFF0" size="10">FF</datafill>
+      <datafill name="010.01   Pre cvtrm 0xFF Filled Band" offset="EBFFF0" size="10">FF</datafill>
       <binentry name="010.02   cvtrm0 Header" ismulti="true" offset="EC0000">53434549FFFFFFFFFFFFFFFFFFFFFFFF</binentry>
       <binentry name="010.02   cvtrm0 Header" ismulti="true" offset="EC0000">00000000FFFDFFFFFFFFFFFFFFFFFFFF</binentry>
       <binentry name="010.02   cvtrm0 Header" ismulti="true" offset="EC0000">00000000FFFFFFFFFFFFFFFFFFFFFFFF</binentry>
       <!-- Might not be valid... -->
-      <datafill name="010.03   cvtrm0 0xFF Filled Area" offset="EC0006" size="3FFA">FF</datafill>
+      <datafill name="010.03   cvtrm0 0xFF Filled Area" offset="EC0010" size="3FF0">FF</datafill>
       <binentry name="010.04   vtrm0 Magic" offset="EC4000" ascii="true">000000005654524D000000000000</binentry>
       <binentry name="010.05   vtrm0 Reserved Entries" offset="EC4028">0000000000000209</binentry>
       <binentry name="010.06   cvtrm1 Header" ismulti="true" offset="EE0000">53434549FFFFFFFFFFFFFFFFFFFFFFFF</binentry>
@@ -885,6 +887,7 @@
       <!-- Might not be valid... -->
       <datafill name="010.07   cvtrm1 0xFF Filled Area" offset="EE0010" size="3FF0">FF</datafill>
       <binentry name="010.08   vtrm1 Magic" offset="EE4000" ascii="true">000000005654524D000000000000</binentry>
+      <binentry name="010.09   vtrm1 Reserved Entries" offset="EE4028">0000000000000209</binentry>
     </cvtrm_region>
     <Second_Region_Header>
       <datafill name="011.01   Second Region Header 0x00 Filled Area 0" offset="F00000" size="10">00</datafill>
@@ -1056,7 +1059,7 @@
         <skuentry type="bootldr1">2F1C</skuentry>
         <skuentry type="bootldrsize">2F200</skuentry>
       </skulist>
-      <skulist name="CECHHxx (DIA-001)" minver="2.30">
+      <skulist name="CECHHxx or CECHMxx (DIA-001)" minver="2.30">
         <skuentry type="idps">06</skuentry>
         <skuentry type="metldr0">E8C0</skuentry>
         <skuentry type="metldr1">0E88</skuentry>
