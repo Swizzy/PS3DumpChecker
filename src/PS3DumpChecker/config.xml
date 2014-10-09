@@ -873,7 +873,7 @@
       <binentry name="009.04   ROS1 Header" offset="7C0000">000000000000000000000000006FFFE0</binentry>
     </CoreOS_region>
     <cvtrm_region>
-      <datafill name="010.01   Pre cvtrm 0xFF Filled Band" offset="EBFFF0" size="10">FF</datafill>
+      <datafill name="010.01   Pre cvtrm 0xFF Filled Area" offset="EBFFF0" size="10">FF</datafill>
       <binentry name="010.02   cvtrm0 Header" ismulti="true" offset="EC0000">53434549FFFFFFFFFFFFFFFFFFFFFFFF</binentry>
       <binentry name="010.02   cvtrm0 Header" ismulti="true" offset="EC0000">00000000FFFDFFFFFFFFFFFFFFFFFFFF</binentry>
       <binentry name="010.02   cvtrm0 Header" ismulti="true" offset="EC0000">00000000FFFFFFFFFFFFFFFFFFFFFFFF</binentry>
