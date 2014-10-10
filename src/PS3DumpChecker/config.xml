@@ -881,13 +881,15 @@
       <datafill name="010.03   cvtrm0 0xFF Filled Area" offset="EC0010" size="3FF0">FF</datafill>
       <binentry name="010.04   vtrm0 Magic" offset="EC4000" ascii="true">000000005654524D000000000000</binentry>
       <binentry name="010.05   vtrm0 Reserved Entries" offset="EC4028">0000000000000209</binentry>
-      <binentry name="010.06   cvtrm1 Header" ismulti="true" offset="EE0000">53434549FFFFFFFFFFFFFFFFFFFFFFFF</binentry>
-      <binentry name="010.06   cvtrm1 Header" ismulti="true" offset="EE0000">00000000FFFDFFFFFFFFFFFFFFFFFFFF</binentry>
-      <binentry name="010.06   cvtrm1 Header" ismulti="true" offset="EE0000">00000000FFFFFFFFFFFFFFFFFFFFFFFF</binentry>
+      <datafill name="010.06   vtrm0 0xFF Filled Area" vtrmentrycount_offset="EC403E" regionstart="EC5088" regionsize="186C0">FF</datafill>
+      <binentry name="010.07   cvtrm1 Header" ismulti="true" offset="EE0000">53434549FFFFFFFFFFFFFFFFFFFFFFFF</binentry>
+      <binentry name="010.07   cvtrm1 Header" ismulti="true" offset="EE0000">00000000FFFDFFFFFFFFFFFFFFFFFFFF</binentry>
+      <binentry name="010.07   cvtrm1 Header" ismulti="true" offset="EE0000">00000000FFFFFFFFFFFFFFFFFFFFFFFF</binentry>
       <!-- Might not be valid... -->
-      <datafill name="010.07   cvtrm1 0xFF Filled Area" offset="EE0010" size="3FF0">FF</datafill>
-      <binentry name="010.08   vtrm1 Magic" offset="EE4000" ascii="true">000000005654524D000000000000</binentry>
-      <binentry name="010.09   vtrm1 Reserved Entries" offset="EE4028">0000000000000209</binentry>
+      <datafill name="010.08   cvtrm1 0xFF Filled Area" offset="EE0010" size="3FF0">FF</datafill>
+      <binentry name="010.09   vtrm1 Magic" offset="EE4000" ascii="true">000000005654524D000000000000</binentry>
+      <binentry name="010.10   vtrm1 Reserved Entries" offset="EE4028">0000000000000209</binentry>
+      <datafill name="010.11   vtrm1 0xFF Filled Area" vtrmentrycount_offset="EE403E" regionstart="EE5088" regionsize="186C0">FF</datafill>
     </cvtrm_region>
     <Second_Region_Header>
       <datafill name="011.01   Second Region Header 0x00 Filled Area 0" offset="F00000" size="10">00</datafill>

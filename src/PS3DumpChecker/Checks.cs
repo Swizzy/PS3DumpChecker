@@ -307,22 +307,31 @@
             long Offset;
             long Length;
             if (dataFillEntry.LdrSize != 0 )
-              {
-                  var tmpdata = new byte[2];
-                  Buffer.BlockCopy(data, (int)dataFillEntry.LdrSize, tmpdata, 0, tmpdata.Length);
-                  if (reversed)
-                      Common.SwapBytes(ref tmpdata);
+            {
+                var tmpdata = new byte[2];
+                Buffer.BlockCopy(data, (int)dataFillEntry.LdrSize, tmpdata, 0, tmpdata.Length);
+                if (reversed)
+                    Common.SwapBytes(ref tmpdata);
                 long ldrlength = Common.GetLdrSize(ref tmpdata);
-                long tmpval = dataFillEntry.RegionStart + ldrlength;
-                Offset = tmpval;
-                  tmpval = dataFillEntry.RegionSize - ldrlength;
-                  Length = tmpval;
-                  }
-              else
-                   {
-              Length = dataFillEntry.Length;
-              Offset = dataFillEntry.Offset;
-                   }
+                Offset = dataFillEntry.RegionStart + ldrlength;
+                Length = dataFillEntry.RegionSize - ldrlength;
+            }
+            else if (dataFillEntry.vtrmentrycount_offset != 0)
+            {
+                var vtrmentrycount = new byte[2];
+                Buffer.BlockCopy(data, (int)dataFillEntry.vtrmentrycount_offset, vtrmentrycount, 0, vtrmentrycount.Length);
+                if (reversed == false)
+                    Common.SwapBytes(ref vtrmentrycount);
+                var count = BitConverter.ToUInt16(vtrmentrycount, 0);
+                var entrieslength = count * 0x60;
+                Offset = dataFillEntry.RegionStart + entrieslength;
+                Length = dataFillEntry.RegionSize - entrieslength;
+            }
+            else
+            {
+                Length = dataFillEntry.Length;
+                Offset = dataFillEntry.Offset;
+            }
             for (var i = Offset; i < Offset + Length; i++) {
                 if (data[i] == dataFillEntry.Data)
                     continue;
@@ -807,12 +816,14 @@
                 }
                 if(!islastok) {
                     ret = false;
-                    bigbuilder.Append(smallbuilder); // Add to the big one
+                    bigbuilder.AppendLine("Failed!");
+                    bigbuilder.Append(smallbuilder + "\r\n"); // Add to the big one
                     Logger.WriteLine2("Failed!");
                     Logger.WriteLine2(smallbuilder.ToString());
                 }
                 else {
-                    bigbuilder.AppendLine(string.Format("All data matching: {0}", laststring));
+                    var msg = Common.GetDataReadable(laststring);
+                    bigbuilder.AppendLine(string.Format("All data matching:\r\n{0}", msg));
                     Logger.WriteLine2("OK!");
                 }
             }

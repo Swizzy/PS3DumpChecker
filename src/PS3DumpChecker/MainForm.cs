@@ -540,6 +540,7 @@
                             int.TryParse(xml["ldrsize"], NumberStyles.HexNumber, null, out datafill.LdrSize);
                             int.TryParse(xml["regionsize"], NumberStyles.HexNumber, null, out datafill.RegionSize);
                             int.TryParse(xml["regionstart"], NumberStyles.HexNumber, null, out datafill.RegionStart);
+                            int.TryParse(xml["vtrmentrycount_offset"], NumberStyles.HexNumber, null, out datafill.vtrmentrycount_offset);
                             xml.Read();
                             if (!byte.TryParse(xml.Value, NumberStyles.HexNumber, null, out datafill.Data))
                                 break;

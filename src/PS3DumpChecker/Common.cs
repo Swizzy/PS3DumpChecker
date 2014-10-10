@@ -73,18 +73,22 @@
 
         public static string GetDataReadable(string input, ref int count) {
             var ret = "";
+            var charcount = 0;
             foreach(var c in input) {
+                charcount++;
                 if(c.ToString(CultureInfo.InvariantCulture) == " ")
                     continue;
                 if((count % 0x2) != 0)
                     ret += String.Format("{0} ", c);
                 else
                     ret += String.Format("{0}", c);
-                if(((count + 1) % 0x20) == 0 && count >= 0x1E)
+                if (((count + 1) % 0x20) == 0 && count >= 0x1E && charcount != input.Length)
                     ret = ret.Trim() + Environment.NewLine;
+                else if (((count + 1) % 0x20) == 0 && count >= 0x1E )
+                    ret = ret.Trim();
                 count++;
             }
-            return ret;
+            return ret + Environment.NewLine;
         }
 
         public static string GetDataForTest(IList<byte> data) {
@@ -291,6 +295,7 @@
             internal int RegionStart;
             internal int RegionSize;
             internal int LdrSize;
+            internal int vtrmentrycount_offset;
 #pragma warning restore 649
         }
 
