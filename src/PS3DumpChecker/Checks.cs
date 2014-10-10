@@ -816,14 +816,12 @@
                 }
                 if(!islastok) {
                     ret = false;
-                    bigbuilder.AppendLine("Failed!");
-                    bigbuilder.Append(smallbuilder + "\r\n"); // Add to the big one
+                    bigbuilder.Append("Failed!\r\n" + smallbuilder + "\r\n"); // Add to the big one
                     Logger.WriteLine2("Failed!");
                     Logger.WriteLine2(smallbuilder.ToString());
                 }
                 else {
-                    var msg = Common.GetDataReadable(laststring);
-                    bigbuilder.AppendLine(string.Format("All data matching:\r\n{0}", msg));
+                    bigbuilder.AppendLine(string.Format("All data matching:\r\n{0}", Common.GetDataReadable(laststring)));
                     Logger.WriteLine2("OK!");
                 }
             }

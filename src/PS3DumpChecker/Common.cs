@@ -73,16 +73,14 @@
 
         public static string GetDataReadable(string input, ref int count) {
             var ret = "";
-            var charcount = 0;
             foreach(var c in input) {
-                charcount++;
                 if(c.ToString(CultureInfo.InvariantCulture) == " ")
                     continue;
                 if((count % 0x2) != 0)
                     ret += String.Format("{0} ", c);
                 else
                     ret += String.Format("{0}", c);
-                if (((count + 1) % 0x20) == 0 && count >= 0x1E && charcount != input.Length)
+                if (((count + 1) % 0x20) == 0 && count >= 0x1E && (count + 1) != input.Length)
                     ret = ret.Trim() + Environment.NewLine;
                 else if (((count + 1) % 0x20) == 0 && count >= 0x1E )
                     ret = ret.Trim();
