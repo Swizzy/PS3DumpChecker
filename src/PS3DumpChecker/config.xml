@@ -91,9 +91,8 @@
       <datafill name="002.03   Header Magic 0x00 Filled Area 1" offset="40030" size="1D0">00</datafill>
     </Header_Magic>
     <flash_region_table>
-      <binentry name="003.01   Flash Region Table Header" offset="40200" decription="">00000001000000090000000000EBFE00</binentry>
-      <binentry name="003.02   asecure_loader Offset - Length" offset="40210"
-                decription="">
+      <binentry name="003.01   Flash Region Table Header" offset="40200">00000001000000090000000000EBFE00</binentry>
+      <binentry name="003.02   asecure_loader Offset - Length" offset="40210">
         00000000000006000000000000040000
       </binentry>
       <binentry name="003.03   asecure_loader Name" offset="40220" ascii="true">617365637572655F6C6F61646572000000000000000000000000000000000000</binentry>
@@ -117,7 +116,7 @@
     </flash_region_table>
     <asure_loader_region>
       <binentry name="004.01   asecure_loader Header" offset="40800">00000001000000010000000000040000</binentry>
-      <binentry name="004.02   metldr Offset" offset="40810" decription="">0000000000000040</binentry>
+      <binentry name="004.02   metldr Offset" offset="40810">0000000000000040</binentry>
       <binentry name="004.03   metldr Length" ismulti="true" offset="40818">000000000000EE10</binentry>
       <binentry name="004.03   metldr Length" ismulti="true" offset="40818">000000000000EDA0</binentry>
       <binentry name="004.03   metldr Length" ismulti="true" offset="40818">000000000000EBF0</binentry>
@@ -630,8 +629,8 @@
       <datafill name="002.03   Flash Format 0xFF Filled Area" offset="210" size="1F0">FF</datafill>
     </flash_format>
     <flash_region_table>
-      <binentry name="003.01   Flash Region Table Header" offset="400" decription="">000000010000000B0000000000EFFC00</binentry>
-      <binentry name="003.02   asecure_loader Offset - Length" offset="410" decription="">0000000000000400000000000002E800</binentry>
+      <binentry name="003.01   Flash Region Table Header" offset="400">000000010000000B0000000000EFFC00</binentry>
+      <binentry name="003.02   asecure_loader Offset - Length" offset="410">0000000000000400000000000002E800</binentry>
       <binentry name="003.03   asecure_loader Name" offset="420" ascii="true">617365637572655F6C6F61646572000000000000000000000000000000000000</binentry>
       <binentry name="003.04   eEID Offset - Length" offset="440">000000000002EC000000000000010000</binentry>
       <binentry name="003.05   eEID Name" offset="450" ascii="true">6545494400000000000000000000000000000000000000000000000000000000</binentry>
@@ -657,7 +656,7 @@
     </flash_region_table>
     <asure_loader_region>
       <binentry name="004.01   asecure_loader Header" offset="800">0000000100000001000000000002E800</binentry>
-      <binentry name="004.02   metldr Offset" offset="810" decription="">0000000000000040</binentry>
+      <binentry name="004.02   metldr Offset" offset="810">0000000000000040</binentry>
       <binentry name="004.03   metldr Length" ismulti="true" offset="818">000000000000E7B0</binentry>
       <binentry name="004.03   metldr Length" ismulti="true" offset="818">000000000000E8C0</binentry>
       <binentry name="004.03   metldr Length" ismulti="true" offset="818">000000000000E8E0</binentry>
@@ -670,12 +669,10 @@
       <binentry name="004.03   metldr Length" ismulti="true" offset="818">000000000000F9B0</binentry>
       <binentry name="004.04   metldr Name" ismulti="true" offset="820" ascii="true">
         6D65746C647200000000000000000000
-        00000000000000000000000000000000
-      </binentry> <!-- METLDR -->
+        00000000000000000000000000000000</binentry>  <!--METLDR--> 
       <binentry name="004.04   metldr Name" ismulti="true" offset="820" ascii="true" disablepatch="true">
         6D65746C64722E320000000000000000
-        00000000000000000000000000000000
-      </binentry> <!-- METLDR2-->
+        00000000000000000000000000000000</binentry> <!-- METLDR2-->
       <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000E771362F2C2E6835D6FC144F246</binentry>
       <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000E887822C41EB9F00FA4830A0B69</binentry>
       <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000E8A5E1F9CED758B6B94442BF031</binentry>

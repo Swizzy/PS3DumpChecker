@@ -57,12 +57,15 @@
         public static string GetDataReadable(IEnumerable<byte> data) {
             var ret = "";
             var count = 0;
+            var datalength = 0;
+            foreach (var b in data) { datalength++; }
             foreach(var b in data) {
                 ret += String.Format("{0:X2} ", b);
-                if(((count + 1) % 0x10) == 0 && count >= 0xF)
-                    ret += Environment.NewLine;
+                if (((count + 1) % 0x10) == 0 && count >= 0xF && (count + 1) != datalength)
+                    ret = ret.Trim() + Environment.NewLine;
                 count++;
             }
+            //ret = ret.Trim();
             return ret;
         }
 
@@ -80,13 +83,12 @@
                     ret += String.Format("{0} ", c);
                 else
                     ret += String.Format("{0}", c);
-                if (((count + 1) % 0x20) == 0 && count >= 0x1E && (count + 1) != input.Length)
+                if (((count + 1) % 0x20) == 0 && count >= 0x1E && (count + 1) != input.Length) 
                     ret = ret.Trim() + Environment.NewLine;
-                else if (((count + 1) % 0x20) == 0 && count >= 0x1E )
-                    ret = ret.Trim();
                 count++;
             }
-            return ret + Environment.NewLine;
+            //ret = ret.Trim();
+            return ret;
         }
 
         public static string GetDataForTest(IList<byte> data) {

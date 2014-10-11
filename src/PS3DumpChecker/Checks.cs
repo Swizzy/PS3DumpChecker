@@ -459,10 +459,10 @@
                 }
             }
             Buffer.BlockCopy(data, (int) checkdata.Value.Offset, tmp, 0, tmp.Length);
-            msg = Common.GetDataReadable(tmp);
+            msg = Common.GetDataReadable(tmp).Trim();
             if(datareversed) {
                 Common.SwapBytes(ref tmp);
-                msg += string.Format("{0}Reversed (checked) data:{0}{1}", Environment.NewLine, Common.GetDataReadable(tmp));
+                msg += string.Format("{0}{0}Reversed (checked) data:{0}{1}", Environment.NewLine, Common.GetDataReadable(tmp).Trim());
             }
             if(checkdata.Value.Asciiout)
                 msg += string.Format("{0}Ascii Value: {1}", Environment.NewLine, GetAsciiString(tmp));
@@ -487,7 +487,7 @@
             var length = 0;
             foreach(var d in checkdata.Value.ExpectedList.Value) {
                 var count = 0;
-                var tmpmsg = Common.GetDataReadable(d.Expected, ref count);
+                var tmpmsg = Common.GetDataReadable(d.Expected, ref count).Trim();
                 if(length == 0)
                     length = count;
                 if(count != length || (length % 2) != 0)
@@ -542,10 +542,10 @@
                 }
             }
             Buffer.BlockCopy(data, (int) checkdata.Value.Offset, tmp, 0, tmp.Length);
-            msg = Common.GetDataReadable(tmp);
+            msg = Common.GetDataReadable(tmp).Trim();
             if(datareversed) {
                 Common.SwapBytes(ref tmp);
-                msg += string.Format("{0}Reversed (checked) data:{0}{1}", Environment.NewLine, Common.GetDataReadable(tmp));
+                msg += string.Format("{0}{0}Reversed (checked) data:{0}{1}", Environment.NewLine, Common.GetDataReadable(tmp).Trim());
             }
             if(checkdata.Value.Asciiout) {
                 var asciidata = Encoding.ASCII.GetString(tmp);
@@ -821,7 +821,7 @@
                     Logger.WriteLine2(smallbuilder.ToString());
                 }
                 else {
-                    bigbuilder.AppendLine(string.Format("All data matching:\r\n{0}", Common.GetDataReadable(laststring)));
+                    bigbuilder.AppendLine(string.Format("All data matching:\r\n{0}\r\n", Common.GetDataReadable(laststring).Trim()));
                     Logger.WriteLine2("OK!");
                 }
             }
