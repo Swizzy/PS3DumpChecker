@@ -317,16 +317,11 @@
     <cvtrm_region>
       <binentry name="010.01   cvtrm Header" offset="EC0000" ascii="true">534345495654524D</binentry>
       <binentry name="010.02   cvtrm Header Static" offset="EC0008">00000000000000A80000000000E802000000000000000028</binentry>
-      <datafill name="010.03   vtrm0 0x00 Filled Area" offset="EC0020" size="4">00</datafill>
-      <binentry name="010.04   vtrm0 Magic" offset="EC0020" ascii="true">000000005654524D00000000000000</binentry>
-      <binentry name="010.05   cvtrm Static 0" offset="EC0028">0000000000000004</binentry>
-      <binentry name="010.06   cvtrm Static 1" offset="EC0050">00000000000000600000000000000920</binentry>
-      <binentry name="010.07   cvtrm Static 2" offset="EC00F8">0000000000EBE48C0000000000000014</binentry>
-      <datafill name="010.08   cvtrm 0xFF Filled Area 0" offset="EC011C" size="2E4">FF</datafill>
-      <datafill name="010.09   cvtrm 0x00 Filled Area 0" offset="EC0400" size="4">00</datafill>
-      <binentry name="010.10   vtrm1 Magic" offset="EC0400" ascii="true">000000005654524D00000000000000</binentry>
-      <datafill name="010.11   cvtrm 0xFF Filled Area 1" offset="EC2FFF" size="364C0">FF</datafill>
-      <datafill name="010.12   cvtrm 0x00 Filled Area 1" offset="EFF000" size="1000">00</datafill>
+      <binentry name="010.03   vtrm Magic 1" offset="EC0020" ascii="true">000000005654524D</binentry>
+      <datafill name="010.04   cvtrm 0xFF Filled Area 0" offset="EC011C" size="2E4">FF</datafill>
+      <binentry name="010.05   vtrm Magic 2" offset="EC0400" ascii="true">000000005654524D</binentry>
+      <datafill name="010.06   vtrm 0xFF Filled Area" vtrmentrycount_offset="EC043E" regionstart="EC28C0" regionsize="36C00">FF</datafill>
+      <datafill name="010.07   cvtrm 0x00 Filled Area" offset="EFF000" size="1000">00</datafill>
     </cvtrm_region>
     <cell_ext_os_area>
       <datafill name="011.01   cell_ext_os_area Header" offset="E780000" size="20">FF</datafill>
@@ -427,7 +422,8 @@
       <datamatchid id="1">per console nonce</datamatchid>
       <datamatchid id="2">bootldr</datamatchid>
       <datamatchid id="3">metldr size</datamatchid>
-      <datamatchid id="4">cvtrm data</datamatchid>
+      <datamatchid id="4">vtrm header datas</datamatchid>
+      <datamatchid id="5">vtrm</datamatchid>
       <id0>
         <datamatch offset="0" length="4" id="0">bootldr0 Top</datamatch>
         <datamatch offset="10" length="4" id="0">bootldr1 Top</datamatch>
@@ -451,9 +447,13 @@
         <datamatch offset="40850" length="4" id="3">metldr size 1</datamatch>
       </id3>
       <id4>
-        <datamatch offset="EC0030" length="10" id="4">cvtrm data 0</datamatch>
-        <datamatch offset="EC0030" length="10" id="4">cvtrm data 1</datamatch>
+        <datamatch offset="EC0020" length="10" id="4">vtrm header 1</datamatch>
+        <datamatch offset="EC0400" length="10" id="4">vtrm header 2</datamatch>
       </id4>
+      <id5>
+        <datamatch offset="EF94C0" length="14" id="5" seqrep="417">offset 0x{0:X}</datamatch>
+        <datamatch offset="EFE6A0" length="14" id="5" seqrep="78">offset 0x{0:X}</datamatch>
+      </id5>
     </datamatches>
     <repchecks>
       <repcheck name="Header Magic Repetition" offset="40010">
@@ -1018,12 +1018,10 @@
       <id5>
         <datamatch offset="EDD748" length="14" id="5" seqrep="C7">offset 0x{0:X}</datamatch>
         <datamatch offset="EDE6E8" length="14" id="5" seqrep="141">offset 0x{0:X}</datamatch>
-        <datamatch offset="EFD748" length="14" id="5" seqrep="C7">offset 0x{0:X}</datamatch>
-        <datamatch offset="EFE6E8" length="14" id="5" seqrep="141">offset 0x{0:X}</datamatch>
       </id5>
       <id6>
-        <datamatch offset="EDE6D4" length="14" id="6">vtrm1 offset EDE6D4</datamatch>
-        <datamatch offset="EFE6D4" length="14" id="6">vtrm1 offset EFE6D4</datamatch>
+        <datamatch offset="EFD748" length="14" id="6" seqrep="C7">offset 0x{0:X}</datamatch>
+        <datamatch offset="EFE6E8" length="14" id="6" seqrep="141">offset 0x{0:X}</datamatch>
       </id6>
     </datamatches>
     <repchecks>

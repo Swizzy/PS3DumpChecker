@@ -783,7 +783,7 @@
                 islastok = false;
             if (!testlist.ContainsKey(tmp))
                 testlist.Add(tmp, name);
-            smallbuilder.AppendLine(!testdata.DisableDisplay ? string.Format("{0} : {1}", name, tmp) : string.Format("{0} : Too long to display", name));
+            smallbuilder.AppendLine(!testdata.DisableDisplay ? string.Format("{0} :\r\n{1}", name, Common.GetDataReadable(tmp).Trim()) : string.Format("{0} : Too long to display", name));
             return testdata.DisableDisplay ? "Too long to display" : tmp;
         }
 
