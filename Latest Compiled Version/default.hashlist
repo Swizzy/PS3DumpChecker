@@ -3,12 +3,15 @@
 <root>
   <!-- Bogus MD5 HASH: A51E3A6CD98BA04B3926B65CFA2EC0C7 -->
   <offsets>
-    <offset fsize="16777216" type="ROS" name="ROS0 Hash" size="6FFFE0">C0010</offset>
-    <offset fsize="16777216" type="ROS" name="ROS1 Hash" size="6FFFE0">7C0010</offset>
-    <offset fsize="268435456" type="ROS" name="ROS0 Hash" size="6FFFE0">C0030</offset>
-    <offset fsize="268435456" type="ROS" name="ROS1 Hash" size="6FFFE0">7C0020</offset>
+    <offset fsize="16777216" type="ROS" name="009.02   ROS0 Hash" size="6FFFE0">C0010</offset>
+    <offset fsize="16777216" type="ROS" name="009.05   ROS1 Hash" size="6FFFE0">7C0010</offset>
+    <offset fsize="268435456" type="ROS" name="009.02   ROS0 Hash" size="6FFFE0">C0030</offset>
+    <offset fsize="268435456" type="ROS" name="009.05   ROS1 Hash" size="6FFFE0">7C0020</offset>
   </offsets>
   <type name="ROS">
+    <hash name="4.65 CEX Patched (Ferrox DB based)" size="6FFFE0" patched="true">
+      7CD4589FF80931377BD50E831E491A94
+    </hash>
     <hash name="4.65 CEX Patched (Darkiris)" size="6FFFE0" patched="true">
       CA66EBD75B572F238F0E787F30278298
     </hash>

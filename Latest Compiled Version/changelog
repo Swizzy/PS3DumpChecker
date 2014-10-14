@@ -1,15 +1,29 @@
+Build 468 2014-10-14:
+ - Changed: The embedded Darkiris's 4.65 patch replaced by a patch made from "Ferrox 4.65 DB" firmware CoreOS (as the Darkiris's patch has some issues).
+ - Added: VTRM 0xFF filled area checks (variable size/starting offset depending of VTRM entries count)
+ - Added: Bootldr & asecure_loader 0x00 / 0xFF filled area checks (variable size/starting offset depending on version)
+ - Added: A "Force Patch" option allowing to apply patches even if the dump failed verification. Can be enabled/disabled in the settings menu, disabled by default. Must be used with care and knowledge
+ - Added: The Three Musketeer's patch MD5 to the hashlist
+ - Changed: Font of the displayed data in text boxes is now monospaced
+ - Added: Some check adjustments. Added some cell_ext_os_area checks (NAND)
+ - Fixed: Some output wouldn't show properly, now it does (ascii null issues along with non-ascii beeing converted to [])
+ - Fixed: ROS Version checks are now performed properly, if the hash don't match any known version, it'll still pass now... (as that's what it was intended for... besides, if this value is bad... the hash won't match ;))
+ - Fixed: The log now contains all data from the Datamatch check aswell (it only shows the data if there's a missmatch somewhere, otherwise it'll just show you the result of the check for each part) 
+ - Fixed: Alignment issues with some hex output (all output is now aligned to be per-byte (space in between every 2 hex chars) and 0x10 bytes per line)
+ - Added: SequenceRepetition to the Datamatch check (enables vtrm checking which has > 500 sequences which should match...)
+ - Added: DisableDisplay to the Datamatch check (enables checking large data to be a match without displaying the actual data...) 
 Build 416 2014-09-18:
  (Swizzy's changes):
-  - Added: ROS version checks. Can be enabled/disabled in settings menu. ROS versions and patch status displayed in "Image Information" group. If a known patched ROS recognized, it will not ask to patch the dump.
-  - Added: new "datafill" type checks. Now large 0x00 and 0xFF areas can be checked.
+  - Added: ROS version checks. Can be enabled/disabled in settings menu, ROS versions and patch status displayed in "Image Information" group. If a known patched ROS recognized, it will not ask to patch the dump
+  - Added: new "datafill" type checks, Now large 0x00 and 0xFF areas can be checked
  (Littlebalup's changes):
-  - Updated: The embedded CFG. Added, improved, corrected and reorganized some checks (more than 100 checks now, NOR and NAND).
-  - Updated: The embedded hashlist (to the latest one today).
-  - Changed: The embedded 4.55 patch replaced by the Darkiris's 4.65 patch (wich has its size corrected to 6.99MB).
+  - Updated: The embedded CFG Added, improved, corrected and reorganized some checks (more than 100 checks now for both NOR and NAND)
+  - Updated: The embedded hashlist (to the latest one today)
+  - Changed: The embedded 4.55 patch replaced by the Darkiris's 4.65 patch (which has its size corrected to 6.99MB)
 Build 348 2014-02-27:
  - Fixed: Dropping a dump on the exe will now work again (Thanks to Baileyscream for the bug report!)
 Build 347 2014-02-27:
- - Fixed: Old formwat for the disclaimer was still partially used by accident, doesn't really have a big effect, as it's converted on each boot untill you disable the disclaimer...
+ - Fixed: Old format for the disclaimer was still partially used by accident, doesn't really have a big effect, as it's converted on each boot untill you disable the disclaimer...
 Build 346 2014-02-27:
  - Fixed: Crash when using the new version for the first time, and some errors with the Disclaimer disablement stuff... didn't always work quite as it should...
  - Added: Crash log will now also reflect the version used...
