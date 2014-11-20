@@ -1,3 +1,8 @@
+Build 469 :
+ - Changed: The embedded 4.65 patch replaced by a 4.66 patch (Littlebalup's build)
+ - Added: OFW and Patched 4.66 ROS hashs
+ - Added: one new cISD1 Semistatic 2 entry (NAND)
+ - Fixed: cell_ext_os_area check (NAND)
 Build 468 2014-10-14:
  - Changed: The embedded Darkiris's 4.65 patch replaced by a patch made from "Ferrox 4.65 DB" firmware CoreOS (as the Darkiris's patch has some issues).
  - Added: VTRM 0xFF filled area checks (variable size/starting offset depending of VTRM entries count)
