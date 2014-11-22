@@ -9,8 +9,8 @@
     <offset fsize="268435456" type="ROS" name="009.05   ROS1 Hash" size="6FFFE0">7C0020</offset>
   </offsets>
   <type name="ROS">
-    <hash name="4.66 CEX Patched (Littlebalup)" size="6FFFE0" patched="true">
-      A07D4ED2EB0FB9D8DB0B07E897D4EB8B
+    <hash name="4.66 CEX Patched (Darkjiros)" size="6FFFE0" patched="true">
+      E64E59074ACA0144CBF03AA5DE9D0C29
     </hash>
     <hash name="4.66 CEX" size="6FFFE0">
       A7C288F2FAA7DAC6E5B411C7952C37DE

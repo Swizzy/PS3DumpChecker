@@ -1,3 +1,5 @@
+Build 470 2014-11-22:
+ - Changed: Because it was causing some soft-bricks on slim models, the embedded 4.66 patch is replaced by Darkjiros 4.66 patch.
 Build 469 2014-11-20:
  - Changed: The embedded 4.65 patch replaced by a 4.66 patch (Littlebalup's build)
  - Added: OFW and Patched 4.66 ROS hashs
