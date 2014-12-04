@@ -52,5 +52,11 @@
         private void DisabledisclaimerbtnClick(object sender, EventArgs e) {
             Program.HasAcceptedTerms(true);
         }
+
+        private void UseInternalPatcher_CheckedChanged(object sender, EventArgs e)
+        {
+            trvkpatches.Enabled = UseInternalPatcher.Checked;
+            rosheaders.Enabled = UseInternalPatcher.Checked;
+        }
     }
 }

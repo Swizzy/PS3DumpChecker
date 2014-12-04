@@ -129,6 +129,9 @@
     <EmbeddedResource Include="Patches\patch.bin" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Patches\nand_rvk.bin" />
+    <EmbeddedResource Include="Patches\nor_rvk.bin" />
+    <EmbeddedResource Include="Patches\ros_head.bin" />
     <None Include="settings.png" />
     <EmbeddedResource Include="UpdateHelper.exe" />
     <None Include="maj.png" />
@@ -143,7 +146,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_BuildVersioningStyle="None.None.Increment.None" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UpdateFileVersion="True" BuildVersion_DetectChanges="True" />
+      <UserProperties BuildVersion_DetectChanges="True" BuildVersion_UpdateFileVersion="True" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_BuildVersioningStyle="None.None.Increment.None" />
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup Condition="$(Configuration.Contains('Release'))">
