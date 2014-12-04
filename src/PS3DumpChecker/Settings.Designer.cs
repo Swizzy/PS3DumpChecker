@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.autopatch = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.autoexit = new System.Windows.Forms.CheckBox();
@@ -41,9 +42,10 @@
             this.UseInternalPatcher = new System.Windows.Forms.CheckBox();
             this.disabledisclaimerbtn = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.forcepatch = new System.Windows.Forms.CheckBox();
-            this.trvkpatches = new System.Windows.Forms.CheckBox();
             this.rosheaders = new System.Windows.Forms.CheckBox();
+            this.trvkpatches = new System.Windows.Forms.CheckBox();
+            this.forcepatch = new System.Windows.Forms.CheckBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -57,6 +59,7 @@
             this.autopatch.Size = new System.Drawing.Size(113, 17);
             this.autopatch.TabIndex = 0;
             this.autopatch.Text = "Enable auto patch";
+            this.toolTip1.SetToolTip(this.autopatch, "Patch the image once verified, if Ok and not already patched.");
             this.autopatch.UseVisualStyleBackColor = true;
             // 
             // button1
@@ -162,9 +165,12 @@
             this.UseInternalPatcher.AutoSize = true;
             this.UseInternalPatcher.Location = new System.Drawing.Point(6, 19);
             this.UseInternalPatcher.Name = "UseInternalPatcher";
-            this.UseInternalPatcher.Size = new System.Drawing.Size(139, 17);
+            this.UseInternalPatcher.Size = new System.Drawing.Size(137, 17);
             this.UseInternalPatcher.TabIndex = 3;
-            this.UseInternalPatcher.Text = "Use embedded patches";
+            this.UseInternalPatcher.Text = "Use embedded patcher";
+            this.toolTip1.SetToolTip(this.UseInternalPatcher, "Use embedded patcher and ROS patches instead of an external patcher.exe (aka Auto" +
+        "patcher).\r\nIf a \"patch.bin\" file exists in the root folder, it will be used as R" +
+        "OS patch instead of embedded one.");
             this.UseInternalPatcher.UseVisualStyleBackColor = true;
             this.UseInternalPatcher.CheckedChanged += new System.EventHandler(this.UseInternalPatcher_CheckedChanged);
             // 
@@ -195,35 +201,45 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Patcher Settings";
             // 
-            // forcepatch
+            // rosheaders
             // 
-            this.forcepatch.AutoSize = true;
-            this.forcepatch.Location = new System.Drawing.Point(6, 88);
-            this.forcepatch.Name = "forcepatch";
-            this.forcepatch.Size = new System.Drawing.Size(130, 17);
-            this.forcepatch.TabIndex = 4;
-            this.forcepatch.Text = "Enable force patching";
-            this.forcepatch.UseVisualStyleBackColor = true;
+            this.rosheaders.AutoSize = true;
+            this.rosheaders.Location = new System.Drawing.Point(30, 88);
+            this.rosheaders.Name = "rosheaders";
+            this.rosheaders.Size = new System.Drawing.Size(130, 17);
+            this.rosheaders.TabIndex = 6;
+            this.rosheaders.Text = "Restore ROS headers";
+            this.toolTip1.SetToolTip(this.rosheaders, "For advanced users only!");
+            this.rosheaders.UseVisualStyleBackColor = true;
             // 
             // trvkpatches
             // 
             this.trvkpatches.AutoSize = true;
             this.trvkpatches.Location = new System.Drawing.Point(30, 42);
             this.trvkpatches.Name = "trvkpatches";
-            this.trvkpatches.Size = new System.Drawing.Size(119, 17);
+            this.trvkpatches.Size = new System.Drawing.Size(125, 17);
             this.trvkpatches.TabIndex = 5;
-            this.trvkpatches.Text = "Apply TRVK patchs";
+            this.trvkpatches.Text = "Apply TRVK patches";
+            this.toolTip1.SetToolTip(this.trvkpatches, "Not needed for a regular no-FSM jailbreak.");
             this.trvkpatches.UseVisualStyleBackColor = true;
             // 
-            // rosheaders
+            // forcepatch
             // 
-            this.rosheaders.AutoSize = true;
-            this.rosheaders.Location = new System.Drawing.Point(30, 65);
-            this.rosheaders.Name = "rosheaders";
-            this.rosheaders.Size = new System.Drawing.Size(130, 17);
-            this.rosheaders.TabIndex = 6;
-            this.rosheaders.Text = "Restore ROS headers";
-            this.rosheaders.UseVisualStyleBackColor = true;
+            this.forcepatch.AutoSize = true;
+            this.forcepatch.Location = new System.Drawing.Point(6, 65);
+            this.forcepatch.Name = "forcepatch";
+            this.forcepatch.Size = new System.Drawing.Size(130, 17);
+            this.forcepatch.TabIndex = 4;
+            this.forcepatch.Text = "Enable force patching";
+            this.toolTip1.SetToolTip(this.forcepatch, "For advanced users only!");
+            this.forcepatch.UseVisualStyleBackColor = true;
+            this.forcepatch.CheckedChanged += new System.EventHandler(this.forcepatch_CheckedChanged);
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.AutoPopDelay = 15000;
+            this.toolTip1.InitialDelay = 500;
+            this.toolTip1.ReshowDelay = 100;
             // 
             // Settings
             // 
@@ -270,5 +286,6 @@
         private System.Windows.Forms.CheckBox forcepatch;
         private System.Windows.Forms.CheckBox rosheaders;
         private System.Windows.Forms.CheckBox trvkpatches;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

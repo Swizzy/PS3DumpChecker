@@ -12,12 +12,14 @@
                     SetCheckBoxes(ctrl);
             }
             SetCheckBoxes(this);
-#if EMBEDDED_PATCHES
-            UseInternalPatcher.Text = Resources.UseEmbeddedPatches; // This will use embedded files
-#else
-            UseInternalPatcher.Text = Resources.UseInternalPatcher; // This will use external files
-#endif
+//#if EMBEDDED_PATCHES
+//            UseInternalPatcher.Text = Resources.UseEmbeddedPatches; // This will use embedded files
+//#else
+//            UseInternalPatcher.Text = Resources.UseInternalPatcher; // This will use external files
+//#endif
             disabledisclaimerbtn.Enabled = !Program.HasAcceptedTerms2();
+            trvkpatches.Enabled = UseInternalPatcher.Checked;
+            rosheaders.Enabled = forcepatch.Checked;
         }
 
         private static void SetCheckBoxes(Control ctrl) {
@@ -56,7 +58,11 @@
         private void UseInternalPatcher_CheckedChanged(object sender, EventArgs e)
         {
             trvkpatches.Enabled = UseInternalPatcher.Checked;
-            rosheaders.Enabled = UseInternalPatcher.Checked;
+        }
+
+        private void forcepatch_CheckedChanged(object sender, EventArgs e)
+        {
+            rosheaders.Enabled = forcepatch.Checked;
         }
     }
 }

@@ -64,7 +64,7 @@
                                     ApplyPatch(0x40000, ref patchdata, target);
                                 }
 
-                                if (Program.GetRegSetting("rosheaders"))
+                                if (Program.GetRegSetting("forcepatch") && Program.GetRegSetting("rosheaders"))
                                 {
                                     patchdata = GetPatchData("Patches.ros_head.bin", swap);
                                     Common.SendStatus("Restoring ROS Header 1 of 2");
@@ -87,7 +87,7 @@
                                     ApplyPatch(0x91800, ref patchdata, target);
                                 }
 
-                                if (Program.GetRegSetting("rosheaders"))
+                                if (Program.GetRegSetting("forcepatch") && Program.GetRegSetting("rosheaders"))
                                 {
                                     patchdata = GetPatchData("Patches.ros_head.bin", swap);
                                     Common.SendStatus("Restoring ROS Header 1 of 2");
