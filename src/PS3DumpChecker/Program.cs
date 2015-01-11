@@ -60,7 +60,8 @@
                 fromexe.Close();
         }
 
-        internal static bool GetRegSetting(string setting, bool value = false) {
+        internal static bool GetRegSetting(string setting, bool value = false)
+        {
             var key = Registry.CurrentUser.CreateSubKey("Software");
             if(key == null)
                 return value;
@@ -70,10 +71,25 @@
             key = key.CreateSubKey("PS3 Dump Checker");
             if(key == null)
                 return value;
-            return key.GetValue(setting, -1) is int ? (int) key.GetValue(setting, value ? 1 : 0) > 0 : value;
+            return key.GetValue(setting, -1) is int ? (int)key.GetValue(setting, value ? 1 : 0) > 0 : value;
         }
 
-        internal static void SetRegSetting(string setting, bool value = true) {
+        internal static string GetRegSettingText(string setting)
+        {
+            var key = Registry.CurrentUser.CreateSubKey("Software");
+            if (key == null)
+                return null;
+            key = key.CreateSubKey("Swizzy");
+            if (key == null)
+                return null;
+            key = key.CreateSubKey("PS3 Dump Checker");
+            if (key == null)
+                return null;
+            return (string) key.GetValue(setting, null);
+        }
+
+        internal static void SetRegSetting(string setting, bool value = true, string text = null)
+        {
             var key = Registry.CurrentUser.CreateSubKey("Software");
             if(key == null)
                 return;
@@ -83,7 +99,10 @@
             key = key.CreateSubKey("PS3 Dump Checker");
             if(key == null)
                 return;
-            key.SetValue(setting, value ? 1 : 0);
+            if(text != null)
+                key.SetValue(setting, text);
+            else
+                key.SetValue(setting, value ? 1 : 0);            
         }
 
         internal static bool HasAcceptedTerms2() {

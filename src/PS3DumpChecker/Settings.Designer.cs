@@ -42,6 +42,9 @@
             this.UseInternalPatcher = new System.Windows.Forms.CheckBox();
             this.disabledisclaimerbtn = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.patchbutton = new System.Windows.Forms.Button();
+            this.patchBox = new System.Windows.Forms.TextBox();
+            this.customrospatch = new System.Windows.Forms.CheckBox();
             this.rosheaders = new System.Windows.Forms.CheckBox();
             this.trvkpatches = new System.Windows.Forms.CheckBox();
             this.forcepatch = new System.Windows.Forms.CheckBox();
@@ -67,7 +70,7 @@
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button1.Location = new System.Drawing.Point(12, 370);
+            this.button1.Location = new System.Drawing.Point(12, 414);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(182, 23);
             this.button1.TabIndex = 1;
@@ -168,9 +171,8 @@
             this.UseInternalPatcher.Size = new System.Drawing.Size(137, 17);
             this.UseInternalPatcher.TabIndex = 3;
             this.UseInternalPatcher.Text = "Use embedded patcher";
-            this.toolTip1.SetToolTip(this.UseInternalPatcher, "Use embedded patcher and ROS patches instead of an external patcher.exe (aka Auto" +
-        "patcher).\r\nIf a \"patch.bin\" file exists in the root folder, it will be used as R" +
-        "OS patch instead of embedded one.");
+            this.toolTip1.SetToolTip(this.UseInternalPatcher, "Use embedded patcher and patches instead of the external patcher.exe (aka Autopat" +
+        "cher).");
             this.UseInternalPatcher.UseVisualStyleBackColor = true;
             this.UseInternalPatcher.CheckedChanged += new System.EventHandler(this.UseInternalPatcher_CheckedChanged);
             // 
@@ -180,7 +182,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.disabledisclaimerbtn.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.disabledisclaimerbtn.Enabled = false;
-            this.disabledisclaimerbtn.Location = new System.Drawing.Point(12, 341);
+            this.disabledisclaimerbtn.Location = new System.Drawing.Point(12, 385);
             this.disabledisclaimerbtn.Name = "disabledisclaimerbtn";
             this.disabledisclaimerbtn.Size = new System.Drawing.Size(182, 23);
             this.disabledisclaimerbtn.TabIndex = 1;
@@ -190,21 +192,56 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.patchbutton);
+            this.groupBox3.Controls.Add(this.patchBox);
+            this.groupBox3.Controls.Add(this.customrospatch);
             this.groupBox3.Controls.Add(this.rosheaders);
             this.groupBox3.Controls.Add(this.trvkpatches);
             this.groupBox3.Controls.Add(this.forcepatch);
             this.groupBox3.Controls.Add(this.UseInternalPatcher);
             this.groupBox3.Location = new System.Drawing.Point(12, 222);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(182, 111);
+            this.groupBox3.Size = new System.Drawing.Size(182, 155);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Patcher Settings";
             // 
+            // patchbutton
+            // 
+            this.patchbutton.Location = new System.Drawing.Point(152, 80);
+            this.patchbutton.Name = "patchbutton";
+            this.patchbutton.Size = new System.Drawing.Size(24, 23);
+            this.patchbutton.TabIndex = 4;
+            this.patchbutton.Text = "...";
+            this.toolTip1.SetToolTip(this.patchbutton, "Select your patch file");
+            this.patchbutton.UseVisualStyleBackColor = true;
+            this.patchbutton.Click += new System.EventHandler(this.patchbutton_Click);
+            // 
+            // patchBox
+            // 
+            this.patchBox.Location = new System.Drawing.Point(18, 82);
+            this.patchBox.Name = "patchBox";
+            this.patchBox.ReadOnly = true;
+            this.patchBox.Size = new System.Drawing.Size(132, 20);
+            this.patchBox.TabIndex = 8;
+            this.patchBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // customrospatch
+            // 
+            this.customrospatch.AutoSize = true;
+            this.customrospatch.Location = new System.Drawing.Point(18, 65);
+            this.customrospatch.Name = "customrospatch";
+            this.customrospatch.Size = new System.Drawing.Size(141, 17);
+            this.customrospatch.TabIndex = 7;
+            this.customrospatch.Text = "Use custom ROS patch:";
+            this.toolTip1.SetToolTip(this.customrospatch, "Use a custom ROS patch instead the embedded one.");
+            this.customrospatch.UseVisualStyleBackColor = true;
+            this.customrospatch.CheckedChanged += new System.EventHandler(this.customrospatch_CheckedChanged);
+            // 
             // rosheaders
             // 
             this.rosheaders.AutoSize = true;
-            this.rosheaders.Location = new System.Drawing.Point(30, 88);
+            this.rosheaders.Location = new System.Drawing.Point(18, 133);
             this.rosheaders.Name = "rosheaders";
             this.rosheaders.Size = new System.Drawing.Size(130, 17);
             this.rosheaders.TabIndex = 6;
@@ -215,7 +252,7 @@
             // trvkpatches
             // 
             this.trvkpatches.AutoSize = true;
-            this.trvkpatches.Location = new System.Drawing.Point(30, 42);
+            this.trvkpatches.Location = new System.Drawing.Point(18, 42);
             this.trvkpatches.Name = "trvkpatches";
             this.trvkpatches.Size = new System.Drawing.Size(125, 17);
             this.trvkpatches.TabIndex = 5;
@@ -226,7 +263,7 @@
             // forcepatch
             // 
             this.forcepatch.AutoSize = true;
-            this.forcepatch.Location = new System.Drawing.Point(6, 65);
+            this.forcepatch.Location = new System.Drawing.Point(6, 110);
             this.forcepatch.Name = "forcepatch";
             this.forcepatch.Size = new System.Drawing.Size(130, 17);
             this.forcepatch.TabIndex = 4;
@@ -246,7 +283,7 @@
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(206, 405);
+            this.ClientSize = new System.Drawing.Size(206, 449);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.disabledisclaimerbtn);
@@ -287,5 +324,8 @@
         private System.Windows.Forms.CheckBox rosheaders;
         private System.Windows.Forms.CheckBox trvkpatches;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.CheckBox customrospatch;
+        private System.Windows.Forms.Button patchbutton;
+        private System.Windows.Forms.TextBox patchBox;
     }
 }

@@ -18,7 +18,9 @@
 //            UseInternalPatcher.Text = Resources.UseInternalPatcher; // This will use external files
 //#endif
             disabledisclaimerbtn.Enabled = !Program.HasAcceptedTerms2();
-            trvkpatches.Enabled = UseInternalPatcher.Checked;
+            trvkpatches.Enabled = customrospatch.Enabled = UseInternalPatcher.Checked;
+            patchBox.Enabled = patchbutton.Enabled = UseInternalPatcher.Checked && customrospatch.Checked;
+            patchBox.Text = Program.GetRegSettingText(patchBox.Name);
             rosheaders.Enabled = forcepatch.Checked;
         }
 
@@ -45,6 +47,7 @@
                 if(ctrl is GroupBox)
                     GetCheckBoxes(ctrl);
             GetCheckBoxes(this);
+            Program.SetRegSetting(patchBox.Name, false, patchBox.Text);
             if(dohashcheck.Checked)
                 Program.MainForm.DoParseHashList();
             Program.MainForm.forcepatchstate();
@@ -57,7 +60,29 @@
 
         private void UseInternalPatcher_CheckedChanged(object sender, EventArgs e)
         {
-            trvkpatches.Enabled = UseInternalPatcher.Checked;
+            trvkpatches.Enabled = customrospatch.Enabled = UseInternalPatcher.Checked;
+            patchBox.Enabled = patchbutton.Enabled = UseInternalPatcher.Checked && customrospatch.Checked;
+        }
+
+        private void customrospatch_CheckedChanged(object sender, EventArgs e)
+        {
+             patchBox.Enabled = patchbutton.Enabled = customrospatch.Checked;
+        }
+
+        private void patchbutton_Click(object sender, EventArgs e)
+        {
+            var ofd = new OpenFileDialog
+            {
+                Title = Resources.selpatch,
+                FileName = "patch.bin",
+                Filter = Resources.ofdfilter,
+                DefaultExt = "bin",
+                AutoUpgradeEnabled = true,
+                AddExtension = true
+            };
+            if (ofd.ShowDialog() != DialogResult.OK)
+                return;
+            patchBox.Text = ofd.FileName;
         }
 
         private void forcepatch_CheckedChanged(object sender, EventArgs e)

@@ -263,4 +263,7 @@ Did you skip reading these terms/conditions?</value>
 Image has failed verification (A.K.A. it's probably BAD)! 
 Do you really want to patch this image?</value>
   </data>
+  <data name="selpatch" xml:space="preserve">
+    <value>Select a patch file</value>
+  </data>
 </root>

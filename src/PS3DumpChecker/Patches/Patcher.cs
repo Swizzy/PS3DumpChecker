@@ -5,9 +5,44 @@
     using PS3DumpChecker.Properties;
 
     internal static class Patcher {
-        private static byte[] GetPatchData(string name, bool swap) {
+        private static byte[] GetPatchData(string name, bool swap)
+        {
             byte[] data;
             if (!File.Exists(name.Substring(name.IndexOf('.') + 1))) // Strip "Patches." and check for the file "patch.bin"
+#if EMBEDDED_PATCHES
+            {
+                BinaryReader reader = null;
+                Stream input = null;
+                try
+                {
+                    input = System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream(string.Format("{0}.{1}", typeof(Program).Namespace, name));
+                    if (input == null)
+                        throw new FileNotFoundException(string.Format("[EMBEDDED] {0}", name));
+                    reader = new BinaryReader(input);
+                    data = reader.ReadBytes((int)input.Length);
+                }
+                finally
+                {
+                    if (reader != null)
+                        reader.Close();
+                    if (input != null)
+                        input.Close();
+                }
+            }
+            else
+#else
+                throw new FileNotFoundException(name);
+#endif
+                data = File.ReadAllBytes(name.Substring(name.IndexOf('.') + 1)); // Strip "Patches."
+            if (swap)
+                Common.SwapBytes(ref data);
+            return data;
+        }
+
+        private static byte[] GetRosPatchData(string name, bool swap) 
+        {
+            byte[] data;
+            if (!File.Exists(name.Substring(name.IndexOf('.') + 1)) && !Program.GetRegSetting("customrospatch")) // Strip "Patches." and check for the file "patch.bin"
 #if EMBEDDED_PATCHES
             {
                 BinaryReader reader = null;
@@ -30,7 +65,16 @@
 #else
                 throw new FileNotFoundException(name);
 #endif
-            data = File.ReadAllBytes(name.Substring(name.IndexOf('.') + 1)); // Strip "Patches."
+            if (Program.GetRegSetting("customrospatch") && !File.Exists(Program.GetRegSettingText("patchBox")))
+            {
+                throw new FileNotFoundException(Program.GetRegSettingText("patchBox"));
+            }
+            else if (Program.GetRegSetting("customrospatch") && File.Exists(Program.GetRegSettingText("patchBox")))
+            {
+                data = File.ReadAllBytes(Program.GetRegSettingText("patchBox")); // Strip "Custom Patches."
+            }
+            else
+                data = File.ReadAllBytes(name.Substring(name.IndexOf('.') + 1)); // Strip "Patches."
             if (swap)
                 Common.SwapBytes(ref data);
             return data;
@@ -49,7 +93,7 @@
                 File.Copy(filename, destFileName, true);
                 using(var src = new BinaryReader(File.OpenRead(filename))) {
                     using(var target = new BinaryWriter(File.OpenWrite(destFileName))) {
-                        var patchdata = GetPatchData("Patches.patch.bin", swap);
+                        var patchdata = GetRosPatchData("Patches.patch.bin", swap);
                         switch(src.BaseStream.Length) {
                             case 0x1000000L:
                                 Common.SendStatus("Applying ROS patch 1 of 2");

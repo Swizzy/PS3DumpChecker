@@ -412,6 +412,15 @@ namespace PS3DumpChecker.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Select a patch file.
+        /// </summary>
+        internal static string selpatch {
+            get {
+                return ResourceManager.GetString("selpatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap settings {
