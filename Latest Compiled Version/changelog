@@ -1,3 +1,6 @@
+Build 475 2015-01-11:
+ - Added: New option to select a custom ROS patch instead of the default embedded one. (a patch.bin file in the root directory still working if exist)
+ - Added: new cISD1 semistatic 2 entry (NOR check)
 Build 473 2014-12-05:
  - Added: Some tooltips in the settings menu.
  - Added: New option to restore ROS headers. May be useful for dumps coming from jailbroken consoles. The option can be enabled in the settings menu, "Restore ROS headers".
