@@ -43,15 +43,22 @@
         }
 
         private void Button1Click(object sender, EventArgs e) {
-            foreach(Control ctrl in Controls)
-                if(ctrl is GroupBox)
+            if ((patchBox.Text == "") && UseInternalPatcher.Checked && customrospatch.Checked)
+            {
+                MessageBox.Show(Resources.ErrorNoSeletedPatch);
+            }
+            else 
+            {
+            foreach (Control ctrl in Controls)
+                if (ctrl is GroupBox)
                     GetCheckBoxes(ctrl);
             GetCheckBoxes(this);
             Program.SetRegSetting(patchBox.Name, false, patchBox.Text);
-            if(dohashcheck.Checked)
+            if (dohashcheck.Checked)
                 Program.MainForm.DoParseHashList();
             Program.MainForm.forcepatchstate();
             Close();
+            }
         }
 
         private void DisabledisclaimerbtnClick(object sender, EventArgs e) {

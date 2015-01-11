@@ -266,4 +266,7 @@ Do you really want to patch this image?</value>
   <data name="selpatch" xml:space="preserve">
     <value>Select a patch file</value>
   </data>
+  <data name="ErrorNoSeletedPatch" xml:space="preserve">
+    <value>ERROR : you must select a custom ROS patch file or uncheck the option</value>
+  </data>
 </root>

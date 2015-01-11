@@ -294,6 +294,15 @@ namespace PS3DumpChecker.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à ERROR : you must select a custom ROS patch file or uncheck the option.
+        /// </summary>
+        internal static string ErrorNoSeletedPatch {
+            get {
+                return ResourceManager.GetString("ErrorNoSeletedPatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à There was an error while checking for updates... try again later!.
         /// </summary>
         internal static string ErrorWhileCheckingForUpdates {
