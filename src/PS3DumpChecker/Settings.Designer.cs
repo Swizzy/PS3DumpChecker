@@ -245,7 +245,7 @@
             this.rosheaders.Size = new System.Drawing.Size(130, 17);
             this.rosheaders.TabIndex = 6;
             this.rosheaders.Text = "Restore ROS headers";
-            this.toolTip1.SetToolTip(this.rosheaders, "For advanced users only!");
+            this.toolTip1.SetToolTip(this.rosheaders, "For advanced users only! Must be used with embedded patcher.");
             this.rosheaders.UseVisualStyleBackColor = true;
             // 
             // trvkpatches

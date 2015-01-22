@@ -21,7 +21,7 @@
             trvkpatches.Enabled = customrospatch.Enabled = UseInternalPatcher.Checked;
             patchBox.Enabled = patchbutton.Enabled = UseInternalPatcher.Checked && customrospatch.Checked;
             patchBox.Text = Program.GetRegSettingText(patchBox.Name);
-            rosheaders.Enabled = forcepatch.Checked;
+            rosheaders.Enabled = forcepatch.Checked && UseInternalPatcher.Checked;
         }
 
         private static void SetCheckBoxes(Control ctrl) {
@@ -69,6 +69,9 @@
         {
             trvkpatches.Enabled = customrospatch.Enabled = UseInternalPatcher.Checked;
             patchBox.Enabled = patchbutton.Enabled = UseInternalPatcher.Checked && customrospatch.Checked;
+            rosheaders.Enabled = forcepatch.Checked && UseInternalPatcher.Checked;
+            if (!UseInternalPatcher.Checked)
+                rosheaders.Checked = false;
         }
 
         private void customrospatch_CheckedChanged(object sender, EventArgs e)
@@ -94,7 +97,7 @@
 
         private void forcepatch_CheckedChanged(object sender, EventArgs e)
         {
-            rosheaders.Enabled = forcepatch.Checked;
+            rosheaders.Enabled = forcepatch.Checked && UseInternalPatcher.Checked;
         }
     }
 }
