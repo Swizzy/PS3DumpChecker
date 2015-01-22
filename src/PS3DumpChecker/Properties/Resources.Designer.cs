@@ -403,6 +403,25 @@ namespace PS3DumpChecker.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Done! 
+        ///The application will restart to apply changes..
+        /// </summary>
+        internal static string RestartMessage {
+            get {
+                return ResourceManager.GetString("RestartMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Do you want to restore all settings to default values?.
+        /// </summary>
+        internal static string RestoreDefaultSettings {
+            get {
+                return ResourceManager.GetString("RestoreDefaultSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Select Dump to check.
         /// </summary>
         internal static string seldump {

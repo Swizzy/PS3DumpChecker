@@ -105,6 +105,17 @@
                 key.SetValue(setting, value ? 1 : 0);            
         }
 
+        internal static void ClearRegSetting()
+        {
+            using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Swizzy", true))
+            {
+                if (key == null)
+                    return;
+                else
+                    key.DeleteSubKeyTree("PS3 Dump Checker");
+            }
+        }
+
         internal static bool HasAcceptedTerms2() {
             var key = Registry.CurrentUser.CreateSubKey("Software");
             if(key == null)

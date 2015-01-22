@@ -42,6 +42,8 @@
             this.UseInternalPatcher = new System.Windows.Forms.CheckBox();
             this.disabledisclaimerbtn = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.patchinfoLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.patchbutton = new System.Windows.Forms.Button();
             this.patchBox = new System.Windows.Forms.TextBox();
             this.customrospatch = new System.Windows.Forms.CheckBox();
@@ -49,6 +51,7 @@
             this.trvkpatches = new System.Windows.Forms.CheckBox();
             this.forcepatch = new System.Windows.Forms.CheckBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.restoredefaultBoutton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -69,9 +72,9 @@
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(12, 414);
+            this.button1.Location = new System.Drawing.Point(7, 321);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(182, 23);
+            this.button1.Size = new System.Drawing.Size(369, 35);
             this.button1.TabIndex = 1;
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = true;
@@ -132,9 +135,9 @@
             this.groupBox1.Controls.Add(this.dohashcheck);
             this.groupBox1.Controls.Add(this.dorosvercheck);
             this.groupBox1.Controls.Add(this.dorepcheck);
-            this.groupBox1.Location = new System.Drawing.Point(12, 128);
+            this.groupBox1.Location = new System.Drawing.Point(200, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(182, 88);
+            this.groupBox1.Size = new System.Drawing.Size(171, 110);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Checks";
@@ -157,7 +160,7 @@
             this.groupBox2.Controls.Add(this.AutoDLhashlist);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(182, 110);
+            this.groupBox2.Size = new System.Drawing.Size(181, 110);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Auto Settings";
@@ -181,9 +184,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.disabledisclaimerbtn.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.disabledisclaimerbtn.Enabled = false;
-            this.disabledisclaimerbtn.Location = new System.Drawing.Point(12, 385);
+            this.disabledisclaimerbtn.Location = new System.Drawing.Point(7, 292);
             this.disabledisclaimerbtn.Name = "disabledisclaimerbtn";
-            this.disabledisclaimerbtn.Size = new System.Drawing.Size(182, 23);
+            this.disabledisclaimerbtn.Size = new System.Drawing.Size(183, 23);
             this.disabledisclaimerbtn.TabIndex = 1;
             this.disabledisclaimerbtn.Text = "Disable Disclaimer";
             this.disabledisclaimerbtn.UseVisualStyleBackColor = true;
@@ -191,6 +194,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.patchinfoLabel);
+            this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.patchbutton);
             this.groupBox3.Controls.Add(this.patchBox);
             this.groupBox3.Controls.Add(this.customrospatch);
@@ -198,16 +203,35 @@
             this.groupBox3.Controls.Add(this.trvkpatches);
             this.groupBox3.Controls.Add(this.forcepatch);
             this.groupBox3.Controls.Add(this.UseInternalPatcher);
-            this.groupBox3.Location = new System.Drawing.Point(12, 222);
+            this.groupBox3.Location = new System.Drawing.Point(12, 128);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(182, 155);
+            this.groupBox3.Size = new System.Drawing.Size(359, 155);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Patcher Settings";
             // 
+            // patchinfoLabel
+            // 
+            this.patchinfoLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.patchinfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patchinfoLabel.Location = new System.Drawing.Point(184, 29);
+            this.patchinfoLabel.Name = "patchinfoLabel";
+            this.patchinfoLabel.Size = new System.Drawing.Size(166, 30);
+            this.patchinfoLabel.TabIndex = 10;
+            this.patchinfoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(181, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(117, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Embedded ROS patch:";
+            // 
             // patchbutton
             // 
-            this.patchbutton.Location = new System.Drawing.Point(152, 80);
+            this.patchbutton.Location = new System.Drawing.Point(328, 80);
             this.patchbutton.Name = "patchbutton";
             this.patchbutton.Size = new System.Drawing.Size(24, 23);
             this.patchbutton.TabIndex = 4;
@@ -221,7 +245,7 @@
             this.patchBox.Location = new System.Drawing.Point(18, 82);
             this.patchBox.Name = "patchBox";
             this.patchBox.ReadOnly = true;
-            this.patchBox.Size = new System.Drawing.Size(132, 20);
+            this.patchBox.Size = new System.Drawing.Size(308, 20);
             this.patchBox.TabIndex = 8;
             this.patchBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -240,7 +264,7 @@
             // rosheaders
             // 
             this.rosheaders.AutoSize = true;
-            this.rosheaders.Location = new System.Drawing.Point(18, 133);
+            this.rosheaders.Location = new System.Drawing.Point(18, 132);
             this.rosheaders.Name = "rosheaders";
             this.rosheaders.Size = new System.Drawing.Size(130, 17);
             this.rosheaders.TabIndex = 6;
@@ -277,12 +301,25 @@
             this.toolTip1.InitialDelay = 500;
             this.toolTip1.ReshowDelay = 100;
             // 
+            // restoredefaultBoutton
+            // 
+            this.restoredefaultBoutton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.restoredefaultBoutton.Location = new System.Drawing.Point(196, 292);
+            this.restoredefaultBoutton.Name = "restoredefaultBoutton";
+            this.restoredefaultBoutton.Size = new System.Drawing.Size(180, 23);
+            this.restoredefaultBoutton.TabIndex = 4;
+            this.restoredefaultBoutton.Text = "Restore default settings";
+            this.restoredefaultBoutton.UseVisualStyleBackColor = true;
+            this.restoredefaultBoutton.Click += new System.EventHandler(this.restoredefaultBoutton_Click);
+            // 
             // Settings
             // 
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(206, 449);
+            this.ClientSize = new System.Drawing.Size(384, 368);
+            this.Controls.Add(this.restoredefaultBoutton);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.disabledisclaimerbtn);
@@ -326,5 +363,8 @@
         private System.Windows.Forms.CheckBox customrospatch;
         private System.Windows.Forms.Button patchbutton;
         private System.Windows.Forms.TextBox patchBox;
+        private System.Windows.Forms.Button restoredefaultBoutton;
+        private System.Windows.Forms.Label patchinfoLabel;
+        private System.Windows.Forms.Label label1;
     }
 }

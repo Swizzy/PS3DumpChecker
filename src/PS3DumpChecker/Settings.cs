@@ -1,27 +1,43 @@
 ﻿namespace PS3DumpChecker {
     using System;
+    using System.IO;
     using System.Windows.Forms;
     using PS3DumpChecker.Properties;
 
     internal sealed partial class Settings : Form {
-        internal Settings() {
+        internal Settings()
+        {
             InitializeComponent();
             Icon = Program.AppIcon;
-            foreach(Control ctrl in Controls) {
-                if(ctrl is GroupBox)
+            foreach (Control ctrl in Controls)
+            {
+                if (ctrl is GroupBox)
                     SetCheckBoxes(ctrl);
             }
             SetCheckBoxes(this);
-//#if EMBEDDED_PATCHES
-//            UseInternalPatcher.Text = Resources.UseEmbeddedPatches; // This will use embedded files
-//#else
-//            UseInternalPatcher.Text = Resources.UseInternalPatcher; // This will use external files
-//#endif
+            //#if EMBEDDED_PATCHES
+            //            UseInternalPatcher.Text = Resources.UseEmbeddedPatches; // This will use embedded files
+            //#else
+            //            UseInternalPatcher.Text = Resources.UseInternalPatcher; // This will use external files
+            //#endif
             disabledisclaimerbtn.Enabled = !Program.HasAcceptedTerms2();
             trvkpatches.Enabled = customrospatch.Enabled = UseInternalPatcher.Checked;
             patchBox.Enabled = patchbutton.Enabled = UseInternalPatcher.Checked && customrospatch.Checked;
             patchBox.Text = Program.GetRegSettingText(patchBox.Name);
             rosheaders.Enabled = forcepatch.Checked && UseInternalPatcher.Checked;
+
+            StreamReader reader = null;
+            Stream input = null;
+            try
+            {
+                input = System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream(string.Format("{0}.{1}", typeof(Program).Namespace, "Patches.patch_info.txt"));
+                reader = new StreamReader(input);
+                patchinfoLabel.Text = reader.ReadToEnd();
+            }
+            catch
+            {
+                MessageBox.Show("Error reading embedded ROS patch version!");
+            }
         }
 
         private static void SetCheckBoxes(Control ctrl) {
@@ -98,6 +114,17 @@
         private void forcepatch_CheckedChanged(object sender, EventArgs e)
         {
             rosheaders.Enabled = forcepatch.Checked && UseInternalPatcher.Checked;
+        }
+
+        private void restoredefaultBoutton_Click(object sender, EventArgs e)
+        {
+            DialogResult res = MessageBox.Show(Resources.RestoreDefaultSettings, "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (res == System.Windows.Forms.DialogResult.Yes)
+            {
+                Program.ClearRegSetting();
+                MessageBox.Show(Resources.RestartMessage, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Application.Restart();
+            }
         }
     }
 }
