@@ -257,7 +257,7 @@
             this.customrospatch.Size = new System.Drawing.Size(141, 17);
             this.customrospatch.TabIndex = 7;
             this.customrospatch.Text = "Use custom ROS patch:";
-            this.toolTip1.SetToolTip(this.customrospatch, "Use a custom ROS patch instead the embedded one.");
+            this.toolTip1.SetToolTip(this.customrospatch, "Use a custom ROS patch instead of the embedded one.");
             this.customrospatch.UseVisualStyleBackColor = true;
             this.customrospatch.CheckedChanged += new System.EventHandler(this.customrospatch_CheckedChanged);
             // 
@@ -280,7 +280,8 @@
             this.trvkpatches.Size = new System.Drawing.Size(125, 17);
             this.trvkpatches.TabIndex = 5;
             this.trvkpatches.Text = "Apply TRVK patches";
-            this.toolTip1.SetToolTip(this.trvkpatches, "Not needed for a regular no-FSM jailbreak.");
+            this.toolTip1.SetToolTip(this.trvkpatches, "Not mandatory for a regular noFSM jailbreak.\r\nMandatory for an old school 3.55 FS" +
+        "M downgrade.");
             this.trvkpatches.UseVisualStyleBackColor = true;
             // 
             // forcepatch

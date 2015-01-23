@@ -199,11 +199,11 @@
             if (!useint && !File.Exists("patcher.exe"))
                 return;
             if (Common.chkresult) {
-                if (MessageBox.Show(Resources.autopatchmsg, Resources.autopatch, MessageBoxButtons.YesNo) != DialogResult.Yes)
+                if (MessageBox.Show(Resources.autopatchmsg, Resources.autopatch, MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
                     return;
             }
             else {
-                if (MessageBox.Show(Resources.warningforcepatch, Resources.autopatch, MessageBoxButtons.YesNo) != DialogResult.Yes)
+                if (MessageBox.Show(Resources.warningforcepatch, Resources.autopatch, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes)
                     return;
             }
             if (useint)

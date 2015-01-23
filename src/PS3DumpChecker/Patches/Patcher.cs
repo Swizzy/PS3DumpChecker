@@ -148,7 +148,7 @@
                 }
                 Common.SendStatus(string.Format("All patches applied to {0}", destFileName));
                 if (!Program.GetRegSetting("autoexit"))
-                    MessageBox.Show(string.Format("All patches applied to {0}", destFileName));
+                    MessageBox.Show(string.Format("All patches applied to {0}", destFileName), "Patching completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch(FileNotFoundException ex) {
                 MessageBox.Show(string.Format(Resources.PatchFailedCantFindPatchFile, filename, ex.Message), Resources.error, MessageBoxButtons.OK, MessageBoxIcon.Error);
