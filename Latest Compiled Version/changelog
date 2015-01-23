@@ -1,3 +1,9 @@
+Build 479 2015-01-23:
+ - Added: embedded ROS patch version now displayed in settings.
+ - Added: new button to restore default values of settings (clear registry then restart the application).
+ - Improved: settings form, some tooltips...
+ - Fixed: now "Restore ROS header" option is disabled if internal patcher is not used.
+ - Fixed: cvtrm Header static check (NAND) 
 Build 475 2015-01-11:
  - Added: New option to select a custom ROS patch instead of the default embedded one. (a patch.bin file in the root directory still working if exist)
  - Added: new cISD1 semistatic 2 entry (NOR check)
