@@ -214,16 +214,16 @@
             // 
             this.patchinfoLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.patchinfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.patchinfoLabel.Location = new System.Drawing.Point(184, 29);
+            this.patchinfoLabel.Location = new System.Drawing.Point(172, 29);
             this.patchinfoLabel.Name = "patchinfoLabel";
-            this.patchinfoLabel.Size = new System.Drawing.Size(166, 30);
+            this.patchinfoLabel.Size = new System.Drawing.Size(178, 30);
             this.patchinfoLabel.TabIndex = 10;
             this.patchinfoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(181, 16);
+            this.label1.Location = new System.Drawing.Point(169, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(117, 13);
             this.label1.TabIndex = 9;

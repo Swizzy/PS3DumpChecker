@@ -1,3 +1,8 @@
+Build 481 2015-02-27:
+ - Changed: The embedded 4.66 patch replaced by the Darkjiros's 4.70 fixed patch
+ - Added: OFW and Patched 4.70 ROS hashs
+ - Fixed: cvtrm checks 010.04 & 010.06 (NAND) and 010.06 & 010.11 (NOR) are deactivated as they are causing false negative on some rare flash images. Those checks are commented into the default.config files and can be restaured.
+ - Fixed: datas of cISD semistatic2 check completed for refurbished NAND consoles. Added one SKU datas for a CECHG refurbished console as well.
 Build 479 2015-01-23:
  - Added: embedded ROS patch version now displayed in settings.
  - Added: new button to restore default values of settings (clear registry then restart the application).

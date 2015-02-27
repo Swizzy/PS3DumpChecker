@@ -342,9 +342,9 @@
       <binentry name="010.01   cvtrm Header" offset="EC0000" ascii="true">534345495654524D000000000000</binentry>
       <binentry name="010.02   cvtrm Header Static 1" offset="EC0010">0000000000E802000000000000000028</binentry>
       <binentry name="010.03   vtrm Magic 1" offset="EC0020" ascii="true">000000005654524D</binentry>
-      <datafill name="010.04   cvtrm 0xFF Filled Area 0" offset="EC011C" size="2E4">FF</datafill> <!-- Seems data filled on CECHA. To be confirmed. -->
+ <!-- <datafill name="010.04   cvtrm 0xFF Filled Area 0" offset="EC011C" size="2E4">FF</datafill> --> <!-- Data filled on some CECHA. -->
       <binentry name="010.05   vtrm Magic 2" offset="EC0400" ascii="true">000000005654524D</binentry>
-      <datafill name="010.06   vtrm 0xFF Filled Area" vtrmentrycount_offset="EC043E" regionstart="EC28C0" regionsize="36C00">FF</datafill> <!-- Seems data filled on CECHA. To be confirmed. -->
+ <!-- <datafill name="010.06   vtrm 0xFF Filled Area" vtrmentrycount_offset="EC043E" regionstart="EC28C0" regionsize="36C00">FF</datafill> --> <!-- Data filled on some CECHA. -->
       <datafill name="010.07   cvtrm 0x00 Filled Area" offset="EFF000" size="1000">00</datafill>
     </cvtrm_region>
     <cell_ext_os_area>
@@ -908,19 +908,19 @@
       <binentry name="010.02   cvtrm0 Header" ismulti="true" offset="EC0000">53434549FFFFFFFFFFFFFFFFFFFFFFFF</binentry>
       <binentry name="010.02   cvtrm0 Header" ismulti="true" offset="EC0000">00000000FFFDFFFFFFFFFFFFFFFFFFFF</binentry>
       <binentry name="010.02   cvtrm0 Header" ismulti="true" offset="EC0000">00000000FFFFFFFFFFFFFFFFFFFFFFFF</binentry>
-      <!-- Might not be valid... -->
       <datafill name="010.03   cvtrm0 0xFF Filled Area" offset="EC0010" size="3FF0">FF</datafill>
       <binentry name="010.04   vtrm0 Magic" offset="EC4000" ascii="true">000000005654524D000000000000</binentry>
       <binentry name="010.05   vtrm0 Reserved Entries" offset="EC4028">0000000000000209</binentry>
-      <datafill name="010.06   vtrm0 0xFF Filled Area" vtrmentrycount_offset="EC403E" regionstart="EC5088" regionsize="186C0">FF</datafill>
+      <!-- Some consoles do not follow next rule -->
+ <!-- <datafill name="010.06   vtrm0 0xFF Filled Area" vtrmentrycount_offset="EC403E" regionstart="EC5088" regionsize="186C0">FF</datafill> -->
       <binentry name="010.07   cvtrm1 Header" ismulti="true" offset="EE0000">53434549FFFFFFFFFFFFFFFFFFFFFFFF</binentry>
       <binentry name="010.07   cvtrm1 Header" ismulti="true" offset="EE0000">00000000FFFDFFFFFFFFFFFFFFFFFFFF</binentry>
       <binentry name="010.07   cvtrm1 Header" ismulti="true" offset="EE0000">00000000FFFFFFFFFFFFFFFFFFFFFFFF</binentry>
-      <!-- Might not be valid... -->
       <datafill name="010.08   cvtrm1 0xFF Filled Area" offset="EE0010" size="3FF0">FF</datafill>
       <binentry name="010.09   vtrm1 Magic" offset="EE4000" ascii="true">000000005654524D000000000000</binentry>
       <binentry name="010.10   vtrm1 Reserved Entries" offset="EE4028">0000000000000209</binentry>
-      <datafill name="010.11   vtrm1 0xFF Filled Area" vtrmentrycount_offset="EE403E" regionstart="EE5088" regionsize="186C0">FF</datafill>
+      <!-- Some consoles do not follow next rule -->
+ <!-- <datafill name="010.11   vtrm1 0xFF Filled Area" vtrmentrycount_offset="EE403E" regionstart="EE5088" regionsize="186C0">FF</datafill> -->
     </cvtrm_region>
     <Second_Region_Header>
       <datafill name="011.01   Second Region Header 0x00 Filled Area 0" offset="F00000" size="10">00</datafill>
