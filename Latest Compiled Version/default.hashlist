@@ -8,7 +8,10 @@
     <offset fsize="268435456" type="ROS" name="009.02   ROS0 Hash" size="6FFFE0">C0030</offset>
     <offset fsize="268435456" type="ROS" name="009.05   ROS1 Hash" size="6FFFE0">7C0020</offset>
   </offsets>
-  <type name="ROS">    
+  <type name="ROS">
+    <hash name="4.75 CEX" size="6FFFE0">
+      CD2DD6E1A68418B17716CEE65CC8DBBA
+    </hash>
     <hash name="4.70 CEX Patched (Darkjiros - fixed)" size="6FFFE0" patched="true">
       75D5298F7C538C84FEDA1BD515E99B8F
     </hash>
