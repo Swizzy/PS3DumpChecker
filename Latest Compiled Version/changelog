@@ -1,3 +1,7 @@
+Build 484 2015-06-08:
+ - Changed: The embedded 4.70 patch replaced by a 4.75 patch build from the FERROX 4.75 CEX custom firmware CoreOS.
+ - Added: OFW and Patched 4.75 ROS hashs
+ - Fixed: metldr threshold stats slightly adjusted
 Build 481 2015-02-27:
  - Changed: The embedded 4.66 patch replaced by the Darkjiros's 4.70 fixed patch
  - Added: OFW and Patched 4.70 ROS hashs
