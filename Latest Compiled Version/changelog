@@ -1,3 +1,6 @@
+Build 485 2015-09-06:
+ - Changed: The embedded 4.75 patch replaced by a 4.76 patch build from the FERROX 4.76 CEX custom firmware CoreOS.
+ - Added: OFW and Patched 4.76 ROS hashs.
 Build 484 2015-06-08:
  - Changed: The embedded 4.70 patch replaced by a 4.75 patch build from the FERROX 4.75 CEX custom firmware CoreOS.
  - Added: OFW and Patched 4.75 ROS hashs
