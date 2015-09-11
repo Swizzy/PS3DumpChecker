@@ -136,7 +136,7 @@
                         UseShellExecute = false,
                         CreateNoWindow = true,
                         FileName = fi.FullName,
-                        Arguments = string.Format("\"{0}\" \"latest.exe\" \"{1}\"", cproc.Id, cproc.MainModule.FileName)
+                        Arguments = string.Format("\"{0}\" \"latest.exe\" \"{1}\" \"{2}\"", cproc.Id, cproc.MainModule.FileName, fi.FullName)
                     }
                 };
                 proc.Start();

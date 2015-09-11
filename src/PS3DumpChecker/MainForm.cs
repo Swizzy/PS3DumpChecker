@@ -46,6 +46,13 @@
             foreach (var s in args) {
                 if (!File.Exists(s))
                     continue;
+				if(s.EndsWith("updatehelper.exe", StringComparison.CurrentCultureIgnoreCase)) {
+                    try {
+                        File.Delete(s);
+                    }
+                    catch(Exception ex) { }
+                    continue;
+                }
                 if (_autoCheck)
                     return;
                 _autoCheck = true;

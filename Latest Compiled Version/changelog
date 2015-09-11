@@ -1,3 +1,5 @@
+Build 486 2015-09-11:
+ - Updated UpdateHelper.exe to not delete itself (this was causing some antivirus software to call it a trojan/virus/malicious/suspicious software)
 Build 485 2015-09-06:
  - Changed: The embedded 4.75 patch replaced by a 4.76 patch build from the FERROX 4.76 CEX custom firmware CoreOS.
  - Added: OFW and Patched 4.76 ROS hashs.
