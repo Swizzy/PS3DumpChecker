@@ -15,74 +15,215 @@
     <hash name="4.80 CEX" size="6FFFE0">
       18C8473E69BB332C43C5EAF8EA1D3527
     </hash>
-    <hash name="4.78 CEX Patched (FERROX based)" size="6FFFE0" patched="true">
+    <hash name="4.78 CEX Patched (FERROX based)" size="6FFFE0">
       B100AD3842F29F22A202A63F9C363387
     </hash>
     <hash name="4.78 CEX" size="6FFFE0">
       9E889471205593CAEBD8B47ED8C1C9B2
     </hash>
-    <hash name="4.76 CEX Patched (FERROX based)" size="6FFFE0" patched="true">
+    <hash name="4.76 CEX Patched (FERROX based)" size="6FFFE0">
       5BFD81166CBCB66830D504C930476508
     </hash>
     <hash name="4.76 CEX" size="6FFFE0">
       51A7758AA326F54CB431FC59DC68AFD4
     </hash>
-    <hash name="4.75 CEX Patched (FERROX based)" size="6FFFE0" patched="true">
+    <hash name="4.75 CEX Patched (FERROX based)" size="6FFFE0">
       FB00F805C27130579A6FE2A2489A66A7
     </hash>
     <hash name="4.75 CEX" size="6FFFE0">
       CD2DD6E1A68418B17716CEE65CC8DBBA
     </hash>
-    <hash name="4.70 CEX Patched (Darkjiros - fixed)" size="6FFFE0" patched="true">
+    <hash name="4.70 CEX Patched (Darkjiros - fixed)" size="6FFFE0">
       75D5298F7C538C84FEDA1BD515E99B8F
     </hash>
-    <hash name="4.70 CEX Patched (Darkjiros)" size="6FFFE0" patched="true">
+    <hash name="4.70 CEX Patched (Darkjiros)" size="6FFFE0">
       55E1A36DEA566AE8F6FF8EE79BBC2FEF
+    </hash>
+    <hash name="Playerkp420 4.70 MFW v1" size="6FFFE0">
+      D8666082CF276CFA3692F6316A0AA708
+    </hash>
+    <hash name="Playerkp420 4.70 MFW v2" size="6FFFE0">
+      B38A038F158C74F61A562D6A10AB5C47
     </hash>
     <hash name="4.70 CEX" size="6FFFE0">
       B3FBAF205B54E3315254A990354AF7E4
     </hash>
-    <hash name="4.66 CEX Patched (Darkjiros)" size="6FFFE0" patched="true">
+    <hash name="4.66 CEX Patched (Darkjiros)" size="6FFFE0">
       E64E59074ACA0144CBF03AA5DE9D0C29
     </hash>
     <hash name="4.66 CEX" size="6FFFE0">
       A7C288F2FAA7DAC6E5B411C7952C37DE
     </hash>
-    <hash name="4.65 CEX Patched (Ferrox DB based)" size="6FFFE0" patched="true">
+    <hash name="4.65 CEX Patched (Ferrox DB based)" size="6FFFE0">
       7CD4589FF80931377BD50E831E491A94
     </hash>
-    <hash name="4.65 CEX Patched (Darkiris)" size="6FFFE0" patched="true">
+    <hash name="4.65 CEX Patched (Darkiris)" size="6FFFE0">
       CA66EBD75B572F238F0E787F30278298
+    </hash>
+    <hash name="4.65v1 HABIB" size="6FFFE0">
+      E63C05405C7BCE668D446CA308C99F7A
+    </hash>
+    <hash name="4.65v1.01 HABIB" size="6FFFE0">
+      69e6bd00d4c67cb7e610dd989d08ff5a
+    </hash>
+    <hash name="4.65v1.02 HABIB Cobra" size="6FFFE0">
+      a8bd4940a9f30bc8866d1a4ecd5c3824
+    </hash>
+    <hash name="4.65.1 REBUG REX Cobra leaked" size="6FFFE0">
+      414165B98540966AC759F53A710A6D14
+    </hash>
+    <hash name="4.65.2 REBUG REX Cobra" size="6FFFE0">
+      0A0633E46C53A42D9365F20DE86F2F12
+    </hash>
+    <hash name="4.65.2 REBUG REX Cobra leaked" size="6FFFE0">
+      040A258A7F79E640040D80E88089CADE
+    </hash>
+    <hash name="4.65.1 REBUG D-REX Cobra" size="6FFFE0">
+      3F90D9167321C594EA24FB57138B10D6
+    </hash>
+    <hash name="4.65.2 REBUG D-REX Cobra" size="6FFFE0">
+      D6E86BD5EC9675D1C0ABFB9D087C750C
     </hash>
     <hash name="4.65 CEX" size="6FFFE0">
       EAA50377EEEA795A4F4EE4BAF5DF43C9
     </hash>
-    <hash name="4.60 CEX Patched (Habib)" size="6FFFE0" patched="true">
-      E43861300294CAD85FF3985536206085
+    <hash name="4.60v1 FERROX" size="6FFFE0">
+      b88f2ca5f347cc6a5a1b6a0ad9ff6b90
     </hash>
+    <hash name="4.60v1 FERROX Dual Boot" size="6FFFE0">
+      d45df0737f63e7939ea0acc30c965171
+    </hash>
+    <hash name="4.60v1 HABIB" size="6FFFE0">
+      e43861300294cad85ff3985536206085
+    </hash>
+    <hash name="4.60v1 Rogero" size="6FFFE0">
+      926305bbeb791c087baff2e67ee8a747
+      </hash>
     <hash name="4.60 CEX" size="6FFFE0">
       CBAFDBA013864934A9229BCE64CE91ED
     </hash>
-    <hash name="4.55 CEX Patched (Rogero)" size="6FFFE0" patched="true">
-      ECA854DD9AC9DA0A45312FFEA53D8190
+    <hash name="4.55v2 ARCH" size="6FFFE0">
+      837c60236892bc48eb9fcdbe2f9c4e12
     </hash>
+    <hash name="4.55v1.-- HABIB Cobra" size="6FFFE0">
+      1d5576447ba763db38ed263826dd2f60
+    </hash>
+    <hash name="4.55v2 hishamage" size="6FFFE0">
+      d6358cc259b920b2c595dde6fc47bd1f
+    </hash>
+    <hash name="4.55v1 Rogero" size="6FFFE0">
+      eca854dd9ac9da0a45312ffea53d8190
+    </hash>
+    <hash name="4.55 ZERO/HABIB Dual Boot" size="6FFFE0">
+      618acaccc1f47a51e1013c97e56a109d
+    </hash>
+    <hash name="4.55v3 CDEX Team SGK" size="6FFFE0">
+      555526376750e095c3d54d84811930bc
+      </hash>
     <hash name="4.55 CEX" size="6FFFE0">
       8845D70EAB7B28BB829C378A37121DDF
     </hash>
-    <hash name="4.53 CEX Patched (Habib)" size="6FFFE0" patched="true">
-      9B7783493B6F65A5EDFA949E68FDF796
+    <hash name="4.53v1 FERROX" size="6FFFE0">
+      e9b7b0e09315c16b41ef6ec3f1a60227
     </hash>
+    <hash name="4.53v1.01 HABIB" size="6FFFE0">
+      9b7783493b6f65a5edfa949e68fdf796
+    </hash>
+    <hash name="4.53v1/v1.02 HABIB Cobra" size="6FFFE0">
+      db24d5f21c365089a4b0ed1b2ca26681
+    </hash>
+    <hash name="4.53v1.04 HABIB Cobra" size="6FFFE0">
+      b3b161483ddbf947a6cda48b41bb8908
+    </hash>
+    <hash name="4.53v2 HABIB Dual Boot" size="6FFFE0">
+      ea00e46e274f5ba958fd94f782223b3c
+    </hash>
+    <hash name="4.53.1 REBUG Cobra" size="6FFFE0">
+      93a3a252364e5860292f0c8b2a9e3b8d
+    </hash>
+    <hash name="4.53v1 STEVEN" size="6FFFE0">
+      d46f9ab291288f200a265c3aef5b0c01
+      </hash>
     <hash name="4.53 CEX" size="6FFFE0" >
       48031F979F7905F56B0C068BB1D6AFAA
     </hash>
-    <hash name="4.50 CEX Patched (Rogero)" size="6FFFE0" patched="true">
-      D9B21C13793ABE747D070378667B84DB
+    <hash name="4.50b DK (andikajayasatri)" size="6FFFE0">
+      df7464f3b9a28d36350d73683a7f7afe
+    </hash>
+    <hash name="4.50b2 DK (andikajayasatri)" size="6FFFE0">
+      05658a4c8159bd06d75b7d159f68c39b
+    </hash>
+    <hash name="4.50v1.01 DigitalEVO" size="6FFFE0">
+      5119afd882723905c8111aa3f864853a
+    </hash>
+    <hash name="4.50v1/v1.02/v1.03 HABIB / 4.50 MiralaTijera" size="6FFFE0">
+      4b2a7c5e7c4609d4c604128aeadd8628
+    </hash>
+    <hash name="4.50 / 4.53v1 HABIB Dual Boot" size="6FFFE0">
+      c4ae3b842ec83aba26b7df3033ae34bf
+    </hash>
+    <hash name="4.50v1 FERROX / 4.50v1.02/v1.03/v1.04 PS3Ultimate" size="6FFFE0">
+      c5b5e1efc6a88d62a8301177a4b5c05e
+    </hash>
+    <hash name="4.50v1 Rogero" size="6FFFE0">
+      d9b21c13793abe747d070378667b84db
+    </hash>
+    <hash name="4.50v1.01 Rogero/ 4.50 VENOM CORP" size="6FFFE0">
+      9cefb4ceddb8d35f197388d7382dc6a1
+    </hash>
+    <hash name="4.50v1.01 STEVEN" size="6FFFE0">
+      ace4f332832ec114eed138a6afb7e9ef
     </hash>
     <hash name="4.50 CEX" size="6FFFE0">
       3B84AB0FA2C9AB1C108B508B0F419639
     </hash>
-    <hash name="4.46 CEX Patched (Rogero)" size="6FFFE0" patched="true">
-      7CF42A338F27AC5E63D2F394D5988853
+    <hash name="4.46v1.09 HABIB / 4.46v1.1 FERROX / 4.46v0.02 LDZ FERROX" size="6FFFE0">
+      2936cc336498f50cb108ca43791e9aaf
+    </hash>
+    <hash name="4.46v1.13 HABIB / 4.46 ARCH" size="6FFFE0">
+      042424e5eda6ac7986549aeaf4ba62df
+    </hash>
+    <hash name="4.46v2.01 HABIB" size="6FFFE0">
+      9690c339d4e45f24fde8a2b5e7349c00
+    </hash>
+    <hash name="4.46v2.04 HABIB" size="6FFFE0">
+      3116788aded078c698653e22e43036c9
+    </hash>
+    <hash name="4.46v1 HABIB Cobra" size="6FFFE0">
+      2428ceed92a6147c5976afd3fab12b04
+    </hash>
+    <hash name="4.46v1.01 HABIB Cobra" size="6FFFE0">
+      35329118c237c44b4d6863822352ea32
+    </hash>
+    <hash name="4.46.1a haxxxen REBUG Cobra REX (No0bZiLLa atreyu187)" size="6FFFE0">
+      0b31f8197dbce11ee36f826430e67f74
+    </hash>
+    <hash name="4.46.1b haxxxen REBUG Cobra REX (No0bZiLLa atreyu187)" size="6FFFE0">
+      1bee85e7f1e6de4e9a11532a6e71174c
+    </hash>
+    <hash name="4.46.1a REBUG REX" size="6FFFE0">
+      d9593ecea3ca81b35d80fc1821d9c723
+    </hash>
+    <hash name="4.46.1 REBUG LITE" size="6FFFE0">
+      c8b4e6de1d4a02da838988061dd7afb1
+    </hash>
+    <hash name="4.46v1 Rogero Cobra / 4.46 MiralaTijera Cobra" size="6FFFE0">
+      f574499c03697c8763b8d499f8abae72
+    </hash>
+    <hash name="4.46v1 Rogero Cobra ( CaptainCPS-X)" size="6FFFE0">
+      6d021bc82c7cfaab8aab8a5d14ef08e2
+    </hash>
+    <hash name="4.46v1 Rogero" size="6FFFE0">
+      7cf42a338f27ac5e63d2f394d5988853
+    </hash>
+    <hash name="4.46v1.01 Rogero" size="6FFFE0">
+      c34379041a1c8fb20e1f9f2f5bbb029e
+    </hash>
+    <hash name="4.46.1a CDEX Team SGK" size="6FFFE0">
+      d385158deb7baed96bc3f000e0d2e9e4
+    </hash>
+    <hash name="4.46.3a CDEX Team SGK" size="6FFFE0">
+      54a3ae199b77c98defea9e649eaa8e23
     </hash>
     <hash name="4.46 CEX" size="6FFFE0">
       D18F9F37189627E798694B8A85434A23
@@ -90,22 +231,64 @@
     <hash name="4.45 CEX" size="6FFFE0">
       326E8291E33CC2E83A2E9E64BFB88B30
     </hash>
-    <hash name="4.41 CEX Patched (Rogero)" size="6FFFE0" patched="true">
-      B4520066146DB3677E7CFC86BBACC938
+    <hash name="4.41v1.01 ARCH" size="6FFFE0">
+      f7c2177cf5d3ee43df1a118a3f4be351
+    </hash>
+    <hash name="4.41v2 ARCH" size="6FFFE0">
+      408094e2e4bf6a682a76a278901507fd
+    </hash>
+    <hash name="4.41.2 / 3 REBUG LITE" size="6FFFE0">
+      6604933a7b2d8154678a082121d468d4
+    </hash>
+    <hash name="4.41.3 REBUG REX" size="6FFFE0">
+      4d75f55eae1d06d43f952d5217888a68
+    </hash>
+    <hash name="4.41v1a Rogero" size="6FFFE0">
+      b4520066146db3677e7cfc86bbacc938
     </hash>
     <hash name="4.41 CEX" size="6FFFE0">
       A99F5D9E9C631CAEA6D805EDC73DF541
     </hash>
-    <hash name="4.40 CEX Patched (Rogero)" size="6FFFE0" patched="true">
-      7B75FF7995C4B7841B638B27BE3674C6
+    <hash name="4.40 MiralaTijera" size="6FFFE0">
+      11d3c091c07c5519a6229b91555c0f04
+    </hash>
+    <hash name="4.40v1.02a/v1.02b Rogero" size="6FFFE0">
+      7b75ff7995c4b7841b638b27be3674c6
+    </hash>
+    <hash name="4.40v1.03 Rogero" size="6FFFE0">
+      a9a8abd52e409cab9807b3b4bbda8457
+    </hash>
+    <hash name="4.40.1 Team SGK" size="6FFFE0">
+      5f337acbaf17272f960983b1731a3a83
+    </hash>
+    <hash name="4.40.4 Team SGK" size="6FFFE0">
+      07d40339a09d438bf929eb23920c6eb8
     </hash>
     <hash name="4.40 CEX" size="6FFFE0">
       AEF60D87485B4D4B49766125290E020E
+    </hash>
+    <hash name="4.31v4 MiralaTijera" size="6FFFE0">
+      95a88b4030c8cf5a1bdfb3dcc589731e
+    </hash>
+    <hash name="4.31v7/v7.1 Team SGK" size="6FFFE0">
+      84eb5788d3d91675dbb840c48b3cb9fd
     </hash>
     <hash name="4.31 CEX" size="6FFFE0">
       5888F186C7B1B5198F221806201CE7AC
     </hash>
     <hash name="4.30 CEX Patched (Three Musketeers)" size="6FFFE0" patched="true">
+    <hash name="4.30 Cobra" size="6FFFE0">
+      f91e01a816d6cd266f1c6b6ec087b070
+    </hash>
+    <hash name="4.30v1.3/v1.4 ErmaC / 4.30 E3" size="6FFFE0">
+      e8a13db0da5d677fa02d3aa8fb514214
+    </hash>
+    <hash name="4.30.2 REBUG REX" size="6FFFE0">
+      760e150f09c28305fb219e7384087876
+    </hash>
+    <hash name="4.30v2.05 Rogero" size="6FFFE0">
+      81528f4d891dba400be90cd49c91de51
+    </hash>
       6CE56CC2BD4238E831E9A64E4547A81B
     </hash>
     <hash name="4.30 CEX" size="6FFFE0">
@@ -116,6 +299,12 @@
     </hash>
     <hash name="4.25 CEX" size="6FFFE0">
       FFC76060A2A48FBE91E577064A343878
+    </hash>
+    <hash name="4.21.2 REBUG REX" size="6FFFE0">
+      c097620e5446b30ca78182fabb2130c4
+    </hash>
+    <hash name="4.21v2 Rogero" size="6FFFE0">
+      ebeb43f333ad2b90c880b0d0b8e5f46a
     </hash>
     <hash name="4.21 CEX" size="6FFFE0">
       9A01E6AC0F70D4AE33ACAE0C6B17C66B
@@ -171,10 +360,118 @@
     <hash name="3.55 CEX Patched" size="6FFFE0" patched="true">
       F162E0D72EBA0F46B7FB36E6AAB63958
     </hash>
+    <hash name="3.55v2 Bitsbubba Newbie Friendly Ware" size="6FFFE0">
+      2f31b70866b551eaf53984a35046c064
+    </hash>
+    <hash name="3.55v3 Bitsbubba Newbie Friendly Ware" size="6FFFE0">
+      75677c8c552d1ed5022121464e2097dc
+    </hash>
+    <hash name="3.55v3 Bitsbubba Cobra Newbie Friendly Ware / 3.55 Cobra" size="6FFFE0">
+      87f166c2a2efbcff7646a457224548ab
+    </hash>
+    <hash name="3.55v2 Flukes netkas" size="6FFFE0">
+      0959e6cebb81730c28cea0294a977896
+    </hash>
+    <hash name="3.55 Itskamel" size="6FFFE0">
+      cf2a16202f6427dc3122247099e53b59
+    </hash>
+    <hash name="3.55 Kmeaw / 3.55 Wutangrza" size="6FFFE0">
+      b4eee87b344294e0cc4ba41e2ba5c68d
+    </hash>
+    <hash name="3.55 Kmeaw Cobra" size="6FFFE0">
+      3f825e3e53fb6159da13d72075bd1c61
+    </hash>
+    <hash name="3.55 Kmeaw Naima v1.0/v1.1" size="6FFFE0">
+      5c77e128ec846a1025c3fa3f4e64c1f6
+    </hash>
+    <hash name="3.55 Kmeaw PS3ita" size="6FFFE0">
+      5a283b2b470c479278c8ee69efeab410
+    </hash>
+    <hash name="3.55 MiralaTijera OtherOS++ (BD EMU)" size="6FFFE0">
+      60597ff57f323ab3e15f448129183f62
+    </hash>
+    <hash name="3.55 NOTHEROS 'RSoD' FIX" size="6FFFE0">
+      0ff1abb67869ffe32f46292be10baf20
+    </hash>
+    <hash name="3.55 OTHEROS++ [22GB.PUP] NO SS" size="6FFFE0">
+      b01b704913672f7e3fd67e22c5b93908
+    </hash>
+    <hash name="3.55 OTHEROS++ SPECIAL" size="6FFFE0">
+      8def10ac372d28a37248059fff9baff5
+    </hash>
+    <hash name="3.55v2 PS3-Addict" size="6FFFE0">
+      3e38facdad36fbbdcbf89b7acd03726a
+    </hash>
+    <hash name="3.55v3 PS3-Addict" size="6FFFE0">
+      274dc5cfc22304336045e8849648dffb
+    </hash>
+    <hash name="3.55v1.1r3 PS3ITA" size="6FFFE0">
+      e18e927ba389e099f33d263a712e2828
+    </hash>
+    <hash name="3.55 PS3Ultimate" size="6FFFE0">
+      139a5494db48557af5e56aec7dd55835
+    </hash>
+    <hash name="3.55 PS3Ultimate (3.60)" size="6FFFE0">
+      f0a6b512f172ed72e8711a2acfc5bfa3
+    </hash>
+    <hash name="3.55 PS3Ultimate (3.70)" size="6FFFE0">
+      ba358732f0daaf800ba1f7bdfada6793
+    </hash>
+    <hash name="3.55.2 REBUG (Original release) / 3.55.4 VENIX PLUS" size="6FFFE0">
+      f77088e92c50fc24fc84f79a2be868c4
+    </hash>
+    <hash name="3.55.2 REBUG TB Edition" size="6FFFE0">
+      6573b25d3198b64ed42d52c274ed044c
+    </hash>
+    <hash name="3.55.3 REBUG REX / 999 DOWNGRADER" size="6FFFE0">
+      7f8e722524fe2073f2b7060870aa88df
+    </hash>
+    <hash name="3.55.4 REBUG REX / 999 DOWNGRADER" size="6FFFE0">
+      e232df992f81b83498f67c61795e4a82
+    </hash>
+    <hash name="3.55v2.1/3/3.1 Rogero" size="6FFFE0">
+      fd90a3ee1cb4ddbd0b09bc74a5e3e3c8
+    </hash>
+    <hash name="3.55v3.7 Rogero" size="6FFFE0">
+      a177b0d6b63076f1135c29d7f1a07d36
+    </hash>
+    <hash name="3.55v2 True Blue" size="6FFFE0">
+      29f36a7552462eaeabadffa482440355
+    </hash>
+    <hash name="3.55 Varaques" size="6FFFE0">
+      05b7141757f33e61e3d883ed507ca870
+    </hash>
+    <hash name="3.55v1 Waninkoko" size="6FFFE0">
+      4fcd3f8ac264968b80bf3515addb3bbc
+    </hash>
+    <hash name="3.55v2 Waninkoko" size="6FFFE0">
+      8b834d2a00f4e2252897e727505a9b29
+    </hash>
+    <hash name="3.55 BRENZA DEX2CEX" size="6FFFE0">
+      fed905cf5f95a88fb67a294dcdb730bc
+    </hash>
+    <hash name="3.55 itskamel DEX" size="6FFFE0">
+      bb374f3d396eae3014b648141e0d9322
+    </hash>
+    <hash name="3.55 Rogero 999 Downgrader" size="6FFFE0">
+      07d64230462fba19ee999aa1a3b9e192
+    </hash>
+    <hash name="3.55 HABIB Downgrader" size="6FFFE0">
+      acf3a41fdece322c96003f73e57de6a3
+    </hash>
+    <hash name="3.55v2 Rogero 3.55+ DEX Downgrader to 3.55 DEX" size="6FFFE0">
+      f4637c8cef22c8a0443ea74645350b5f
+    </hash>
+    <hash name="3.55 CEX > DEX [PS Niggaz's]" size="6FFFE0">
+      102e229df047c1693abfbff5707be84c
+    </hash>
+    <hash name="3.55 DEX > CEX PS [Niggaz's]" size="6FFFE0">
+      aa872c67e964faba5296748b9d6cc439
+    </hash>
     <hash name="3.55 DEX" size="6FFFE0">
       102E229DF047C1693ABFBFF5707BE84C
     </hash>
-    <hash name="3.55 CEX" size="6FFFE0">
+    <hash name="3.55 CEX / 3.55v1 KaKaRoTo" size="6FFFE0">
       A974F88457424AC6D8E262DBF3ED7AA0
     </hash>
     <hash name="3.50 DEX" size="6FFFE0">
