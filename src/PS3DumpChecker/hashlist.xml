@@ -9,6 +9,9 @@
     <offset fsize="268435456" type="ROS" name="009.05   ROS1 Hash" size="6FFFE0">7C0020</offset>
   </offsets>
   <type name="ROS">
+    <hash name="4.81 CEX" size="6FFFE0">
+      51A7758AA326F54CB431FC59DC68AFD4
+    </hash>
     <hash name="4.80 CEX Patched (FERROX based)" size="6FFFE0" patched="true">
       D8BB229D2D802ACCCC0345031EE01D83
     </hash>
