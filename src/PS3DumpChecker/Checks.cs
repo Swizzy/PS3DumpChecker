@@ -316,6 +316,16 @@
                 Offset = dataFillEntry.RegionStart + ldrlength;
                 Length = dataFillEntry.RegionSize - ldrlength;
             }
+            else if (dataFillEntry.Sizefrom != 0)
+            {
+                var tmpdata = new byte[2];
+                Buffer.BlockCopy(data, (int)dataFillEntry.Sizefrom, tmpdata, 0, tmpdata.Length);
+                if (reversed)
+                    Common.SwapBytes(ref tmpdata);
+                long datalength = Common.GetSizefrom(ref tmpdata);
+                Offset = dataFillEntry.RegionStart + datalength;
+                Length = dataFillEntry.RegionSize - datalength;
+            }
             else if (dataFillEntry.vtrmentrycount_offset != 0)
             {
                 var vtrmentrycount = new byte[2];

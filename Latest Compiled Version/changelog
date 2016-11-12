@@ -1,3 +1,5 @@
+Build 490 2016-11-12:
+ - Fixed: CELL_EXTNOR_AREA 0x00 Filled Area 3 and 6 checks. Now area start offset dynamicaly calculated per drl hash size.
 Build 489 2016-11-02:
  - Changed: The embedded 4.80 patch replaced by a 4.81 patch build from the FERROX 4.81 CEX custom firmware CoreOS.
  - Added: OFW and Patched 4.81 ROS hashs.

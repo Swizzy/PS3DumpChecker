@@ -544,6 +544,7 @@
                             };
                             int.TryParse(xml["offset"], NumberStyles.HexNumber, null, out datafill.Offset);
                             int.TryParse(xml["size"], NumberStyles.HexNumber, null, out datafill.Length);
+                            int.TryParse(xml["sizefrom"], NumberStyles.HexNumber, null, out datafill.Sizefrom);
                             int.TryParse(xml["ldrsize"], NumberStyles.HexNumber, null, out datafill.LdrSize);
                             int.TryParse(xml["regionsize"], NumberStyles.HexNumber, null, out datafill.RegionSize);
                             int.TryParse(xml["regionstart"], NumberStyles.HexNumber, null, out datafill.RegionStart);
