@@ -22,6 +22,7 @@
 
         private static string GetFinalUrl(string url) {
             var location = url;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             do {
                 url = location;
                 var req = WebRequest.Create(url) as HttpWebRequest;

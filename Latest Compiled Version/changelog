@@ -1,3 +1,5 @@
+Build 493 2018-09-19:
+ - Fixed: error attempting to connect to github repository for update(s) due to new github security protocol (TLS 1.2). As a result .Net framework 4.5 is now required and win 2000 & XP are no longer supported.
 Build 492 2018-09-02:
  - Added: PS3Xploit patched 4.82 ROS hashs.
 Build 491 2017-11-15:
