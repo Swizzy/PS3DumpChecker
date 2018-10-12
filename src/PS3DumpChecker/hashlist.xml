@@ -8,7 +8,7 @@
     <offset fsize="268435456" type="ROS" name="009.02   ROS0 Hash" size="6FFFE0">C0030</offset>
     <offset fsize="268435456" type="ROS" name="009.05   ROS1 Hash" size="6FFFE0">7C0020</offset>
   </offsets>
-  <type name="ROS">13446A57ADA4A8EA0A9A88F1173C5735
+  <type name="ROS">
     <hash name="4.83 CEX" size="6FFFE0">
       13446A57ADA4A8EA0A9A88F1173C5735
     </hash>
