@@ -1,3 +1,6 @@
+Build 494 2018-10-16:
+ - Changed: The embedded 4.82 patch replaced by a 4.83 patch build from the FERROX 4.83 CEX custom firmware CoreOS.
+ - Added: OFW and Patched 4.83 ROS hashs.
 Build 493 2018-09-19:
  - Fixed: error attempting to connect to github repository for update(s) due to new github security protocol (TLS 1.2). As a result .Net framework 4.5 is now required and win 2000 & XP are no longer supported.
 Build 492 2018-09-02:
