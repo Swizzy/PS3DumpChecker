@@ -1,4 +1,4 @@
-Build 494 2019-03-03:
+Build 495 2019-03-03:
  - Changed: The embedded 4.83 patch replaced by a 4.84 patch build from the FERROX 4.84 CEX custom firmware CoreOS.
  - Added: OFW and Patched 4.84 ROS hashs.
  Build 494 2018-10-16:
