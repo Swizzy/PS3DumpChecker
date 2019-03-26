@@ -1,3 +1,5 @@
+Build 496 2019-03-26:
+ - Added: PS3Xploit v2.0.1 patched 4.84 ROS hash.
 Build 495 2019-03-03:
  - Changed: The embedded 4.83 patch replaced by a 4.84 patch build from the FERROX 4.84 CEX custom firmware CoreOS.
  - Added: OFW and Patched 4.84 ROS hashs.
