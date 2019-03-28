@@ -1005,6 +1005,7 @@
     </CoreOS_region>
     <cvtrm_region>
       <datafill name="010.01   Pre cvtrm 0xFF Filled Area" offset="EBFFF0" size="10">FF</datafill>
+      <binentry name="010.02   cvtrm0 Header" ismulti="true" offset="EC0000">53434549FFFDFFFFFFFFFFFFFFFFFFFF</binentry>
       <binentry name="010.02   cvtrm0 Header" ismulti="true" offset="EC0000">53434549FFFFFFFFFFFFFFFFFFFFFFFF</binentry>
       <binentry name="010.02   cvtrm0 Header" ismulti="true" offset="EC0000">00000000FFFDFFFFFFFFFFFFFFFFFFFF</binentry>
       <binentry name="010.02   cvtrm0 Header" ismulti="true" offset="EC0000">00000000FFFFFFFFFFFFFFFFFFFFFFFF</binentry>
@@ -1013,6 +1014,7 @@
       <binentry name="010.05   vtrm0 Reserved Entries" offset="EC4028">0000000000000209</binentry>
       <!-- Some consoles do not follow next rule -->
  <!-- <datafill name="010.06   vtrm0 0xFF Filled Area" vtrmentrycount_offset="EC403E" regionstart="EC5088" regionsize="186C0">FF</datafill> -->
+      <binentry name="010.07   cvtrm1 Header" ismulti="true" offset="EE0000">53434549FFFDFFFFFFFFFFFFFFFFFFFF</binentry>
       <binentry name="010.07   cvtrm1 Header" ismulti="true" offset="EE0000">53434549FFFFFFFFFFFFFFFFFFFFFFFF</binentry>
       <binentry name="010.07   cvtrm1 Header" ismulti="true" offset="EE0000">00000000FFFDFFFFFFFFFFFFFFFFFFFF</binentry>
       <binentry name="010.07   cvtrm1 Header" ismulti="true" offset="EE0000">00000000FFFFFFFFFFFFFFFFFFFFFFFF</binentry>
