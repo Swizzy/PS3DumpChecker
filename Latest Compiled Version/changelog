@@ -1,3 +1,7 @@
+Build 497 2019-09-12:
+ - Changed: The embedded 4.84 patch replaced by a 4.85 patch build from the Overflow 4.85 CEX custom firmware CoreOS.
+ - Added: OFW and Patched 4.85 ROS hashes.
+ - Improved some check entries.
 Build 496 2019-03-26:
  - Added: PS3Xploit v2.0.1 patched 4.84 ROS hash.
 Build 495 2019-03-03:
