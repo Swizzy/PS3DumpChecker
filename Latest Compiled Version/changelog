@@ -1,3 +1,5 @@
+Build 499 2020-04-03:
+ - Changed: new 4.86 patch build from the Rebug 4.86.1 LE custom firmware CoreOS.
 Build 498 2020-04-02:
  - Changed: The embedded 4.85 patch replaced by a 4.86 patch build from the Rebug 4.86.1 LE custom firmware CoreOS.
  - Added: OFW and Patched 4.86 ROS hashes.
