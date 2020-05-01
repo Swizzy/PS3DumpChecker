@@ -321,6 +321,7 @@
       <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="908A4">007900790106</binentry>
       <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="908A4">008500850106</binentry>
       <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="908A4">008500850114</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="908A4">008700870106</binentry> <!-- from a refurbished CECHL -->
       <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="908A4">008700870114</binentry>
       <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="908A4">009100910114</binentry>
       <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="908A4">009900990118</binentry>
@@ -932,6 +933,7 @@
       <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="3F0A4">007900790106</binentry>
       <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="3F0A4">008500850106</binentry>
       <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="3F0A4">008500850114</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="3F0A4">008700870106</binentry> <!-- from a refurbished CECHL -->
       <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="3F0A4">008700870114</binentry>
       <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="3F0A4">009100910114</binentry>
       <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="3F0A4">009900990118</binentry>
