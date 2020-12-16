@@ -9,6 +9,9 @@
     <offset fsize="268435456" type="ROS" name="009.05   ROS1 Hash" size="6FFFE0">7C0020</offset>
   </offsets>
   <type name="ROS">
+    <hash name="4.87 CEX Patched (Evilnat based)" size="6FFFE0" patched="true">
+      1EFB54B005B09A10E436F9C76E51D870
+    </hash>
     <hash name="4.87 CEX" size="6FFFE0">
       8F4A63DC20F1EB54168478C814DF80C1
     </hash>

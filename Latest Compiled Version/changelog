@@ -1,3 +1,8 @@
+Build 500 2020-12-16:
+ - Changed: The embedded 4.86 patch replaced by a 4.87 patch build from Evilnat's 4.87 custom firmware CoreOS.
+ - Added: OFW and Patched 4.87 ROS hashes.
+ - Improved few checks.
+ - Updated readme.
 Build 499 2020-04-03:
  - Changed: new 4.86 patch build from the Rebug 4.86.1 LE custom firmware CoreOS.
 Build 498 2020-04-02:
