@@ -1,3 +1,7 @@
+Build 501 2021-06-04:
+ - Changed: The embedded 4.87 patch replaced by a 4.88 patch build from Evilnat's 4.88 custom firmware CoreOS.
+ - Added: OFW and Patched 4.88 ROS hashes.
+ - Improved few checks.
 Build 500 2020-12-16:
  - Changed: The embedded 4.86 patch replaced by a 4.87 patch build from Evilnat's 4.87 custom firmware CoreOS.
  - Added: OFW and Patched 4.87 ROS hashes.
