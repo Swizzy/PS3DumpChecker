@@ -1,3 +1,6 @@
+Build 505 2025-03-07:
+ - Changed: The embedded 4.91 patch replaced by a 4.92 patch built from Evilnat's 4.92 custom firmware CoreOS.
+ - Added: OFW and Patched 4.92 ROS hashes.
 Build 504 2024-03-11:
  - Changed: The embedded 4.90 patch replaced by a 4.91 patch build from Evilnat's 4.91 custom firmware CoreOS.
  - Added: OFW and Patched 4.91 ROS hashes.
