@@ -1,0 +1,129 @@
+name: Build and Release
+
+# Builds PS3DumpChecker in Release_Embedded and publishes the compiled exe
+# plus refreshed default.cfg / default.hashlist (and their MD5s) as a
+# GitHub Release. Runs on every version tag push (v*), so the release
+# workflow is:
+#   1. commit source changes + AssemblyInfo bump + changelog entry
+#   2. git tag v1.0.XXX && git push origin v1.0.XXX
+#   3. Actions builds in a clean windows-latest runner and publishes the
+#      artefacts. No compiled binaries ship inside the repo.
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.11'
+
+      - name: Validate data files before build
+        # tools/validate_data.py lands in a separate PR (#21). Skip when
+        # it isn't in the tree yet so this workflow is mergeable on its
+        # own.
+        run: |
+          if (Test-Path tools/validate_data.py) {
+            python tools/validate_data.py
+          } else {
+            Write-Host "tools/validate_data.py not present; skipping validation"
+          }
+        shell: pwsh
+
+      # The csproj targets .NET Framework 4.5 which is EOL and no longer
+      # ships targeting packs on GitHub-hosted runners. 4.8 is
+      # backward-compatible with 4.5 source, is preinstalled on
+      # windows-latest, and does not require changing the csproj. This
+      # override affects only the CI build; the checked-in csproj is
+      # untouched.
+      - name: Build (Release_Embedded)
+        run: msbuild src\PS3DumpChecker\PS3DumpChecker.csproj /p:Configuration=Release_Embedded /p:Platform=AnyCPU /p:TargetFrameworkVersion=v4.8 /nologo /v:minimal /t:Rebuild
+
+      # The post-build step (UpdateLatestCompiledVersion.bat) invokes the
+      # bundled MD5Gen.exe and DotNETAssembly2Version.exe. On a hosted
+      # runner those may or may not run cleanly, so we regenerate the
+      # metadata explicitly here in Python (matches the .bat's output
+      # format: 32 uppercase hex, no newline).
+      - name: Refresh Latest Compiled Version artefacts
+        shell: pwsh
+        run: |
+          $ver = (Get-Item "Latest Compiled Version\PS3DumpChecker.exe").VersionInfo.FileVersion
+          Set-Content -Path "Latest Compiled Version\PS3DumpChecker.exe.version" -Value "$ver " -NoNewline
+          Copy-Item "src\PS3DumpChecker\hashlist.xml" "Latest Compiled Version\default.hashlist" -Force
+          Copy-Item "src\PS3DumpChecker\config.xml"   "Latest Compiled Version\default.cfg"      -Force
+          python -c @"
+          import hashlib, pathlib
+          d = pathlib.Path('Latest Compiled Version')
+          for f in ['default.hashlist', 'default.cfg', 'PS3DumpChecker.exe']:
+              p = d / f
+              (d / (f + '.md5')).write_text(
+                  hashlib.md5(p.read_bytes()).hexdigest().upper()
+              )
+              print(f, (d / (f + '.md5')).read_text())
+          "@
+          # Clean the GAC fallback junk MSBuild sometimes drops into the
+          # output dir when reference assemblies are missing.
+          Remove-Item "Latest Compiled Version\mscorlib.dll",
+                      "Latest Compiled Version\norm*.nlp",
+                      "Latest Compiled Version\es" `
+                      -Recurse -Force -ErrorAction SilentlyContinue
+
+      - name: Sanity check embedded patch.bin MD5
+        shell: pwsh
+        run: |
+          python -c @"
+          import hashlib, pathlib
+          exe = pathlib.Path('Latest Compiled Version/PS3DumpChecker.exe').read_bytes()
+          needle = bytes.fromhex('000000010000001900000000006fffe0')
+          i = exe.find(needle)
+          if i < 0:
+              raise SystemExit('embedded patch.bin signature not found in exe')
+          md5 = hashlib.md5(exe[i:i + 0x6FFFE0]).hexdigest().upper()
+          print('embedded patch.bin MD5:', md5)
+          "@
+
+      - name: Upload build artefacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: PS3DumpChecker-${{ github.ref_name }}
+          path: |
+            Latest Compiled Version/PS3DumpChecker.exe
+            Latest Compiled Version/PS3DumpChecker.exe.md5
+            Latest Compiled Version/PS3DumpChecker.exe.version
+            Latest Compiled Version/default.cfg
+            Latest Compiled Version/default.cfg.md5
+            Latest Compiled Version/default.hashlist
+            Latest Compiled Version/default.hashlist.md5
+            Latest Compiled Version/changelog
+          if-no-files-found: error
+
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v3
+        with:
+          generate_release_notes: true
+          files: |
+            Latest Compiled Version/PS3DumpChecker.exe
+            Latest Compiled Version/PS3DumpChecker.exe.md5
+            Latest Compiled Version/PS3DumpChecker.exe.version
+            Latest Compiled Version/default.cfg
+            Latest Compiled Version/default.cfg.md5
+            Latest Compiled Version/default.hashlist
+            Latest Compiled Version/default.hashlist.md5
+            Latest Compiled Version/changelog
