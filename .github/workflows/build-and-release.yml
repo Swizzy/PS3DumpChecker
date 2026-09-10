@@ -35,7 +35,16 @@ jobs:
           python-version: '3.11'
 
       - name: Validate data files before build
-        run: python tools/validate_data.py
+        # tools/validate_data.py lands in a separate PR (#21). Skip when
+        # it isn't in the tree yet so this workflow is mergeable on its
+        # own.
+        run: |
+          if (Test-Path tools/validate_data.py) {
+            python tools/validate_data.py
+          } else {
+            Write-Host "tools/validate_data.py not present; skipping validation"
+          }
+        shell: pwsh
 
       # The csproj targets .NET Framework 4.5 which is EOL and no longer
       # ships targeting packs on GitHub-hosted runners. 4.8 is
