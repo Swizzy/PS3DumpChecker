@@ -1,3 +1,7 @@
+Build 506 2026-08-27:
+ - Changed: The embedded 4.92 patch replaced by the 4.93 noFSM patch (same ROS as PS3Xploit Flash Writer 4.93, MD5 AFE831050C31EFB381F9BE4098F1834C -- non-Cobra, safe for hardware-flasher CFW installs).
+ - Added: OFW and Patched 4.93 ROS hashes.
+ - Added: tools/ to decrypt CoreOS from a PUP, rebuild the noFSM patch from OFW + flash493.P3T, build ROS hashes, and validate the data files.
 Build 505 2025-03-07:
  - Changed: The embedded 4.91 patch replaced by a 4.92 patch built from Evilnat's 4.92 custom firmware CoreOS.
  - Added: OFW and Patched 4.92 ROS hashes.
